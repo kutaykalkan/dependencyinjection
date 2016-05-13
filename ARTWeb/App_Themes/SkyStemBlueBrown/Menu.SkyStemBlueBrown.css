@@ -1,0 +1,380 @@
+/* <RadMenu / Default> */
+
+.RadMenu_SkyStemBlueBrown .rmRootGroup,
+.RadMenu_SkyStemBlueBrown .rmLink,
+.RadMenu_SkyStemBlueBrown .rmText,
+.RadMenu_SkyStemBlueBrown .rmLeftArrow,
+.RadMenu_SkyStemBlueBrown .rmRightArrow,
+.RadMenu_SkyStemBlueBrown .rmTopArrow,
+.RadMenu_SkyStemBlueBrown .rmBottomArrow
+{
+	background-color: transparent;
+}
+
+.RadMenu_SkyStemBlueBrown .rmRootGroup
+{
+	border: 1px solid #828282;
+	background-repeat: repeat-x;
+	background-position: 0 -408px;
+	background-color: #e6e6e6;
+}
+
+/* <Root items> */
+
+.RadMenu_SkyStemBlueBrown,
+.RadMenu_SkyStemBlueBrown .rmLink
+{
+	font: normal 12px/23px "Segoe UI", Arial, sans-serif;
+	color: #000;
+	text-decoration: none;
+}
+
+.RadMenu_SkyStemBlueBrown .rmLink,
+.RadMenu_SkyStemBlueBrown .rmDisabled,
+.RadMenu_SkyStemBlueBrown .rmDisabled:hover
+{
+	background-position: 0 -72px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmText,
+.RadMenu_SkyStemBlueBrown .rmDisabled .rmText,
+.RadMenu_SkyStemBlueBrown .rmDisabled:hover .rmText
+{
+	background-position: 100% -96px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmFirst .rmLink,
+.RadMenu_SkyStemBlueBrown .rmFirst .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmLast .rmText,
+.RadMenu_SkyStemBlueBrown .rmLast .rmLink:hover .rmText,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLink,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmText
+{
+	background-repeat: no-repeat;
+	background-position: 0 500px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFirst,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLast
+{
+	background: none;
+}
+
+.RadMenu_SkyStemBlueBrown .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmFocused
+{
+	background-color: #fff;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLink
+{
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmExpanded,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmExpanded:hover
+{
+	padding-top: 0;
+	padding-bottom: 0;
+	border-style: solid;
+	border-color: #828282;
+	border-width: 1px 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFirst .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFirst .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFirst .rmExpanded,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmFirst .rmExpanded:hover
+{
+	padding-top: 1px;
+	padding-bottom: 0;
+	border-top-width: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLast .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLast .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLast .rmExpanded,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmLast .rmExpanded:hover
+{
+	padding-bottom: 1px;
+	padding-top: 0;
+	border-bottom-width: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmItem .rmDisabled:hover
+{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-width: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmExpanded,
+.RadMenu_SkyStemBlueBrown .rmExpanded:hover
+{
+	background-color: #fff;
+	background-position: 0 -72px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmExpanded .rmText,
+.RadMenu_SkyStemBlueBrown .rmExpanded:hover .rmText
+{
+	background-position: 100% -96px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmLast .rmExpanded .rmText
+{
+	background-position: 0 500px;
+	background-repeat: no-repeat;
+}
+
+.RadMenu_SkyStemBlueBrown .rmDisabled,
+.RadMenu_SkyStemBlueBrown .rmDisabled:hover
+{
+	color: #7d7d7d;
+	background-color: transparent;
+}
+
+/* </Root items> */
+
+
+/* <Submenu items> */
+
+.RadMenu_SkyStemBlueBrown .rmGroup,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmVertical
+{
+	border: 1px solid #979797;
+	background: #fff url('<%=WebResource("Telerik.Web.UI.Skins.Default.Menu.rmVSprite.png")%>') repeat-y 0 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmSlide .rmScrollWrap
+{
+	background-image: none;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmVertical
+{
+	background-position: 100% 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmRootGroup li.rmItem .rmGroup
+{
+	padding-bottom: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmRootGroup .rmHorizontal
+{
+	background-image: none;
+}
+
+.RadMenu_SkyStemBlueBrown .rmScrollWrap .rmVertical
+{
+	border: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmLink,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmExpanded
+{
+	padding-top: 0;
+	padding-bottom: 0;
+	border: 0;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLast .rmLink,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLast .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLast .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLast .rmExpanded
+{
+	padding-bottom: 1px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLink,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmText,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled:hover,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled .rmText,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled:hover .rmText
+{
+	background-position: 0 500px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLink:hover,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmFocused,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpanded
+{
+	background-position: 0 -168px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLink:hover .rmText,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmFocused .rmText,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpanded .rmText
+{
+	background-position: 100% -192px;
+}
+
+/* <expand arrows> */
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpandDown,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled .rmExpandDown,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled:hover .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmItem .rmDisabled:hover .rmExpandDown
+{
+	background-position: 100% -216px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLink:hover .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmFocused .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpanded .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLink:hover .rmExpandDown,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmFocused .rmExpandDown,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmExpanded .rmExpandDown
+{
+	background-position: 100% -240px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmGroup .rmDisabled:hover .rmExpandRight,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmDisabled:hover .rmExpandDown
+{
+	background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Default.Menu.rmSprite.png")%>');
+	background-position: 100% -216px;
+}
+
+/* </expand arrows> */
+
+/* <rtl> */
+
+.RadMenu_SkyStemBlueBrown_rtl .rmLink
+{
+	background-position: 100% -96px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmText
+{
+	background-position: 0 -72px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmVertical .rmExpanded .rmText,
+.RadMenu_SkyStemBlueBrown_rtl .rmVertical .rmExpanded:hover .rmText
+{
+	background-position: 0 500px;
+	background-repeat: no-repeat;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmLink:hover,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmFocused,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmExpanded
+{
+	background-position: 100% -264px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmLink:hover .rmText,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmFocused .rmText,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmExpanded .rmText
+{
+	background-position: 0 -288px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmExpandLeft
+{
+	background-position: 0 -312px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmLink:hover .rmExpandLeft,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmFocused .rmExpandLeft,
+.RadMenu_SkyStemBlueBrown_rtl .rmGroup .rmExpanded .rmExpandLeft
+{
+	background-position: 0 -336px;
+}
+
+/* </rtl> */
+
+/* </Submenu items> */
+
+/* <Submenu offsets (Default - specific, overlapping submenus)> */
+
+.RadMenu_SkyStemBlueBrown .rmSlide
+{
+	margin: 0 0 0 -1px;
+}
+
+.RadMenu_SkyStemBlueBrown .rmVertical .rmSlide,
+.RadMenu_SkyStemBlueBrown .rmSlide .rmSlide,
+.RadMenu_SkyStemBlueBrown_Context .rmGroup .rmSlide
+{
+	margin: 0 0 0 -5px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmSlide
+{
+	margin: 0 0 0 0;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmFirst .rmSlide
+{
+	margin-left: 1px;
+}
+
+.RadMenu_SkyStemBlueBrown_rtl .rmVertical .rmSlide,
+.RadMenu_SkyStemBlueBrown_rtl .rmSlide .rmSlide,
+.RadMenu_SkyStemBlueBrown_Context_rtl .rmGroup .rmSlide
+{
+	margin: 0 0 0 5px;
+}
+
+/* </Submenu offsets> */
+
+/* <Scrolling arrows> */
+
+.RadMenu_SkyStemBlueBrown .rmLeftArrow,
+.RadMenu_SkyStemBlueBrown .rmRightArrow
+{
+	background-color: #E6E6E6;
+}
+
+.RadMenu_SkyStemBlueBrown .rmLeftArrow { background-position: -8px -312px; border-right: 1px solid #828282; }
+.RadMenu_SkyStemBlueBrown .rmRightArrow { background-position: -482px -216px; border-left: 1px solid #828282; }
+
+.RadMenu_SkyStemBlueBrown .rmTopArrow,
+.RadMenu_SkyStemBlueBrown .rmBottomArrow,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmLeftArrow,
+.RadMenu_SkyStemBlueBrown .rmGroup .rmRightArrow
+{
+	background-color: #E6E6E6;
+}
+
+.RadMenu_SkyStemBlueBrown .rmTopArrow { background-position: 50% -367px; border-bottom: 1px solid #828282; }
+.RadMenu_SkyStemBlueBrown .rmBottomArrow { background-position: 50% -391px; border-top: 1px solid #828282; }
+
+/* </Scrolling arrows> */
+
+/* <Separators> */
+
+.RadMenu_SkyStemBlueBrown .rmHorizontal .rmSeparator .rmText,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmHorizontal .rmSeparator .rmText
+{
+	height: 22px;
+	margin: 1px 0 0;
+	width: 1px;
+	background-color: #A8A8A8;
+}
+
+.RadMenu_SkyStemBlueBrown_Context .rmSeparator .rmText,
+.RadMenu_SkyStemBlueBrown .rmHorizontal .rmGroup .rmSeparator .rmText,
+.RadMenu_SkyStemBlueBrown .rmVertical .rmHorizontal .rmGroup .rmSeparator .rmText
+{
+	background-color: transparent;
+	background-position: 0 -406px;
+}
+
+/* </Separators> */
+
+/* </RadMenu / Default> */

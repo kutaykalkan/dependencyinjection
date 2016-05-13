@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CertificationMasterPage.master.cs"
+    Inherits="MasterPages_CertificationMasterPage" MasterPageFile="~/MasterPages/ARTMasterPage.master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <asp:Panel ID="pnlDeactiveCertification" Width="100%" runat="server">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td align="center">
+                                <webControls:ExLabel ID="ExLabel1" runat="server" LabelID="1051" FormatString="{0}:"
+                                    SkinID="Black11Arial"></webControls:ExLabel>
+                                &nbsp;&nbsp;
+                                <webControls:ExLabel ID="lblError" LabelID="1811" runat="server" SkinID="Black11ArialNormal"></webControls:ExLabel>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <asp:Panel ID="pnlActiveCertification" Width="100%" runat="server">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" class="ExportToolBar" id="tblExportToolbar"
+                                    runat="server">
+                                    <tr>
+                                        <td align="right">
+                                            <webControls:ExImageButton ID="imgBtnExportToPDF" runat="server" OnClick="imgBtnExportToPDF_Click"
+                                                SkinID="ExportToPDF" />
+                                            &nbsp;
+                                            <webControls:ExHyperLink ID="hlPrint" runat="server" SkinID="PrintIcon"></webControls:ExHyperLink>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="BlankRow">
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="divCertification" runat="server">
+                                    <asp:ContentPlaceHolder ID="cphCertification" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

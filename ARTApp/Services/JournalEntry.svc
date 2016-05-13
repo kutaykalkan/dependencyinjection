@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SkyStem.ART.App.Services.JournalEntry" CodeBehind="JournalEntry.svc.cs" %>

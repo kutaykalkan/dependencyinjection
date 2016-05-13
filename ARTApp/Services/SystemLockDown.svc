@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="SystemLockdown.svc.cs" Class="SkyStem.ART.App.Services.IsSystemLockdown" %>

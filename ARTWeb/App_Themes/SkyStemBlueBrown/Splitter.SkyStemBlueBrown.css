@@ -1,0 +1,312 @@
+/* RadSplitter for ASP.NET AJAX - Office2007 Skin */
+
+/* border style definition */
+table.RadSplitter_SkyStemBlueBrown,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResize,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOverHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarInactive,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOverHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarInactiveHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspPane, 
+.RadSplitter_SkyStemBlueBrown .rspPaneHorizontal
+{
+	border: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOverHorizontal
+{
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-image: url('images/ResizeBarHorizontalSprites.gif');
+    border-top: solid 1px #9eb6ce;
+    border-bottom: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOverHorizontal
+{
+    background-position: 0 -4px;
+    border-top: solid 1px #df961c;
+    border-bottom: solid 1px #8f610a;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBar,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOver
+{
+    background-repeat: repeat-y;
+    background-position: 0 0;
+    background-image: url('images/ResizeBarVerticalSprites.gif');
+    border-left: solid 1px #9eb6ce;
+    border-right: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOver
+{
+    background-position: -4px 0;
+    border-left: solid 1px #9eb6ce;
+    border-right: solid 1px #9eb6ce;
+}
+
+/* applies to the RadSlidingPanes */
+div.RadSplitter_SkyStemBlueBrown,
+table.rspSlideContainer
+{
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+table.RadSplitter_SkyStemBlueBrown
+{
+	border: 1px solid #9eb6ce;
+	border-collapse: collapse;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBar,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOver,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarInactive,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResize,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOverHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOverHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarInactiveHorizontal
+{
+	border-left: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOver
+{
+	border-left: solid 1px #df961c;
+}
+
+/* sliding zone */
+.RadSplitter_SkyStemBlueBrown .rspSlideZone
+{
+	background: white;
+}
+
+/* rspPane tabs */
+.RadSplitter_SkyStemBlueBrown .rspTabsContainer 
+{
+	color: #333;
+	vertical-align: top;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspPaneTabContainerExpanded,
+.RadSplitter_SkyStemBlueBrown .rspPaneTabContainerDocked
+{
+    background-position: -84px 0;
+    background-repeat: repeat-y !important;
+    color: #000000;
+	border: solid 1px #9eb6ce;
+	border-left: 0;
+}
+
+/* slide/dock containers */
+.RadSplitter_SkyStemBlueBrown .rspSlideContainer 
+{
+	border: 0px solid #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeader, 
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDocked,
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainerExpanded,
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainerDocked,
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainerExpanded,
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainerDocked
+{
+	background-color: white;
+	background-image: url('images/slideTitleContainerBgr.gif');
+	background-repeat: repeat-x;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResize,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOverHorizontal
+{ 
+     background: #fff;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderIconWrapper
+{
+	width: 17px;
+	border-bottom: solid 1px #9eb6ce;
+	padding: 0 3px;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderIconsWrapper
+{
+	float: right;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIconOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIconOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIconOver
+{	
+	width: 15px;
+	height: 15px;
+	float: left;
+	cursor: hand;
+	cursor: pointer;
+	margin-left: 3px;
+} 
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIconOver
+{
+	background-position: -50px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIconOver
+{
+	background-position: -35px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIconOver
+{
+	background-position: -65px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideTitle, 
+.RadSplitter_SkyStemBlueBrown .rspSlideTitleDocked 
+{
+	color: #000000;
+	margin: 0 5px;
+	font: normal 12px "Segoe UI", Arial, Sans-serif;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideTitleContainer
+{
+	background-color: white;
+	background-image: url('images/slideTitleContainerBgr.gif');
+	background-repeat: repeat-x;
+	border-bottom: solid 1px #9eb6ce;
+	height: 25px;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideContent, 
+.RadSplitter_SkyStemBlueBrown .rspSlideContentDocked
+{
+	color: black;
+	background-color: white;
+	/*border-bottom: 1px solid #828282;*/
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspResizeBarInactiveHorizontal
+{
+	border-top: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspResizeBarOverHorizontal
+{
+	border-top: solid 1px #9eb6ce;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarCollapse,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarCollapseOver,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarCollapseError,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarExpand,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarExpandOver,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarExpandError,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpand,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpandOver,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpandError,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapse,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapseOver,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapseError,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIcon,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderUndockIconOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderDockIconOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideHeaderCollapseIconOver,
+.RadSplitter_SkyStemBlueBrown .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspPaneTabContainerExpanded
+{
+    background-image: url('images/ExpandCollapseBarsCommands.gif');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarCollapseOver
+{
+    background-position: -192px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainerExpanded,
+.RadSplitter_SkyStemBlueBrown .rspBottom .rspPaneTabContainerDocked
+{
+	background-repeat: repeat-x !important;
+	border-right: solid 1px #9eb6ce;
+	border-bottom: solid 1px #9eb6ce;
+	border-left: solid 1px #9eb6ce;
+	color: #000000;											
+}
+
+.RadSplitter_SkyStemBlueBrown div.rspCollapseBarExpand,
+.RadSplitter_SkyStemBlueBrown div.rspCollapseBarExpandError
+{	
+	background-position: -4px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarExpandOver
+{
+    background-position: -196px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpand,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpandError
+{
+    background-position: -8px -4px;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalExpandOver
+{
+    background-position: -8px -12px;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapse,
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapseError
+{
+    background-position: -8px 0;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspCollapseBarHorizontalCollapseOver
+{
+    background-position: -8px -8px;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainer,
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainerExpanded,
+.RadSplitter_SkyStemBlueBrown .rspTop .rspPaneTabContainerDocked
+{
+	border-right: solid 1px #9eb6ce;
+	border-bottom: solid 1px #9eb6ce;
+	border-left: solid 1px #9eb6ce;
+	background-color: white;
+	background-repeat: repeat-x !important;
+}
+
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResize,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeOver,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeHorizontal,
+.RadSplitter_SkyStemBlueBrown .rspSlideContainerResizeHorizontalOver
+{
+    background-color: #dee8f5;
+}

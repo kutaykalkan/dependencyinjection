@@ -1,0 +1,839 @@
+/*Telerik RadGrid Default Skin*/
+
+/*global*/
+
+.RadGrid_SkyStemBlueBrownPrint
+{
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    background: #e2f2fc;
+}
+
+.RadGrid_SkyStemBlueBrownPrint, .RadGrid_SkyStemBlueBrownPrint .rgMasterTable, .RadGrid_SkyStemBlueBrownPrint .rgDetailTable, .RadGrid_SkyStemBlueBrownPrint .rgCommandRow table, .RadGrid_SkyStemBlueBrownPrint .rgEditForm table, .GridToolTip_SkyStemBlueBrownPrint
+{
+    font: 11px/16px "segoe ui" ,arial,sans-serif;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel table
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgMasterTable, .RadGrid_SkyStemBlueBrownPrint .rgDetailTable
+{
+    border-collapse: separate;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilterRow, .RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow, .RadGrid_SkyStemBlueBrownPrint .rgRow, .RadGrid_SkyStemBlueBrownPrint .rgAltRow, .RadGrid_SkyStemBlueBrownPrint .rgHeader, .RadGrid_SkyStemBlueBrownPrint .rgResizeCol, .RadGrid_SkyStemBlueBrownPrint .rgPager, .RadGrid_SkyStemBlueBrownPrint .rgGroupPanel
+{
+    cursor: default;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader
+{
+    cursor: hand;
+}
+
+.RadGrid_SkyStemBlueBrownPrint input[type="image"]
+{
+    cursor: pointer;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow td, .RadGrid_SkyStemBlueBrownPrint .rgRow td, .RadGrid_SkyStemBlueBrownPrint .rgAltRow td, .RadGrid_SkyStemBlueBrownPrint .rgEditRow td, .RadGrid_SkyStemBlueBrownPrint .rgFooter td, .RadGrid_SkyStemBlueBrownPrint .rgHeader, .RadGrid_SkyStemBlueBrownPrint .rgResizeCol, .RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow td
+{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgAdd, .RadGrid_SkyStemBlueBrownPrint .rgRefresh, .RadGrid_SkyStemBlueBrownPrint .rgEdit, .RadGrid_SkyStemBlueBrownPrint .rgDel, .RadGrid_SkyStemBlueBrownPrint .rgFilter, .RadGrid_SkyStemBlueBrownPrint .rgPagePrev, .RadGrid_SkyStemBlueBrownPrint .rgPageNext, .RadGrid_SkyStemBlueBrownPrint .rgPageFirst, .RadGrid_SkyStemBlueBrownPrint .rgPageLast, .RadGrid_SkyStemBlueBrownPrint .rgExpand, .RadGrid_SkyStemBlueBrownPrint .rgCollapse, .RadGrid_SkyStemBlueBrownPrint .rgSortAsc, .RadGrid_SkyStemBlueBrownPrint .rgSortDesc, .RadGrid_SkyStemBlueBrownPrint .rgUpdate, .RadGrid_SkyStemBlueBrownPrint .rgCancel, .RadGrid_SkyStemBlueBrownPrint .rgUngroup
+{
+    width: 16px;
+    height: 16px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: url(Images/Expand.gif);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    font-size: 1px;
+    cursor: pointer;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupItem input, .RadGrid_SkyStemBlueBrownPrint .rgCommandRow img, .RadGrid_SkyStemBlueBrownPrint .rgHeader input, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow img, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow input, .RadGrid_SkyStemBlueBrownPrint .rgPager img
+{
+    vertical-align: middle;
+}
+
+/*header*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeaderDiv
+{
+    background: #eee 0 -5900px;
+}
+.rgTwoLines .rgHeaderDiv
+{
+    background-position: 0 -6200px;
+}
+
+.rgNoScrollImage .rgHeaderDiv
+{
+    background-image: none;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeader, .RadGrid_SkyStemBlueBrownPrint th.rgResizeCol
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    height: 25px;
+    background: #ab6501;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint th.rgSorted
+{
+}
+
+.RadGrid_SkyStemBlueBrownPrint th.rgHeader
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeader, .RadGrid_SkyStemBlueBrownPrint .rgHeader a
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCheck
+{
+    height: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/*rows*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgRow td, .RadGrid_SkyStemBlueBrownPrint .rgEditRow td, .RadGrid_SkyStemBlueBrownPrint .rgFooter td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #e2f2fc;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgAltRow td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #a6d3f7;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #f2e9c9;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow td, .RadGrid_SkyStemBlueBrownPrint .rgRow td, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow td
+{
+    border-color: #fff;
+}
+
+
+.RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow, .RadGrid_SkyStemBlueBrownPrint .rgRow, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow
+{
+    border-bottom-color: #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgAltRow
+{
+    border-bottom-color: #e6e6e6;
+    background-color: #e6e6e6;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgSelectedRow, .RadGrid_SkyStemBlueBrownPrint .rgActiveRow, .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow, .RadGrid_SkyStemBlueBrownPrint .rgEditRow
+{
+    background-color: transparent;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCarriedForwardRow a, .RadGrid_SkyStemBlueBrownPrint .rgRow a, .RadGrid_SkyStemBlueBrownPrint .rgFilterRow a, .RadGrid_SkyStemBlueBrownPrint .rgAltRow a, .RadGrid_SkyStemBlueBrownPrint .rgEditRow a, .RadGrid_SkyStemBlueBrownPrint .rgFooter a, .RadGrid_SkyStemBlueBrownPrint .rgEditForm a
+{
+    color: #000;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgSelectedRow
+{
+}
+* + html .RadGrid_SkyStemBlueBrownPrint .rgSelectedRow .rgSorted
+{
+}
+* html .RadGrid_SkyStemBlueBrownPrint .rgSelectedRow .rgSorted
+{
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgSelectedRow a
+{
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgActiveRow, .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow
+{
+    background: #c5c5c5 0 -2900px repeat-x url('<%=WebResource("Telerik.Web.UI.Skins.Default.Grid.sprite.gif")%>');
+    color: #333;
+}
+* + html .RadGrid_SkyStemBlueBrownPrint .rgActiveRow .rgSorted, * + html .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow .rgSorted
+{
+    background-color: #c5c5c5;
+}
+* html .RadGrid_SkyStemBlueBrownPrint .rgActiveRow .rgSorted, * html .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow .rgSorted
+{
+    background-color: #c5c5c5;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgEditRow
+{
+    background: #fff 0 -4900px repeat-x url('<%=WebResource("Telerik.Web.UI.Skins.Default.Grid.sprite.gif")%>');
+}
+* + html .RadGrid_SkyStemBlueBrownPrint .rgEditRow .rgSorted
+{
+    background-color: #fff;
+}
+* html .RadGrid_SkyStemBlueBrownPrint .rgEditRow .rgSorted
+{
+    background-color: #fff;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgActiveRow td, .RadGrid_SkyStemBlueBrownPrint .rgActiveRow td.rgSorted, .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow td, .RadGrid_SkyStemBlueBrownPrint .rgHoveredRow td.rgSorted
+{
+    border-bottom-color: #9e9e9e;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgSelectedRow td, .RadGrid_SkyStemBlueBrownPrint .rgSelectedRow td.rgSorted
+{
+}
+
+/*footer*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgFooterDiv, .RadGrid_SkyStemBlueBrownPrint .rgFooter
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 25px;
+    background: #f9ddb6;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFooter td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 25px;
+    background: #e8d59c;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 3px;
+}
+
+/*status*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgPager .rgStatus
+{
+    width: 35px;
+    padding: 3px 0 2px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgStatus div
+{
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent center center no-repeat url('<%=WebResource("Telerik.Web.UI.Skins.Default.Common.loading_small.gif")%>');
+    text-indent: -2222px;
+}
+
+/*pager*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgPager
+{
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 3px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPager td
+{
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 3px;
+    background: #e8d59c;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPager .rgPagerCell
+{
+    border-top: 1px solid #000000;
+    padding: 5px 0 4px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgWrap
+{
+    float: left;
+    padding: 0 10px;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgArrPart1
+{
+    padding-right: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgArrPart2
+{
+    padding-left: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgInfoPart
+{
+    float: right;
+    color: #000000;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgInfoPart strong
+{
+    font-weight: bold;
+    color: #015492;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgArrPart1 img, .RadGrid_SkyStemBlueBrownPrint .rgArrPart2 img
+{
+    margin: 0 8px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPageFirst, .RadGrid_SkyStemBlueBrownPrint .rgPagePrev, .RadGrid_SkyStemBlueBrownPrint .rgPageNext, .RadGrid_SkyStemBlueBrownPrint .rgPageLast
+{
+    width: 22px;
+    height: 22px;
+    vertical-align: top;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .NextPrev .rgPageFirst, .RadGrid_SkyStemBlueBrownPrint .NextPrev .rgPagePrev, .RadGrid_SkyStemBlueBrownPrint .NextPrev .rgPageNext, .RadGrid_SkyStemBlueBrownPrint .NextPrev .rgPageLast
+{
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPageFirst
+{
+    background-position: 0 -550px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPageFirst:hover
+{
+    background-position: 0 -600px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPagePrev
+{
+    background-position: 0 -700px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPagePrev:hover
+{
+    background-position: 0 -750px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPageNext
+{
+    background-position: 0 -850px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPageNext:hover
+{
+    background-position: 0 -900px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPageLast
+{
+    background-position: 0 -1000px;
+}
+.RadGrid_SkyStemBlueBrownPrint .rgPageLast:hover
+{
+    background-position: 0 -1050px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPagerButton
+{
+    height: 22px;
+    border: 1px solid;
+    border-color: #d0d0d0 #aeaeae #8b8b8b;
+    margin: 0 14px 0 0;
+    padding: 0 4px 2px;
+    background: #e8d59c;
+    color: #000;
+    font: 11px/11px "segoe ui" ,arial,sans-serif;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart
+{
+    padding: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .NumericPages .rgNumPart
+{
+    padding: 0 10px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a:hover, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a:hover span
+{
+    background-color: #f3b954;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage:hover, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage span
+{
+    text-decoration: none;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a
+{
+    float: left;
+    line-height: 22px;
+    margin: 0;
+    padding: 0 5px 0 0;
+    color: #000;
+    text-decoration: underline;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart span
+{
+    float: left;
+    padding: 0 0 0 5px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a:hover
+{
+    background-position: 100% -1250px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a:hover span
+{
+    background-position: 0 -1150px;
+    cursor: pointer;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage:hover
+{
+    background-position: 100% -1450px;
+    cursor: default;
+    background-color: Transparent;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage span, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage:hover span
+{
+    background-position: 0 -1350px;
+    color: #ffffff;
+    cursor: default;
+    background-color: #ab6501;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .NextPrevNumericAndAdvanced .rgAdvPart
+{
+    float: none;
+    text-align: center;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPager .RadSlider
+{
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPagerLabel, .RadGrid_SkyStemBlueBrownPrint .rgPager .RadComboBox, .RadGrid_SkyStemBlueBrownPrint .rgPager .RadInput_SkyStemBlueBrownPrint
+{
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+}
+
+* + html .RadGrid_SkyStemBlueBrownPrint .rgPager .RadComboBox
+{
+    margin-top: -1px;
+}
+* html .RadGrid_SkyStemBlueBrownPrint .rgPager .RadComboBox
+{
+    margin-top: -1px;
+    padding: 1px 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgPagerTextBox
+{
+    text-align: center;
+}
+
+/*sorting, reordering*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeader .rgSortAsc
+{
+    background-position: 3px -248px;
+    height: 10px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeader .rgSortDesc
+{
+    background-position: 3px -198px;
+    height: 10px;
+}
+
+.GridReorderTop_SkyStemBlueBrownPrint, .GridReorderBottom_SkyStemBlueBrownPrint
+{
+    width: 9px !important;
+    height: 9px !important;
+    margin-left: -5px;
+    background: 0 0 no-repeat url('<%=WebResource("Telerik.Web.UI.Skins.Default.Grid.sprite.gif")%>');
+}
+
+.GridReorderBottom_SkyStemBlueBrownPrint
+{
+    background-position: 0 -50px;
+}
+
+/*filtering*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilterRow td
+{
+    height: 27px;
+    background: #f2e9c9;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilter
+{
+    width: 22px;
+    margin: 0px;
+    background-position: 0 -300px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilter:hover
+{
+    background-position: 0 -350px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilterActive, .RadGrid_SkyStemBlueBrownPrint .rgFilterActive:hover
+{
+    background-position: 0 -400px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgFilterBox
+{
+    border: 1px solid #000000;
+    padding: 0px;
+    font-family: arial;
+    font-size: 11px;
+    vertical-align: middle;
+    height: 20px;
+}
+
+/*grouping*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel
+{
+    height: 24px;
+    border: 0;
+    border-bottom: 1px solid #828282;
+    background: #eee 0 -1900px repeat-x url('<%=WebResource("Telerik.Web.UI.Skins.Default.Grid.sprite.gif")%>');
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel td
+{
+    border: 0;
+    padding: 3px 4px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel td td
+{
+    padding: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel .rgSortAsc
+{
+    background-position: 4px -144px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupPanel .rgSortDesc
+{
+    background-position: 4px -94px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgUngroup
+{
+    background-position: 0 -6998px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupItem
+{
+    border: 1px solid;
+    border-color: #c4c4c4 #c4c4c4 #9e9e9e;
+    padding: 0 2px 1px 3px;
+    background: #c6c6c6 0 -6500px;
+    line-height: 20px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgMasterTable
+{
+    width: 100%;
+}
+
+.RadGrid_SkyStemBlueBrownPrint td.rgGroupCol
+{
+}
+.RadGrid_SkyStemBlueBrownPrint .rgMasterTable td.rgExpandCol
+{
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader
+{
+    background-color: #f2e9c9;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    vertical-align: middle;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td.rgGroupCol
+{
+    border-top-color: #828282;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgExpand
+{
+    background-position: 5px -496px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCollapse
+{
+    background-position: 3px -444px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td p
+{
+    display: inline;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td div div
+{
+    top: -0.8em;
+    padding: 0 10px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgGroupHeader td div div div
+{
+    top: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*editing*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgEditForm
+{
+    border-bottom: 1px solid #828282;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgUpdate
+{
+    background-position: 0 -1800px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCancel
+{
+    background-position: 2px -1848px;
+}
+
+/*hierarchy*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgDetailTable
+{
+    border: 1px solid Gray;
+}
+
+/*command row*/
+
+.RadGrid_SkyStemBlueBrownPrint .rgCommandRow
+{
+    background: #e2edfb; /*#f5fafd -- #ecf9ff;*/
+    height: 25px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCommandCell
+{
+    border: 1px solid;
+    border-color: #999 #f2f2f2;
+    border-top: 0;
+    padding: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint tfoot .rgCommandCell
+{
+    border-top: 1px solid;
+    border-bottom: 0;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCommandTable td
+{
+    border: 0;
+    padding: 3px 7px 4px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCommandTable
+{
+    border: 0;
+    border-top: 1px solid #fdfdfd;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgCommandRow a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgAdd
+{
+    margin-right: 3px;
+    background-position: 0 -1650px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgRefresh
+{
+    margin-right: 3px;
+    background-position: 0 -1600px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgEdit
+{
+    background-position: 0 -1700px;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgDel
+{
+    background-position: 0 -1750px;
+}
+
+/*multirow select*/
+
+.GridRowSelector_SkyStemBlueBrownPrint
+{
+    background: #4c4e54;
+}
+
+/*row drag n drop*/
+
+.GridItemDropIndicator_SkyStemBlueBrownPrint
+{
+    border-top: 1px dashed #666;
+}
+
+/*tooltip*/
+
+.GridToolTip_SkyStemBlueBrownPrint
+{
+    border: 1px solid #828282;
+    padding: 3px;
+    background: #fff;
+    color: #333;
+}
+
+/*rtl*/
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgHeader, .RadGridRTL_SkyStemBlueBrownPrint .rgResizeCol
+{
+    text-align: right;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgPager .rgStatus
+{
+    border-top-width: 1px;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgWrap
+{
+    float: right;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgInfoPart
+{
+    float: left;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgNumPart
+{
+    width: 220px;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgNumPart a
+{
+    float: right;
+}
+
+.RadGridRTL_SkyStemBlueBrownPrint .rgDetailTable
+{
+}
+
+.GridFilterRow_SkyStemBlueBrownPrint td
+{
+    background-color: Gray;
+    border: Solid 1px #00000;
+}
+thead
+{
+    display: table-header-group;
+}
+

@@ -1,0 +1,512 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" /> 
+--%>
+<asp:image runat="server" Imageurl="Images/SkyStemLogoLogin.gif" width="239" height="70" SkinID="SkyStemLogoLogin"/>
+<asp:image runat="server" Imageurl="Images/SkyStemLogo.gif" ImageAlign="Left" SkinID="SkyStemLogoMaster"/>
+<asp:Image ImageUrl="Images/MenuBar.gif" AlternateText="" runat="server" SkinID="MenuSeparator" /> 
+<asp:Image ImageUrl="Images/wait.gif" AlternateText="" runat="server" SkinID="WaitImage" /> 
+<asp:Image ImageUrl="Images/clock.gif" AlternateText="" runat="server" SkinID="ClockImage" /> 
+<asp:Image ImageUrl="Images/logo.gif" AlternateText="" runat="server" SkinID="SkyStemLogo" /> 
+<asp:Image ImageUrl="Images/InfoIcon.gif" AlternateText="" runat="server" SkinID="InfoIcon" />
+<asp:Image ImageUrl="Images/Info_Big.gif" AlternateText="" runat="server" SkinID="InfoBig" /> 
+
+<webControls:ExImage ImageUrl="Images/ArtLogoLogin.gif" ImageAlign="AbsMiddle" SkinID="ARTLogo" runat="server" />
+<webControls:ExImage ImageUrl="Images/MultiVersions.gif" ImageAlign="AbsMiddle" SkinID="Multiversion" runat="server" />
+<webControls:ExImage ImageUrl="Images/ftp.png" ImageAlign="AbsMiddle" SkinID="ftp" runat="server" />
+
+<webControls:ExImage SkinID="NotesIcon" Imageurl="Images/notes.gif" LabelID="1242" runat="server" />
+<webControls:ExImage SkinID="CollapseIcon" Imageurl="Images/collapse.gif" LabelID="1260" runat="server" />
+<WebControls:ExImage SkinID="ProgressIcon" ImageUrl="Images/Progress.gif" ImageAlign="AbsMiddle"  runat="server" />
+<webControls:ExImage SkinID="ExpireIcon" ImageUrl="Images/ErrorIcon.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="WarningIcon" ImageUrl="Images/WarningIcon.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="LimitReachedIcon" ImageUrl="Images/RedBoxIcon.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="InactiveIcon" ImageUrl="Images/GrayBoxIcon.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="HomePageIcon" ImageUrl="Images/HomeToolIcon.gif" ImageAlign="AbsMiddle"  LabelID="1243" runat="server" />
+<webControls:ExImage SkinID="AccountViewerIcon" ImageUrl="Images/AccountViewerIcon.gif" ImageAlign="AbsMiddle"  LabelID="1187" runat="server" />
+<webControls:ExImage SkinID="MyReportIcon" ImageUrl="Images/ReportViewer.gif" ImageAlign="AbsMiddle" LabelID="1077" runat="server"/>
+<webControls:ExImage SkinID="Separator" ImageUrl="Images/MenuDivider.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ToolBarSeparator" ImageUrl="Images/ToolBarSeparator.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ResetPassword" ImageUrl="Images/ResetPassword.gif" ImageAlign="AbsMiddle" runat="server" LabelID="1536" />
+<WebControls:ExImage SkinID="ToBeProcessedIcon" ImageUrl="Images/ToBeProcessed.gif" ImageAlign="AbsMiddle"  runat="server" />
+<WebControls:ExImage SkinID="Draft" ImageUrl="Images/draftStatus.gif" ImageAlign="AbsMiddle"  runat="server" />
+<webControls:ExImage SkinID="ImportItem" LabelID="1497" ImageUrl="Images/Import.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="FilterItem" LabelID="1633 " ImageUrl="Images/AddMoreFilter.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ViewItemGrid" LabelID="1803" ImageUrl="Images/View.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="EditMode"  LabelID="1429"   ImageUrl="Images/EditMode.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="AddUser" LabelID="1607" ImageUrl="Images/add_user.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="SuccessIcon" ImageUrl="Images/Tick.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="History" ImageUrl="Images/History.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="AccountMaterialityIcon" ImageUrl="Images/AccountMaterialityIcon.gif" ImageAlign="AbsMiddle"  LabelID="1817" runat="server" />
+<webControls:ExImage SkinID="DueDatesIcon" ImageUrl="Images/DueDatesIcon.gif" ImageAlign="AbsMiddle"  LabelID="1368" runat="server" />
+<webControls:ExImage SkinID="HelpIcon" ImageUrl="Images/help.gif" ImageAlign="AbsMiddle"  LabelID="1280" runat="server" />
+<webControls:ExImage SkinID="ExchangeRateIcon" ImageUrl="Images/ExchangeRate.gif" ImageAlign="AbsMiddle"  LabelID="1488" runat="server" />
+<webControls:ExImage SkinID="RejectIcon" ImageUrl="Images/Reject.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExImage SkinID="IssueReporting" ImageUrl="Images/IssueReporting.png" LabelID="2962" ImageAlign="AbsMiddle"  runat="server"/>
+
+
+<webControls:ExImage SkinID="CrossIcon" ImageUrl="Images/CrossIcon.gif" ImageAlign="AbsMiddle"  runat="server"/>
+
+
+<webControls:ExImage SkinID="RecPeriodStatusNotStarted" Imageurl="Images/NotStarted.gif" LabelID="1746" ImageAlign="AbsMiddle"  runat="server" />
+<webControls:ExImage SkinID="FYChangeImage" Imageurl="Images/MenuDownArrow.gif" runat="server" />
+<webControls:ExImage SkinID="PackageMatrixImage" Imageurl="Images/Popup.gif" runat="server" />
+
+<webControls:ExImage SkinID="RecPeriodStatusOpen" Imageurl="Images/open.gif" LabelID="1747" ImageAlign="AbsMiddle"  runat="server" />
+<WebControls:ExImage SkinID="RecPeriodStatusInProgress" ImageUrl="Images/InProgress.gif" LabelID="1748"  ImageAlign="AbsMiddle"  runat="server" />
+<webControls:ExImage SkinID="RecPeriodStatusClosed" ImageUrl="Images/Closed.gif" LabelID="1749" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="RecPeriodStatusSkipped" ImageUrl="Images/Skipped.gif" LabelID="1750" ImageAlign="AbsMiddle" runat="server" />
+
+<webControls:ExImage SkinID="CapabilityForwardedYes" LabelID="1807" ImageUrl="Images/CapabilityForwardedYes.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="CapabilityForwardedNo"  LabelID="1805" ImageUrl="Images/CapabilityForwardedNo.gif" ImageAlign="AbsMiddle" runat="server" />
+
+<webControls:ExImage SkinID="ShowSchedulePopup"  LableID="1806" ImageUrl="PopupSchedule1.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ShowDocumentPopup"  LabelID="1804" ImageUrl="Images/attach.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ShowCommentPopup"   LabelID="1394" ImageUrl="Images/notes.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ShowCarriedForwordItems"  LabelID="1930" ImageUrl="Images/carriedForword.gif"  ImageAlign="AbsMiddle" runat="server" />
+
+
+<webControls:ExImage SkinID="UserUnderYouNoAccess" Imageurl="Images/notes.gif" LabelID="1841" runat="server" />
+<webControls:ExImage SkinID="UserUnderYouSharedAccess" Imageurl="Images/star.gif" LabelID="1957 " runat="server" />
+<webControls:ExImage SkinID="UnReadAlertMsg" ImageUrl="Images/star.gif" ImageAlign="AbsMiddle"  runat="server"/>
+
+<webControls:ExImage SkinID="BulletIcon" ImageUrl="Images/Bullet.gif" ImageAlign="AbsMiddle"  runat="server" />
+<%--<webControls:ExImage SkinID="AccountMatching" ImageUrl="Images/AccountMatching.gif"  ImageAlign="Top"  runat="server"/>--%>
+<webControls:ExImage SkinID="ReProcessSRA" ImageUrl="Images/listProcessing.gif" ImageAlign="AbsMiddle"  LabelID="2259" runat="server" />
+<webControls:ExImage SkinID="Exit" ImageUrl="Images/Exit.gif" ImageAlign="AbsMiddle"  LabelID="1279" runat="server" />
+
+<webControls:ExImage SkinID="Completed" LabelID="2559" ImageUrl="Images/Completed.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Pending" LabelID="2561" ImageUrl="Images/Pending.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Overdue" LabelID="2562" ImageUrl="Images/Overdue.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Hidden" LabelID="2107" ImageUrl="Images/hide.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Unhide" LabelID="2108" ImageUrl="Images/unhide.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Add" LabelID="1560" ImageUrl="Images/add.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Del" LabelID="1564" ImageUrl="Images/del.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Approve" LabelID="1483" ImageUrl="Images/approve.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Reject" LabelID="1482" ImageUrl="Images/reject.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Done" LabelID="2590" ImageUrl="Images/done.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="BulkEdit" LabelID="2572" ImageUrl="Images/BulkEdit.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Edit" LabelID="1429" ImageUrl="Images/Edit.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ReadOnly" LabelID="1470" ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="Delete" LabelID="2646" ImageUrl="Images/Delete.gif"  ImageAlign="AbsMiddle" runat="server" />
+
+
+
+
+
+
+<webControls:ExImageButton SkinID="AccountMatching" LabelID="1497"  ImageUrl="Images/AccountMatching.gif"  runat="server"/>
+
+<webControls:ExImageButton SkinID="ImportItem" LabelID="1497"  ImageUrl="Images/Import.gif"  runat="server"/>
+<webControls:ExImageButton SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="EditMode"  LabelID="1635"   ImageUrl="Images/EditMode.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="DeleteIcon" LabelID="1564 " ImageUrl="Images/delete.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="History"   LabelID="1391" ImageUrl="Images/History.gif"  runat="server"/>
+<webControls:ExImageButton SkinID="AddUser" LabelID="1607" ImageUrl="Images/add_user.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="CancelPopup"       ImageUrl="Images/Close.png" runat="server"/>
+<webControls:ExImageButton SkinID="ResetPassword" ImageUrl="Images/ResetPassword.gif" ImageAlign="AbsMiddle" runat="server" LabelID="1536" />
+<webControls:ExImageButton SkinID="ExportToPDF" LabelID="1405" ImageUrl="Images/pdf.gif" runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExImageButton SkinID="CreateUpdateFY" LabelID="2009"   ImageUrl="Images/CreateUpdateFY.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="FileTypeIcon" ImageUrl="Images/excel.gif"  ImageAlign="Top"  runat="server"/>
+<webControls:ExImageButton SkinID="FileDownloadIcon" ImageUrl="Images/DownloadExcelIcon.gif"  ImageAlign="Top"  runat="server" LabelID="2051"/>
+<webControls:ExImageButton SkinID="DataTypeMapping" ImageUrl="Images/dataTypeMapping.gif"  ImageAlign="Top"  runat="server"/>
+<webControls:ExImageButton SkinID="EditIcon" LabelID="1429" ImageUrl="Images/Edit.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="ClearNotify" ImageUrl="Images/del_user.gif"  runat="server" LabelID="2663"  ImageAlign="top"  />
+<webControls:ExImageButton SkinID="DeleteTaskLoadIcon" LabelID="1933" ImageUrl="Images/DelExcelIcon.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="DownloadAttachments" LabelID="2791" ImageUrl="Images/download.gif" runat="server"  ImageAlign="AbsMiddle" />
+
+<webControls:ExImageButton SkinID="HideGridRowsIcon" ImageUrl="Images/Cancel.gif"  ImageAlign="Top"  runat="server"/>
+<webControls:ExImageButton SkinID="ShowGridRowsIcon" ImageUrl="Images/Add.gif"  ImageAlign="Top"  runat="server"/>
+<webControls:ExImageButton SkinID="FileDownloadIconZip" ImageUrl="Images/downloadZip.png"  ImageAlign="Top"  runat="server" LabelID="2051"/>
+
+
+
+
+<webControls:ExImageButton SkinID="ShowNetAccountComposition" ImageUrl="Images/NetAccountComposition.gif"  ImageAlign="Top"  runat="server"/>
+
+
+
+
+
+
+                                            
+<WebControls:ExCheckBox runat="server" Font-Bold="true" CssClass="ReadOnlyValue" SkinID="ReadOnlyValue"></WebControls:ExCheckBox>
+<WebControls:ExCheckBox runat="server" Font-Bold="true" CssClass="Black11Arial" SkinID="Black11Arial"></WebControls:ExCheckBox>
+<WebControls:ExCheckBox runat="server" Font-Bold="true" CssClass="Black11ArialValignMiddle" SkinID="Black11ArialValignMiddle"></WebControls:ExCheckBox>
+
+<WebControls:ExRadioButton runat="server" Font-Bold="true" CssClass="ReadOnlyValue" SkinID="ReadOnlyValue"></WebControls:ExRadioButton>
+<WebControls:ExRadioButton runat="server" Font-Bold="true" CssClass="Black11Arial" SkinID="Black11Arial"></WebControls:ExRadioButton>
+                
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Black11Arial" SkinID="Black11Arial"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Black11ArialCaps" SkinID="Black11ArialCaps"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Black9Arial" SkinID="Black9Arial"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Black9ArialUNRead" SkinID="Black9ArialUNRead"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="Black9Arial" SkinID="Black9ArialNormal"></WebControls:ExLabel>
+
+<WebControls:ExLabel runat="server"  CssClass="Black11Arial" SkinID="Black11ArialNormal"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="Black11ArialValignMiddle" SkinID="Black11ArialValignMiddle"></WebControls:ExLabel>
+
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Blue11ArialLeftPaneValue" SkinID="LeftInfoPaneValue"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="BlueBold11Arial" SkinID="BlueBold11Arial"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="BlueBold11ArialUnderline" SkinID="BlueBold11ArialUnderline"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="BlueBold12ArialUnderline" SkinID="BlueBold12ArialUnderline"></WebControls:ExLabel>
+
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="WhiteBold11Arial" SkinID="WhiteBold11Arial"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="RoleLabel" SkinID="RoleLabel"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" CssClass="ErrorLabel"  SkinID="ErrorLabel" Width="100%"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" CssClass="ConfirmationLabel"  SkinID="ConfirmationLabel" Width="98%"></WebControls:ExLabel>
+<webControls:ExLabel runat="server" CssClass="LegendLabel" SkinID="LegendLabel"></webControls:ExLabel>
+<webControls:ExLabel runat="server" CssClass="TextAllignCenter" SkinID="TextAllignCenter"></webControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="UserName" SkinID="UserName"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="SubSectionHeading" SkinID="SubSectionHeading" FormatString="{0}:"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="Black9ArialItalic" SkinID="Black9ArialItalic"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="ReportTitle" SkinID="ReportTitle" ></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="PercentComplete" SkinID="PercentComplete"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="BlueBold13Arial" SkinID="AccountDetail"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="ItemCount" SkinID="ItemCount"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="ReadOnlyValue" SkinID="ReadOnlyValue"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="UserDetails" SkinID="UserDetails"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="CountdownLabel" SkinID="CountdownLabel"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" CssClass="" SkinID="GridReportLabel"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="StatusHeading" SkinID="StatusHeading"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server"  CssClass="GLDataQualityScore" SkinID="GLDataQualityScore"></WebControls:ExLabel>
+
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="Red11Arial" SkinID="Red11Arial"></WebControls:ExLabel>
+<WebControls:ExLabel runat="server" Font-Bold="true" CssClass="RedReadOnlyValue" SkinID="RedReadOnlyValue"></WebControls:ExLabel>
+
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="400" SkinID="ExTextBox400" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="350" SkinID="ExTextBox350" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="300" SkinID="ExTextBox300" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="250" SkinID="ExTextBox250" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="200" SkinID="ExTextBox200" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="150" SkinID="ExTextBox150" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="100" SkinID="ExTextBox100" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="80" SkinID="ExTextBox80" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" LabelCssClass="ReadOnlyValue" Width="50" SkinID="ExTextBox50" />
+<WebControls:ExTextBox runat="server" CssClass="TextBox" Width="30" SkinID="ExTextBox30" />
+
+<webControls:ExTextBox runat="server" Rows="5" Width="99%" TextMode="MultiLine" SkinID="ExTextBoxAdditionalComments" />
+<webControls:ExTextBox runat="server" Rows="4" Width="99%" TextMode="MultiLine" SkinID="ExMulitilineTextBox" />
+<webControls:ExTextBox runat="server" Rows="4" Width="200" TextMode="MultiLine" SkinID="ExMulitilineTextBox200" />
+<webControls:ExTextBox runat="server" Rows="4" Width="250" TextMode="MultiLine" SkinID="ExMulitilineTextBoxSignoffComment" />
+<webControls:ExTextBox runat="server" Rows="4" Width="200" TextMode="MultiLine" SkinID="ExMultilineTextBoxDescriptionScheduleForm" />
+<webControls:ExTextBox runat="server" Rows="4" Width="400" TextMode="MultiLine" SkinID="ExMultilineTextBoxDescriptionRecItemForm" />
+<webControls:ExTextBox runat="server" Rows="2" Width="150" TextMode="MultiLine" SkinID="ExMulitilineTextBox150" />
+
+<webControls:ExTextBox runat="server" Rows="4" Height="50" Width="255" TextMode="MultiLine"  
+    LabelCssClass="ReadOnlyValue" LabelContainerCssClass="ReadOnlyValueContainer" SkinID="ExMultilineTextBoxRecForm" />
+<asp:TextBox runat="server" CssClass="TextBox" Width="200" SkinID="TextBox200" />
+<asp:TextBox runat="server" CssClass="TextBox" Width="150" SkinID="TextBox150" />
+<asp:TextBox runat="server" CssClass="TextBox" Width="50" SkinID="TextBox50" />
+<asp:TextBox runat="server" CssClass="TextBox" Width="70" SkinID="TextBox70" />
+
+<webControls:ExCalendar runat="server" Width="200"  SkinID="ExCalendar200" />
+<webControls:ExCalendar runat="server" Width="100"  SkinID="ExCalendar100" />
+<webControls:ExCalendar runat="server" Width="80"  SkinID="ExCalendar80" />
+
+<WebControls:ExRadioButton runat="server" CssClass="Black11Arial" SkinID="OptBlack11Arial"></WebControls:ExRadioButton>
+
+
+<asp:DropDownList  runat="server"  Width="150" SkinID="DropDownList150" />
+<asp:DropDownList  runat="server"  Width="125" SkinID="DropDownList125" />
+<asp:DropDownList  runat="server"  Width="175" SkinID="DropDownList175" />
+<asp:DropDownList  runat="server"  Width="200" SkinID="DropDownList200" />
+<asp:DropDownList  runat="server"  Width="230" SkinID="DropDownList230" />
+<asp:DropDownList  runat="server"  Width="100" SkinID="DropDownList100" />
+<asp:DropDownList  runat="server"  Width="300" SkinID="DropDownList300" />
+<asp:DropDownList  runat="server"  Width="450" SkinID="DropDownList450" />
+<asp:DropDownList  runat="server"  Width="50" SkinID="DropDownList50" />
+
+
+<webControls:ExHyperLink SkinID="Help" ImageUrl="Images/help.gif" LabelID="1280" runat="server"></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="Email" ImageUrl="Images/email.gif" LabelID="1927" runat="server"></webControls:ExHyperLink>
+
+<webControls:ExHyperLink CssClass="HyperLink" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="HyperLinkBold" CssClass="HyperLinkBold" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="HyperLinkBoldBlue" CssClass="HyperLinkBoldBlue" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLink" CssClass="GridHyperLink" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkWithUnderline" CssClass="GridHyperLinkWithUnderline" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderline" CssClass="GridHyperLinkImageWithUnderline" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineReadOnlyMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/ReadOnly.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineEditMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/EditMode.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineStartRecMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/StartReconciliation.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="HyperLinkBoldBrown" CssClass="ReportActivity" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="ExportToPDF" LabelID="1405" ImageUrl="Images/pdf.gif" runat="server"  ImageAlign="AbsMiddle" />
+
+<webControls:ExHyperLink SkinID="MatchSetResult" ToolTipLabelID="2341" ImageUrl="Images/MatchingResult.gif" runat="server" ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithoutUnderlineReadOnlyMode" ImageUrl="Images/ReadOnly.gif" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithCompletedStatus" ImageUrl="Images/Completed.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithPendingStatus"  ImageUrl="Images/Pending.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithOverDueStatus"  ImageUrl="Images/Overdue.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="AddUser" ImageUrl="Images/add_user.gif"  runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageComment" ImageUrl="Images/Comment.gif"  runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageEdit" ImageUrl="Images/Edit.gif"  runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageReadOnly" ImageUrl="Images/ReadOnly.gif"  runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithHiddenStatus"  ImageUrl="Images/hide.png"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithDeleteStatus"  ImageUrl="Images/Delete.gif"  runat="server" ></webControls:ExHyperLink>
+
+
+<webControls:ExHyperLink SkinID="GridHyperLinkImageAddComment" runat="server"  ImageAlign="AbsMiddle" />
+
+
+
+
+
+<WebControls:ExRequiredFieldValidator runat="server" Display="Dynamic" Text="!"/>
+<WebControls:ExRegularExpressionValidator runat="server" Display="Dynamic" Text="!" />
+<WebControls:ExCompareValidator runat="server"  Display="Dynamic" Text="!" />
+
+<asp:RequiredFieldValidator runat="server" Display="Dynamic" Text="!" ></asp:RequiredFieldValidator>
+<asp:CustomValidator runat="server" Display="Dynamic" Text="!" ></asp:CustomValidator>
+<asp:ValidationSummary runat="server" CssClass="ValidationSummary" ShowSummary="true" DisplayMode="BulletList" />
+
+<ajaxToolkit:CollapsiblePanelExtender SkinID="CollapsiblePanel" CollapsedImage="Images/Expand.gif" 
+    ExpandedImage="Images/Collapse.gif" SuppressPostBack="true" Collapsed="false"
+    CollapsedSize="0" ExpandedSize="0" runat="server"/>
+    
+    <ajaxToolkit:CollapsiblePanelExtender SkinID="CollapsiblePanelCollapsed" CollapsedImage="Images/Expand.gif" 
+    ExpandedImage="Images/Collapse.gif" SuppressPostBack="true" Collapsed="true"
+    CollapsedSize="0" ExpandedSize="0" runat="server"/>
+    
+<telerik:RadPane runat="server" Locked="false"  Width="230" SkinID="RADSplitterLeftPane" Scrolling="Both"></telerik:RadPane>
+
+<asp:CheckBoxList  runat="server" CssClass="CheckBoxListDiv"    SkinID="cblDefault"  />
+
+<WebControls:ExButton  runat="server"  Width="100px"   SkinID="ExButton100"/>
+<WebControls:ExButton  runat="server"  Width="150px"   SkinID="ExButton150"/>
+<WebControls:ExButton  runat="server"  Width="200px"   SkinID="ExButton200"/>
+<WebControls:ExButton  runat="server"  Width="265px"   SkinID="ExButton265"/>
+
+<asp:ListBox runat="Server" SkinID="lstSelection250" Width="250" CssClass="ListBox"/>                   
+<asp:ListBox runat="Server" SkinID="lstSelection200" Width="200" CssClass="ListBox"/>                   
+<asp:ListBox runat="Server" SkinID="lstSelection150" Width="150" CssClass="ListBox"/>      
+<asp:ListBox runat="Server" SkinID="ListBox300" Width="300" CssClass="ListBox"/>                   
+
+<telerik:RadListBox runat="Server" SkinID="RadListBox" Width="200" CssClass="ListBox"/>                   
+
+<webControls:ExLinkButton CssClass="LinkButton" runat="server" ></webControls:ExLinkButton>        
+
+<asp:Panel  runat="server" CssClass="ExtendedPanelCapability" SkinID="pnlExtended" />
+<asp:Panel runat="server" ScrollBars="Horizontal" Width="1003px" Height="100%" SkinID="RadGridScrollPanel" ></asp:Panel>     
+<asp:Panel runat="server" ScrollBars="Both" Width="1003px" Height="550px" SkinID="RadGridScrollPanelWithBothScroll" ></asp:Panel>     
+
+<asp:Panel runat="server" CssClass="ModalPopupHoverPanel" SkinID="ModalPopupHoverPanel"></asp:Panel>
+
+<asp:WebPartZone runat="server" PartTitleStyle-CssClass="WebPartTitle" PartStyle-CssClass="WebPart" 
+WebPartVerbRenderMode="TitleBar"  Padding="10" PartChromePadding="0"/>
+
+<asp:FileUpload SkinID="FileUpload200" runat="server" Width="200" />
+
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<telerik:radeditor runat="server" SkinId="RadEditAttributeValue" ContentAreaCssFile="RadEditorContent" EditModes="Design"
+     CssClass="RadEditor" Height="150px" TextMode="MultiLine" 
+     EnableAjaxSkinRendering="true">
+<Tools>
+    <telerik:EditorToolGroup >
+        <telerik:EditorTool Name="Bold" />
+        <telerik:EditorTool Name="Italic" />
+        <telerik:EditorTool Name="Underline" />
+    </telerik:EditorToolGroup>
+</Tools> 
+</telerik:radeditor>
+
+<telerik:radeditor runat="server" SkinId="RadEditNetAccount" ContentAreaCssFile="RadEditorContent" EditModes="Design"
+     Width="300px" Height="150px" CssClass="RadEditor" TextMode="MultiLine" 
+     EnableAjaxSkinRendering="true">
+<Tools>
+    <telerik:EditorToolGroup >
+        <telerik:EditorTool Name="Bold" />
+        <telerik:EditorTool Name="Italic" />
+        <telerik:EditorTool Name="Underline" />
+    </telerik:EditorToolGroup>
+</Tools> 
+</telerik:radeditor>
+
+<webControls:ExGridView runat="server" AutoGenerateColumns="false" 
+    GridLines="none" CssClass="ExRadGrid" Width="100%">
+        <HeaderStyle CssClass="GridHeader"  />
+        <RowStyle CssClass="GridRow" />
+        <AlternatingRowStyle CssClass="GridAlternateRow" />
+        <FooterStyle CssClass="GridFooter" />
+        <SelectedRowStyle CssClass="GridSelectedRow" />
+</webControls:ExGridView>
+
+
+<telerikWebControls:ExRadGrid runat="server" ShowHeader="True" AutoGenerateColumns="false" NoMasterRecordsLabelID="1361"
+    EnableEmbeddedSkins="false" Skin="SkyStemBlueBrown"  GridLines="none" EnableEmbeddedBaseStylesheet="true"  
+    ExportToExcelLabelID="1378"  ExportToExcelImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Excel.gif" 
+    ExportToPDFLabelID="1405" ExportToPDFImageUrl="~/App_Themes/SkyStemBlueBrown/Images/pdf.gif"
+       MinimizeLabelID="2023"  MinimizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Minimize.gif" 
+    MaximizeLabelID="2024" MaximizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Maximize.gif"
+    PrintAllLabelID="1407" PrintAllImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print_all.gif"
+     RefreshLabelID="2097" RefreshImageUrl="~/App_Themes/SkyStemBlueBrown/Images/refresh.gif"
+      AddNewRowLabelID="2106" AddNewRowImageUrl="~/App_Themes/SkyStemBlueBrown/Images/AddNewRow.gif"
+    PrintLabelID="1406" PrintImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print.gif"
+    CustomizeLabelID="1763" CustomizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/PersonalPrefIcon.gif"
+    ApplyFilterLabelID="1936" ApplyFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/FilterIcon.gif"
+    ClearFilterLabelID="1937" ClearFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/ClearFilter.gif"
+    ApplyImportLabelID="1221" ApplyimportImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Import.gif"
+	ApplyAddLabelID="1560" ApplyAddImageUrl="~/App_Themes/SkyStemBlueBrown/Images/add.png"
+	ApplyDeleteLabelID="1564" ApplyDeleteImageUrl="~/App_Themes/SkyStemBlueBrown/Images/del.png"
+	ApplyApproveLabelID="1483" ApplyApproveImageUrl="~/App_Themes/SkyStemBlueBrown/Images/approve.png"
+	ApplyRejectLabelID="1482" ApplyRejectImageUrl="~/App_Themes/SkyStemBlueBrown/Images/reject.png"
+	ApplyDoneLabelID="2590" ApplyDoneImageUrl="~/App_Themes/SkyStemBlueBrown/Images/done.png"
+	ApplyCloseLabelID="1544" ApplyCloseImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Close.png"
+	ApplyHideLabelID="2107" ApplyHideImageUrl="~/App_Themes/SkyStemBlueBrown/Images/hide.png"
+	ApplyUnhideLabelID="2108" ApplyUnhideImageUrl="~/App_Themes/SkyStemBlueBrown/Images/unhide.png" 
+	ApplyEditLabelID="2572" ApplyEditImageUrl="~/App_Themes/SkyStemBlueBrown/Images/BulkEdit.png" 
+	ApplyReopenLabelID="1764" ApplyReopenImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Reopen.png" 
+	ApplyReviewLabelID="2949" ApplyReviewImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Review.png" 
+    ImagesPath="~/App_Themes/SkyStemBlueBrown/Images" 
+    ClientSettings-Selecting-EnableDragToSelectRows="false">
+    <ClientSettings>
+        <Selecting UseClientSelectColumnOnly="true" />
+    </ClientSettings>
+     <GroupingSettings GroupContinuesFormatString="" GroupContinuedFormatString="" GroupByFieldsSeparator="&nbsp;&nbsp;|&nbsp;&nbsp;" />
+    <MasterTableView UseAllDataFields="true" CommandItemDisplay="Top" />
+    <PagerStyle Mode="NumericPages" Position="Bottom" Visible="true" ShowPagerText="true"
+        VerticalAlign="Middle" AlwaysVisible="true" Font-Underline="false"
+        PagerTextFormat="Change page: {4} Record Count: {5}" />
+</telerikWebControls:ExRadGrid>
+
+<telerikWebControls:ExRadGrid runat="server" ShowHeader="True" AutoGenerateColumns="false" NoMasterRecordsLabelID="1361"
+    EnableEmbeddedSkins="false" Skin="SkyStemBlueBrownPrint" SkinID="SkyStemBlueBrownWithoutBorder"  GridLines="none" EnableEmbeddedBaseStylesheet="true"  
+    ExportToExcelLabelID="1378"  ExportToExcelImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Excel.gif" 
+    ExportToPDFLabelID="1405" ExportToPDFImageUrl="~/App_Themes/SkyStemBlueBrown/Images/pdf.gif"
+    PrintAllLabelID="1407" PrintAllImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print_all.gif"
+    PrintLabelID="1406" PrintImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print.gif"
+    CustomizeLabelID="1763" CustomizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/PersonalPrefIcon.gif"
+    ApplyFilterLabelID="1936" ApplyFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/FilterIcon.gif"
+    ClearFilterLabelID="1937" ClearFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/ClearFilter.gif"
+    ImagesPath="~/App_Themes/SkyStemBlueBrown/Images" 
+    ClientSettings-Selecting-EnableDragToSelectRows="false"
+    AllowPaging="false" AllowCustomPaging="false" AllowPrint="false" AllowPrintAll="false" 
+    AllowAddNewRow="false" AllowRefresh="false">
+     <ClientSettings>
+                <Selecting UseClientSelectColumnOnly="true" />
+     </ClientSettings>
+     <GroupingSettings GroupContinuesFormatString="" GroupContinuedFormatString="" GroupByFieldsSeparator="&nbsp;&nbsp;|&nbsp;&nbsp;" />
+    <PagerStyle Mode="NumericPages" Position="Bottom" Visible="true" ShowPagerText="true"
+        VerticalAlign="Middle" AlwaysVisible="true" Font-Underline="false"
+        PagerTextFormat="Change page: {4} Record Count: {5}" />
+</telerikWebControls:ExRadGrid>
+
+
+<telerikWebControls:ExRadGrid runat="server" ShowHeader="True" AutoGenerateColumns="false" NoMasterRecordsLabelID="1361"
+    EnableEmbeddedSkins="false" Skin="SkyStemBlueBrownPrint" SkinID="SkyStemBlueBrownPrint"  GridLines="none" EnableEmbeddedBaseStylesheet="true"  
+    ExportToExcelLabelID="1378"  ExportToExcelImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Excel.gif" 
+    ExportToPDFLabelID="1405" ExportToPDFImageUrl="~/App_Themes/SkyStemBlueBrown/Images/pdf.gif"
+    PrintAllLabelID="1407" PrintAllImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print_all.gif"
+     RefreshLabelID="2097" RefreshImageUrl="~/App_Themes/SkyStemBlueBrown/Images/refresh.gif"
+      AddNewRowLabelID="2106" AddNewRowImageUrl="~/App_Themes/SkyStemBlueBrown/Images/AddNewRow.gif"
+    PrintLabelID="1406" PrintImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print.gif"
+    CustomizeLabelID="1763" CustomizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/PersonalPrefIcon.gif"
+    ApplyFilterLabelID="1936" ApplyFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/FilterIcon.gif"
+    ClearFilterLabelID="1937" ClearFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/ClearFilter.gif"
+    ImagesPath="~/App_Themes/SkyStemBlueBrown/Images" 
+    ClientSettings-Selecting-EnableDragToSelectRows="false"
+    AllowPaging="false" AllowCustomPaging="false" AllowExportToExcel="false" AllowExportToPDF="false" AllowPrint="false" AllowPrintAll="false" >
+     <ClientSettings>
+                <Selecting UseClientSelectColumnOnly="true" />
+     </ClientSettings>
+     <GroupingSettings GroupContinuesFormatString="" GroupContinuedFormatString="" GroupByFieldsSeparator="&nbsp;&nbsp;|&nbsp;&nbsp;" />
+    <MasterTableView CommandItemDisplay="None" />
+    <PagerStyle Mode="NumericPages" Position="Bottom" Visible="true" ShowPagerText="true"
+        VerticalAlign="Middle" AlwaysVisible="true" Font-Underline="false"
+        PagerTextFormat="Change page: {4} Record Count: {5}" />
+</telerikWebControls:ExRadGrid>
+
+<telerik:RadWindowManager runat="server" Skin="Office2007" Behaviors="Close,Resize,Move" 
+    InitialBehaviors="None" Left="" Top="" Modal="true" DestroyOnClose="true" >
+</telerik:RadWindowManager>
+
+<telerikWebControls:ExRadNotification runat="server" Skin="Telerik"></telerikWebControls:ExRadNotification>
+
+<webControls:ExHyperLink SkinID="PopupGLVersion" LabelID="2386" ImageUrl="Images/Popup.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="ImportItemHyperLink" LabelID="1221" ToolTipLabelID ="2038" ImageUrl="Images/Import.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="ViewItemGridHyperLink" LabelID="1803 " ImageUrl="Images/View.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="HistoryHyperlink" ImageUrl="Images/History.gif" ImageAlign="AbsMiddle"  runat="server"/>
+<webControls:ExHyperLink SkinID="ShowDocumentPopupHyperLink"  LabelID="1804" ImageUrl="Images/attach.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="ShowCommentPopupHyperLink"   LabelID="1394" ImageUrl="Images/notes.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="PopupRecFrequency" LabelID="1427" ImageUrl="Images/Popup.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="PopupPackageMatrix" LabelID="1427" ImageUrl="Images/Popup.gif" ImageAlign="AbsMiddle"  runat="server"  />
+<webControls:ExHyperLink SkinID="FlagIcon" LabelID="1821" ImageUrl="Images/FlagRed.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink  SkinID="UnFlagIcon" LabelID="1821" ImageUrl="Images/TransparentGray.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="PrintIcon" LabelID="1406" ImageUrl="Images/print.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="PDFIcon" LabelID="1405" ImageUrl="Images/pdf.gif"  ImageAlign="AbsMiddle" runat="server" />
+
+<webControls:ExHyperLink SkinID="JournalEntryIcon" LabelID="2061" ImageUrl="Images/Book.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="AddNewRule" LabelID="2284" ImageUrl="Images/Add_new_rule.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExHyperLink SkinID="AddNewRuleDisbled" LabelID="2284" ImageUrl="Images/Add_new_rule_disabled.gif"  ImageAlign="AbsMiddle" runat="server" />
+ 
+<webControls:ExImageButton SkinID="ViewItemGridImageButton" ImageUrl="Images/View.gif" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton  SkinID="ViewItemGridCollapsableImageButton" ToolTipLabelID ="1803" ImageUrl="Images/ExpandGlass.gif" CssClass="ToggleExpanded" ImageAlign="AbsMiddle" runat="server"
+ BorderWidth="0" BorderStyle="None" Width="20" Height="17" />
+
+
+<webControls:ExCheckBoxWithLabel SkinID="CheckboxWithLabelBold"  runat="server" CssClassText="CheckboxWithLabelBold" />
+<webControls:ExCheckBoxWithLabel SkinID="CheckboxWithLabel"  runat="server" CssClassText="CheckboxWithLabel" />
+
+<telerik:RadSplitter runat="server" Width="100%"  Height="520px" Skin="SkyStemBlueBrown" EnableEmbeddedSkins="false" />
+<webControls:ExLinkButton CssClass="GridLinkButton" SkinID="GridLinkButton" runat="server" ></webControls:ExLinkButton>        
+<webControls:ExLinkButton SkinID="LinkButtonBold" CssClass="LinkButtonBold" runat="server" ></webControls:ExLinkButton>   
+
+<ajaxToolkit:AutoCompleteExtender runat="server" MinimumPrefixLength="1" CompletionSetCount="20" EnableCaching="true"
+    FirstRowSelected="true" CompletionListHighlightedItemCssClass="AutoCompleteExtenderListItemHighlighed" 
+    CompletionListCssClass="AutoCompleteExtenderList" CompletionListItemCssClass="AutoCompleteExtenderListItem" />
+<webControls:ExCheckBox SkinID="CheckboxWithLabelBold"  runat="server" CssClass="CheckboxWithLabelBold" />
+
+<asp:Image ImageUrl="Images/ArrowTop.gif" AlternateText="" Width="82" height="16" SkinID="ArrowTop"
+                            ImageAlign="AbsBottom" runat="server"/>
+<asp:Image SkinID="BorderHorizontalTop" ImageUrl="images/BorderHorizontalTop.gif" ImageAlign="AbsBottom" runat="server" />
+<asp:Image SkinID="BorderTopLeft" ImageUrl="images/BorderTopLeft.gif" ImageAlign="AbsBottom" runat="server" />
+<asp:Image SkinID="BorderVerticalLeft" ImageUrl="images/BorderVerticalLeft.gif" runat="server" />
+<asp:Image SkinID="BorderVerticalRight" ImageUrl="images/BorderVerticalRight.gif" runat="server" />
+<asp:Image SkinID="BorderHorizontalBottom" ImageUrl="images/BorderHorizontalBottom.gif" runat="server" />
+
+<webControls:ExImageButton SkinID="ImportitemImageButton" ImageUrl="Images/Import.gif"  ImageAlign="AbsMiddle" runat="server"
+ BorderWidth="0" BorderStyle="None" Width="20" Height="17" />
+ <webControls:ExImageButton SkinID="HistoryImageButton" ImageUrl="Images/History.gif"  ImageAlign="AbsMiddle" runat="server"
+ BorderWidth="0" BorderStyle="None"  />
+  <webControls:ExImageButton SkinID="attachImageButton" ImageUrl="Images/attach.gif"  ImageAlign="AbsMiddle" runat="server"
+ BorderWidth="0" BorderStyle="None"  />
+ 
+   <webControls:ExImageButton SkinID="notesImageButton" ImageUrl="Images/notes.gif"  ImageAlign="AbsMiddle" runat="server"
+ BorderWidth="0" BorderStyle="None"  />
+ 
+ 
+ <webControls:ExHyperLink SkinID="MatchSetError" LabelID="2372" ImageUrl="Images/ErrorIcon.gif"  ImageAlign="AbsMiddle" runat="server" />
+ 
+ <telerikWebControls:ExRadGrid runat="server" ShowHeader="True" AutoGenerateColumns="false" NoMasterRecordsLabelID="1361"
+    EnableEmbeddedSkins="false" Skin="SkyStemBlueBrownPrint" SkinID="SkyStemBlueBrownRecItems"  GridLines="none" EnableEmbeddedBaseStylesheet="true"  
+    ExportToExcelLabelID="1378"  ExportToExcelImageUrl="~/App_Themes/SkyStemBlueBrown/Images/Excel.gif" 
+    ExportToPDFLabelID="1405" ExportToPDFImageUrl="~/App_Themes/SkyStemBlueBrown/Images/pdf.gif"
+    PrintAllLabelID="1407" PrintAllImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print_all.gif"
+    PrintLabelID="1406" PrintImageUrl="~/App_Themes/SkyStemBlueBrown/Images/print.gif"
+    CustomizeLabelID="1763" CustomizeImageUrl="~/App_Themes/SkyStemBlueBrown/Images/PersonalPrefIcon.gif"
+    ApplyFilterLabelID="1936" ApplyFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/FilterIcon.gif"
+    ClearFilterLabelID="1937" ClearFilterImageUrl="~/App_Themes/SkyStemBlueBrown/Images/ClearFilter.gif"
+    ImagesPath="~/App_Themes/SkyStemBlueBrown/Images">
+     <GroupingSettings GroupContinuesFormatString="" GroupContinuedFormatString="" GroupByFieldsSeparator="&nbsp;&nbsp;|&nbsp;&nbsp;" />
+    <PagerStyle Mode="NumericPages" Position="Bottom" Visible="true" ShowPagerText="true"
+        VerticalAlign="Middle" AlwaysVisible="true" Font-Underline="false"
+        PagerTextFormat="Change page: {4} Record Count: {5}" />
+</telerikWebControls:ExRadGrid>
+ 
+
+     
+

@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LoginMasterPage.master.cs"
+    Inherits="MasterPages_LoginMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register TagPrefix="UserControls" TagName="Footer" Src="~/UserControls/Footer.ascx" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        if (window != window.top) window.top.location.href = window.location.href;
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%;"
+        border="0">
+        <tr>
+            <td align="center" valign="top">
+                <table cellpadding="0" cellspacing="0" class="BodyLogin" border="0">
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td valign="top" align="center" >
+                            <table cellpadding="0" cellspacing="0" style="width: 910px" border="0">
+                                <tr>
+                                    <td align="left">
+                                        <asp:Image ID="Image1" runat="server" SkinID="SkyStemLogoLogin" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <asp:ContentPlaceHolder ID="cphContents" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="18px">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="FooterLogin">
+                                        <UserControls:Footer ID="ucFooter" runat="server" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

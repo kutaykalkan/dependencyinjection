@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkyStem.ART.Client</RootNamespace>
+    <AssemblyName>ARTClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Adapdev, Version=2.0.3.0, Culture=neutral, PublicKeyToken=57e06bdbfcf2fd11, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Adapdev.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\ARTConstants.cs" />
+    <Compile Include="Data\ARTEnums.cs" />
+    <Compile Include="Data\ModelHelper.cs" />
+    <Compile Include="Exception\ARTException.cs" />
+    <Compile Include="Exception\ARTSystemException.cs" />
+    <Compile Include="IServices\BulkExportToExcel\IBulkExportToExcel.cs" />
+    <Compile Include="IServices\IJournalEntry.cs" />
+    <Compile Include="IServices\IQualityScoreReports.cs" />
+    <Compile Include="IServices\IAttributeConfiguration.cs" />
+    <Compile Include="IServices\IRecControlCheckList.cs" />
+    <Compile Include="IServices\ISystemLockdown.cs" />
+    <Compile Include="IServices\ITaskMaster.cs" />
+    <Compile Include="IServices\IWizard.cs" />
+    <Compile Include="IServices\MappingUpload\IMappingUpload.cs" />
+    <Compile Include="IServices\Matching\IMatching.cs" />
+    <Compile Include="IServices\IPackage.cs" />
+    <Compile Include="IServices\IAccount.cs" />
+    <Compile Include="IServices\IAging.cs" />
+    <Compile Include="IServices\IAlert.cs" />
+    <Compile Include="IServices\IAppSetting.cs" />
+    <Compile Include="IServices\IAttachment.cs" />
+    <Compile Include="IServices\ICertification.cs" />
+    <Compile Include="IServices\ICertificationStatus.cs" />
+    <Compile Include="IServices\IColumnOperatorMapping.cs" />
+    <Compile Include="IServices\ICompany.cs" />
+    <Compile Include="IServices\IDashboard.cs" />
+    <Compile Include="IServices\IDataImport.cs" />
+    <Compile Include="IServices\IGeography.cs" />
+    <Compile Include="IServices\IGeographyStructureHdr.cs" />
+    <Compile Include="IServices\IGLData.cs" />
+    <Compile Include="IServices\IGLDataRecItemSchedule.cs" />
+    <Compile Include="IServices\IGLDataWriteOnOff.cs" />
+    <Compile Include="IServices\IGLDataRecItem.cs" />
+    <Compile Include="IServices\IHolidayCalendar.cs" />
+    <Compile Include="IServices\IFSCaption.cs" />
+    <Compile Include="IServices\IOperator.cs" />
+    <Compile Include="IServices\IReason.cs" />
+    <Compile Include="IServices\IReconciliation.cs" />
+    <Compile Include="IServices\IReconciliationCategory.cs" />
+    <Compile Include="IServices\IReconciliationPeriod.cs" />
+    <Compile Include="IServices\IReconciliationStatus.cs" />
+    <Compile Include="IServices\IReport.cs" />
+    <Compile Include="IServices\IReportArchive.cs" />
+    <Compile Include="IServices\IReportParameter.cs" />
+    <Compile Include="IServices\IReportParameterKey.cs" />
+    <Compile Include="IServices\IRiskRating.cs" />
+    <Compile Include="IServices\IRole.cs" />
+    <Compile Include="IServices\ISubledger.cs" />
+    <Compile Include="IServices\IUnexplainedVariance.cs" />
+    <Compile Include="IServices\IUser.cs" />
+    <Compile Include="IServices\IUtility.cs" />
+    <Compile Include="IServices\IWeekDay.cs" />
+    <Compile Include="IServices\QualityScore\IQualityScore.cs" />
+    <Compile Include="Model\AccountAttributeMstInfo.cs" />
+    <Compile Include="Model\AccountAttributeWarningInfo.cs" />
+    <Compile Include="Model\AccountCertificationStatusInfo.cs" />
+    <Compile Include="Model\AccountCountInfo.cs" />
+    <Compile Include="Model\AccountStatusInfo.cs" />
+    <Compile Include="Model\AgingCategoryMstInfo.cs" />
+    <Compile Include="Model\AppSettingsInfo.cs" />
+    <Compile Include="Model\AppUserInfo.cs" />
+    <Compile Include="Model\AssignedAccountCountInfo.cs" />
+    <Compile Include="Model\Base\AppSettingsInfoBase.cs" />
+    <Compile Include="Model\Base\CalculationFrequencyMstInfoBase.cs" />
+    <Compile Include="Model\Base\ColumnOperatorMappingInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyAnalyticsModuleInfoBase.cs" />
+    <Compile Include="Model\Base\AutoSaveAttributeValueInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyFeatureInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyGLToolColumnInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyJEWriteOffOnApproverInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyRecPeriodSetHdrInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyRecPeriodSetTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyReportInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyAttributeConfigInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyWeekDayInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportMessageDetailInfoBase.cs" />
+    <Compile Include="Model\Base\RecItemCommentInfoBase.cs" />
+    <Compile Include="Model\Base\ReportColumnInfoBase.cs" />
+    <Compile Include="Model\Base\DataTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\DataTypeOperatorInfoBase.cs" />
+    <Compile Include="Model\Base\ExceptionTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\ExceptionByFSCaptionNetAccountInfo.cs" />
+    <Compile Include="Model\Base\FeatureMstInfoBase.cs" />
+    <Compile Include="Model\Base\FinancialYearHdrInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataRecurringItemScheduleIntervalDetailInfoBase.cs" />
+    <Compile Include="Model\Base\MappingUploadInfoBase.cs" />
+    <Compile Include="Model\Base\MappingUploadMstInfoBase.cs" />
+    <Compile Include="Model\Base\NetAccountAttributeValueInfoBase.cs" />
+    <Compile Include="Model\Base\OperatorMstInfoBase.cs" />
+    <Compile Include="Model\Base\PackageFeatureInfoBase.cs" />
+    <Compile Include="Model\Base\PackageMstInfoBase.cs" />
+    <Compile Include="Model\Base\PackageReportInfoBase.cs" />
+    <Compile Include="Model\Base\PackageRoleInfoBase.cs" />
+    <Compile Include="Model\Base\QualityScoreChecklistInfoBase.cs" />
+    <Compile Include="Model\Base\RangeOfScoreMstInfoBase.cs" />
+    <Compile Include="Model\Base\RecItemColumnMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReportParameterKeyMstInfoBase.cs" />
+    <Compile Include="Model\Base\RoleAnalyticsModuleInfoBase.cs" />
+    <Compile Include="Model\Base\AttributeConfigMstInfoBase.cs" />
+    <Compile Include="Model\Base\SubledgerDataArchiveInfoBase.cs" />
+    <Compile Include="Model\Base\ThresholdTypeMstBase.cs" />
+    <Compile Include="Model\Base\UserAccountInfoBase.cs" />
+    <Compile Include="Model\Base\WeekDayMstInfoBase.cs" />
+    <Compile Include="Model\Base\WizardStepDependencyInfoBase.cs" />
+    <Compile Include="Model\Base\WizardStepInfoBase.cs" />
+    <Compile Include="Model\Base\WizardTypeInfoBase.cs" />
+    <Compile Include="Model\BulkExportExcel\BulkExportToExcelInfo.cs" />
+    <Compile Include="Model\CalculationFrequencyMstInfo.cs" />
+    <Compile Include="Model\CapabilityAttributeValueInfo.cs" />
+    <Compile Include="Model\CertificationStatusInfo.cs" />
+    <Compile Include="Model\ColumnOperatorMappingInfo.cs" />
+    <Compile Include="Model\CompanyAnalyticsModuleInfo.cs" />
+    <Compile Include="Model\AutoSaveAttributeValueInfo.cs" />
+    <Compile Include="Model\CompanyDatabase\Base\CompanyUserInfoBase.cs" />
+    <Compile Include="Model\CompanyDatabase\Base\ServerCompanyInfoBase.cs" />
+    <Compile Include="Model\CompanyDatabase\Base\ServerMstInfoBase.cs" />
+    <Compile Include="Model\CompanyDatabase\Base\UserTransitInfoBase.cs" />
+    <Compile Include="Model\CompanyDatabase\CompanyUserInfo.cs" />
+    <Compile Include="Model\CompanyDatabase\ServerCompanyInfo.cs" />
+    <Compile Include="Model\CompanyDatabase\ServerMstInfo.cs" />
+    <Compile Include="Model\CompanyDatabase\UserTransitInfo.cs" />
+    <Compile Include="Model\CompanyFeatureInfo.cs" />
+    <Compile Include="Model\CompanyGLToolColumnInfo.cs" />
+    <Compile Include="Model\CompanyJEWriteOffOnApproverInfo.cs" />
+    <Compile Include="Model\CompanyRecPeriodSetHdrInfo.cs" />
+    <Compile Include="Model\CompanyRecPeriodSetTypeMstInfo.cs" />
+    <Compile Include="Model\CompanyReportInfo.cs" />
+    <Compile Include="Model\CompanyAttributeConfigInfo.cs" />
+    <Compile Include="Model\CompanyWeekDayInfo.cs" />
+    <Compile Include="Model\DataImportMessageDetailInfo.cs" />
+    <Compile Include="Model\DataImportMessageInfo.cs" />
+    <Compile Include="Model\DataImportScheduleInfo.cs" />
+    <Compile Include="Model\DataImportWarningPreferencesAuditInfo.cs" />
+    <Compile Include="Model\DataImportWarningPreferencesInfo.cs" />
+    <Compile Include="Model\DaysTypeInfo.cs" />
+    <Compile Include="Model\FTPServerInfo.cs" />
+    <Compile Include="Model\ImportFieldMstInfo.cs" />
+    <Compile Include="Model\ImportTemplateFieldMappingInfo.cs" />
+    <Compile Include="Model\ImportTemplateFieldsInfo.cs" />
+    <Compile Include="Model\DualLevelReviewTypeMstInfo.cs" />
+    <Compile Include="Model\DueDaysBasisInfo.cs" />
+    <Compile Include="Model\ImportTemplateHdrInfo.cs" />
+    <Compile Include="Model\MultilingualUpload\Base\DataImportMultilingualUploadInfoBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\MultilingualUpload\DataImportMultilingualUploadInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\RCCValidationTypeMstInfo.cs" />
+    <Compile Include="Model\RecControlCheckList\Base\GLDataRecControlCheckListCommentInfoBase.cs" />
+    <Compile Include="Model\RecControlCheckList\Base\GLDataRecControlCheckListInfoBase.cs" />
+    <Compile Include="Model\RecControlCheckList\Base\RecControlCheckListAccountInfoBase.cs" />
+    <Compile Include="Model\RecControlCheckList\Base\RecControlCheckListInfoBase.cs" />
+    <Compile Include="Model\RecControlCheckList\GLDataRecControlCheckListCommentInfo.cs" />
+    <Compile Include="Model\RecControlCheckList\GLDataRecControlCheckListInfo.cs" />
+    <Compile Include="Model\RecControlCheckList\RecControlCheckListAccountInfo.cs" />
+    <Compile Include="Model\RecControlCheckList\RecControlCheckListInfo.cs" />
+    <Compile Include="Model\RecControlCheckList\ReconciliationCheckListStatusInfo.cs" />
+    <Compile Include="Model\RecItemCommentInfo.cs" />
+    <Compile Include="Model\RecItemUpload\Base\DataImportRecItemUploadInfoBase.cs" />
+    <Compile Include="Model\RecItemUpload\DataImportRecItemUploadInfo.cs" />
+    <Compile Include="Model\RecPeriodStatusDetailInfo.cs" />
+    <Compile Include="Model\ReportColumnInfo.cs" />
+    <Compile Include="Model\DashboardExceptionInfo.cs" />
+    <Compile Include="Model\DataTypeMstInfo.cs" />
+    <Compile Include="Model\DataTypeOperatorInfo.cs" />
+    <Compile Include="Model\ExceptionTypeMstInfo.cs" />
+    <Compile Include="Model\FeatureMstInfo.cs" />
+    <Compile Include="Model\FilterCriteria.cs" />
+    <Compile Include="Model\FilterInfo.cs" />
+    <Compile Include="Model\FinancialYearHdrInfo.cs" />
+    <Compile Include="Model\GLDataRecurringItemScheduleIntervalDetailInfo.cs" />
+    <Compile Include="Model\GridInfo\GridDataItemBindingInfo.cs" />
+    <Compile Include="Model\LogInfo.cs" />
+    <Compile Include="Model\MappingUpload\MappingUploadInfo.cs" />
+    <Compile Include="Model\MappingUpload\MappingUploadMasterInfo.cs" />
+    <Compile Include="Model\Matching\Base\MatchingConfigurationInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingConfigurationRecItemColumnInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingConfigurationRuleInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingSourceAccountInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingSourceColumnInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingSourceDataImportHdrInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingSourceDataInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingSourceTypeInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingStatusMstInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchingTypeMstInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetGLDataRecItemInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetHdrInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetMatchingSourceDataImportInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetResultInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetResultWorkspaceInfoBase.cs" />
+    <Compile Include="Model\Matching\Base\MatchSetSubSetCombinationInfoBase.cs" />
+    <Compile Include="Model\Matching\MatchingConfigurationInfo.cs" />
+    <Compile Include="Model\Matching\MatchingConfigurationRecItemColumnInfo.cs" />
+    <Compile Include="Model\Matching\MatchingConfigurationRuleInfo.cs" />
+    <Compile Include="Model\Matching\MatchingSourceAccountInfo.cs" />
+    <Compile Include="Model\Matching\MatchingSourceColumnInfo.cs" />
+    <Compile Include="Model\Matching\MatchingSourceDataImportHdrInfo.cs" />
+    <Compile Include="Model\Matching\MatchingSourceDataInfo.cs" />
+    <Compile Include="Model\Matching\MatchingSourceTypeInfo.cs" />
+    <Compile Include="Model\Matching\MatchingStatusMstInfo.cs" />
+    <Compile Include="Model\Matching\MatchingTypeMstInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetGLDataRecItemInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetHdrInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetMatchingSourceDataImportInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetResultInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetResultWorkspaceInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetSubSetCombinationInfo.cs" />
+    <Compile Include="Model\Matching\MatchSetSubSetCombinationInfoForNetAmountCalculation.cs" />
+    <Compile Include="Model\NetAccountAttributeValueInfo.cs" />
+    <Compile Include="Model\OpenItemStatusInfo.cs" />
+    <Compile Include="Model\OperatorMstInfo.cs" />
+    <Compile Include="Model\PackageFeatureInfo.cs" />
+    <Compile Include="Model\PackageMstInfo.cs" />
+    <Compile Include="Model\PackageReportInfo.cs" />
+    <Compile Include="Model\PackageRoleInfo.cs" />
+    <Compile Include="Model\QualityScoreChecklistInfo.cs" />
+    <Compile Include="Model\QualityScore\Base\CompanyQualityScoreInfoBase.cs" />
+    <Compile Include="Model\QualityScore\Base\GLDataQualityScoreInfoBase.cs" />
+    <Compile Include="Model\QualityScore\Base\QualityScoreMstInfoBase.cs" />
+    <Compile Include="Model\QualityScore\Base\QualityScoreStatusMstInfoBase.cs" />
+    <Compile Include="Model\QualityScore\CompanyQualityScoreInfo.cs" />
+    <Compile Include="Model\QualityScore\GLDataQualityScoreInfo.cs" />
+    <Compile Include="Model\QualityScore\QualityScoreMstInfo.cs" />
+    <Compile Include="Model\QualityScore\QualityScoreStatusMstInfo.cs" />
+    <Compile Include="Model\RangeOfScoreMstInfo.cs" />
+    <Compile Include="Model\RecItemColumnMstInfo.cs" />
+    <Compile Include="Model\ReportParameterKeyMstInfo.cs" />
+    <Compile Include="Model\ReconciliationStatusFSCaptionInfo.cs" />
+    <Compile Include="Model\Report\AccountAttributeChangeReportInfo.cs" />
+    <Compile Include="Model\Report\CertificationTrackingReportInfo.cs" />
+    <Compile Include="Model\Report\AccountOwnershipReportInfo.cs" />
+    <Compile Include="Model\Report\CompletionDateReportInfo.cs" />
+    <Compile Include="Model\Report\ExceptionStatusReportInfo.cs" />
+    <Compile Include="Model\Report\DelinquentAccountByUserReport.cs" />
+    <Compile Include="Model\Report\NewAccountReportInfo.cs" />
+    <Compile Include="Model\Report\OpenItemsReportInfo.cs" />
+    <Compile Include="Model\Report\QualityScoreReportInfo.cs" />
+    <Compile Include="Model\Report\ReconciliationStatusCountReportInfo.cs" />
+    <Compile Include="Model\Report\AccountStatusReportInfo.cs" />
+    <Compile Include="Model\Report\IncompleteAccountAttributeReportInfo.cs" />
+    <Compile Include="Model\Report\ReviewNotesReportInfo.cs" />
+    <Compile Include="Model\Report\TaskCompletionReportInfo.cs" />
+    <Compile Include="Model\Report\UnassignedAccountsReportInfo.cs" />
+    <Compile Include="Model\Base\AgingCategoryMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReportArchiveInfoBase.cs" />
+    <Compile Include="Model\Base\ReportArchiveParameterInfoBase.cs" />
+    <Compile Include="Model\IncompleteAttributeInfo.cs" />
+    <Compile Include="Model\ReportArchiveInfo.cs" />
+    <Compile Include="Model\ReportArchiveParameterInfo.cs" />
+    <Compile Include="Model\ReconciledAccountCountBalanceInfo.cs" />
+    <Compile Include="Model\AccountHdrInfo.cs" />
+    <Compile Include="Model\AccountReconciliationPeriodInfo.cs" />
+    <Compile Include="Model\AccountSearchCriteria.cs" />
+    <Compile Include="Model\AccountTypeMstInfo.cs" />
+    <Compile Include="Model\AddressInfo.cs" />
+    <Compile Include="Model\AlertGenerationLocationMstInfo.cs" />
+    <Compile Include="Model\AlertMstInfo.cs" />
+    <Compile Include="Model\AlertResponseTypeMstInfo.cs" />
+    <Compile Include="Model\AlertScheduleTypeMstInfo.cs" />
+    <Compile Include="Model\AlertTypeMstInfo.cs" />
+    <Compile Include="Model\AttachmentInfo.cs" />
+    <Compile Include="Model\Base\AccountHdrInfoBase.cs" />
+    <Compile Include="Model\Base\AccountReconciliationPeriodInfoBase.cs" />
+    <Compile Include="Model\Base\AccountTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\AlertGenerationLocationMstInfoBase.cs" />
+    <Compile Include="Model\Base\AlertMstInfoBase.cs" />
+    <Compile Include="Model\Base\AlertResponseTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\AlertScheduleTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\AlertTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\AttachmentInfoBase.cs" />
+    <Compile Include="Model\Base\CapabilityMstInfoBase.cs" />
+    <Compile Include="Model\Base\CertificationSignOffInfoBase.cs" />
+    <Compile Include="Model\Base\CertificationStatusMstInfoBase.cs" />
+    <Compile Include="Model\Base\CertificationTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\CertificationVerbiageInfoBase.cs" />
+    <Compile Include="Model\Base\ColumnMstInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyAlertDetailInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyAlertDetailUserInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyAlertInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyCapabilityInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyHdrInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyRoleInfoBase.cs" />
+    <Compile Include="Model\Base\CompanySettingInfoBase.cs" />
+    <Compile Include="Model\Base\CompanySystemReconciliationRuleInfoBase.cs" />
+    <Compile Include="Model\Base\CompanyUnexplainedVarianceThresholdInfoBase.cs" />
+    <Compile Include="Model\Base\ContactInfoBase.cs" />
+    <Compile Include="Model\Base\CurrencyCodeInfoBase.cs" />
+    <Compile Include="Model\Base\DashboardMstInfoBase.cs" />
+    <Compile Include="Model\Base\DashboardRoleInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportFailureMessageInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportHdrInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportStatusMstInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportTypeCapabilityInfoBase.cs" />
+    <Compile Include="Model\Base\DataImportTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\DateBasisMstInfoBase.cs" />
+    <Compile Include="Model\Base\DerivedCalculationSupportingDetailInfoBase.cs" />
+    <Compile Include="Model\Base\DynamicPlaceholderMstInfoBase.cs" />
+    <Compile Include="Model\Base\DynamicPlaceholderTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\ExchangeRateInfoBase.cs" />
+    <Compile Include="Model\Base\FSCaptionHdrInfoBase.cs" />
+    <Compile Include="Model\Base\FSCaptionMaterialityInfoBase.cs" />
+    <Compile Include="Model\Base\GeographyClassMstInfoBase.cs" />
+    <Compile Include="Model\Base\GeographyObjectHdrInfoBase.cs" />
+    <Compile Include="Model\Base\GeographyStructureHdrInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataHdrInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataReconciliationSubmissionDateInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataReviewNoteDetailInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataReviewNoteHdrInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataRecurringItemScheduleInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataRoleCertificationDateInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataStatusInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataUnexplainedVarianceInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataWriteOnOffInfoBase.cs" />
+    <Compile Include="Model\Base\GLDataRecItemInfoBase.cs" />
+    <Compile Include="Model\Base\GridColumnInfoBase.cs" />
+    <Compile Include="Model\Base\GridMstInfoBase.cs" />
+    <Compile Include="Model\Base\HolidayCalendarInfoBase.cs" />
+    <Compile Include="Model\Base\MandatoryReportSignOffInfoBase.cs" />
+    <Compile Include="Model\Base\MaterialityTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\MenuCapabilityInfoBase.cs" />
+    <Compile Include="Model\Base\MenuMstInfoBase.cs" />
+    <Compile Include="Model\Base\MenuRoleInfoBase.cs" />
+    <Compile Include="Model\Base\MultilingualInfo.cs" />
+    <Compile Include="Model\Base\NetAccountHdrInfoBase.cs" />
+    <Compile Include="Model\Base\ReasonMstInfoBase.cs" />
+    <Compile Include="Model\Base\ParameterMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationCategoryMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationCategoryTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationFrequencyHdrInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationFrequencyMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationFrequencyReconciliationperiodinfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationPeriodInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationPeriodStatusMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationStatusMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReconciliationTemplateMstInfoBase.cs" />
+    <Compile Include="Model\Base\RecurringItemScheduleInfoBase.cs" />
+    <Compile Include="Model\Base\RecurringItemScheduleReconciliationPeriodInfoBase.cs" />
+    <Compile Include="Model\Base\ReportMstInfoBase.cs" />
+    <Compile Include="Model\Base\ReportParameterInfoBase.cs" />
+    <Compile Include="Model\Base\ReportSignOffStatusInfoBase.cs" />
+    <Compile Include="Model\Base\ReportTypeMstInfoBase.cs" />
+    <Compile Include="Model\Base\RiskRatingMstInfoBase.cs" />
+    <Compile Include="Model\Base\RiskRatingReconciliationFrequencyInfoBase.cs" />
+    <Compile Include="Model\Base\RiskRatingReconciliationPeriodInfoBase.cs" />
+    <Compile Include="Model\Base\RoleMandatoryReportInfoBase.cs" />
+    <Compile Include="Model\Base\RoleMstInfoBase.cs" />
+    <Compile Include="Model\Base\RoleReconciliationDueDateInfoBase.cs" />
+    <Compile Include="Model\Base\RoleReportInfoBase.cs" />
+    <Compile Include="Model\Base\SubledgerDataInfoBase.cs" />
+    <Compile Include="Model\Base\SubledgerSourceInfoBase.cs" />
+    <Compile Include="Model\Base\SysdiagramsInfoBase.cs" />
+    <Compile Include="Model\Base\SystemReconciliationRuleMstInfoBase.cs" />
+    <Compile Include="Model\Base\UserFavoriteReportInfoBase.cs" />
+    <Compile Include="Model\Base\UserGeographyObjectInfoBase.cs" />
+    <Compile Include="Model\Base\UserGridColumnInfoBase.cs" />
+    <Compile Include="Model\Base\UserHdrInfoBase.cs" />
+    <Compile Include="Model\Base\UserMyReportInfoBase.cs" />
+    <Compile Include="Model\Base\UserMyReportSavedReportInfoBase.cs" />
+    <Compile Include="Model\Base\UserMyReportSavedReportParameterInfoBase.cs" />
+    <Compile Include="Model\Base\UserRoleInfoBase.cs" />
+    <Compile Include="Model\CapabilityMstInfo.cs" />
+    <Compile Include="Model\CertificationSignOffInfo.cs" />
+    <Compile Include="Model\CertificationStatusMstInfo.cs" />
+    <Compile Include="Model\CertificationTypeMstInfo.cs" />
+    <Compile Include="Model\CertificationVerbiageInfo.cs" />
+    <Compile Include="Model\ColumnMstInfo.cs" />
+    <Compile Include="Model\CompanyAlertDetailInfo.cs" />
+    <Compile Include="Model\CompanyAlertDetailUserInfo.cs" />
+    <Compile Include="Model\CompanyAlertInfo.cs" />
+    <Compile Include="Model\CompanyCapabilityInfo.cs" />
+    <Compile Include="Model\CompanyHdrInfo.cs" />
+    <Compile Include="Model\CompanyRoleInfo.cs" />
+    <Compile Include="Model\CompanySettingInfo.cs" />
+    <Compile Include="Model\CompanySystemReconciliationRuleInfo.cs" />
+    <Compile Include="Model\CompanyUnexplainedVarianceThresholdInfo.cs" />
+    <Compile Include="Model\ContactInfo.cs" />
+    <Compile Include="Model\AccountOwnershipStatisticsInfo.cs" />
+    <Compile Include="Model\CurrencyCodeInfo.cs" />
+    <Compile Include="Model\DashboardMstInfo.cs" />
+    <Compile Include="Model\DashboardRoleInfo.cs" />
+    <Compile Include="Model\DataImportFailureMessageInfo.cs" />
+    <Compile Include="Model\DataImportHdrInfo.cs" />
+    <Compile Include="Model\DataImportStatusMstInfo.cs" />
+    <Compile Include="Model\DataImportTypeCapabilityInfo.cs" />
+    <Compile Include="Model\DataImportTypeMstInfo.cs" />
+    <Compile Include="Model\DateBasisMstInfo.cs" />
+    <Compile Include="Model\DerivedCalculationSupportingDetailInfo.cs" />
+    <Compile Include="Model\DummyInfo.cs" />
+    <Compile Include="Model\DynamicPlaceholderMstInfo.cs" />
+    <Compile Include="Model\DynamicPlaceholderTypeMstInfo.cs" />
+    <Compile Include="Model\ExchangeRateInfo.cs" />
+    <Compile Include="Model\FSCaptionHdrInfo.cs" />
+    <Compile Include="Model\FSCaptionMaterialityInfo.cs" />
+    <Compile Include="Model\FSCaptionInfo_ExtendedWithMaterialityInfo.cs" />
+    <Compile Include="Model\GeographyClassMstInfo.cs" />
+    <Compile Include="Model\GeographyObjectHdrInfo.cs" />
+    <Compile Include="Model\GeographyStructureHdrInfo.cs" />
+    <Compile Include="Model\GLDataAndAccountHdrInfo.cs" />
+    <Compile Include="Model\GLDataHdrInfo.cs" />
+    <Compile Include="Model\GLDataReconciliationSubmissionDateInfo.cs" />
+    <Compile Include="Model\GLDataReviewNoteDetailInfo.cs" />
+    <Compile Include="Model\GLDataReviewNoteHdrInfo.cs" />
+    <Compile Include="Model\GLDataRecurringItemScheduleInfo.cs" />
+    <Compile Include="Model\GLDataRoleCertificationDateInfo.cs" />
+    <Compile Include="Model\GLDataStatusInfo.cs" />
+    <Compile Include="Model\GLDataUnexplainedVarianceInfo.cs" />
+    <Compile Include="Model\GLDataWriteOnOffInfo.cs" />
+    <Compile Include="Model\GLDataRecItemInfo.cs" />
+    <Compile Include="Model\GridColumnInfo.cs" />
+    <Compile Include="Model\GridMstInfo.cs" />
+    <Compile Include="Model\HolidayCalendarInfo.cs" />
+    <Compile Include="Model\MandatoryReportSignOffInfo.cs" />
+    <Compile Include="Model\MaterialityTypeMstInfo.cs" />
+    <Compile Include="Model\MenuCapabilityInfo.cs" />
+    <Compile Include="Model\MenuMstInfo.cs" />
+    <Compile Include="Model\MenuRoleInfo.cs" />
+    <Compile Include="Model\NetAccountHdrInfo.cs" />
+    <Compile Include="Model\Base\OrganizationalHierarchyInfo.cs" />
+    <Compile Include="Model\ReasonMstInfo.cs" />
+    <Compile Include="Model\ParameterMstInfo.cs" />
+    <Compile Include="Model\ReconciliationArchiveInfo.cs" />
+    <Compile Include="Model\ReconciliationCategoryMstInfo.cs" />
+    <Compile Include="Model\ReconciliationCategoryTypeMstInfo.cs" />
+    <Compile Include="Model\ReconciliationFrequencyHdrInfo.cs" />
+    <Compile Include="Model\ReconciliationFrequencyMstInfo.cs" />
+    <Compile Include="Model\ReconciliationFrequencyReconciliationperiodInfo.cs" />
+    <Compile Include="Model\ReconciliationPeriodInfo.cs" />
+    <Compile Include="Model\ReconciliationPeriodStatusMstInfo.cs" />
+    <Compile Include="Model\ReconciliationStatusMstInfo.cs" />
+    <Compile Include="Model\ReconciliationTemplateMstInfo.cs" />
+    <Compile Include="Model\ReconciliationTrackingInfo.cs" />
+    <Compile Include="Model\RecurringItemScheduleInfo.cs" />
+    <Compile Include="Model\RecurringItemScheduleReconciliationPeriodInfo.cs" />
+    <Compile Include="Model\ReportActivityInfo.cs" />
+    <Compile Include="Model\ReportMstInfo.cs" />
+    <Compile Include="Model\ReportParameterInfo.cs" />
+    <Compile Include="Model\ReportSavedInfo.cs" />
+    <Compile Include="Model\Report\ReportSearchCriteria.cs" />
+    <Compile Include="Model\ReportSignOffStatusInfo.cs" />
+    <Compile Include="Model\ReportTypeMstInfo.cs" />
+    <Compile Include="Model\RiskRatingMstInfo.cs" />
+    <Compile Include="Model\RiskRatingReconciliationFrequencyInfo.cs" />
+    <Compile Include="Model\RiskRatingReconciliationPeriodInfo.cs" />
+    <Compile Include="Model\RoleAnalyticsModuleInfo.cs" />
+    <Compile Include="Model\AttributeConfigMstInfo.cs" />
+    <Compile Include="Model\RoleMandatoryReportInfo.cs" />
+    <Compile Include="Model\RoleMstInfo.cs" />
+    <Compile Include="Model\RoleReconciliationDueDateInfo.cs" />
+    <Compile Include="Model\RoleReportInfo.cs" />
+    <Compile Include="Model\RoleReportInfo_ExtendedWithReportName.cs" />
+    <Compile Include="Model\Report\UnusualBalancesReportInfo.cs" />
+    <Compile Include="Model\SubledgerDataArchiveInfo.cs" />
+    <Compile Include="Model\SubledgerDataInfo.cs" />
+    <Compile Include="Model\SubledgerSourceInfo.cs" />
+    <Compile Include="Model\SysdiagramsInfo.cs" />
+    <Compile Include="Model\SystemLockdown\Base\SystemLockdownInfoBase.cs" />
+    <Compile Include="Model\SystemLockdown\Base\SystemLockdownReasonMstInfoBase.cs" />
+    <Compile Include="Model\SystemLockdown\SystemLockdownInfo.cs" />
+    <Compile Include="Model\SystemLockdown\SystemLockdownReasonMstInfo.cs" />
+    <Compile Include="Model\SystemReconciliationRuleMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskActionTypeMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskAttributeMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskAttributeRecPeriodSetHdrInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskAttributeValueInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskCategoryMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskCompletionStatusMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskDetailInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskDetailReviewNoteDetailInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskDetailReviewNoteHdrInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskDetailStatusInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskHdrInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskListHdrInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskRecurrenceTypeMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskStatusMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\Base\TaskTypeMstInfoBase.cs" />
+    <Compile Include="Model\TaskMaster\TaskActionTypeMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskActionTypeTaskSatusInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskAttributeMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskAttributeRecPeriodSetHdrInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskAttributeValueInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskCategoryMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskCompletionStatusMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskCustomFieldInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskDetailInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskDetailReviewNoteDetailInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskDetailReviewNoteHdrInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskDetailStatusInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskHdrInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskListHdrInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskRecurrenceTypeMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskStatusCountInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskStatusMstInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskSubListHdrInfo.cs" />
+    <Compile Include="Model\TaskMaster\TaskTypeMstInfo.cs" />
+    <Compile Include="Model\ThresholdTypeMst.cs" />
+    <Compile Include="Model\UnAssignedAccountInfo.cs" />
+    <Compile Include="Model\UserAccountInfo.cs" />
+    <Compile Include="Model\UserFavoriteReportInfo.cs" />
+    <Compile Include="Model\UserFTPConfiguration.cs" />
+    <Compile Include="Model\UserGeographyObjectInfo.cs" />
+    <Compile Include="Model\UserGLDataFlagInfo.cs" />
+    <Compile Include="Model\UserGridColumnInfo.cs" />
+    <Compile Include="Model\UserHdrInfo.cs" />
+    <Compile Include="Model\UserLockdownDetailInfo.cs" />
+    <Compile Include="Model\UserMyReportInfo.cs" />
+    <Compile Include="Model\UserMyReportSavedReportInfo.cs" />
+    <Compile Include="Model\UserMyReportSavedReportParameterInfo.cs" />
+    <Compile Include="Model\UserRoleInfo.cs" />
+    <Compile Include="Model\UserStatusDetailInfo.cs" />
+    <Compile Include="Model\WeekDayMstInfo.cs" />
+    <Compile Include="Model\WizardStepDependencyInfo.cs" />
+    <Compile Include="Model\WizardStepInfo.cs" />
+    <Compile Include="Model\WizardTypeInfo.cs" />
+    <Compile Include="Params\AutoSaveAttributeParamInfo.cs" />
+    <Compile Include="Params\CompanyConfigurationParamInfo.cs" />
+    <Compile Include="Params\DataImportParamInfo.cs" />
+    <Compile Include="Params\GLDataParamInfo.cs" />
+    <Compile Include="Params\MappingUpload\MappingUploadParamInfo.cs" />
+    <Compile Include="Params\Matching\MatchingParamInfo.cs" />
+    <Compile Include="Params\MenuParamInfo.cs" />
+    <Compile Include="Params\NetAccountParamInfo.cs" />
+    <Compile Include="Params\NetAccountSearchParamInfo.cs" />
+    <Compile Include="Params\ParamInfoBase.cs" />
+    <Compile Include="Params\QualityScore\QualityScoreParamInfo.cs" />
+    <Compile Include="Params\RecItemUpload\RecItemUploadParamInfo.cs" />
+    <Compile Include="Params\ReportParameterParamInfo.cs" />
+    <Compile Include="Params\ReportParamInfo.cs" />
+    <Compile Include="Params\AttributeConfigParamInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARTService", "ARTService\ARTService.csproj", "{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARTShared", "..\ARTShared\ARTShared.csproj", "{5C171043-32E1-4CEE-A8DE-45701692402E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARTApp", "..\ARTApp\ARTApp.csproj", "{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARTClient", "..\ARTClient\ARTClient.csproj", "{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Debug|x64.ActiveCfg = Debug|x64
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Debug|x86.Build.0 = Debug|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Release|x64.ActiveCfg = Release|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Release|x86.ActiveCfg = Release|Any CPU
+		{B79F8F6C-F951-4952-B54D-EDE89E4F2D76}.Release|x86.Build.0 = Release|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Release|x64.ActiveCfg = Release|Any CPU
+		{5C171043-32E1-4CEE-A8DE-45701692402E}.Release|x86.ActiveCfg = Release|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Release|x64.ActiveCfg = Release|Any CPU
+		{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Release|x64.ActiveCfg = Release|Any CPU
+		{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.31.29.143:8080/tfs/artprojectscollection
+		SccProjectUniqueName0 = ..\\ARTShared\\ARTShared.csproj
+		SccProjectName0 = ../ARTShared
+		SccLocalPath0 = ..\\ARTShared
+		SccProjectUniqueName1 = ..\\ARTApp\\ARTApp.csproj
+		SccProjectName1 = ../ARTApp
+		SccLocalPath1 = ..\\ARTApp
+		SccProjectUniqueName2 = ..\\ARTClient\\ARTClient.csproj
+		SccProjectName2 = ../ARTClient
+		SccLocalPath2 = ..\\ARTClient
+		SccLocalPath3 = .
+		SccProjectUniqueName4 = ARTService\\ARTService.csproj
+		SccProjectName4 = ARTService
+		SccLocalPath4 = ARTService
+	EndGlobalSection
+EndGlobal

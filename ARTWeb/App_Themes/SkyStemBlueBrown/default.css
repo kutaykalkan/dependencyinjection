@@ -1,0 +1,2210 @@
+@import url("Editor.css");
+
+html, body, form
+{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+/*------------- Main Heading Background -------------*/
+.AccountMessageBar
+{
+    background: url(images/AccountMessageBar.gif) repeat-x top;
+    height: 25px;
+    border: solid 1px #90d2ff;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0px;
+}
+/* Commented by Apoorv
+/*-------------Active Links-------------
+a
+{
+	font-family: arial;
+	font-size: 11px;
+	color: #6c4b2d;
+	text-decoration: underline;
+	font-weight: normal;
+}
+/*-------------Active Links MouseOver-------------
+a:hover
+{
+	font-family: arial;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: underline;
+	font-weight: normal;
+	background-color:Silver;
+}
+*/
+/*------------- B -------------*/
+body
+{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: arial;
+    background-color: #E8E7EC;
+}
+.BodyLogin
+{
+    background: url(images/BodyBgLogin.gif) repeat-x bottom;
+    vertical-align: top;
+    width: 1003px;
+}
+table
+{
+    margin: 0px;
+    padding: 0px;
+}
+/*------------- Brown Big Heading -------------*/
+.BrownArial18
+{
+    font-family: arial;
+    font-size: 18px;
+    color: #6c4b2d;
+    text-decoration: underline;
+    font-weight: bold;
+}
+/*------------- Brown Big Heading Mouseover Effect -------------*/
+.BrownArial18:hover
+{
+    font-family: arial;
+    font-size: 18px;
+    color: #6c4b2d;
+    text-decoration: none;
+    font-weight: bold;
+}
+/*------------- Brown Heading fontsize 13 -------------*/
+.BrownArial13
+{
+    font-family: Arial;
+    font-size: 13px;
+    color: #6c4b2d;
+    text-decoration: none;
+    font-weight: bold;
+}
+/*------------- Black Arial Font 13 bold  for user name password -------------*/
+.BlackArialBold13
+{
+    font-family: Arial;
+    font-size: 13px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+/*------------- Red Arial Font 11 Normal ---------------*/
+.Red11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: normal;
+}
+/*------------- Blue Arial Font 11 Normal -------------*/
+.Blue11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #0f87c5;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.Blue11ArialLeftPaneValue
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #0f87c5;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.ReadOnlyValue
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: Gray;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.ReadOnlyValueContainer
+{
+    overflow: auto;
+    border: Solid 1px #0076b6;
+    padding: 1px;
+    text-align: left;
+}
+
+/*------------- Black Arial Font 11 bold -------------*/
+.Black9ArialItalic
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+    font-style: italic;
+}
+.Black11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.Black11ArialCaps
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: normal;
+    vertical-align: top;
+    text-transform: uppercase;
+}
+
+.Black9Arial
+{
+    font-family: Arial;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.Black9ArialUNRead
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    vertical-align: top;
+}
+.Black11ArialValignMiddle
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.Black11ArialValue
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.CheckboxWithLabelBold
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    vertical-align: middle;
+    padding-left: 2px;
+}
+.CheckboxWithLabel
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+}
+/*------------- Blue Arial Font 11 bold -------------*/
+.BlueBold11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #002b7b;
+    text-decoration: none;
+    font-weight: bold;
+}
+.BlueBold11ArialUnderline
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #002b7b;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.BlueBold12ArialUnderline
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #002b7b;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.BlueBold13Arial
+{
+    font-family: Arial;
+    font-size: 13px;
+    color: #002b7b;
+    text-decoration: none;
+    font-weight: bold;
+}
+.ItemCount
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #002b7b;
+    text-decoration: none;
+    font-weight: bold;
+    vertical-align: top;
+}
+/*------------- Blue Arial Font 11 bold -------------*/
+.WhiteBold11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: White;
+    text-decoration: none;
+    font-weight: bold;
+}
+.TextAllignCenter
+{
+    text-align: center;
+}
+/*------------- Red Arial Font 11 --------------*/
+.Red11Arial
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: Red;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.RedReadOnlyValue
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #FF6666;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+/*------------- C -------------*/
+/*-------------  CountDown Bar Background -------------*/
+.CountDownBg
+{
+    background: url(images/CountdownBg.gif) no-repeat;
+    font-family: arial;
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 25px;
+    width: 45px;
+    text-indent: 4px;
+    letter-spacing: 8px;
+    text-align: left;
+}
+.CountdownLabel
+{
+    font-family: arial;
+    font-size: 11px;
+    color: White;
+    font-weight: bold;
+}
+/*-------------Change Password Background-------------*/
+.ChangePasswordBg
+{
+    background: #fff4d4;
+    border: solid 1px #ebb928;
+}
+/*------------- D -------------*/
+/*------------- Drop Down -------------*/
+.DropDown
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    border: #387400 1px solid;
+    width: 200px;
+    vertical-align: middle;
+}
+/*------------- Green Login Box Devider -------------*/
+.Devider
+{
+    background: url(images/LoginGreenDevider.gif) repeat-x top;
+    height: 2px;
+}
+/*------------- E -------------*/
+/*------------- For Error Message -------------
+.ErrorMessage
+{
+	font-family: Arial;
+	font-size: 15px;
+	color: #e60101;
+	text-decoration: underline;
+	font-weight: normal;
+}*/
+/*------------- F -------------*/
+/*------------- Footer Background -------------*/
+.Footer
+{
+    background: url(images/Footer.gif) top repeat-x;
+    font-family: arial;
+    font-size: 10px;
+    color: #003988; /*#53a9d4;*/
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 17px;
+    height: 34px;
+}
+/*------------- Footer Text for Login Page -------------*/
+.FooterLogin
+{
+    font-family: arial;
+    font-size: 10px;
+    color: #003988;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 17px;
+}
+/*------------- Footer Text for Login Page -------------*/
+.FooterLogin
+{
+    font-family: arial;
+    font-size: 10px;
+    color: #003988;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 17px;
+}
+/*------------- G -------------*/
+/*------------- Green Login Box Background -------------*/
+.GreenLoginBoxBackground
+{
+    background: url(images/LoginBoxBgBlue.gif) repeat-y;
+    height: auto;
+}
+/*------------- H -------------*/
+/*------------- I -------------*/
+/*------------- J -------------*/
+/*------------- K -------------*/
+/*------------- L -------------*/
+/*------------- Left Brown Border -------------*/
+.LeftBorBrown
+{
+    border-left: 1px solid #ba9e83;
+}
+/*-------------Login Table Background - That Multicolored-------------*/
+.LoginBg
+{
+    background: url(images/LoginBackground.jpg) no-repeat;
+    height: 369px;
+}
+/*------------- Green Login Box Top Border -------------*/
+.LeftBorderBlueLogin
+{
+    background: url(images/Left.gif) repeat-y;
+}
+/*------------- M -------------*/
+
+/*------------- Message Box Background -------------*/
+.MessageBoxBrown
+{
+    border: 1px solid #ba9e83;
+    background: url(images/MessageBg.gif) repeat-x;
+    height: 21px;
+}
+/*------------- Menu Bar Background -------------*/
+.MenuBar
+{
+    background: #ab6501;
+    font-family: Arial;
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 27px;
+}
+/*-------------  Menu Bar Background MouseOver -------------*/
+.MenuBarStaticHover
+{
+    background: url(images/MenuBarMouseover.gif) repeat-x top;
+    font-family: Arial;
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 27px;
+}
+.MenuBarStaticSelected
+{
+    background: url(images/MenuBarMouseover.gif) repeat-x top;
+    font-family: Arial;
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 27px;
+}
+/*-------------  Menu Bar Dynamic -------------*/
+.MenuBarDynamic
+{
+    border-top: solid 1px #cea429;
+}
+.MenuBarDynamicItem
+{
+    border-left: solid 1px #cea429;
+    border-bottom: solid 1px #cea429;
+    border-right: solid 1px #cea429;
+    background: #eddeb2;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000000;
+    text-decoration: none;
+    height: 27px;
+    text-align: left;
+    padding: 5px;
+}
+.MenuBarDynamicHover
+{
+    font-family: arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+    height: 27px;
+    background-color: #faf6eb;
+}
+.MenuBarDynamicSelected
+{
+    border-left: solid 1px #cea429;
+    border-bottom: solid 1px #cea429;
+    border-right: solid 1px #cea429;
+    background: #e59d4a;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000000;
+    text-decoration: none;
+}
+
+/*------------- N -------------*/
+/*------------- O -------------*/
+/*------------- P -------------*/
+/*------------- Q -------------*/
+/*------------- R -------------*/
+/*------------- Green Login Box Bottom Border -------------*/
+.RightBorderBlueLogin
+{
+    background: url(images/Right.gif) repeat-y;
+}
+.RightBorderBlueLoginModified
+{
+    background: url(images/Right1.gif) repeat-y;
+}
+/*-------------Reconciliation Background-------------*/
+.RecBg
+{
+    background: url(images/ReconBar.gif) repeat-x top;
+    font-family: arial;
+    font-size: 11px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 27px;
+    padding-left: 7px;
+}
+.RecBgWithoutPadding
+{
+    background: url(images/ReconBar.gif) repeat-x top;
+    font-family: arial;
+    font-size: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    height: 27px;
+    padding-left: 3px;
+}
+/*------------- S -------------*/
+/*------------- T -------------*/
+/*-------------  Tan Colored Bar for Showing Msg Background -------------*/
+.TanBar
+{
+    background: url(images/TanBar.gif) repeat-x top;
+    font-family: arial;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    height: 27px;
+}
+/*-------------  Tool Bar Background -------------*/
+.ToolBar
+{
+    background: url(images/ToolBar.gif) repeat-x top;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+}
+.ToolBarTD
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.BtnSARReprocess
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/*------------- Text Box -------------*/
+.TextBox
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    border: #0076b6 1px solid;
+    vertical-align: middle;
+    height: 16px;
+}
+
+
+.ExLabel
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+    text-align: right;
+    height: 16px;
+}
+/*------------- U -------------*/
+/*------------- V -------------*/
+/*------------- W -------------*/
+/*------------- White Font 12 -------------*/
+.WhiteArial12
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: normal;
+}
+/*------------- X -------------*/
+/*------------- Y -------------*/
+/*------------- Z -------------*/
+.BlankRowWithLessHeight
+{
+    height: 5px;
+}
+.BlankRow
+{
+    height: 7px;
+}
+.HyperLink
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: normal;
+}
+.HyperLink:hover
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: normal;
+    background-color: #f3b954;
+}
+.HyperLinkBold
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.ValidationSummary
+{
+    background: #ffefc2;
+    border: #f2d273 1px solid;
+    font-family: arial;
+    font-size: 11px;
+    font-weight: normal;
+    color: #e00000;
+    text-decoration: none;
+}
+
+.ErrorLabel
+{
+    background: #ffefc2;
+    border: #f2d273 1px solid;
+    font-family: arial;
+    font-size: 11px;
+    font-weight: normal;
+    color: #e00000;
+    text-decoration: none;
+    padding-top: 6px;
+}
+.ConfirmationLabel
+{
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #ebf3ff;
+    color: Blue;
+    border: Solid 1px #b9cdec;
+    padding: 6px;
+    text-decoration: none;
+}
+/*-------------Page Title Background-------------*/
+.PageTitleBg
+{
+    background: url(images/PageTitleBg.gif) repeat-x top;
+    font-family: arial;
+    font-size: 13px;
+    color: Black;
+    text-decoration: none;
+    font-weight: bold;
+    height: 20px;
+    padding-left: 7px;
+    text-align: left;
+}
+.Breadcrumbs
+{
+    font-family: Verdana;
+    font-size: 11px;
+    color: #015492;
+    text-decoration: none;
+    font-weight: normal;
+    height: 20px;
+    padding-left: 7px;
+    text-align: left;
+}
+.AddMoreAccounts
+{
+    background: #f5fbff;
+    border-bottom: solid 1px #90d2ff;
+    border-left: solid 1px #90d2ff;
+    border-right: solid 1px #90d2ff;
+    font-family: arial;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+
+
+/*-------------ErrorAndWarningHeading-------------*/
+.ErrorAndWarningHeading
+{
+    background: #abdcfd;
+    border: solid 1px #74bef2;
+    font-family: arial;
+    font-size: 11px;
+    color: #015492;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+}
+/*-------------ErrorAndWarning Text-------------*/
+.ErrorAndWarningText
+{
+    background: #ffefc2;
+    border-bottom: solid 1px #ebb928;
+    border-left: solid 1px #ebb928;
+    border-right: solid 1px #ebb928;
+    font-family: arial;
+    font-size: 10px;
+    color: #e00000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+
+
+/*-------------Input Requirements Heading-------------*/
+.InputRequrementsHeading
+{
+    background: #abdcfd;
+    border: solid 1px #74bef2;
+    font-family: arial;
+    font-size: 11px;
+    color: #015492;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+}
+
+/*-------------Input Requirements Text-------------*/
+.InputRequrementsText
+{
+    background: #f5fbff;
+    border-bottom: solid 1px #90d2ff;
+    border-left: solid 1px #90d2ff;
+    border-right: solid 1px #90d2ff;
+    font-family: arial;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+.ManadatoryField
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: Red;
+    text-decoration: none;
+    font-weight: normal;
+    width: 2%;
+    text-align: center;
+    vertical-align: top;
+}
+.RedStar
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: Red;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.ManadatoryFieldRight
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: Red;
+    text-decoration: none;
+    font-weight: normal;
+    width: 1%;
+    text-align: center;
+    vertical-align: top;
+}
+.ProgressBar
+{
+    position: relative;
+    z-index: 10;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e2edfb;
+    border: Solid 1px #6289bb;
+    padding: 5px;
+    width: 100%;
+}
+.TableSameAsGrid
+{
+    width: 100%;
+    border: Solid 1px #000000;
+}
+/*
+.ExRadGrid
+{
+	background-color: #e2f2fc;
+}
+*/
+/*------------- Grid Header -------------*/
+
+.TableHeaderSameAsGrid
+{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.TableHeaderSameAsGrid td
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    height: 25px;
+    background: #ab6501;
+    padding-left: 3px;
+}
+.TableHeaderSameAsGrid a
+{
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/*------------- Grid Lighter Color Row -------------*/
+.TableRowSameAsGrid
+{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.TableRowSameAsGrid td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #e2f2fc;
+    vertical-align: middle;
+}
+
+/*------------- Grid Darker Color Row -------------*/
+.TableAlternateRowSameAsGrid
+{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.TableAlternateRowSameAsGrid td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #a6d3f7;
+    vertical-align: middle;
+}
+.GridHyperLink
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: none;
+    font-weight: normal;
+}
+.GridHyperLink:hover
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: underline;
+    font-weight: normal;
+    background-color: #f3b954;
+}
+.GridHyperLinkWithUnderline
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: underline;
+    font-weight: normal;
+}
+.GridHyperLinkWithUnderline:hover
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: underline;
+    font-weight: normal;
+    background-color: #f3b954;
+}
+/*.GridTableView
+{
+	border: Solid 1px Gray;
+}
+.GridPager
+{
+	text-align: center;
+	padding: 5px;
+	letter-spacing: 3px;
+}
+.GridFooter
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: normal;
+	height: 30px;
+	background: #f9ddb6;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 3px;
+}
+*/
+
+.WarningLabel
+{
+    color: Red;
+    font-weight: bold;
+}
+.InactiveCompany
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background-color: #bebebe;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+
+.InactiveCompany td
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background-color: #bebebe;
+    vertical-align: middle;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.LegendTable
+{
+    padding-left: 0px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    width: 100%;
+}
+.LegendHeading
+{
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: dotted 1px #000000;
+}
+.LegendLabel
+{
+    font-size: 10px;
+}
+.blueBorder
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00AAFF;
+}
+
+.blueBorderWithMargin
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00AAFF;
+    border-top: none;
+    padding: 3px 3px 3px 3px;
+}
+
+.tanBorder
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #AB6600;
+}
+.lightBlueRow
+{
+    background-color: #DEF1FF;
+}
+.reportLightBlueRow
+{
+    background-color: #ceedff;
+    height: 25px;
+}
+.ReportNameTD
+{
+    padding-left: 20px;
+}
+.ReportDescriptionTD
+{
+    padding-left: 35px;
+}
+.blueRow
+{
+    background-color: #ABDCFE;
+    border-color: Blue;
+    border-style: solid;
+    border-width: 1px;
+}
+.reportBlueRow
+{
+    background-color: #ABDCFE;
+    border-bottom: solid 1px #74bef2;
+}
+.coloredRow
+{
+    background-color: #E8D7A1;
+    padding: 2px;
+}
+.htmlTableHeaderRow
+{
+    /*background-color: #f4edd4;*/
+    background-color: #ABDCFE;
+    height: 20px;
+}
+.solidBlueBorder
+{
+    background-color: #FFFFFF;
+}
+/*.solidBlueBorder*/
+.verbiage
+{
+    background-color: #FFFFFF;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.headerDiv
+{
+    background-color: #AB6600;
+    padding-left: 5px;
+    height: 20px;
+}
+.htmlGridTitleDiv
+{
+    text-align: center;
+    background-color: #DBC682;
+    padding-left: 5px;
+    height: 20px;
+}
+.contentDiv
+{
+    padding-left: 5px;
+}
+.contentDiv2
+{
+}
+.rightAlignedCol
+{
+    text-align: right;
+}
+.displayNone
+{
+    border: 0px;
+    display: none;
+}
+.ExtendedPanelCapability
+{
+    /* background: #f4edd4;     border-bottom: solid 1px #ab6501;     border-left: solid 1px #ab6501;     border-right: solid 1px #ab6501;     border-top: solid 1px #ab6501;     color: #000000;*/
+    width: 100%;
+}
+
+.PanelCapability
+{
+    border-bottom: solid 10px #DEF1FF;
+    border-left: solid 10px #DEF1FF;
+    border-right: solid 10px #DEF1FF;
+    width: 98%;
+}
+.PanelContent
+{
+    border-bottom: solid 10px #DEF1FF;
+    border-left: solid 10px #DEF1FF;
+    border-right: solid 10px #DEF1FF;
+    width: 100%;
+}
+
+.reportContent
+{
+    width: 100%;
+}
+.reportSectionTable
+{
+    /*border-bottom: solid 10px #ABDCFE; 	border-left: solid 10px #ABDCFE; 	border-right: solid 10px #ABDCFE; */
+    width: 100%;
+    border-bottom: solid 1px #74bef2;
+    border-left: solid 1px #74bef2;
+    border-right: solid 1px #74bef2;
+    border-top: solid 1px #74bef2;
+}
+
+.reportMandatoryTable
+{
+    width: 100%;
+}
+
+.PanelCapabilityYesNo
+{
+    background-color: #DEF1FF;
+}
+.LineDotted
+{
+    width: 90%;
+    color: #ab6501;
+}
+.CheckBoxListDiv
+{
+    border: Solid 1px #ab6501;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+.CheckBoxListSelectALL
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+    padding-left: 3px;
+}
+.CheckBoxList
+{
+    border-top: Solid 1px #ab6501;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+.RoleLabel
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #ab6501;
+    text-decoration: none;
+    font-weight: bold;
+}
+.ListBox
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    border: Solid 1px Blue;
+    text-align: left;
+}
+.tdAccountInfo
+{
+    padding-left: 2px;
+    white-space: nowrap;
+    line-height: 22px;
+}
+.tdAccountInfoFSCaption
+{
+    padding-left: 2px;
+    line-height: 22px;
+}
+.groupRadGrid
+{
+    font-family: Arial;
+    font-size: 11px;
+    background: #DBC682;
+    text-decoration: none;
+    font-weight: normal;
+}
+.LinkButton
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: normal;
+}
+.UserName
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.ModalPopupPanel
+{
+    border: 1px solid #9ac6ff; /*#0000FF;*/
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+.ModalPopupHoverPanel
+{
+    border: 1px solid #2a569a; /*#0000FF;*/
+    background-color: #d3e9f6;
+}
+
+.ModalPopupPanelHeadingDiv
+{
+    /*background-color: #33CCFF; 	text-align: center;*/
+    background-color: #afbeff;
+    border-bottom: Solid 1px #2a569a;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.ModalPopupPanelHeadingBorderDiv
+{
+    /*background-color: #33CCFF; 	text-align: center;*/
+    background-color: #afbeff;
+    border-bottom: Solid 1px #2a569a;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.ModalPopupContentDiv
+{
+    text-align: left;
+}
+.WebPartTitle
+{
+    background: url(Images/WebPartTitleBar.gif) repeat-x;
+    height: 28px;
+    border: #59ade8 solid 1px;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 5px;
+}
+.WebPart
+{
+    background: url(Images/WebPartBg.gif) repeat-x bottom;
+    background-color: #FFF;
+    border-left: #e1c670 solid 1px;
+    border-right: #e1c670 solid 1px;
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
+/*.modalBg
+{
+	background-color: #cccccc;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}*/
+.SubSectionHeading
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #002b7b;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.StatusHeading
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #002b7b;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 2px;
+}
+.ExistingMappingTable
+{
+    border: #59ade8 solid 1px;
+    width: 50%;
+}
+.DataImportRulesTable
+{
+    border: Solid 1px #ebb928;
+}
+.PanelTitleBrown
+{
+    background-color: #fff4d4;
+    padding: 5px;
+    border-bottom: Solid 1px #ebb928;
+    text-decoration: underline;
+}
+.RulesPanel
+{
+    height: 180px;
+    padding: 0px;
+    font-family: Arial;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+}
+.DataImportStatusMessagePrintTable
+{
+    border: Solid 1px #ebb928;
+}
+.DataImportStatusMessagePrintContent
+{
+    background-color: #fff4d4;
+    text-align: left;
+    padding: 5px;
+}
+.DataImportStatusMessage
+{
+    border: Solid 1px #ebb928;
+    background-color: #fff4d4;
+    text-align: left;
+    padding: 5px;
+}
+.DataImportStatusMessageTitle
+{
+    background-color: #ffecb0;
+    padding: 5px;
+    border-bottom: Solid 1px #ebb928;
+    text-decoration: underline;
+}
+.DataImportStatusMessageTitleFirstRow
+{
+    background-color: #ffecb0;
+    padding: 5px;
+    text-decoration: underline;
+}
+.InputRequrementsTextNoBackColor
+{
+    border-bottom: solid 1px #90d2ff;
+    border-left: solid 1px #90d2ff;
+    border-right: solid 1px #90d2ff;
+    font-family: arial;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+.DataImportErrorPanel
+{
+    border: Solid 1px #90d2ff;
+    background-color: White;
+    padding-left: 2px;
+}
+.CertificationVerbiageTitle
+{
+    border-bottom: Solid 1px #90d2ff;
+    background-color: White;
+}
+.CertificationVerbiage
+{
+    border: Solid 1px #90d2ff;
+    background-color: White;
+    padding: 5px;
+}
+.CertificationSignature
+{
+    border: Solid 1px #90d2ff;
+    background: url(images/ToolBar.gif) repeat-x top;
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    text-align: center;
+}
+.ReportTitle
+{
+    font-family: Arial;
+    font-size: 13px;
+    color: #002b7b;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 5px;
+}
+.ReportDescription
+{
+    height: 25px;
+}
+.ReportReportGroup
+{
+    background-color: #e4d199;
+    border: #cfa875;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 15px;
+    height: 25px;
+}
+.ReportActivity
+{
+    color: #965500;
+    text-decoration: underline;
+    font-size: 11px;
+    font-weight: bold;
+}
+.GLAdjustmentRow
+{
+    height: 22px;
+}
+.AccountPolicyDetails
+{
+    padding-left: 10px;
+}
+.PercentComplete
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.RowWithPadding
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.BlueRowWithPadding
+{
+    background-color: #ABDCFE;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.PercentCompleteTable
+{
+    border: 1px solid #9ac6ff;
+    background-color: #ffffff;
+    height: 15px;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.GridHyperLinkImageWithUnderline
+{
+    border-bottom: Solid 1px Black;
+}
+.GridHyperLinkImageWithUnderline:hover
+{
+    background-color: #f3b954;
+}
+.ProgressBarBackground
+{
+    border: 0px;
+    position: absolute;
+    z-index: 9;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 768px;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+.GridFilterRow_SkyStemBlueBrown td
+{
+    background-color: Gray;
+    border: Solid 1px #00000;
+}
+.HRLine
+{
+    height: 1px;
+    color: Blue;
+}
+.UserDetails
+{
+    text-decoration: underline;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: normal;
+    color: blue;
+    vertical-align: top;
+}
+.ReviewNote td
+{
+    background-color: #90d2ff;
+}
+.DeleteButton
+{
+    cursor: hand;
+}
+.RadEditor
+{
+    height: 150px;
+    font-family: Arial;
+    font-size: 10px;
+}
+.RadEditorContent
+{
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+
+.SelectedMatchSetRow
+{
+    background-color: #FFEECA;
+    cursor: default;
+    border-bottom-color: #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+.SelectedMatchSetRow td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #FFEECA;
+    vertical-align: middle;
+    padding-left: 4px;
+}
+
+.ReconciledRow
+{
+    background-color: #bebebe;
+    cursor: default;
+    border-bottom-color: #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+
+.ReconciledRow td
+{
+    padding-left: 7px;
+    padding-right: 7px;
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: #bebebe;
+    vertical-align: middle;
+    border-color: #fff;
+}
+/*.CarriedForwardItem
+{
+	padding-left:4px;
+	padding-right:4px;
+}
+.CarriedForwardItem td
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: normal;
+	height: 27px;
+	background: #f2e9c9;
+	vertical-align: middle;
+	padding-left: 3px;
+}*/
+.ExportToolBar
+{
+    width: 100%;
+    padding: 3px;
+    background: url(images/TanBar.gif) repeat-x top;
+    font-family: arial;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    height: 27px;
+    border: Solid 1px #ab6501;
+    border-collapse: collapse;
+}
+.RecStatusBar
+{
+    width: 100%;
+    padding: 3px;
+    background: url(images/TanBar.gif) repeat-x top;
+    font-family: arial;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    height: 27px;
+}
+.headerRowForRepeater
+{
+    background-color: #AB6600;
+    padding-left: 5px;
+    height: 20px;
+    color: White;
+}
+.DueDatesPanelContent
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: normal;
+    padding-left: 2px;
+}
+.OrgHierarchyRowStyle
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: top;
+    text-align: left;
+    width: auto;
+}
+/* Rec Forms CSS */
+.RecFormHeaderRow
+{
+    background-color: #AB6600;
+    padding-left: 5px;
+    height: 20px;
+}
+.RecBalanceRow
+{
+    background-color: #cea263;
+    height: 22px;
+}
+.RCCYCol
+{
+    text-align: right;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+.BCCYCol
+{
+    text-align: right;
+    white-space: nowrap;
+}
+.RecFormFirstCol
+{
+    padding-left: 5px;
+}
+.GLAdjustmentRowTotalSupportingDetail
+{
+    background-color: #DEF1FF;
+    height: 22px;
+}
+.GridLinkButton
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: none;
+    font-weight: normal;
+}
+.GridLinkButton:hover
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #6c4b2d;
+    text-decoration: underline;
+    font-weight: normal;
+    background-color: #f3b954;
+}
+
+.LinkButtonBold
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.validator
+{
+    float: left;
+    vertical-align: middle;
+    text-align: right;
+    width: 10px;
+}
+.RadMiddlePane
+{
+    padding-right: 1px;
+}
+.RadGridPrintTable
+{
+    border: Solid 1px #000000;
+}
+.RecFormPrintBorder
+{
+    border: solid 1px #9eb6ce;
+}
+.AutoCompleteExtenderListItem
+{
+    padding: 2px;
+    font-family: arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+    height: 18px;
+    white-space:nowrap;
+    width:auto;
+    list-style-type:none;
+}
+.AutoCompleteExtenderListItemHighlighed
+{
+    padding: 2px;
+    background-color: #a6d3f7;
+    font-family: arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    vertical-align: middle;
+    height: 18px;
+    white-space:nowrap;
+    width:auto;
+    list-style-type:none;
+}
+.AutoCompleteExtenderList
+{
+    padding: 0px;
+    margin: 0px;
+    background-color: White;
+    border: #0076b6 1px solid;
+    width:auto !important;
+}
+
+.GridFooterRightAlignement
+{
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+.ViewItemGridLinkButton
+{
+    background: url("Images/View.gif");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.ToggleExpanded
+{
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-width: 0px;
+}
+/*
+.ToggleCollapse
+{
+	width: 20px;
+	height: 17px;
+	border:none;
+	border-width:0px;
+}
+*/
+.ArrowTop
+{
+    background: url("Images/ArrowTop.gif");
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 16px;
+    display: block;
+    vertical-align: bottom;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.FirstTD
+{
+    width: 20px;
+    border-bottom: 2px solid #5A5A5A;
+}
+.LineBg
+{
+    background-image: url(images/BorderTopArrow.gif);
+    vertical-align: bottom;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.LineBgRepeat
+{
+    background-image: url(images/BorderTopArrow.gif) bottom repeat-x;
+}
+
+.ExpandPanelTopLeft
+{
+    background: url(images/BorderTopLeft.gif) repeat-x bottom;
+    height: 16px;
+}
+.ExpandPanelTopBorder
+{
+    background: url(images/BorderHorizontalTop.gif) repeat-x bottom;
+    height: 16px;
+}
+.ExpandPanelLeftBorder
+{
+    background: url(images/BorderVerticalLeft.gif) repeat-y;
+}
+
+.ExpandPanelRightBorder
+{
+    background: url(images/BorderVerticalRight.gif) repeat-y;
+}
+.ExpandPanelBottomBorder
+{
+    background: url(images/BorderHorizontalBottom.gif) repeat-x top;
+    height: 16px;
+}
+
+.BtnLeftMargin
+{
+    margin-left: 5px;
+}
+.GridHeaderPadding
+{
+    padding-left: 4px;
+    padding-bottom: 2px;
+}
+.AmountTable
+{
+    border: Solid 1px Gray;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ExchangeRateBar
+{
+    border: solid 1px #cecece;
+    background: url(images/ExchangeRateBG.gif) repeat-x top;
+    height: 23px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.RecFormPrintSplitter
+{
+    background-repeat: repeat-y;
+    background-position: 0 0;
+    background-image: url('images/BrownDivider.gif');
+    border-left: solid 1px #9eb6ce;
+    border-right: solid 1px #9eb6ce;
+    width: 2px;
+}
+
+.popupHover
+{
+    background-image: url(images/header-opened.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    background-color: #F5F7F8;
+}
+
+.popupMenu
+{
+    position: absolute;
+    visibility: hidden;
+    background-color: #F5F7F8;
+}
+
+.PopupReportList
+{
+    position: absolute;
+    visibility: hidden;
+    background-color: #dbebff;
+}
+.HoverRow
+{
+    font-family: Arial;
+    font-size: 9px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 12px;
+    background: #e2f2fc;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+
+.HoverPopup
+{
+    border-width: 1px;
+    border-color: Black;
+}
+
+.SelectedPackage
+{
+    background-color: #f2e9c9;
+}
+.CutomizedPackage
+{
+    background: url(images/NotStarted.gif);
+    background-repeat: no-repeat;
+}
+
+.NetAccountAttributesSame
+{
+    cursor: default;
+    border-bottom-color: #f2f2f2;
+    background-color: Orange;
+}
+.NetAccountAttributesSame td
+{
+    padding-left: 7px;
+    padding-right: 7px;
+    font-family: Arial;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    background: Orange;
+    vertical-align: middle;
+    border-color: #fff;
+}
+/*   -------------------- Matching Wizard ------------------------------ */
+
+.WizardStyle
+{
+    width: 100%;
+}
+.StepStyle
+{
+    padding: 10px 10px 10px 10px;
+    vertical-align: top;
+    width: 100%;
+    border-width: 0px 0px 0px 0px;
+    border-left-style: solid;
+    border-color: #a6d3f7;
+}
+.WizardSeparatorVertical
+{
+    width: 1px;
+    background-color: #a6d3f7;
+}
+.WizardSeparatorHorizontal
+{
+    height: 1px;
+    background-color: #a6d3f7;
+}
+
+.SideBarStyle
+{
+    padding: 10px;
+    vertical-align: top;
+    width: 20%;
+}
+.NavigationStyle
+{
+    padding: 10px 10px 10px 10px;
+    border-width: 1px 0px 0px 0px;
+    border-top-style: solid;
+    border-color: #bbbbbb;
+}
+.SideBarButtonStyle
+{
+    padding: 5px 0 5px 0;
+    font-family: arial;
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline;
+    height: 15px;
+}
+
+.SideBarButtonStyle:hover
+{
+    padding: 5px 0 5px 0;
+    font-family: arial;
+    font-size: 11px;
+    color: #0b4782;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline;
+    height: 15px;
+}
+
+.SideBarActiveButtonStyle
+{
+    padding: 5px 0 5px 0;
+    font-family: arial;
+    font-size: 11px;
+    color: #0b4782;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline;
+    height: 15px;
+}
+
+
+.MatchingResultSourceMatchPartialMatch1
+{
+    height: 10px !important; /* background-color:#FAF4E6 !important;*/
+    width: auto;
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+.MatchingResultSourceMatchPartialMatch2
+{
+    height: 10px !important;
+    padding-left: 12px !important; /*background-color:#FAF4E6 !important;*/
+    width: auto;
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+.MatchingResultSource1
+{
+    height: 10px !important;
+    width: auto;
+}
+.MatchingResultSource2
+{
+    height: 10px !important;
+    padding-left: 12px !important;
+    width: auto;
+}
+
+.outerTable
+{
+    border: solid #9bc7ec 4px;
+    background: #c4e4ff;
+}
+.topBg
+{
+    background: url(images/TopBg.gif) repeat-x;
+    height: 71px;
+}
+.text
+{
+    font-family: verdana;
+    color: #003871;
+    font-size: 18px;
+    line-height: 30px;
+}
+.MatchingResultHighlightKeyColumn
+{
+    background-color: Gray;
+}
+
+td.TDTabPageArea
+{
+    border-left: 1px solid #BFE4FF;
+    border-right: 1px solid #BFE4FF;
+    border-bottom: 1px solid #BFE4FF;
+}
+
+td.TDTabEmptyArea
+{
+    border-bottom: 1px solid #BFE4FF;
+}
+
+.centered
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    background-color: white;
+    color: white;
+}
+.multiPage ul
+{
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    left: 170px;
+    top: 20px;
+}
+
+.multiPage ul li
+{
+    color: #34555b;
+    padding-left: 24px;
+    margin-top: 15px;
+}
+.MatchingGridCss
+{
+    /*background-color:#FAF4E6 !important;*/
+}
+
+.GridClientSelectColumnCSS
+{
+    margin-top: -1px;
+    vertical-align: top !important;
+}
+
+.GLDataQualityScore
+{
+    font-family: Arial;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    color: Black;
+}
+.HyperLinkBoldBlue
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/*------------- Session Expiry Notification --------- */
+
+.infoIcon, .notificationContent
+{
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+}
+
+.infoIcon
+{
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.notificationContent
+{
+    width: 365px;
+    vertical-align: top;
+}
+
+.IgnoreInCalculation
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+
+.IgnoreInCalculation td
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: #FF0000;
+    text-decoration: none;
+    font-weight: normal;
+    height: 27px;
+    vertical-align: middle;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+img
+{
+    border:none;
+}
+/*------------- Session Expiry Notification --------- */

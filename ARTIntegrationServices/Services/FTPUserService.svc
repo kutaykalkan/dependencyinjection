@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SkyStem.ART.Integration.Services.FTPUserService" CodeBehind="~/App_Code/FTPUserService.cs" %>

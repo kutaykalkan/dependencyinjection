@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
+    CodeFile="MatchingMaster.master.cs" Inherits="MasterPages_MatchingMaster" %>
+
+<%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table width="1003px" cellpadding="0" cellspacing="0" style="background-color: White">
+        <tr id="trAccountDescription" runat="server">
+            <td align="left">
+                <UserControls:AccountDescription ID="ucAccountDescription" runat="server" Collapsed="true" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Panel ID="pnlMatchingMaster" runat="server">
+                    <asp:ContentPlaceHolder ID="cphMatching" runat="server" />
+                </asp:Panel>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

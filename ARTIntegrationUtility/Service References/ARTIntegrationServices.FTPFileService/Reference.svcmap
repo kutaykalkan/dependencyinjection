@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4e906be4-f116-430d-a704-878c39e9ded5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FTPFileService.disco" MetadataType="Disco" ID="71d11768-4fab-4d55-a128-672b167e9cd3" SourceId="1" SourceUrl="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?disco" />
+    <MetadataFile FileName="FTPFileService.xsd" MetadataType="Schema" ID="7b7cce1f-1ef4-4c51-807c-18961155827b" SourceId="1" SourceUrl="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FTPFileService.wsdl" MetadataType="Wsdl" ID="e4be3532-0b72-440a-9116-37cd68d7393f" SourceId="1" SourceUrl="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?wsdl" />
+    <MetadataFile FileName="FTPFileService1.xsd" MetadataType="Schema" ID="30c10547-f771-4cd3-9276-a7a75007384a" SourceId="1" SourceUrl="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FTPFileService2.xsd" MetadataType="Schema" ID="41ec53a6-3cdd-4f2e-9abf-abae440978ff" SourceId="1" SourceUrl="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

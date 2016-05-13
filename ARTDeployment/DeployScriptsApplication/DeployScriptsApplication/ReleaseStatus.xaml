@@ -1,0 +1,112 @@
+﻿<Window x:Class="DeployScriptsApplication.ReleaseStatus"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ReleaseStatus" Height="650" Width="900" >
+    <Grid>
+        <my:DataGrid AutoGenerateColumns="False"   CanUserAddRows="False"   VirtualizingStackPanel.VirtualizationMode="Standard" VirtualizingStackPanel.IsVirtualizing="False"  Name="dgReleaseStatus" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit" Margin="0,49,0,9">
+
+            <my:DataGrid.Resources>
+                <Style TargetType="my:DataGridRow" x:Key="CameraStyle">
+                    <Setter Property="Foreground" Value="{DynamicResource TextForeground}" />
+                    <Setter Property="Background" Value="{DynamicResource DataBackground}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=ReleaseStatusID}" Value="2">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="Yellow" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </my:DataGrid.Resources>
+            <my:DataGrid.Style>
+                <Style TargetType="{x:Type my:DataGrid}">
+                    <Setter Property="RowStyle" Value="{StaticResource CameraStyle}" />                
+
+                </Style>
+            </my:DataGrid.Style>
+
+            <my:DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <my:DataGridRowsPresenter/>
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Name}" FontWeight="Bold"  Padding="3"/>                                
+                            </StackPanel>                           
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True" 
+                                                  BorderBrush="#FFA4B97F" 
+                                                  BorderThickness="0,0,0,2"
+                                                   Padding="15,0,0,0">
+                                            <Expander.Header>
+                                                <DockPanel TextBlock.FontWeight="Bold">
+                                                    <TextBlock Text="{Binding Path=Name}"   
+                                                               Margin="10,0,10,0" 
+                                                               />
+                                                    <!--<TextBlock Text="{Binding Path=ItemCount}"/>-->
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </my:DataGrid.GroupStyle>
+            <my:DataGrid.Columns>                
+                <my:DataGridTemplateColumn Header="Script Name" MaxWidth="450" MinWidth="150">
+                    <my:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ScriptName}" />
+                        </DataTemplate>
+                    </my:DataGridTemplateColumn.CellTemplate>
+                </my:DataGridTemplateColumn>
+                <my:DataGridTemplateColumn Header="Script Path" MaxWidth="200" MinWidth="150">
+                    <my:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ScriptPath}" />
+                        </DataTemplate>
+                    </my:DataGridTemplateColumn.CellTemplate>
+                </my:DataGridTemplateColumn>
+                <my:DataGridTemplateColumn Header="Release Status" MaxWidth="100" MinWidth="100">
+                    <my:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ReleaseStatus}" />
+                        </DataTemplate>
+                    </my:DataGridTemplateColumn.CellTemplate>
+                </my:DataGridTemplateColumn>
+                <my:DataGridTemplateColumn Header="Release Date" MaxWidth="100" MinWidth="100">
+                    <my:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DateAdded}" />
+                        </DataTemplate>
+                    </my:DataGridTemplateColumn.CellTemplate>
+                </my:DataGridTemplateColumn>
+                <my:DataGridTemplateColumn Header="Message" MaxWidth="400" MinWidth="200">
+                    <my:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ErrorMsg}" />
+                        </DataTemplate>
+                    </my:DataGridTemplateColumn.CellTemplate>
+                </my:DataGridTemplateColumn>
+            </my:DataGrid.Columns>
+        </my:DataGrid>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,41,12" Name="btnClose" VerticalAlignment="Bottom" Width="75" Click="btnClose_Click">Back</Button>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="63,20,0,0" Name="cbVersions" VerticalAlignment="Top" SelectionChanged="cbVersions_SelectionChanged" Width="218" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="10,15,0,0" Name="label1" VerticalAlignment="Top" Width="58">Version:</Label>
+    </Grid>
+   
+
+
+</Window>

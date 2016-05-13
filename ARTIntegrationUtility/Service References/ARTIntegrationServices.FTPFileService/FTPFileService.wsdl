@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FTPFileService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFTPFileService_CreateFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFolder" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_CreateFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_RemoveFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFolder" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_RemoveFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_RemoveUserFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFolders" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_RemoveUserFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_GetFirstFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFirstFile" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_GetFirstFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFirstFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_GetFileStream_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileStream" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_GetFileStream_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IFTPFileService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFTPFileService">
+    <wsdl:operation name="CreateFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/CreateFolder" message="tns:IFTPFileService_CreateFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/CreateFolderResponse" message="tns:IFTPFileService_CreateFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/RemoveFolder" message="tns:IFTPFileService_RemoveFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/RemoveFolderResponse" message="tns:IFTPFileService_RemoveFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFolders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/RemoveUserFolders" message="tns:IFTPFileService_RemoveUserFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/RemoveUserFoldersResponse" message="tns:IFTPFileService_RemoveUserFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/GetFirstFile" message="tns:IFTPFileService_GetFirstFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/GetFirstFileResponse" message="tns:IFTPFileService_GetFirstFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/GetFileStream" message="tns:IFTPFileService_GetFileStream_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/GetFileStreamResponse" message="tns:IFTPFileService_GetFileStream_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFTPFileService/DeleteFile" message="tns:IFTPFileService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFTPFileService/DeleteFileResponse" message="tns:IFTPFileService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFTPFileService" type="tns:IFTPFileService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateFolder">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/CreateFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFolder">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/RemoveFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFolders">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/RemoveUserFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstFile">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/GetFirstFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/GetFileStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/IFTPFileService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FTPFileService">
+    <wsdl:port name="BasicHttpBinding_IFTPFileService" binding="tns:BasicHttpBinding_IFTPFileService">
+      <soap:address location="http://localhost/ARTIntegrationServices/Services/FTPFileService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

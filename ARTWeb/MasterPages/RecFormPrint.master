@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="RecFormPrint.master.cs"
+    Inherits="MasterPages_RecFormPrint" EnableTheming="true" %>
+
+<%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
+<%@ Register TagPrefix="UserControls" TagName="RecStatusBar" Src="~/UserControls/RecForm/RecStatusBar.ascx" %>
+<%@ Register TagPrefix="UserControls" TagName="AccountInfoLeftPane" Src="~/UserControls/AccountInfoLeftPane.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+
+    <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
+
+    <script language="javascript" type="text/jscript">
+    <!--
+        function PrintPage() {
+            var oWindow = GetRadWindow();
+            oWindow.GetContentFrame().contentWindow.focus();
+            oWindow.GetContentFrame().contentWindow.print();
+            oWindow.Close();
+        }
+    //-->
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="window.setTimeout('PrintPage();',10);">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
+        EnablePageMethods="true">
+    </asp:ScriptManager>
+    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%; background-color: white;"
+        border="0">
+        <tr>
+            <td valign="top" align="center" valign="top">
+                <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 1003px;
+                    background-color: white; text-align: left" border="0">
+                    <tr class="PageTitleBg">
+                        <td colspan="2">
+                            <webControls:ExLabel ID="lblPageTitle" runat="server"></webControls:ExLabel>
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <usercontrols:accountdescription id="ucAccountDescription" runat="server" Collapsed="false"  />
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <usercontrols:RecStatusBar id="ucRecStatusBar" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100%">
+                            <table style="width: 100%" cellpadding="0" cellspacing="0" class="RecFormPrintBorder">
+                                <tr>
+                                    <td valign="top" style="width:230px">
+                                        <UserControls:AccountInfoLeftPane ID="ucAccountInfo" runat="server" />
+                                    </td>
+                                    <td  valign="top" class="RecFormPrintSplitter" ></td>
+                                    <td valign="top" style="padding-right: 1px; padding-bottom: 1px;">
+                                        <asp:ContentPlaceHolder ID="cphRecForms" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

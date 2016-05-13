@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ReportViewerPrint.master.cs"
+    Inherits="MasterPages_ReportViewerPrint" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Src="~/UserControls/Report/ReportInfo.ascx" TagName="ReportInfo" TagPrefix="UserControl" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
+
+    <script language="javascript" type="text/jscript">
+    <!--
+        function PrintPage() {
+            var oWindow = GetRadWindow();
+            oWindow.GetContentFrame().contentWindow.focus();
+            oWindow.GetContentFrame().contentWindow.print();
+            oWindow.Close();
+        }
+    //-->
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="window.setTimeout('PrintPage();',10);">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
+        EnablePageMethods="true">
+    </asp:ScriptManager>
+    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%; background-color: white;"
+        border="0">
+        <tr>
+            <td valign="top" align="center" valign="top">
+                <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 1003px;
+                    background-color: white; text-align: left" border="0">
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <UserControl:ReportInfo ID="ucReportInfo" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100%" colspan="2">
+                            <table style="width: 100%" cellpadding="0" cellspacing="0" class="RadGridPrintTable">
+                                <tr>
+                                    <td style="padding-right: 1px; padding-bottom: 1px;">
+                                        <asp:ContentPlaceHolder ID="cphRptViewer" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <tr id="trComments" runat="server">
+                        <td colspan="2" style="padding: 0px 7px 0px 7px;">
+                            <table>
+                                <tr>
+                                    <td style="width: 15%; text-align: justify;" valign="top">
+                                        <webControls:ExLabel ID="lblAdditionalComments" runat="server" LabelID="1468 " FormatString="{0}:"
+                                            SkinID="Black11Arial" />
+                                    </td>
+                                    <td style="width: 85%; text-align: justify;">
+                                        <webControls:ExLabel ID="lblAdditionalCommentsValue" runat="server" FormatString="{0}:"
+                                            SkinID="Black11ArialNormal" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

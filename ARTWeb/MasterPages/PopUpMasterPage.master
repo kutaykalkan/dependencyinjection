@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PopUpMasterPage.master.cs"
+    Inherits="MasterPages_PopUpMasterPage" EnableTheming="true" %>
+
+<%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <style type="text/css">
+        *html .rcbSlide
+        {
+            margin-left: 2px !important;
+            margin-top: 2px;
+        }
+        * + html .rcbSlide
+        {
+            margin-left: -1px !important;
+            margin-top: -1px;
+        }
+        @media screen and (min-width:50p
+        {
+            html:first-child .rcbSlide
+            {
+                margin-left: 2px;
+            }
+        }
+        @media screen and (min-width:50p
+        {
+            :root .rcbSlide
+            {
+                margin-top: -1px;
+            }
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <script type="text/javascript" src="../JavaScript/JScript1.js"></script>
+
+    <script type="text/javascript" src="../JavaScript/CalendarPopup.js"></script>
+
+    <script type="text/javascript" src="../JavaScript/NumericValidations.js"></script>
+
+    <script type="text/javascript" src="../JavaScript/Reports.js"></script>
+
+    <script type="text/javascript" src="../JavaScript/AcctViewerFilter.js"></script>
+
+    <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
+
+    <script type="text/javascript" src="../../JavaScript/CalendarPopup.js"></script>
+
+    <script type="text/javascript" src="../../JavaScript/NumericValidations.js"></script>
+
+    <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>
+
+    <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server"
+        EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">
+    </asp:ScriptManager>
+    <telerik:RadWindowManager ReloadOnShow="true" BackColor="White" ShowContentDuringLoad="false"
+        ID="rwmManager" runat="server" Behaviors="Close, Move" OnClientPageLoad="SetStatusBarForTelerikPopup"
+        KeepInScreenBounds="true">
+    </telerik:RadWindowManager>
+    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%;"
+        border="0">
+        <tr class="BlankRow">
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 10px">
+            </td>
+            <td>
+                <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%;"
+                    border="0" class="ModalPopupPanel">
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <!-- Notes Section -->
+                    <tr id="trInputRequirements" runat="server" visible="false">
+                        <td>
+                            <UserControls:InputRequirements ID="ucInputRequirements" runat="server" />
+                        </td>
+                    </tr>
+                    <tr class="BlankRow">
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table cellpadding="0" cellspacing="0" style="width: 100%; padding-left: 3px; padding-right: 3px">
+                                <!-- Error / Confirmation Label -->
+                                <tr>
+                                    <td>
+                                        <asp:ValidationSummary ID="valSummary" runat="server" />
+                                        <asp:UpdatePanel ID="upnlMessages" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <webControls:ExLabel ID="lblErrorMessage" runat="server" Visible="false" SkinID="ErrorLabel"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblConfirmationMessage" runat="server" Visible="false" SkinID="ConfirmationLabel"></webControls:ExLabel>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </td>
+                                </tr>
+                                <tr class="BlankRow">
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                                <tr class="BlankRow">
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 10px">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script type="text/javascript" language="javascript">
+        if (Sys.WebForms != undefined)
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+        function EndRequestHandler(sender, args) {
+            if (args.get_error() != undefined && args.get_error().httpStatusCode == '500') {
+                var errorMessage = args.get_error().message.substr(args.get_error().name.length + 2);
+                alert(errorMessage);
+                args.set_errorHandled(true);
+            }
+        }
+    </script>
+</body>
+</html>
