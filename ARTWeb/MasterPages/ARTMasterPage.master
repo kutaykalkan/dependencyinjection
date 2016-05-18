@@ -3,11 +3,14 @@
 
 <%@ Register TagPrefix="UserControls" TagName="FooterMaster" Src="~/UserControls/FooterMaster.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
+<%@ Register Src="~/UserControls/SessionExpiryNotification.ascx" TagPrefix="UserControls" TagName="SessionNotification" %>
+<%@ Register Assembly="WebControls" Namespace="SkyStem.Library.Controls.WebControls" TagPrefix="cc1" %>
+<%@ Register Src="~/UserControls/Notification/PageAutoRefreshNotification.ascx" TagPrefix="UserControls" TagName="PageAutoRefreshNotification" %>
+
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Register Src="~/UserControls/SessionExpiryNotification.ascx" TagPrefix="UserControls"
-    TagName="SessionNotification" %>
-<%@ Register Assembly="WebControls" Namespace="SkyStem.Library.Controls.WebControls" TagPrefix="cc1" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -40,10 +43,10 @@
         <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
             EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">
         </asp:ScriptManager>
-        <telerik:RadWindowManager ReloadOnShow="true" BackColor="White" ShowContentDuringLoad="false"
-            ID="rwmManager" runat="server" Behaviors="Close, Move" OnClientPageLoad="SetStatusBarForTelerikPopup"
-            KeepInScreenBounds="true">
-        </telerik:RadWindowManager>
+        <telerik:radwindowmanager reloadonshow="true" backcolor="White" showcontentduringload="false"
+            id="rwmManager" runat="server" behaviors="Close, Move" onclientpageload="SetStatusBarForTelerikPopup"
+            keepinscreenbounds="true">
+        </telerik:radwindowmanager>
         <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%;"
             border="0">
             <tr>
@@ -151,7 +154,7 @@
                                                     </td>
                                                     <td>
                                                         <webControls:ExImage ID="imgIssueReportingSeparator" SkinID="ToolBarSeparator"
-                                                            runat="server"/>
+                                                            runat="server" />
                                                     </td>
                                                     <td class="ToolBarTD">
                                                         <webControls:ExHyperLink ID="hlIssueReporting" runat="server" Visible="true">
@@ -265,8 +268,11 @@
                                                         Visible="false" />
                                                     <webControls:ExImage ID="imgRecPeriodStatusSkipped" runat="server" SkinID="RecPeriodStatusSkipped"
                                                         Visible="false" />
+                                                    <webControls:ExImage ID="imgRecPeriodStatusOpeningInProgress" runat="server" SkinID="RecPeriodStatusOpeningInProgress"
+                                                        Visible="false" />
                                                     &nbsp;
                                                 <webControls:ExLabel ID="lblRecPeriodStatus" runat="server" SkinID="WhiteBold11Arial"></webControls:ExLabel>
+                                                    <asp:HiddenField ID="hdnRecPeriodStatus" runat="server" />
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </td>
@@ -353,6 +359,7 @@
         <asp:HiddenField ID="hdIsPostBackFlag" Value="0" runat="server" />
         <webControls:ExButton ID="btnRefresh" runat="server" OnClick="Refresh_Click" Style="visibility: hidden" />
         <UserControls:SessionNotification ID="ucSessionNotification" runat="server" />
+        <UserControls:PageAutoRefreshNotification ID="rnPageAutoRefresh" runat="server" />
     </form>
 
     <script type="text/javascript" language="javascript">
@@ -395,6 +402,31 @@
                 args.set_errorHandled(true);
             }
         }
+        function RefreshFullPage() {
+            $get("<%= btnRefresh.ClientID %>").click();
+        }
+        function CheckRecPeriodStatus()
+        {
+            PageMethods.CheckRecPeriodStatus('RecPeriod', OnSuccessRecPeriodStatus, OnFailureRecPeriodStatus);
+        }
+        function OnSuccessRecPeriodStatus(response)
+        {
+            if (response.length == 3) {
+                var hdnRecPeriodStatus = $get('<%=hdnRecPeriodStatus.ClientID%>')
+                if (response[2] != "" && response[2] != "0"
+                    && hdnRecPeriodStatus.value != "" && hdnRecPeriodStatus.value != "0"
+                    && response[2] != hdnRecPeriodStatus.value)
+                    ShowNotification(response[0], response[1])
+            }
+        }
+        function OnFailureRecPeriodStatus (error)
+        {
+            //alert(error);
+        }
+
+        $(document).ready(function () {
+            var refreshID = setInterval(CheckRecPeriodStatus, 10000);
+        });
     </script>
 
 </body>

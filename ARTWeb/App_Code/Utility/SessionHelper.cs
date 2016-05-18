@@ -498,6 +498,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     case WebEnums.RecPeriodStatus.Open:
                     case WebEnums.RecPeriodStatus.InProgress:
+                    case WebEnums.RecPeriodStatus.OpeningInProgress:
                         // Check for InProgress and Closed
                         /*
                          * Closed => Rec Period Status "Closed" is marked by Service, hence the update is not available in Session

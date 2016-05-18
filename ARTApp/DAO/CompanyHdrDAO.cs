@@ -1639,6 +1639,31 @@ namespace SkyStem.ART.App.DAO
             return cmd;
         }
 
+        public void EnableServiceBrokerInDatabase(ServerCompanyInfo oServerCompanyInfo)
+        {
+            using (IDbConnection cnn = this.CreateConnection())
+            {
+                cnn.Open();
+                using (IDbCommand cmd = GetEnableServiceBrokerInDatabaseCommand(oServerCompanyInfo))
+                {
+                    cmd.Connection = cnn;
+                    cmd.ExecuteNonQuery();
+                }
+                cnn.Close();
+            }
+        }
+
+        private IDbCommand GetEnableServiceBrokerInDatabaseCommand(ServerCompanyInfo oServerCompanyInfo)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("ALTER DATABASE ");
+            sb.Append(oServerCompanyInfo.DatabaseName);
+            sb.Append(" SET NEW_BROKER ");
+            System.Data.IDbCommand cmd = this.CreateCommand(sb.ToString());
+            cmd.CommandType = CommandType.Text;
+            return cmd;
+        }
+
         public void DropCompanyDatabase(ServerCompanyInfo oServerCompanyInfo)
         {
             using (IDbConnection cnn = this.CreateConnection())

@@ -18,6 +18,7 @@ using SkyStem.Language.LanguageUtility;
 using SkyStem.Library.Controls.TelerikWebControls;
 using System.ComponentModel;
 using SkyStem.ART.Client.Model;
+using System.Web.Services;
 
 namespace SkyStem.ART.Web.Classes
 {
@@ -178,6 +179,16 @@ namespace SkyStem.ART.Web.Classes
                 _CurrentRecProcessStatus = value;
             }
         }
-
+        [WebMethod]
+        public static string[] CheckRecPeriodStatus(string refreshReason)
+        {
+            string[] result = new string[3];
+            result[0] = LanguageUtil.GetValue(2998);
+            result[1] = LanguageUtil.GetValue(2999);
+            ReconciliationPeriodStatusMstInfo oRecPeriodStatusInfo = SessionHelper.GetRecPeriodStatus();
+            if (oRecPeriodStatusInfo != null && oRecPeriodStatusInfo.ReconciliationPeriodStatusID.HasValue)
+                result[2] = oRecPeriodStatusInfo.ReconciliationPeriodStatusID.Value.ToString();
+            return result;
+        }
     }
 }

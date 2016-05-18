@@ -145,6 +145,9 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
     #region Other Events
     protected void Refresh_Click(object sender, EventArgs args)
     {
+        ReconciliationPeriodStatusMstInfo oRecPeriodStatusInfo = SessionHelper.GetRecPeriodStatus();
+        if (oRecPeriodStatusInfo != null && hdnRecPeriodStatus.Value != oRecPeriodStatusInfo.ReconciliationPeriodStatusID.GetValueOrDefault().ToString())
+            ddlReconciliationPeriod_SelectedIndexChanged(null, null);
         RaiseRefreshRequested(null, new RefreshEventArgs());
     }
     protected void btnDummy_Click(object sender, EventArgs e)
@@ -718,6 +721,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
         if (oReconciliationPeriodStatusMstInfo != null)
         {
             lblRecPeriodStatus.Text = LanguageUtil.GetValue(oReconciliationPeriodStatusMstInfo.LabelID.Value);
+            hdnRecPeriodStatus.Value = oReconciliationPeriodStatusMstInfo.ReconciliationPeriodStatusID.GetValueOrDefault().ToString();
 
             // Icon
             imgRecPeriodStatusNotStarted.Visible = false;
@@ -725,6 +729,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
             imgRecPeriodStatusInProgress.Visible = false;
             imgRecPeriodStatusClosed.Visible = false;
             imgRecPeriodStatusSkipped.Visible = false;
+            imgRecPeriodStatusOpeningInProgress.Visible = false;
 
             WebEnums.RecPeriodStatus eRecPeriodStatus = (WebEnums.RecPeriodStatus)oReconciliationPeriodStatusMstInfo.ReconciliationPeriodStatusID;
             if ((Int32)eRecPeriodStatus > 0)
@@ -749,6 +754,9 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
 
                     case WebEnums.RecPeriodStatus.Skipped:
                         imgRecPeriodStatusSkipped.Visible = true;
+                        break;
+                    case WebEnums.RecPeriodStatus.OpeningInProgress:
+                        imgRecPeriodStatusOpeningInProgress.Visible = true;
                         break;
                 }
             }
