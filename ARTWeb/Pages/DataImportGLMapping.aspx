@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="DataImportGLMapping.aspx.cs" Inherits="Pages_DataImportGLMapping" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_DataImportGLMapping" Theme="SkyStemBlueBrown" Codebehind="DataImportGLMapping.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="padding-left: 40px; padding-right: 40px">

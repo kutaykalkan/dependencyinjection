@@ -1,0 +1,3217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B6C2C79-C59D-4C65-906B-F751B1394FD7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkyStem.ART.Web</RootNamespace>
+    <AssemblyName>ARTWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Adapdev">
+      <HintPath>..\lib\Adapdev.dll</HintPath>
+    </Reference>
+    <Reference Include="Adapdev.Data">
+      <HintPath>..\lib\Adapdev.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\lib\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ARTIntegrationUtility">
+      <HintPath>..\lib\ARTIntegrationUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="ephtmltopdf">
+      <HintPath>..\lib\ephtmltopdf.dll</HintPath>
+    </Reference>
+    <Reference Include="LanguageClient">
+      <HintPath>..\lib\LanguageClient.dll</HintPath>
+    </Reference>
+    <Reference Include="LanguageUtility">
+      <HintPath>..\lib\LanguageUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess">
+      <HintPath>..\lib\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\lib\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\lib\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikWebControls">
+      <HintPath>..\lib\TelerikWebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WebControls">
+      <HintPath>..\lib\WebControls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="App_Themes\SkyStemBlueBrown\default.skin" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Thumbs.db" />
+    <Content Include="Old_App_Code\Classes\Personalization\.#ARTPersonalizationProvider.cs.1.1" />
+    <Content Include="log4net.config" />
+    <Content Include="MasterPages\ARTMasterPage.master" />
+    <Content Include="MasterPages\AuditTrailPrint.master" />
+    <Content Include="MasterPages\CertificationMasterPage.master" />
+    <Content Include="MasterPages\CertificationMasterPagePrint.master" />
+    <Content Include="MasterPages\LoginMasterPage.master" />
+    <Content Include="MasterPages\MatchingMaster.master" />
+    <Content Include="MasterPages\PopUpMasterPage.master" />
+    <Content Include="MasterPages\RecFormPrint.master" />
+    <Content Include="MasterPages\RecProcessMasterPage.master" />
+    <Content Include="MasterPages\ReportViewer.master" />
+    <Content Include="MasterPages\ReportViewerPrint.master" />
+    <Content Include="Templates\AccountsAttributes.xlsx" />
+    <Content Include="Templates\AccountsUpload.xlsx" />
+    <Content Include="Templates\CurrencyExchange.xlsx" />
+    <Content Include="Templates\GeneralTaskImport.xls" />
+    <Content Include="Templates\GeneralTaskImport.xlsx" />
+    <Content Include="Templates\GLDataUpload.xlsx" />
+    <Content Include="Templates\GLTBSDataUpload.xlsx" />
+    <Content Include="Templates\HolidayUpload.xlsx" />
+    <Content Include="Templates\MappingUpload.xlsx" />
+    <Content Include="Templates\OSBANKNSIMPORT.xlsx" />
+    <Content Include="Templates\PeriodEndDates.xlsx" />
+    <Content Include="Templates\RecControlChecklist.xlsx" />
+    <Content Include="Templates\RecurringImportUI.xlsx" />
+    <Content Include="Templates\Subledger.xlsx" />
+    <Content Include="Templates\SubledgerSource.xlsx" />
+    <Content Include="Templates\UserUpload.xlsx" />
+    <Content Include="UserControls\Matching\Wizard\.#MatchingSourceSelection.ascx.cs.1.44" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\SkyStemBlueBrown\default.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Editor.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Grid.SkyStemBlueBrown.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Grid.SkyStemBlueBrownPrint.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountMatching.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountMateriality.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountMaterialityIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountMessageBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountViewer.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AccountViewerIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Add.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\add.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AddMoreFilter.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\AddNewRow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Add_new_rule.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\add_user.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\adobe.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\approve.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Arrow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ArrowTop.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ArtHeadingBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ArtLogoLogin.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ArtLogoLogin.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\attach.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\back.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BlueTickIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BodyBgLogin.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BorderHorizontalBottom.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BorderHorizontalTop.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BorderTopLeft.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BorderVerticalLeft.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BorderVerticalRight.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BotBorderForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BottomBorder.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BrownDivider.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BtLtCornerForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BtRtCornerForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\BulkEdit.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Bullet.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Cancel.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CapabilityForwardedNo.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CapabilityForwardedYes.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\carriedForword.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ClearFilter.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\clock.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Close.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Closed.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Collapse.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CollapseGlass.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CollapseRow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\comment-icon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Comment.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Comment_Green.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Completed.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Copy.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CopyAndClose.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\cor1.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\cor2.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\cor3.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\cor4.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CountdownBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\CrossIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\dataTypeMapping.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\data_import.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Default.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\del.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Delete.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\DelExcelIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\del_user.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\done.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\download.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\DownloadExcelIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\downloadZip.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\draftStatus.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\DueDatesIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Edit.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\EditMode.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Email.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ErrorIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\excel.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ExchangeRate.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ExchangeRateBG.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\exit.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Expand.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ExpandCollapseBarsCommands.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ExpandGlass.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ExpandRow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\FilterIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\FlagRed.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\footer.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ftp.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\GrayBoxIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\GreenTickIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\help.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\hide.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\History.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\History.JPG" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\HomeIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\HomeToolIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Import.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Import3.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ImportData.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\IncompleteAttributeList.bmp" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\InfoIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\info_big.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\info_small.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\InProgress.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\IssueReporting.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\left.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\listProcessing.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\lock.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBackground.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBackground.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBg.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBotLt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBotRt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginBoxBgBlue.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginGreenDevider.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginKey.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginTopLt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LoginTopRt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_bg_green.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_bot_bor.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_box_bg_blue_mod.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_green_bor_lt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_green_bor_rt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\login_top_bor.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\logo.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LtBorderForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\LtCornerForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MatchingResult.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Maximize.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuBarMouseover.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuDevider.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuDivider.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuDownArrow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MenuLeftArrow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\menu_bar_mouseover.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MessageBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Minimize.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\MultiVersions.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\NetAccountComposition.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\NoLogoAvailable.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\notes.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\NotStarted.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Office2007.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Open.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Overdue.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\PageTitleBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\pdf.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Pending.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\PersonalPrefIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Popup.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\PopupFileUpload.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\PopupNotes.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\PopupSchedule1.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\print.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\print_all.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\progress.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\progress_small.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ReadOnly.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ReadOnly.JPG" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ReconBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ReconciliationFreequency.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\RedBoxIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\refresh.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Reject.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\reject.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\reopen.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ReportViewer.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ResetPassword.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ResizeBarHorizontalSprites.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ResizeBarVerticalSprites.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\review.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\right.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Right1.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\rmSprite.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\rmVSprite.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\RtBorderForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\RtCornerForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\save.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ScreenShots.jpg" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SearchIconButton.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\selectedTabBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\selectedTabCorLt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\selectedTabCorRt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SessionExpiredImage.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\shadow.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SingleMinus.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SinglePlus.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Skipped.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SkyStemLogo.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SkyStemLogo.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SkyStemLogoLogin.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\slideTitleContainerBgr.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SortAsc.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\SortDesc.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\star.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\StartReconciliation.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\StartReconciliation.JPG" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\tabBG.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\tabCorLt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\tabCorRt.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\TanBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Tick.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ToBeProcessed.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ToolBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\ToolBarSeparator.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\TopBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\TopBor.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\TopBorderForgotPwd.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\TransparentGray.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\UnexpVarThreshold.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\unhide.png" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\Update.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\view.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\view_icon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\wait.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\WarningIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\WebPartBg.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\WebPartTitleBar.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Images\YellowTickIcon.gif" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Menu.SkyStemBlueBrown.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\RadTabStrip.css" />
+    <Content Include="App_Themes\SkyStemBlueBrown\Splitter.SkyStemBlueBrown.css" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="JavaScript\AcctViewerFilter.js" />
+    <Content Include="JavaScript\CalendarPopup.js" />
+    <Content Include="JavaScript\jquery-1.4.2.min.js" />
+    <Content Include="JavaScript\JScript1.js" />
+    <Content Include="JavaScript\NumericValidations.js" />
+    <Content Include="JavaScript\Reports.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="logs\logfile-SkyStemARTWeb.txt" />
+    <Content Include="Pages\AccountAlertDetail.aspx" />
+    <Content Include="Pages\AccountInformation.aspx" />
+    <Content Include="Pages\AccountOwnership.aspx" />
+    <Content Include="Pages\AccountProfileAttributeUpdate.aspx" />
+    <Content Include="Pages\AccountProfileAttributeUpdatePopup.aspx" />
+    <Content Include="Pages\AccountProfileMassAndBulkUpdate.aspx" />
+    <Content Include="Pages\AccountProfileUpdate.aspx" />
+    <Content Include="Pages\AccountViewer.aspx" />
+    <Content Include="Pages\AddRecControlCheckList.aspx" />
+    <Content Include="Pages\AddToMyReport.aspx" />
+    <Content Include="Pages\AddUserMailOnDataImport.aspx" />
+    <Content Include="Pages\AuditTrail.aspx" />
+    <Content Include="Pages\BulkCloseAccruable.aspx" />
+    <Content Include="Pages\BulkCloseAccrubleRecurring.aspx" />
+    <Content Include="Pages\BulkCloseAmortizable.aspx" />
+    <Content Include="Pages\BulkCloseAmortizableIndividual.aspx" />
+    <Content Include="Pages\BulkCloseGLDataRecurringScheduleItems.aspx" />
+    <Content Include="Pages\BulkCloseWriteOffOn.aspx" />
+    <Content Include="Pages\CapabilityActivation.aspx" />
+    <Content Include="Pages\CertificationPrint\CertificationBalancesPrint.aspx" />
+    <Content Include="Pages\CertificationPrint\CertificationExceptionPrint.aspx" />
+    <Content Include="Pages\CertificationPrint\CertificationSignOffPrint.aspx" />
+    <Content Include="Pages\Certification\CertificationBalances.aspx" />
+    <Content Include="Pages\Certification\CertificationException.aspx" />
+    <Content Include="Pages\Certification\CertificationHome.aspx" />
+    <Content Include="Pages\Certification\CertificationSignOff.aspx" />
+    <Content Include="Pages\Certification\CertificationVerbiage.aspx" />
+    <Content Include="Pages\Certification\MandatoryReportsList.aspx" />
+    <Content Include="Pages\ChangeFTPPassword.aspx" />
+    <Content Include="Pages\ChangePassword.aspx" />
+    <Content Include="Pages\CheckUserStatus.aspx" />
+    <Content Include="Pages\CloseRecPeriodPopup.aspx" />
+    <Content Include="Pages\CompanyList.aspx" />
+    <Content Include="Pages\Configuration\RulesAndChecklists.aspx" />
+    <Content Include="Pages\ConfigureAndScheduleAlerts.aspx" />
+    <Content Include="Pages\ConfigureWorkWeek.aspx" />
+    <Content Include="Pages\ConfirmPopUp.aspx" />
+    <Content Include="Pages\CreateCompany.aspx" />
+    <Content Include="Pages\CreateDataImportTemplate.aspx" />
+    <Content Include="Pages\CreateFinancialYear.aspx" />
+    <Content Include="Pages\CreateUser.aspx" />
+    <Content Include="Pages\DashboardPreferences.aspx" />
+    <Content Include="Pages\DataImport.aspx" />
+    <Content Include="Pages\DataImportConfiguration.aspx" />
+    <Content Include="Pages\DataImportConfigurationAuditTrail.aspx" />
+    <Content Include="Pages\DataImportGLMapping.aspx" />
+    <Content Include="Pages\DataImportStatus.aspx" />
+    <Content Include="Pages\DataImportStatusMessages.aspx" />
+    <Content Include="Pages\DocumentUpload.aspx" />
+    <Content Include="Pages\DocumentViewer.aspx" />
+    <Content Include="Pages\DownloadAttachment.aspx" />
+    <Content Include="Pages\DueDates.aspx" />
+    <Content Include="Pages\EditCompany.aspx" />
+    <Content Include="Pages\EditItemAccrubleRecurring.aspx" />
+    <Content Include="Pages\EditItemAmortizable.aspx" />
+    <Content Include="Pages\EditItemReviewNote.aspx" />
+    <Content Include="Pages\EditItemUnexplainedVariance.aspx" />
+    <Content Include="Pages\EditItemWriteOffOn.aspx" />
+    <Content Include="Pages\EditRecControlCheckListComment.aspx" />
+    <Content Include="Pages\EditRecItemComment.aspx" />
+    <Content Include="Pages\EditRecItemInputs.aspx" />
+    <Content Include="Pages\EditUser.aspx" />
+    <Content Include="Pages\EmailPopupForRecForm.aspx" />
+    <Content Include="Pages\ErrorHandler.aspx" />
+    <Content Include="Pages\ErrorHandlerPopup.aspx" />
+    <Content Include="Pages\ExceptionAlertDetail.aspx" />
+    <Content Include="Pages\FinancialYearSelectionPopup.aspx" />
+    <Content Include="Pages\GLAdjustmentBulkClose.aspx" />
+    <Content Include="Pages\GLProcessError.aspx" />
+    <Content Include="Pages\GridApplyFilter.aspx" />
+    <Content Include="Pages\GridCustomization.aspx" />
+    <Content Include="Pages\GridDynamicFilter.aspx" />
+    <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\JournalEntry\ConfigureJEColumns.aspx" />
+    <Content Include="Pages\JournalEntry\ConfigureJEWriteOnOffApprover.aspx" />
+    <Content Include="Pages\Matching\CloseRecItem.aspx" />
+    <Content Include="Pages\Matching\CreateRecItem.aspx" />
+    <Content Include="Pages\Matching\MatchingDataImportStatusMessages.aspx" />
+    <Content Include="Pages\Matching\MatchingResults.aspx" />
+    <Content Include="Pages\Matching\MatchingSourceDataImportStatus.aspx" />
+    <Content Include="Pages\Matching\MatchingWizard.aspx" />
+    <Content Include="Pages\Matching\MatchsetStatusMessages.aspx" />
+    <Content Include="Pages\Matching\MatchSourceDataImport.aspx" />
+    <Content Include="Pages\Matching\MatchSourceDataTypeMapping.aspx" />
+    <Content Include="Pages\Matching\PopupViewAccounts.aspx" />
+    <Content Include="Pages\Matching\RuleSetupPopup.aspx" />
+    <Content Include="Pages\Matching\ViewMatchSet.aspx" />
+    <Content Include="Pages\Matching\ViewPairData.aspx" />
+    <Content Include="Pages\Matching\ViewRecItems.aspx" />
+    <Content Include="Pages\MaterialityUnexplainedthresholdDetail.aspx" />
+    <Content Include="Pages\Multilingual\DownloadMultilingualData.aspx" />
+    <Content Include="Pages\MultiVersionGL\PopupGLVersion.aspx" />
+    <Content Include="Pages\MultiVersionSubledger\PopupSubledgerVersion.aspx" />
+    <Content Include="Pages\NetAccount.aspx" />
+    <Content Include="Pages\OSDepositBankNsfImport.aspx" />
+    <Content Include="Pages\PackageFeatureList.aspx" />
+    <Content Include="Pages\PackageMatrixPopup.aspx" />
+    <Content Include="Pages\PopupExchangeRates.aspx" />
+    <Content Include="Pages\PopupForRecFormPrint.aspx" />
+    <Content Include="Pages\PopupNetAccountComposition.aspx" />
+    <Content Include="Pages\PopupRecFrequency.aspx" />
+    <Content Include="Pages\PopupRecFrequencySelection.aspx" />
+    <Content Include="Pages\PopupRiskRatingRecPeriod.aspx" />
+    <Content Include="Pages\PopupUserLockdownDetail.aspx" />
+    <Content Include="Pages\RecBinders.aspx" />
+    <Content Include="Pages\RecControlCheckListImport.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateAccruableItemsFormPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateAmortizableAccountsFormPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateAuditTrailPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateBankAccountFormPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateDerivedCalculationFormPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateItemizedListFormPrint.aspx" />
+    <Content Include="Pages\RecFormPrint\TemplateSubledgerFormPrint.aspx" />
+    <Content Include="Pages\RecForm\EditExchangeRate.aspx" />
+    <Content Include="Pages\RecItemImportStatusMessage.aspx" />
+    <Content Include="Pages\ReconciliationArchives.aspx" />
+    <Content Include="Pages\RecPeriodStatusHistoryPopup.aspx" />
+    <Content Include="Pages\RecurringImportUII.aspx" />
+    <Content Include="Pages\ReOpenRecPeriodPopup.aspx" />
+    <Content Include="Pages\ReportActivity.aspx" />
+    <Content Include="Pages\ReportHome.aspx" />
+    <Content Include="Pages\ReportParameter.aspx" />
+    <Content Include="Pages\ReportRun.aspx" />
+    <Content Include="Pages\ReportSaved.aspx" />
+    <Content Include="Pages\ReportSignOffArchive.aspx" />
+    <Content Include="Pages\ReportsPrint\AccountAttributeChangeReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\AccountOwnershipReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\AccountStatusReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\CertificationTrackingReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\CompletionDateReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\DelinquentAccountByUserReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\ExceptionStatusReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\IncompleteAccountAttributeReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\NewAccountReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\OpenItemsReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\QualityScoreReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\ReconciliationStatusCountReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\ReviewNoteReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\TaskCompletionReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\UnassignedAccountsReportPrint.aspx" />
+    <Content Include="Pages\ReportsPrint\UnusualBalancesReportPrint.aspx" />
+    <Content Include="Pages\Reports\AccountAttributeChangeReport.aspx" />
+    <Content Include="Pages\Reports\AccountOwnershipReport.aspx" />
+    <Content Include="Pages\Reports\AccountStatusReport.aspx" />
+    <Content Include="Pages\Reports\CertificationTrackingReport.aspx" />
+    <Content Include="Pages\Reports\CompletionDateReport.aspx" />
+    <Content Include="Pages\Reports\DelinquentAccountByUserReport.aspx" />
+    <Content Include="Pages\Reports\ExceptionStatusReport.aspx" />
+    <Content Include="Pages\Reports\IncompleteAccountAttributeReport.aspx" />
+    <Content Include="Pages\Reports\NewAccountReport.aspx" />
+    <Content Include="Pages\Reports\OpenItemReportForCurrentRecPeriod.aspx" />
+    <Content Include="Pages\Reports\OpenItemsReport.aspx" />
+    <Content Include="Pages\Reports\QualityScoreReport.aspx" />
+    <Content Include="Pages\Reports\ReconciliationStatusCountReport.aspx" />
+    <Content Include="Pages\Reports\ReviewNoteReport.aspx" />
+    <Content Include="Pages\Reports\TaskCompletionReport.aspx" />
+    <Content Include="Pages\Reports\UnassignedAccountsReport.aspx" />
+    <Content Include="Pages\Reports\UnusualBalancesReport.aspx" />
+    <Content Include="Pages\RequestStatus.aspx" />
+    <Content Include="Pages\ReviewNotes.aspx" />
+    <Content Include="Pages\RoleConfiguration.aspx" />
+    <Content Include="Pages\ScheduleDataImport.aspx" />
+    <Content Include="Pages\ShowSkippedRecPeriodMessage.aspx" />
+    <Content Include="Pages\SignedReports.aspx" />
+    <Content Include="Pages\Support\ReportIssue.aspx" />
+    <Content Include="Pages\SystemReconciledAccount.aspx" />
+    <Content Include="Pages\SystemWideSettings.aspx" />
+    <Content Include="Pages\TaskMaster\AddViewTaskComments.aspx" />
+    <Content Include="Pages\TaskMaster\BulkCompleteTasks.aspx" />
+    <Content Include="Pages\TaskMaster\CreateTask.aspx" />
+    <Content Include="Pages\TaskMaster\EditTaskList.aspx" />
+    <Content Include="Pages\TaskMaster\GeneralTaskImport.aspx" />
+    <Content Include="Pages\TaskMaster\TaskAttachment.aspx" />
+    <Content Include="Pages\TaskMaster\TaskImportStatusMessage.aspx" />
+    <Content Include="Pages\TaskMaster\TaskViewer.aspx" />
+    <Content Include="Pages\TaskMaster\ViewTaskComments.aspx" />
+    <Content Include="Pages\TemplateAccruableItemsForm.aspx" />
+    <Content Include="Pages\TemplateAmortizableAccountsForm.aspx" />
+    <Content Include="Pages\TemplateBankAccountForm.aspx" />
+    <Content Include="Pages\TemplateColumnMapping.aspx" />
+    <Content Include="Pages\TemplateDerivedCalculationForm.aspx" />
+    <Content Include="Pages\TemplateItemizedListForm.aspx" />
+    <Content Include="Pages\TemplateSubledgerForm.aspx" />
+    <Content Include="Pages\UnexplainedVariance.aspx" />
+    <Content Include="Pages\UnExplainedVarianceHistory.aspx" />
+    <Content Include="Pages\UserAccountAssociation.aspx" />
+    <Content Include="Pages\UserSearch.aspx" />
+    <Content Include="TestPages\TestWebFormFormat.aspx" />
+    <Content Include="UserControls\AccountDescription.ascx" />
+    <Content Include="UserControls\AccountHierarchyDetail.ascx" />
+    <Content Include="UserControls\AccountInfoLeftPane.ascx" />
+    <Content Include="UserControls\AccountSearchControl.ascx" />
+    <Content Include="UserControls\AccountTypeDropDown.ascx" />
+    <Content Include="UserControls\AccountViewerFilter\AcctFltrRadioButtonListYesNoAll.ascx" />
+    <Content Include="UserControls\AccountViewerFilter\CheckBoxListWithSelectAll.ascx" />
+    <Content Include="UserControls\AccountViewerFilter\DateRange.ascx" />
+    <Content Include="UserControls\AccountViewerFilter\StringRange.ascx" />
+    <Content Include="UserControls\ARTLogoLogin.ascx" />
+    <Content Include="UserControls\AuditTrail.ascx" />
+    <Content Include="UserControls\Capability\CapabilityActivationDualLevelReview.ascx" />
+    <Content Include="UserControls\Capability\CapabilityActivationMateriality.ascx" />
+    <Content Include="UserControls\Capability\CapabilityActivationRCCL.ascx" />
+    <Content Include="UserControls\Capability\CapabilityCertificationActivation.ascx" />
+    <Content Include="UserControls\Capability\CapabilityDueDateByAccount.ascx" />
+    <Content Include="UserControls\Capability\CapabilityMandatoryReportSignoff.ascx" />
+    <Content Include="UserControls\Capability\CapabilityMultiCurrency.ascx" />
+    <Content Include="UserControls\Capability\CapabilityRiskRating.ascx" />
+    <Content Include="UserControls\Capability\CapabilityRiskRatingAll.ascx" />
+    <Content Include="UserControls\Configuration\SRARuleSelection.ascx" />
+    <Content Include="UserControls\Dashboard\AccountOwnershipStatistics.ascx" />
+    <Content Include="UserControls\Dashboard\AccountReconciliationCoverage.ascx" />
+    <Content Include="UserControls\Dashboard\ExceptionsByFSCaption.ascx" />
+    <Content Include="UserControls\Dashboard\IncompleteAttributeList.ascx" />
+    <Content Include="UserControls\Dashboard\OpenItemStatus.ascx" />
+    <Content Include="UserControls\Dashboard\ReconciliationStatusByFSCaption.ascx" />
+    <Content Include="UserControls\Dashboard\ReconciliationTracking.ascx" />
+    <Content Include="UserControls\Dashboard\TaskStatus.ascx" />
+    <Content Include="UserControls\Dashboard\TaskStatusByMonth.ascx" />
+    <Content Include="UserControls\Dashboard\UnassignedAccountOwnership.ascx" />
+    <Content Include="UserControls\DayTypeDropDown.ascx" />
+    <Content Include="UserControls\DocumentUploadButton.ascx" />
+    <Content Include="UserControls\ErrorAndWarnings.ascx" />
+    <Content Include="UserControls\Footer.ascx" />
+    <Content Include="UserControls\FooterMaster.ascx" />
+    <Content Include="UserControls\InputRequirements.ascx" />
+    <Content Include="UserControls\LegendOnAccountAndSRAViewer.ascx" />
+    <Content Include="UserControls\LegendOnAccountSearch.ascx" />
+    <Content Include="UserControls\LegendOnItemInputForm.ascx" />
+    <Content Include="UserControls\LegendOnReconciliationTemplate.ascx" />
+    <Content Include="UserControls\MappingUpload\MappingUpload.ascx" />
+    <Content Include="UserControls\Matching\AccountMatchingButton.ascx" />
+    <Content Include="UserControls\Matching\DataTypeMapping.ascx" />
+    <Content Include="UserControls\Matching\LowerUpperBound.ascx" />
+    <Content Include="UserControls\Matching\MatchSetInfo.ascx" />
+    <Content Include="UserControls\Matching\MatchSetResults\Matched.ascx" />
+    <Content Include="UserControls\Matching\MatchSetResults\PartialMatched.ascx" />
+    <Content Include="UserControls\Matching\MatchSetResults\Unmatched.ascx" />
+    <Content Include="UserControls\Matching\RuleDisplayControl.ascx" />
+    <Content Include="UserControls\Matching\Wizard\DisplayColumnSelection.ascx" />
+    <Content Include="UserControls\Matching\Wizard\MatchingCombinationSelection.ascx" />
+    <Content Include="UserControls\Matching\Wizard\MatchingConfiguration.ascx" />
+    <Content Include="UserControls\Matching\Wizard\MatchingSourceFilter.ascx" />
+    <Content Include="UserControls\Matching\Wizard\MatchingSourceSelection.ascx" />
+    <Content Include="UserControls\Matching\Wizard\PreviewConfirm.ascx" />
+    <Content Include="UserControls\Matching\Wizard\RecItemColumnMapping.ascx" />
+    <Content Include="UserControls\MultiVersionGL\GLVersion.ascx" />
+    <Content Include="UserControls\MultiVersionSubledger\SubledgerVersion.ascx" />
+    <Content Include="UserControls\NetAccountComposition.ascx" />
+    <Content Include="UserControls\Notification\PageAutoRefreshNotification.ascx" />
+    <Content Include="UserControls\OrganizationalHierarchyDropdown.ascx" />
+    <Content Include="UserControls\PackageFeatureList.ascx" />
+    <Content Include="UserControls\PopupRecFrequency.ascx" />
+    <Content Include="UserControls\PopupRecFrequencySelection.ascx" />
+    <Content Include="UserControls\ProgressBar.ascx" />
+    <Content Include="UserControls\QualityScore\DisplayQualityScore.ascx" />
+    <Content Include="UserControls\QualityScore\EditQualityScore.ascx" />
+    <Content Include="UserControls\QualityScore\QualityScoreSelection.ascx" />
+    <Content Include="UserControls\RecControlCheckList\RecControlCheckList.ascx" />
+    <Content Include="UserControls\RecControlCheckList\RecControlCheckListGrid.ascx" />
+    <Content Include="UserControls\RecForm\ExchangeRateBar.ascx" />
+    <Content Include="UserControls\RecForm\GLAdjustments.ascx" />
+    <Content Include="UserControls\RecForm\GLDataRecItemGrid.ascx" />
+    <Content Include="UserControls\RecForm\GLDataRecurringScheduleItems.ascx" />
+    <Content Include="UserControls\RecForm\GLDataRecurringScheduleItemsGrid.ascx" />
+    <Content Include="UserControls\RecForm\GLDataWriteOnOff.ascx" />
+    <Content Include="UserControls\RecForm\GLDataWriteOnOffGrid.ascx" />
+    <Content Include="UserControls\RecForm\ItemInputAccurable.ascx" />
+    <Content Include="UserControls\RecForm\ItemInputAccurableRecurring.ascx" />
+    <Content Include="UserControls\RecForm\ItemInputAmortizableIndividual.ascx" />
+    <Content Include="UserControls\RecForm\ItemInputAmortizableTemplate.ascx" />
+    <Content Include="UserControls\RecForm\ItemInputWriteOff.ascx" />
+    <Content Include="UserControls\RecForm\RecFormButtons.ascx" />
+    <Content Include="UserControls\RecForm\RecStatusBar.ascx" />
+    <Content Include="UserControls\RecForm\UnexplainedVariance.ascx" />
+    <Content Include="UserControls\ReconciliationTemplateDropDown.ascx" />
+    <Content Include="UserControls\Report\AccountRange.ascx" />
+    <Content Include="UserControls\Report\CloseDate.ascx" />
+    <Content Include="UserControls\Report\DateRange.ascx" />
+    <Content Include="UserControls\Report\FinancialYear.ascx" />
+    <Content Include="UserControls\Report\OrganizationalHierarchy.ascx" />
+    <Content Include="UserControls\Report\ParameterViewer.ascx" />
+    <Content Include="UserControls\Report\Preparer.ascx" />
+    <Content Include="UserControls\Report\RadioButtonListAllYesNo.ascx" />
+    <Content Include="UserControls\Report\RecPeriod.ascx" />
+    <Content Include="UserControls\Report\ReportInfo.ascx" />
+    <Content Include="UserControls\Report\RoleUserSelection.ascx" />
+    <Content Include="UserControls\Report\ScrollableCheckboxListWithSelectAll.ascx" />
+    <Content Include="UserControls\Report\SimpleDropdownList.ascx" />
+    <Content Include="UserControls\Report\SimpleScrollableCheckBoxList.ascx" />
+    <Content Include="UserControls\Report\SingleDate.ascx" />
+    <Content Include="UserControls\Report\StringRange.ascx" />
+    <Content Include="UserControls\Report\User.ascx" />
+    <Content Include="UserControls\Report\UserRole.ascx" />
+    <Content Include="UserControls\ReviewNotesButton.ascx" />
+    <Content Include="UserControls\RiskRatingDropDown.ascx" />
+    <Content Include="UserControls\RoleSelection.ascx" />
+    <Content Include="UserControls\ScheduleIntervalDetails.ascx" />
+    <Content Include="UserControls\SessionExpiryNotification.ascx" />
+    <Content Include="UserControls\Signature.ascx" />
+    <Content Include="UserControls\SkyStemARTGrid.ascx" />
+    <Content Include="UserControls\SubledgerSourceDropDown.ascx" />
+    <Content Include="UserControls\TaskMaster\AccountTaskGrid.ascx" />
+    <Content Include="UserControls\TaskMaster\AddTaskComment.ascx" />
+    <Content Include="UserControls\TaskMaster\Attachments.ascx" />
+    <Content Include="UserControls\TaskMaster\BulkCompleteTasks.ascx" />
+    <Content Include="UserControls\TaskMaster\GeneralTaskGrid.ascx" />
+    <Content Include="UserControls\TaskMaster\LegendOnTaskViewer.ascx" />
+    <Content Include="UserControls\TaskMaster\RecFormAccountTaskGrid.ascx" />
+    <Content Include="UserControls\TaskMaster\TaskCustomFields.ascx" />
+    <Content Include="UserControls\TaskMaster\ViewTaskComments.ascx" />
+    <Content Include="UserControls\TextEditor.ascx" />
+    <Content Include="UserControls\UserDropDown.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ARTMasterPage.master.designer.cs">
+      <DependentUpon>ARTMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\AuditTrailPrint.master.designer.cs">
+      <DependentUpon>AuditTrailPrint.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\CertificationMasterPage.master.designer.cs">
+      <DependentUpon>CertificationMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\CertificationMasterPagePrint.master.designer.cs">
+      <DependentUpon>CertificationMasterPagePrint.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\LoginMasterPage.master.designer.cs">
+      <DependentUpon>LoginMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MatchingMaster.master.designer.cs">
+      <DependentUpon>MatchingMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\PopUpMasterPage.master.designer.cs">
+      <DependentUpon>PopUpMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\RecFormPrint.master.designer.cs">
+      <DependentUpon>RecFormPrint.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\RecProcessMasterPage.master.designer.cs">
+      <DependentUpon>RecProcessMasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ReportViewer.master.designer.cs">
+      <DependentUpon>ReportViewer.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\ReportViewerPrint.master.designer.cs">
+      <DependentUpon>ReportViewerPrint.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountAlertDetail.aspx.designer.cs">
+      <DependentUpon>AccountAlertDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountInformation.aspx.designer.cs">
+      <DependentUpon>AccountInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountOwnership.aspx.designer.cs">
+      <DependentUpon>AccountOwnership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountProfileAttributeUpdate.aspx.designer.cs">
+      <DependentUpon>AccountProfileAttributeUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountProfileAttributeUpdatePopup.aspx.designer.cs">
+      <DependentUpon>AccountProfileAttributeUpdatePopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountProfileMassAndBulkUpdate.aspx.designer.cs">
+      <DependentUpon>AccountProfileMassAndBulkUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountProfileUpdate.aspx.designer.cs">
+      <DependentUpon>AccountProfileUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AccountViewer.aspx.designer.cs">
+      <DependentUpon>AccountViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddRecControlCheckList.aspx.designer.cs">
+      <DependentUpon>AddRecControlCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddToMyReport.aspx.designer.cs">
+      <DependentUpon>AddToMyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddUserMailOnDataImport.aspx.designer.cs">
+      <DependentUpon>AddUserMailOnDataImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AuditTrail.aspx.designer.cs">
+      <DependentUpon>AuditTrail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAccruable.aspx.designer.cs">
+      <DependentUpon>BulkCloseAccruable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAccrubleRecurring.aspx.designer.cs">
+      <DependentUpon>BulkCloseAccrubleRecurring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAmortizable.aspx.designer.cs">
+      <DependentUpon>BulkCloseAmortizable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAmortizableIndividual.aspx.designer.cs">
+      <DependentUpon>BulkCloseAmortizableIndividual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseGLDataRecurringScheduleItems.aspx.designer.cs">
+      <DependentUpon>BulkCloseGLDataRecurringScheduleItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BulkCloseWriteOffOn.aspx.designer.cs">
+      <DependentUpon>BulkCloseWriteOffOn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CapabilityActivation.aspx.designer.cs">
+      <DependentUpon>CapabilityActivation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationBalancesPrint.aspx.designer.cs">
+      <DependentUpon>CertificationBalancesPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationExceptionPrint.aspx.designer.cs">
+      <DependentUpon>CertificationExceptionPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationSignOffPrint.aspx.designer.cs">
+      <DependentUpon>CertificationSignOffPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationBalances.aspx.designer.cs">
+      <DependentUpon>CertificationBalances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationException.aspx.designer.cs">
+      <DependentUpon>CertificationException.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationHome.aspx.designer.cs">
+      <DependentUpon>CertificationHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationSignOff.aspx.designer.cs">
+      <DependentUpon>CertificationSignOff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationVerbiage.aspx.designer.cs">
+      <DependentUpon>CertificationVerbiage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Certification\MandatoryReportsList.aspx.designer.cs">
+      <DependentUpon>MandatoryReportsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangeFTPPassword.aspx.designer.cs">
+      <DependentUpon>ChangeFTPPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CheckUserStatus.aspx.designer.cs">
+      <DependentUpon>CheckUserStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CloseRecPeriodPopup.aspx.designer.cs">
+      <DependentUpon>CloseRecPeriodPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompanyList.aspx.designer.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Configuration\RulesAndChecklists.aspx.designer.cs">
+      <DependentUpon>RulesAndChecklists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfigureAndScheduleAlerts.aspx.designer.cs">
+      <DependentUpon>ConfigureAndScheduleAlerts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfigureWorkWeek.aspx.designer.cs">
+      <DependentUpon>ConfigureWorkWeek.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfirmPopUp.aspx.designer.cs">
+      <DependentUpon>ConfirmPopUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateCompany.aspx.designer.cs">
+      <DependentUpon>CreateCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateDataImportTemplate.aspx.designer.cs">
+      <DependentUpon>CreateDataImportTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateFinancialYear.aspx.designer.cs">
+      <DependentUpon>CreateFinancialYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DashboardPreferences.aspx.designer.cs">
+      <DependentUpon>DashboardPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImport.aspx.designer.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImportConfiguration.aspx.designer.cs">
+      <DependentUpon>DataImportConfiguration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImportConfigurationAuditTrail.aspx.designer.cs">
+      <DependentUpon>DataImportConfigurationAuditTrail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImportGLMapping.aspx.designer.cs">
+      <DependentUpon>DataImportGLMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImportStatus.aspx.designer.cs">
+      <DependentUpon>DataImportStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DataImportStatusMessages.aspx.designer.cs">
+      <DependentUpon>DataImportStatusMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DocumentUpload.aspx.designer.cs">
+      <DependentUpon>DocumentUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DocumentViewer.aspx.designer.cs">
+      <DependentUpon>DocumentViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DownloadAttachment.aspx.designer.cs">
+      <DependentUpon>DownloadAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DueDates.aspx.designer.cs">
+      <DependentUpon>DueDates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditCompany.aspx.designer.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditItemAccrubleRecurring.aspx.designer.cs">
+      <DependentUpon>EditItemAccrubleRecurring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditItemAmortizable.aspx.designer.cs">
+      <DependentUpon>EditItemAmortizable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditItemReviewNote.aspx.designer.cs">
+      <DependentUpon>EditItemReviewNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditItemUnexplainedVariance.aspx.designer.cs">
+      <DependentUpon>EditItemUnexplainedVariance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditItemWriteOffOn.aspx.designer.cs">
+      <DependentUpon>EditItemWriteOffOn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditRecControlCheckListComment.aspx.designer.cs">
+      <DependentUpon>EditRecControlCheckListComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditRecItemComment.aspx.designer.cs">
+      <DependentUpon>EditRecItemComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditRecItemInputs.aspx.designer.cs">
+      <DependentUpon>EditRecItemInputs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmailPopupForRecForm.aspx.designer.cs">
+      <DependentUpon>EmailPopupForRecForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ErrorHandler.aspx.designer.cs">
+      <DependentUpon>ErrorHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ErrorHandlerPopup.aspx.designer.cs">
+      <DependentUpon>ErrorHandlerPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExceptionAlertDetail.aspx.designer.cs">
+      <DependentUpon>ExceptionAlertDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FinancialYearSelectionPopup.aspx.designer.cs">
+      <DependentUpon>FinancialYearSelectionPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GLAdjustmentBulkClose.aspx.designer.cs">
+      <DependentUpon>GLAdjustmentBulkClose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GLProcessError.aspx.designer.cs">
+      <DependentUpon>GLProcessError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GridApplyFilter.aspx.designer.cs">
+      <DependentUpon>GridApplyFilter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GridCustomization.aspx.designer.cs">
+      <DependentUpon>GridCustomization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GridDynamicFilter.aspx.designer.cs">
+      <DependentUpon>GridDynamicFilter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\JournalEntry\ConfigureJEColumns.aspx.designer.cs">
+      <DependentUpon>ConfigureJEColumns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\JournalEntry\ConfigureJEWriteOnOffApprover.aspx.designer.cs">
+      <DependentUpon>ConfigureJEWriteOnOffApprover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\CloseRecItem.aspx.designer.cs">
+      <DependentUpon>CloseRecItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\CreateRecItem.aspx.designer.cs">
+      <DependentUpon>CreateRecItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingDataImportStatusMessages.aspx.designer.cs">
+      <DependentUpon>MatchingDataImportStatusMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingResults.aspx.designer.cs">
+      <DependentUpon>MatchingResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingSourceDataImportStatus.aspx.designer.cs">
+      <DependentUpon>MatchingSourceDataImportStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingWizard.aspx.designer.cs">
+      <DependentUpon>MatchingWizard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchsetStatusMessages.aspx.designer.cs">
+      <DependentUpon>MatchsetStatusMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchSourceDataImport.aspx.designer.cs">
+      <DependentUpon>MatchSourceDataImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchSourceDataTypeMapping.aspx.designer.cs">
+      <DependentUpon>MatchSourceDataTypeMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\PopupViewAccounts.aspx.designer.cs">
+      <DependentUpon>PopupViewAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\RuleSetupPopup.aspx.designer.cs">
+      <DependentUpon>RuleSetupPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewMatchSet.aspx.designer.cs">
+      <DependentUpon>ViewMatchSet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewPairData.aspx.designer.cs">
+      <DependentUpon>ViewPairData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewRecItems.aspx.designer.cs">
+      <DependentUpon>ViewRecItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialityUnexplainedthresholdDetail.aspx.designer.cs">
+      <DependentUpon>MaterialityUnexplainedthresholdDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Multilingual\DownloadMultilingualData.aspx.designer.cs">
+      <DependentUpon>DownloadMultilingualData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MultiVersionGL\PopupGLVersion.aspx.designer.cs">
+      <DependentUpon>PopupGLVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MultiVersionSubledger\PopupSubledgerVersion.aspx.designer.cs">
+      <DependentUpon>PopupSubledgerVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NetAccount.aspx.designer.cs">
+      <DependentUpon>NetAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OSDepositBankNsfImport.aspx.designer.cs">
+      <DependentUpon>OSDepositBankNsfImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PackageFeatureList.aspx.designer.cs">
+      <DependentUpon>PackageFeatureList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PackageMatrixPopup.aspx.designer.cs">
+      <DependentUpon>PackageMatrixPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupExchangeRates.aspx.designer.cs">
+      <DependentUpon>PopupExchangeRates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupForRecFormPrint.aspx.designer.cs">
+      <DependentUpon>PopupForRecFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupNetAccountComposition.aspx.designer.cs">
+      <DependentUpon>PopupNetAccountComposition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupRecFrequency.aspx.designer.cs">
+      <DependentUpon>PopupRecFrequency.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupRecFrequencySelection.aspx.designer.cs">
+      <DependentUpon>PopupRecFrequencySelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupRiskRatingRecPeriod.aspx.designer.cs">
+      <DependentUpon>PopupRiskRatingRecPeriod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PopupUserLockdownDetail.aspx.designer.cs">
+      <DependentUpon>PopupUserLockdownDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecBinders.aspx.designer.cs">
+      <DependentUpon>RecBinders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecControlCheckListImport.aspx.designer.cs">
+      <DependentUpon>RecControlCheckListImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAccruableItemsFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateAccruableItemsFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAmortizableAccountsFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateAmortizableAccountsFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAuditTrailPrint.aspx.designer.cs">
+      <DependentUpon>TemplateAuditTrailPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateBankAccountFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateBankAccountFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateDerivedCalculationFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateDerivedCalculationFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateItemizedListFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateItemizedListFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateSubledgerFormPrint.aspx.designer.cs">
+      <DependentUpon>TemplateSubledgerFormPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecForm\EditExchangeRate.aspx.designer.cs">
+      <DependentUpon>EditExchangeRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecItemImportStatusMessage.aspx.designer.cs">
+      <DependentUpon>RecItemImportStatusMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReconciliationArchives.aspx.designer.cs">
+      <DependentUpon>ReconciliationArchives.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecPeriodStatusHistoryPopup.aspx.designer.cs">
+      <DependentUpon>RecPeriodStatusHistoryPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecurringImportUII.aspx.designer.cs">
+      <DependentUpon>RecurringImportUII.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReOpenRecPeriodPopup.aspx.designer.cs">
+      <DependentUpon>ReOpenRecPeriodPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportActivity.aspx.designer.cs">
+      <DependentUpon>ReportActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportHome.aspx.designer.cs">
+      <DependentUpon>ReportHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportParameter.aspx.designer.cs">
+      <DependentUpon>ReportParameter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportRun.aspx.designer.cs">
+      <DependentUpon>ReportRun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportSaved.aspx.designer.cs">
+      <DependentUpon>ReportSaved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportSignOffArchive.aspx.designer.cs">
+      <DependentUpon>ReportSignOffArchive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountAttributeChangeReportPrint.aspx.designer.cs">
+      <DependentUpon>AccountAttributeChangeReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountOwnershipReportPrint.aspx.designer.cs">
+      <DependentUpon>AccountOwnershipReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountStatusReportPrint.aspx.designer.cs">
+      <DependentUpon>AccountStatusReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\CertificationTrackingReportPrint.aspx.designer.cs">
+      <DependentUpon>CertificationTrackingReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\CompletionDateReportPrint.aspx.designer.cs">
+      <DependentUpon>CompletionDateReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\DelinquentAccountByUserReportPrint.aspx.designer.cs">
+      <DependentUpon>DelinquentAccountByUserReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ExceptionStatusReportPrint.aspx.designer.cs">
+      <DependentUpon>ExceptionStatusReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\IncompleteAccountAttributeReportPrint.aspx.designer.cs">
+      <DependentUpon>IncompleteAccountAttributeReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\NewAccountReportPrint.aspx.designer.cs">
+      <DependentUpon>NewAccountReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\OpenItemsReportPrint.aspx.designer.cs">
+      <DependentUpon>OpenItemsReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\QualityScoreReportPrint.aspx.designer.cs">
+      <DependentUpon>QualityScoreReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ReconciliationStatusCountReportPrint.aspx.designer.cs">
+      <DependentUpon>ReconciliationStatusCountReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ReviewNoteReportPrint.aspx.designer.cs">
+      <DependentUpon>ReviewNoteReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\TaskCompletionReportPrint.aspx.designer.cs">
+      <DependentUpon>TaskCompletionReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\UnassignedAccountsReportPrint.aspx.designer.cs">
+      <DependentUpon>UnassignedAccountsReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\UnusualBalancesReportPrint.aspx.designer.cs">
+      <DependentUpon>UnusualBalancesReportPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountAttributeChangeReport.aspx.designer.cs">
+      <DependentUpon>AccountAttributeChangeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountOwnershipReport.aspx.designer.cs">
+      <DependentUpon>AccountOwnershipReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountStatusReport.aspx.designer.cs">
+      <DependentUpon>AccountStatusReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\CertificationTrackingReport.aspx.designer.cs">
+      <DependentUpon>CertificationTrackingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\CompletionDateReport.aspx.designer.cs">
+      <DependentUpon>CompletionDateReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\DelinquentAccountByUserReport.aspx.designer.cs">
+      <DependentUpon>DelinquentAccountByUserReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\ExceptionStatusReport.aspx.designer.cs">
+      <DependentUpon>ExceptionStatusReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\IncompleteAccountAttributeReport.aspx.designer.cs">
+      <DependentUpon>IncompleteAccountAttributeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\NewAccountReport.aspx.designer.cs">
+      <DependentUpon>NewAccountReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\OpenItemReportForCurrentRecPeriod.aspx.designer.cs">
+      <DependentUpon>OpenItemReportForCurrentRecPeriod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\OpenItemsReport.aspx.designer.cs">
+      <DependentUpon>OpenItemsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\QualityScoreReport.aspx.designer.cs">
+      <DependentUpon>QualityScoreReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\ReconciliationStatusCountReport.aspx.designer.cs">
+      <DependentUpon>ReconciliationStatusCountReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\ReviewNoteReport.aspx.designer.cs">
+      <DependentUpon>ReviewNoteReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\TaskCompletionReport.aspx.designer.cs">
+      <DependentUpon>TaskCompletionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\UnassignedAccountsReport.aspx.designer.cs">
+      <DependentUpon>UnassignedAccountsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\UnusualBalancesReport.aspx.designer.cs">
+      <DependentUpon>UnusualBalancesReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RequestStatus.aspx.designer.cs">
+      <DependentUpon>RequestStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReviewNotes.aspx.designer.cs">
+      <DependentUpon>ReviewNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoleConfiguration.aspx.designer.cs">
+      <DependentUpon>RoleConfiguration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ScheduleDataImport.aspx.designer.cs">
+      <DependentUpon>ScheduleDataImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowSkippedRecPeriodMessage.aspx.designer.cs">
+      <DependentUpon>ShowSkippedRecPeriodMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignedReports.aspx.designer.cs">
+      <DependentUpon>SignedReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Support\ReportIssue.aspx.designer.cs">
+      <DependentUpon>ReportIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SystemReconciledAccount.aspx.designer.cs">
+      <DependentUpon>SystemReconciledAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SystemWideSettings.aspx.designer.cs">
+      <DependentUpon>SystemWideSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\AddViewTaskComments.aspx.designer.cs">
+      <DependentUpon>AddViewTaskComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\BulkCompleteTasks.aspx.designer.cs">
+      <DependentUpon>BulkCompleteTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\CreateTask.aspx.designer.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\EditTaskList.aspx.designer.cs">
+      <DependentUpon>EditTaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\GeneralTaskImport.aspx.designer.cs">
+      <DependentUpon>GeneralTaskImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskAttachment.aspx.designer.cs">
+      <DependentUpon>TaskAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskImportStatusMessage.aspx.designer.cs">
+      <DependentUpon>TaskImportStatusMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskViewer.aspx.designer.cs">
+      <DependentUpon>TaskViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\ViewTaskComments.aspx.designer.cs">
+      <DependentUpon>ViewTaskComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateAccruableItemsForm.aspx.designer.cs">
+      <DependentUpon>TemplateAccruableItemsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateAmortizableAccountsForm.aspx.designer.cs">
+      <DependentUpon>TemplateAmortizableAccountsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateBankAccountForm.aspx.designer.cs">
+      <DependentUpon>TemplateBankAccountForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateColumnMapping.aspx.designer.cs">
+      <DependentUpon>TemplateColumnMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateDerivedCalculationForm.aspx.designer.cs">
+      <DependentUpon>TemplateDerivedCalculationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateItemizedListForm.aspx.designer.cs">
+      <DependentUpon>TemplateItemizedListForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TemplateSubledgerForm.aspx.designer.cs">
+      <DependentUpon>TemplateSubledgerForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UnexplainedVariance.aspx.designer.cs">
+      <DependentUpon>UnexplainedVariance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UnExplainedVarianceHistory.aspx.designer.cs">
+      <DependentUpon>UnExplainedVarianceHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserAccountAssociation.aspx.designer.cs">
+      <DependentUpon>UserAccountAssociation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserSearch.aspx.designer.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\TestWebFormFormat.aspx.cs">
+      <DependentUpon>TestWebFormFormat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\TestWebFormFormat.aspx.designer.cs">
+      <DependentUpon>TestWebFormFormat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountDescription.ascx.cs">
+      <DependentUpon>AccountDescription.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountDescription.ascx.designer.cs">
+      <DependentUpon>AccountDescription.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountHierarchyDetail.ascx.cs">
+      <DependentUpon>AccountHierarchyDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountHierarchyDetail.ascx.designer.cs">
+      <DependentUpon>AccountHierarchyDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountInfoLeftPane.ascx.cs">
+      <DependentUpon>AccountInfoLeftPane.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountInfoLeftPane.ascx.designer.cs">
+      <DependentUpon>AccountInfoLeftPane.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountSearchControl.ascx.cs">
+      <DependentUpon>AccountSearchControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountSearchControl.ascx.designer.cs">
+      <DependentUpon>AccountSearchControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountTypeDropDown.ascx.cs">
+      <DependentUpon>AccountTypeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountTypeDropDown.ascx.designer.cs">
+      <DependentUpon>AccountTypeDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\AcctFltrRadioButtonListYesNoAll.ascx.cs">
+      <DependentUpon>AcctFltrRadioButtonListYesNoAll.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\AcctFltrRadioButtonListYesNoAll.ascx.designer.cs">
+      <DependentUpon>AcctFltrRadioButtonListYesNoAll.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\CheckBoxListWithSelectAll.ascx.cs">
+      <DependentUpon>CheckBoxListWithSelectAll.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\CheckBoxListWithSelectAll.ascx.designer.cs">
+      <DependentUpon>CheckBoxListWithSelectAll.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\DateRange.ascx.cs">
+      <DependentUpon>DateRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\DateRange.ascx.designer.cs">
+      <DependentUpon>DateRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\StringRange.ascx.cs">
+      <DependentUpon>StringRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccountViewerFilter\StringRange.ascx.designer.cs">
+      <DependentUpon>StringRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ARTLogoLogin.ascx.cs">
+      <DependentUpon>ARTLogoLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ARTLogoLogin.ascx.designer.cs">
+      <DependentUpon>ARTLogoLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AuditTrail.ascx.cs">
+      <DependentUpon>AuditTrail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AuditTrail.ascx.designer.cs">
+      <DependentUpon>AuditTrail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationDualLevelReview.ascx.cs">
+      <DependentUpon>CapabilityActivationDualLevelReview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationDualLevelReview.ascx.designer.cs">
+      <DependentUpon>CapabilityActivationDualLevelReview.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationMateriality.ascx.cs">
+      <DependentUpon>CapabilityActivationMateriality.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationMateriality.ascx.designer.cs">
+      <DependentUpon>CapabilityActivationMateriality.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationRCCL.ascx.cs">
+      <DependentUpon>CapabilityActivationRCCL.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityActivationRCCL.ascx.designer.cs">
+      <DependentUpon>CapabilityActivationRCCL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityCertificationActivation.ascx.cs">
+      <DependentUpon>CapabilityCertificationActivation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityCertificationActivation.ascx.designer.cs">
+      <DependentUpon>CapabilityCertificationActivation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityDueDateByAccount.ascx.cs">
+      <DependentUpon>CapabilityDueDateByAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityDueDateByAccount.ascx.designer.cs">
+      <DependentUpon>CapabilityDueDateByAccount.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityMandatoryReportSignoff.ascx.cs">
+      <DependentUpon>CapabilityMandatoryReportSignoff.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityMandatoryReportSignoff.ascx.designer.cs">
+      <DependentUpon>CapabilityMandatoryReportSignoff.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityMultiCurrency.ascx.cs">
+      <DependentUpon>CapabilityMultiCurrency.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityMultiCurrency.ascx.designer.cs">
+      <DependentUpon>CapabilityMultiCurrency.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityRiskRating.ascx.cs">
+      <DependentUpon>CapabilityRiskRating.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityRiskRating.ascx.designer.cs">
+      <DependentUpon>CapabilityRiskRating.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityRiskRatingAll.ascx.cs">
+      <DependentUpon>CapabilityRiskRatingAll.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Capability\CapabilityRiskRatingAll.ascx.designer.cs">
+      <DependentUpon>CapabilityRiskRatingAll.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuration\SRARuleSelection.ascx.cs">
+      <DependentUpon>SRARuleSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Configuration\SRARuleSelection.ascx.designer.cs">
+      <DependentUpon>SRARuleSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\AccountOwnershipStatistics.ascx.cs">
+      <DependentUpon>AccountOwnershipStatistics.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\AccountOwnershipStatistics.ascx.designer.cs">
+      <DependentUpon>AccountOwnershipStatistics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\AccountReconciliationCoverage.ascx.cs">
+      <DependentUpon>AccountReconciliationCoverage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\AccountReconciliationCoverage.ascx.designer.cs">
+      <DependentUpon>AccountReconciliationCoverage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ExceptionsByFSCaption.ascx.cs">
+      <DependentUpon>ExceptionsByFSCaption.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ExceptionsByFSCaption.ascx.designer.cs">
+      <DependentUpon>ExceptionsByFSCaption.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\IncompleteAttributeList.ascx.cs">
+      <DependentUpon>IncompleteAttributeList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\IncompleteAttributeList.ascx.designer.cs">
+      <DependentUpon>IncompleteAttributeList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\OpenItemStatus.ascx.cs">
+      <DependentUpon>OpenItemStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\OpenItemStatus.ascx.designer.cs">
+      <DependentUpon>OpenItemStatus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ReconciliationStatusByFSCaption.ascx.cs">
+      <DependentUpon>ReconciliationStatusByFSCaption.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ReconciliationStatusByFSCaption.ascx.designer.cs">
+      <DependentUpon>ReconciliationStatusByFSCaption.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ReconciliationTracking.ascx.cs">
+      <DependentUpon>ReconciliationTracking.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\ReconciliationTracking.ascx.designer.cs">
+      <DependentUpon>ReconciliationTracking.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\TaskStatus.ascx.cs">
+      <DependentUpon>TaskStatus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\TaskStatus.ascx.designer.cs">
+      <DependentUpon>TaskStatus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\TaskStatusByMonth.ascx.cs">
+      <DependentUpon>TaskStatusByMonth.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\TaskStatusByMonth.ascx.designer.cs">
+      <DependentUpon>TaskStatusByMonth.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\UnassignedAccountOwnership.ascx.cs">
+      <DependentUpon>UnassignedAccountOwnership.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\UnassignedAccountOwnership.ascx.designer.cs">
+      <DependentUpon>UnassignedAccountOwnership.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DayTypeDropDown.ascx.cs">
+      <DependentUpon>DayTypeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DayTypeDropDown.ascx.designer.cs">
+      <DependentUpon>DayTypeDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentUploadButton.ascx.cs">
+      <DependentUpon>DocumentUploadButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DocumentUploadButton.ascx.designer.cs">
+      <DependentUpon>DocumentUploadButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ErrorAndWarnings.ascx.cs">
+      <DependentUpon>ErrorAndWarnings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ErrorAndWarnings.ascx.designer.cs">
+      <DependentUpon>ErrorAndWarnings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FooterMaster.ascx.cs">
+      <DependentUpon>FooterMaster.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FooterMaster.ascx.designer.cs">
+      <DependentUpon>FooterMaster.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InputRequirements.ascx.cs">
+      <DependentUpon>InputRequirements.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\InputRequirements.ascx.designer.cs">
+      <DependentUpon>InputRequirements.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LegendOnAccountAndSRAViewer.ascx.cs">
+      <DependentUpon>LegendOnAccountAndSRAViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\LegendOnAccountAndSRAViewer.ascx.designer.cs">
+      <DependentUpon>LegendOnAccountAndSRAViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LegendOnAccountSearch.ascx.cs">
+      <DependentUpon>LegendOnAccountSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\LegendOnAccountSearch.ascx.designer.cs">
+      <DependentUpon>LegendOnAccountSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LegendOnItemInputForm.ascx.cs">
+      <DependentUpon>LegendOnItemInputForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\LegendOnItemInputForm.ascx.designer.cs">
+      <DependentUpon>LegendOnItemInputForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LegendOnReconciliationTemplate.ascx.cs">
+      <DependentUpon>LegendOnReconciliationTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\LegendOnReconciliationTemplate.ascx.designer.cs">
+      <DependentUpon>LegendOnReconciliationTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MappingUpload\MappingUpload.ascx.cs">
+      <DependentUpon>MappingUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MappingUpload\MappingUpload.ascx.designer.cs">
+      <DependentUpon>MappingUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\AccountMatchingButton.ascx.cs">
+      <DependentUpon>AccountMatchingButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\AccountMatchingButton.ascx.designer.cs">
+      <DependentUpon>AccountMatchingButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\DataTypeMapping.ascx.cs">
+      <DependentUpon>DataTypeMapping.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\DataTypeMapping.ascx.designer.cs">
+      <DependentUpon>DataTypeMapping.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\LowerUpperBound.ascx.cs">
+      <DependentUpon>LowerUpperBound.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\LowerUpperBound.ascx.designer.cs">
+      <DependentUpon>LowerUpperBound.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetInfo.ascx.cs">
+      <DependentUpon>MatchSetInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetInfo.ascx.designer.cs">
+      <DependentUpon>MatchSetInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\Matched.ascx.cs">
+      <DependentUpon>Matched.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\Matched.ascx.designer.cs">
+      <DependentUpon>Matched.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\PartialMatched.ascx.cs">
+      <DependentUpon>PartialMatched.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\PartialMatched.ascx.designer.cs">
+      <DependentUpon>PartialMatched.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\Unmatched.ascx.cs">
+      <DependentUpon>Unmatched.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\MatchSetResults\Unmatched.ascx.designer.cs">
+      <DependentUpon>Unmatched.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\RuleDisplayControl.ascx.cs">
+      <DependentUpon>RuleDisplayControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\RuleDisplayControl.ascx.designer.cs">
+      <DependentUpon>RuleDisplayControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\DisplayColumnSelection.ascx.cs">
+      <DependentUpon>DisplayColumnSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\DisplayColumnSelection.ascx.designer.cs">
+      <DependentUpon>DisplayColumnSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingCombinationSelection.ascx.cs">
+      <DependentUpon>MatchingCombinationSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingCombinationSelection.ascx.designer.cs">
+      <DependentUpon>MatchingCombinationSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingConfiguration.ascx.cs">
+      <DependentUpon>MatchingConfiguration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingConfiguration.ascx.designer.cs">
+      <DependentUpon>MatchingConfiguration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingSourceFilter.ascx.cs">
+      <DependentUpon>MatchingSourceFilter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingSourceFilter.ascx.designer.cs">
+      <DependentUpon>MatchingSourceFilter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingSourceSelection.ascx.cs">
+      <DependentUpon>MatchingSourceSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\MatchingSourceSelection.ascx.designer.cs">
+      <DependentUpon>MatchingSourceSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\PreviewConfirm.ascx.cs">
+      <DependentUpon>PreviewConfirm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\PreviewConfirm.ascx.designer.cs">
+      <DependentUpon>PreviewConfirm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\RecItemColumnMapping.ascx.cs">
+      <DependentUpon>RecItemColumnMapping.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Matching\Wizard\RecItemColumnMapping.ascx.designer.cs">
+      <DependentUpon>RecItemColumnMapping.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MultiVersionGL\GLVersion.ascx.cs">
+      <DependentUpon>GLVersion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MultiVersionGL\GLVersion.ascx.designer.cs">
+      <DependentUpon>GLVersion.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MultiVersionSubledger\SubledgerVersion.ascx.cs">
+      <DependentUpon>SubledgerVersion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MultiVersionSubledger\SubledgerVersion.ascx.designer.cs">
+      <DependentUpon>SubledgerVersion.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NetAccountComposition.ascx.cs">
+      <DependentUpon>NetAccountComposition.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NetAccountComposition.ascx.designer.cs">
+      <DependentUpon>NetAccountComposition.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Notification\PageAutoRefreshNotification.ascx.cs">
+      <DependentUpon>PageAutoRefreshNotification.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Notification\PageAutoRefreshNotification.ascx.designer.cs">
+      <DependentUpon>PageAutoRefreshNotification.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrganizationalHierarchyDropdown.ascx.cs">
+      <DependentUpon>OrganizationalHierarchyDropdown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\OrganizationalHierarchyDropdown.ascx.designer.cs">
+      <DependentUpon>OrganizationalHierarchyDropdown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PackageFeatureList.ascx.cs">
+      <DependentUpon>PackageFeatureList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PackageFeatureList.ascx.designer.cs">
+      <DependentUpon>PackageFeatureList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PopupRecFrequency.ascx.cs">
+      <DependentUpon>PopupRecFrequency.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PopupRecFrequency.ascx.designer.cs">
+      <DependentUpon>PopupRecFrequency.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PopupRecFrequencySelection.ascx.cs">
+      <DependentUpon>PopupRecFrequencySelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PopupRecFrequencySelection.ascx.designer.cs">
+      <DependentUpon>PopupRecFrequencySelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProgressBar.ascx.cs">
+      <DependentUpon>ProgressBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProgressBar.ascx.designer.cs">
+      <DependentUpon>ProgressBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\DisplayQualityScore.ascx.cs">
+      <DependentUpon>DisplayQualityScore.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\DisplayQualityScore.ascx.designer.cs">
+      <DependentUpon>DisplayQualityScore.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\EditQualityScore.ascx.cs">
+      <DependentUpon>EditQualityScore.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\EditQualityScore.ascx.designer.cs">
+      <DependentUpon>EditQualityScore.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\QualityScoreSelection.ascx.cs">
+      <DependentUpon>QualityScoreSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\QualityScore\QualityScoreSelection.ascx.designer.cs">
+      <DependentUpon>QualityScoreSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecControlCheckList\RecControlCheckList.ascx.cs">
+      <DependentUpon>RecControlCheckList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecControlCheckList\RecControlCheckList.ascx.designer.cs">
+      <DependentUpon>RecControlCheckList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecControlCheckList\RecControlCheckListGrid.ascx.cs">
+      <DependentUpon>RecControlCheckListGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecControlCheckList\RecControlCheckListGrid.ascx.designer.cs">
+      <DependentUpon>RecControlCheckListGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ExchangeRateBar.ascx.cs">
+      <DependentUpon>ExchangeRateBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ExchangeRateBar.ascx.designer.cs">
+      <DependentUpon>ExchangeRateBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLAdjustments.ascx.cs">
+      <DependentUpon>GLAdjustments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLAdjustments.ascx.designer.cs">
+      <DependentUpon>GLAdjustments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecItemGrid.ascx.cs">
+      <DependentUpon>GLDataRecItemGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecItemGrid.ascx.designer.cs">
+      <DependentUpon>GLDataRecItemGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecurringScheduleItems.ascx.cs">
+      <DependentUpon>GLDataRecurringScheduleItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecurringScheduleItems.ascx.designer.cs">
+      <DependentUpon>GLDataRecurringScheduleItems.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecurringScheduleItemsGrid.ascx.cs">
+      <DependentUpon>GLDataRecurringScheduleItemsGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataRecurringScheduleItemsGrid.ascx.designer.cs">
+      <DependentUpon>GLDataRecurringScheduleItemsGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataWriteOnOff.ascx.cs">
+      <DependentUpon>GLDataWriteOnOff.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataWriteOnOff.ascx.designer.cs">
+      <DependentUpon>GLDataWriteOnOff.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataWriteOnOffGrid.ascx.cs">
+      <DependentUpon>GLDataWriteOnOffGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\GLDataWriteOnOffGrid.ascx.designer.cs">
+      <DependentUpon>GLDataWriteOnOffGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAccurable.ascx.cs">
+      <DependentUpon>ItemInputAccurable.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAccurable.ascx.designer.cs">
+      <DependentUpon>ItemInputAccurable.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAccurableRecurring.ascx.cs">
+      <DependentUpon>ItemInputAccurableRecurring.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAccurableRecurring.ascx.designer.cs">
+      <DependentUpon>ItemInputAccurableRecurring.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAmortizableIndividual.ascx.cs">
+      <DependentUpon>ItemInputAmortizableIndividual.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAmortizableIndividual.ascx.designer.cs">
+      <DependentUpon>ItemInputAmortizableIndividual.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAmortizableTemplate.ascx.cs">
+      <DependentUpon>ItemInputAmortizableTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputAmortizableTemplate.ascx.designer.cs">
+      <DependentUpon>ItemInputAmortizableTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputWriteOff.ascx.cs">
+      <DependentUpon>ItemInputWriteOff.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\ItemInputWriteOff.ascx.designer.cs">
+      <DependentUpon>ItemInputWriteOff.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\RecFormButtons.ascx.cs">
+      <DependentUpon>RecFormButtons.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\RecFormButtons.ascx.designer.cs">
+      <DependentUpon>RecFormButtons.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\RecStatusBar.ascx.cs">
+      <DependentUpon>RecStatusBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\RecStatusBar.ascx.designer.cs">
+      <DependentUpon>RecStatusBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RecForm\UnexplainedVariance.ascx.cs">
+      <DependentUpon>UnexplainedVariance.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RecForm\UnexplainedVariance.ascx.designer.cs">
+      <DependentUpon>UnexplainedVariance.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReconciliationTemplateDropDown.ascx.cs">
+      <DependentUpon>ReconciliationTemplateDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReconciliationTemplateDropDown.ascx.designer.cs">
+      <DependentUpon>ReconciliationTemplateDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\AccountRange.ascx.cs">
+      <DependentUpon>AccountRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\AccountRange.ascx.designer.cs">
+      <DependentUpon>AccountRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\CloseDate.ascx.cs">
+      <DependentUpon>CloseDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\CloseDate.ascx.designer.cs">
+      <DependentUpon>CloseDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\DateRange.ascx.cs">
+      <DependentUpon>DateRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\DateRange.ascx.designer.cs">
+      <DependentUpon>DateRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\FinancialYear.ascx.cs">
+      <DependentUpon>FinancialYear.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\FinancialYear.ascx.designer.cs">
+      <DependentUpon>FinancialYear.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\OrganizationalHierarchy.ascx.cs">
+      <DependentUpon>OrganizationalHierarchy.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\OrganizationalHierarchy.ascx.designer.cs">
+      <DependentUpon>OrganizationalHierarchy.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\ParameterViewer.ascx.cs">
+      <DependentUpon>ParameterViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\ParameterViewer.ascx.designer.cs">
+      <DependentUpon>ParameterViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\Preparer.ascx.cs">
+      <DependentUpon>Preparer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\Preparer.ascx.designer.cs">
+      <DependentUpon>Preparer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\RadioButtonListAllYesNo.ascx.cs">
+      <DependentUpon>RadioButtonListAllYesNo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\RadioButtonListAllYesNo.ascx.designer.cs">
+      <DependentUpon>RadioButtonListAllYesNo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\RecPeriod.ascx.cs">
+      <DependentUpon>RecPeriod.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\RecPeriod.ascx.designer.cs">
+      <DependentUpon>RecPeriod.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\ReportInfo.ascx.cs">
+      <DependentUpon>ReportInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\ReportInfo.ascx.designer.cs">
+      <DependentUpon>ReportInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\RoleUserSelection.ascx.cs">
+      <DependentUpon>RoleUserSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\RoleUserSelection.ascx.designer.cs">
+      <DependentUpon>RoleUserSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\ScrollableCheckboxListWithSelectAll.ascx.cs">
+      <DependentUpon>ScrollableCheckboxListWithSelectAll.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\ScrollableCheckboxListWithSelectAll.ascx.designer.cs">
+      <DependentUpon>ScrollableCheckboxListWithSelectAll.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\SimpleDropdownList.ascx.cs">
+      <DependentUpon>SimpleDropdownList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\SimpleDropdownList.ascx.designer.cs">
+      <DependentUpon>SimpleDropdownList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\SimpleScrollableCheckBoxList.ascx.cs">
+      <DependentUpon>SimpleScrollableCheckBoxList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\SimpleScrollableCheckBoxList.ascx.designer.cs">
+      <DependentUpon>SimpleScrollableCheckBoxList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\SingleDate.ascx.cs">
+      <DependentUpon>SingleDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\SingleDate.ascx.designer.cs">
+      <DependentUpon>SingleDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\StringRange.ascx.cs">
+      <DependentUpon>StringRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\StringRange.ascx.designer.cs">
+      <DependentUpon>StringRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\User.ascx.cs">
+      <DependentUpon>User.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\User.ascx.designer.cs">
+      <DependentUpon>User.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report\UserRole.ascx.cs">
+      <DependentUpon>UserRole.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Report\UserRole.ascx.designer.cs">
+      <DependentUpon>UserRole.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReviewNotesButton.ascx.cs">
+      <DependentUpon>ReviewNotesButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReviewNotesButton.ascx.designer.cs">
+      <DependentUpon>ReviewNotesButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RiskRatingDropDown.ascx.cs">
+      <DependentUpon>RiskRatingDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RiskRatingDropDown.ascx.designer.cs">
+      <DependentUpon>RiskRatingDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoleSelection.ascx.cs">
+      <DependentUpon>RoleSelection.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\RoleSelection.ascx.designer.cs">
+      <DependentUpon>RoleSelection.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ScheduleIntervalDetails.ascx.cs">
+      <DependentUpon>ScheduleIntervalDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ScheduleIntervalDetails.ascx.designer.cs">
+      <DependentUpon>ScheduleIntervalDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SessionExpiryNotification.ascx.cs">
+      <DependentUpon>SessionExpiryNotification.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SessionExpiryNotification.ascx.designer.cs">
+      <DependentUpon>SessionExpiryNotification.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Signature.ascx.cs">
+      <DependentUpon>Signature.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Signature.ascx.designer.cs">
+      <DependentUpon>Signature.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SkyStemARTGrid.ascx.cs">
+      <DependentUpon>SkyStemARTGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SkyStemARTGrid.ascx.designer.cs">
+      <DependentUpon>SkyStemARTGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SubledgerSourceDropDown.ascx.cs">
+      <DependentUpon>SubledgerSourceDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SubledgerSourceDropDown.ascx.designer.cs">
+      <DependentUpon>SubledgerSourceDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\AccountTaskGrid.ascx.cs">
+      <DependentUpon>AccountTaskGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\AccountTaskGrid.ascx.designer.cs">
+      <DependentUpon>AccountTaskGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\AddTaskComment.ascx.cs">
+      <DependentUpon>AddTaskComment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\AddTaskComment.ascx.designer.cs">
+      <DependentUpon>AddTaskComment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\Attachments.ascx.cs">
+      <DependentUpon>Attachments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\Attachments.ascx.designer.cs">
+      <DependentUpon>Attachments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\BulkCompleteTasks.ascx.cs">
+      <DependentUpon>BulkCompleteTasks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\BulkCompleteTasks.ascx.designer.cs">
+      <DependentUpon>BulkCompleteTasks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\GeneralTaskGrid.ascx.cs">
+      <DependentUpon>GeneralTaskGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\GeneralTaskGrid.ascx.designer.cs">
+      <DependentUpon>GeneralTaskGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\LegendOnTaskViewer.ascx.cs">
+      <DependentUpon>LegendOnTaskViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\LegendOnTaskViewer.ascx.designer.cs">
+      <DependentUpon>LegendOnTaskViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\RecFormAccountTaskGrid.ascx.cs">
+      <DependentUpon>RecFormAccountTaskGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\RecFormAccountTaskGrid.ascx.designer.cs">
+      <DependentUpon>RecFormAccountTaskGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\TaskCustomFields.ascx.cs">
+      <DependentUpon>TaskCustomFields.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\TaskCustomFields.ascx.designer.cs">
+      <DependentUpon>TaskCustomFields.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\ViewTaskComments.ascx.cs">
+      <DependentUpon>ViewTaskComments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TaskMaster\ViewTaskComments.ascx.designer.cs">
+      <DependentUpon>ViewTaskComments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextEditor.ascx.cs">
+      <DependentUpon>TextEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextEditor.ascx.designer.cs">
+      <DependentUpon>TextEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserDropDown.ascx.cs">
+      <DependentUpon>UserDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\ArrayComparer.cs" />
+    <Compile Include="Old_App_Code\Classes\CertificationMasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\DynamicTemplates\GridViewItemPairTemplate.cs" />
+    <Compile Include="Old_App_Code\Classes\DynamicTemplates\GridViewItemTemplate.cs" />
+    <Compile Include="Old_App_Code\Classes\DynamicTemplates\RepeaterItemTemplate.cs" />
+    <Compile Include="Old_App_Code\Classes\ImportFileAttributes.cs" />
+    <Compile Include="Old_App_Code\Classes\MasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\MatchingMasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseCertification.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseCompany.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseMatching.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseRecForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseRecPeriod.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseReport.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseRole.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PageBaseTaskMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\Personalization\ARTPersonalizationProvider.cs" />
+    <Compile Include="Old_App_Code\Classes\PopupMasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PopupPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PopupPageBaseRecItem.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PopupPageBaseRecPerod.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\PopupPageBaseTaskMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\RecPeriodMasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\RefreshEventArgs.cs" />
+    <Compile Include="Old_App_Code\Classes\ReportViewerMasterPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\Settings\GridSettings.cs" />
+    <Compile Include="Old_App_Code\Classes\Settings\MasterPageSettings.cs" />
+    <Compile Include="Old_App_Code\Classes\Settings\PageSettings.cs" />
+    <Compile Include="Old_App_Code\Classes\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControlRecItemBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControlWebPartBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlGLVersionBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlMappingUpload.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlMatchingWizardBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlQualityScoreBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlRecStatusBarBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlReportInfoBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlSubledgerVersionBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlTaskMasterBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\UserControl\UserControlWizardBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Old_App_Code\Classes\WebPartBase.cs" />
+    <Compile Include="Old_App_Code\Data\WebConstants.cs" />
+    <Compile Include="Old_App_Code\Data\WebEnums.cs" />
+    <Compile Include="Old_App_Code\HttpHandlers\HttpDownloader.cs" />
+    <Compile Include="Old_App_Code\Utility\AccountFilterHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\AccountViewerHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\AlertHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\AppSettingHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\AttributeConfigHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\CacheHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\CertificationHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\CustomEventArgs.cs" />
+    <Compile Include="Old_App_Code\Utility\DashboardHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\DataImportHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\DataImportTemplateHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\ExportHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\FTPHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\GridHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\Helper.cs" />
+    <Compile Include="Old_App_Code\Utility\LanguageHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\ListControlHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\MailHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\MappingUploadHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\MatchingHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\NetAccountHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\PageSettingHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\PopupHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\QualityScoreHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\RecControlCheckListHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\RecHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\RemotingHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\ReportHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\RequestHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\ScriptHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\SelectionChangedEventArgs.cs" />
+    <Compile Include="Old_App_Code\Utility\SessionHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\SSRSReportsHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\SystemLockdownHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\TaskMasterHelper.cs" />
+    <Compile Include="Old_App_Code\Utility\WebPartHelper.cs" />
+    <Compile Include="Old_App_Code\WebParts\AccountOwnershipStatisticsWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\AccountReconciliationCoverageWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\ExceptionsByFSCaptionWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\IncompleteAttributeListWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\OpenItemStatusWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\ReconciliationStatusByFSCaptionWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\ReconciliationTrackingWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\TaskStatusByMonthWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\TaskStatusWP.cs" />
+    <Compile Include="Old_App_Code\WebParts\UnassignedAccountOwnershipWP.cs" />
+    <Compile Include="MasterPages\ARTMasterPage.master.cs">
+      <DependentUpon>ARTMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\AuditTrailPrint.master.cs">
+      <DependentUpon>AuditTrailPrint.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\CertificationMasterPage.master.cs">
+      <DependentUpon>CertificationMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\CertificationMasterPagePrint.master.cs">
+      <DependentUpon>CertificationMasterPagePrint.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\LoginMasterPage.master.cs">
+      <DependentUpon>LoginMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MatchingMaster.master.cs">
+      <DependentUpon>MatchingMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\PopUpMasterPage.master.cs">
+      <DependentUpon>PopUpMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\RecFormPrint.master.cs">
+      <DependentUpon>RecFormPrint.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\RecProcessMasterPage.master.cs">
+      <DependentUpon>RecProcessMasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ReportViewer.master.cs">
+      <DependentUpon>ReportViewer.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\ReportViewerPrint.master.cs">
+      <DependentUpon>ReportViewerPrint.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountAlertDetail.aspx.cs">
+      <DependentUpon>AccountAlertDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountInformation.aspx.cs">
+      <DependentUpon>AccountInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountOwnership.aspx.cs">
+      <DependentUpon>AccountOwnership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountProfileAttributeUpdate.aspx.cs">
+      <DependentUpon>AccountProfileAttributeUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountProfileAttributeUpdatePopup.aspx.cs">
+      <DependentUpon>AccountProfileAttributeUpdatePopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountProfileMassAndBulkUpdate.aspx.cs">
+      <DependentUpon>AccountProfileMassAndBulkUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountProfileUpdate.aspx.cs">
+      <DependentUpon>AccountProfileUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AccountViewer.aspx.cs">
+      <DependentUpon>AccountViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddRecControlCheckList.aspx.cs">
+      <DependentUpon>AddRecControlCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddToMyReport.aspx.cs">
+      <DependentUpon>AddToMyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddUserMailOnDataImport.aspx.cs">
+      <DependentUpon>AddUserMailOnDataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AuditTrail.aspx.cs">
+      <DependentUpon>AuditTrail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAccruable.aspx.cs">
+      <DependentUpon>BulkCloseAccruable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAccrubleRecurring.aspx.cs">
+      <DependentUpon>BulkCloseAccrubleRecurring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAmortizable.aspx.cs">
+      <DependentUpon>BulkCloseAmortizable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseAmortizableIndividual.aspx.cs">
+      <DependentUpon>BulkCloseAmortizableIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseGLDataRecurringScheduleItems.aspx.cs">
+      <DependentUpon>BulkCloseGLDataRecurringScheduleItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BulkCloseWriteOffOn.aspx.cs">
+      <DependentUpon>BulkCloseWriteOffOn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CapabilityActivation.aspx.cs">
+      <DependentUpon>CapabilityActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationBalancesPrint.aspx.cs">
+      <DependentUpon>CertificationBalancesPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationExceptionPrint.aspx.cs">
+      <DependentUpon>CertificationExceptionPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CertificationPrint\CertificationSignOffPrint.aspx.cs">
+      <DependentUpon>CertificationSignOffPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationBalances.aspx.cs">
+      <DependentUpon>CertificationBalances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationException.aspx.cs">
+      <DependentUpon>CertificationException.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationHome.aspx.cs">
+      <DependentUpon>CertificationHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationSignOff.aspx.cs">
+      <DependentUpon>CertificationSignOff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\CertificationVerbiage.aspx.cs">
+      <DependentUpon>CertificationVerbiage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Certification\MandatoryReportsList.aspx.cs">
+      <DependentUpon>MandatoryReportsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangeFTPPassword.aspx.cs">
+      <DependentUpon>ChangeFTPPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CheckUserStatus.aspx.cs">
+      <DependentUpon>CheckUserStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CloseRecPeriodPopup.aspx.cs">
+      <DependentUpon>CloseRecPeriodPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CompanyList.aspx.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Configuration\RulesAndChecklists.aspx.cs">
+      <DependentUpon>RulesAndChecklists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConfigureAndScheduleAlerts.aspx.cs">
+      <DependentUpon>ConfigureAndScheduleAlerts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConfigureWorkWeek.aspx.cs">
+      <DependentUpon>ConfigureWorkWeek.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConfirmPopUp.aspx.cs">
+      <DependentUpon>ConfirmPopUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateCompany.aspx.cs">
+      <DependentUpon>CreateCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateDataImportTemplate.aspx.cs">
+      <DependentUpon>CreateDataImportTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateFinancialYear.aspx.cs">
+      <DependentUpon>CreateFinancialYear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DashboardPreferences.aspx.cs">
+      <DependentUpon>DashboardPreferences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImport.aspx.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImportConfiguration.aspx.cs">
+      <DependentUpon>DataImportConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImportConfigurationAuditTrail.aspx.cs">
+      <DependentUpon>DataImportConfigurationAuditTrail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImportGLMapping.aspx.cs">
+      <DependentUpon>DataImportGLMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImportStatus.aspx.cs">
+      <DependentUpon>DataImportStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DataImportStatusMessages.aspx.cs">
+      <DependentUpon>DataImportStatusMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DocumentUpload.aspx.cs">
+      <DependentUpon>DocumentUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DocumentViewer.aspx.cs">
+      <DependentUpon>DocumentViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DownloadAttachment.aspx.cs">
+      <DependentUpon>DownloadAttachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DueDates.aspx.cs">
+      <DependentUpon>DueDates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditCompany.aspx.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditItemAccrubleRecurring.aspx.cs">
+      <DependentUpon>EditItemAccrubleRecurring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditItemAmortizable.aspx.cs">
+      <DependentUpon>EditItemAmortizable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditItemReviewNote.aspx.cs">
+      <DependentUpon>EditItemReviewNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditItemUnexplainedVariance.aspx.cs">
+      <DependentUpon>EditItemUnexplainedVariance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditItemWriteOffOn.aspx.cs">
+      <DependentUpon>EditItemWriteOffOn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditRecControlCheckListComment.aspx.cs">
+      <DependentUpon>EditRecControlCheckListComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditRecItemComment.aspx.cs">
+      <DependentUpon>EditRecItemComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditRecItemInputs.aspx.cs">
+      <DependentUpon>EditRecItemInputs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EmailPopupForRecForm.aspx.cs">
+      <DependentUpon>EmailPopupForRecForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ErrorHandler.aspx.cs">
+      <DependentUpon>ErrorHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ErrorHandlerPopup.aspx.cs">
+      <DependentUpon>ErrorHandlerPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExceptionAlertDetail.aspx.cs">
+      <DependentUpon>ExceptionAlertDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FinancialYearSelectionPopup.aspx.cs">
+      <DependentUpon>FinancialYearSelectionPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GLAdjustmentBulkClose.aspx.cs">
+      <DependentUpon>GLAdjustmentBulkClose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GLProcessError.aspx.cs">
+      <DependentUpon>GLProcessError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GridApplyFilter.aspx.cs">
+      <DependentUpon>GridApplyFilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GridCustomization.aspx.cs">
+      <DependentUpon>GridCustomization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GridDynamicFilter.aspx.cs">
+      <DependentUpon>GridDynamicFilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\JournalEntry\ConfigureJEColumns.aspx.cs">
+      <DependentUpon>ConfigureJEColumns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\JournalEntry\ConfigureJEWriteOnOffApprover.aspx.cs">
+      <DependentUpon>ConfigureJEWriteOnOffApprover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\CloseRecItem.aspx.cs">
+      <DependentUpon>CloseRecItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\CreateRecItem.aspx.cs">
+      <DependentUpon>CreateRecItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingDataImportStatusMessages.aspx.cs">
+      <DependentUpon>MatchingDataImportStatusMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingResults.aspx.cs">
+      <DependentUpon>MatchingResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingSourceDataImportStatus.aspx.cs">
+      <DependentUpon>MatchingSourceDataImportStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchingWizard.aspx.cs">
+      <DependentUpon>MatchingWizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchsetStatusMessages.aspx.cs">
+      <DependentUpon>MatchsetStatusMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchSourceDataImport.aspx.cs">
+      <DependentUpon>MatchSourceDataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\MatchSourceDataTypeMapping.aspx.cs">
+      <DependentUpon>MatchSourceDataTypeMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\PopupViewAccounts.aspx.cs">
+      <DependentUpon>PopupViewAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\RuleSetupPopup.aspx.cs">
+      <DependentUpon>RuleSetupPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewMatchSet.aspx.cs">
+      <DependentUpon>ViewMatchSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewPairData.aspx.cs">
+      <DependentUpon>ViewPairData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Matching\ViewRecItems.aspx.cs">
+      <DependentUpon>ViewRecItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialityUnexplainedthresholdDetail.aspx.cs">
+      <DependentUpon>MaterialityUnexplainedthresholdDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Multilingual\DownloadMultilingualData.aspx.cs">
+      <DependentUpon>DownloadMultilingualData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MultiVersionGL\PopupGLVersion.aspx.cs">
+      <DependentUpon>PopupGLVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MultiVersionSubledger\PopupSubledgerVersion.aspx.cs">
+      <DependentUpon>PopupSubledgerVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NetAccount.aspx.cs">
+      <DependentUpon>NetAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OSDepositBankNsfImport.aspx.cs">
+      <DependentUpon>OSDepositBankNsfImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PackageFeatureList.aspx.cs">
+      <DependentUpon>PackageFeatureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PackageMatrixPopup.aspx.cs">
+      <DependentUpon>PackageMatrixPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupExchangeRates.aspx.cs">
+      <DependentUpon>PopupExchangeRates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupForRecFormPrint.aspx.cs">
+      <DependentUpon>PopupForRecFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupNetAccountComposition.aspx.cs">
+      <DependentUpon>PopupNetAccountComposition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupRecFrequency.aspx.cs">
+      <DependentUpon>PopupRecFrequency.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupRecFrequencySelection.aspx.cs">
+      <DependentUpon>PopupRecFrequencySelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupRiskRatingRecPeriod.aspx.cs">
+      <DependentUpon>PopupRiskRatingRecPeriod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PopupUserLockdownDetail.aspx.cs">
+      <DependentUpon>PopupUserLockdownDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecBinders.aspx.cs">
+      <DependentUpon>RecBinders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecControlCheckListImport.aspx.cs">
+      <DependentUpon>RecControlCheckListImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAccruableItemsFormPrint.aspx.cs">
+      <DependentUpon>TemplateAccruableItemsFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAmortizableAccountsFormPrint.aspx.cs">
+      <DependentUpon>TemplateAmortizableAccountsFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateAuditTrailPrint.aspx.cs">
+      <DependentUpon>TemplateAuditTrailPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateBankAccountFormPrint.aspx.cs">
+      <DependentUpon>TemplateBankAccountFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateDerivedCalculationFormPrint.aspx.cs">
+      <DependentUpon>TemplateDerivedCalculationFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateItemizedListFormPrint.aspx.cs">
+      <DependentUpon>TemplateItemizedListFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecFormPrint\TemplateSubledgerFormPrint.aspx.cs">
+      <DependentUpon>TemplateSubledgerFormPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecForm\EditExchangeRate.aspx.cs">
+      <DependentUpon>EditExchangeRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecItemImportStatusMessage.aspx.cs">
+      <DependentUpon>RecItemImportStatusMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReconciliationArchives.aspx.cs">
+      <DependentUpon>ReconciliationArchives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecPeriodStatusHistoryPopup.aspx.cs">
+      <DependentUpon>RecPeriodStatusHistoryPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecurringImportUII.aspx.cs">
+      <DependentUpon>RecurringImportUII.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReOpenRecPeriodPopup.aspx.cs">
+      <DependentUpon>ReOpenRecPeriodPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportActivity.aspx.cs">
+      <DependentUpon>ReportActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportHome.aspx.cs">
+      <DependentUpon>ReportHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportParameter.aspx.cs">
+      <DependentUpon>ReportParameter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportRun.aspx.cs">
+      <DependentUpon>ReportRun.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportSaved.aspx.cs">
+      <DependentUpon>ReportSaved.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportSignOffArchive.aspx.cs">
+      <DependentUpon>ReportSignOffArchive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountAttributeChangeReportPrint.aspx.cs">
+      <DependentUpon>AccountAttributeChangeReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountOwnershipReportPrint.aspx.cs">
+      <DependentUpon>AccountOwnershipReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\AccountStatusReportPrint.aspx.cs">
+      <DependentUpon>AccountStatusReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\CertificationTrackingReportPrint.aspx.cs">
+      <DependentUpon>CertificationTrackingReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\CompletionDateReportPrint.aspx.cs">
+      <DependentUpon>CompletionDateReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\DelinquentAccountByUserReportPrint.aspx.cs">
+      <DependentUpon>DelinquentAccountByUserReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ExceptionStatusReportPrint.aspx.cs">
+      <DependentUpon>ExceptionStatusReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\IncompleteAccountAttributeReportPrint.aspx.cs">
+      <DependentUpon>IncompleteAccountAttributeReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\NewAccountReportPrint.aspx.cs">
+      <DependentUpon>NewAccountReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\OpenItemsReportPrint.aspx.cs">
+      <DependentUpon>OpenItemsReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\QualityScoreReportPrint.aspx.cs">
+      <DependentUpon>QualityScoreReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ReconciliationStatusCountReportPrint.aspx.cs">
+      <DependentUpon>ReconciliationStatusCountReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\ReviewNoteReportPrint.aspx.cs">
+      <DependentUpon>ReviewNoteReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\TaskCompletionReportPrint.aspx.cs">
+      <DependentUpon>TaskCompletionReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\UnassignedAccountsReportPrint.aspx.cs">
+      <DependentUpon>UnassignedAccountsReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportsPrint\UnusualBalancesReportPrint.aspx.cs">
+      <DependentUpon>UnusualBalancesReportPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountAttributeChangeReport.aspx.cs">
+      <DependentUpon>AccountAttributeChangeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountOwnershipReport.aspx.cs">
+      <DependentUpon>AccountOwnershipReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\AccountStatusReport.aspx.cs">
+      <DependentUpon>AccountStatusReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\CertificationTrackingReport.aspx.cs">
+      <DependentUpon>CertificationTrackingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\CompletionDateReport.aspx.cs">
+      <DependentUpon>CompletionDateReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\DelinquentAccountByUserReport.aspx.cs">
+      <DependentUpon>DelinquentAccountByUserReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\ExceptionStatusReport.aspx.cs">
+      <DependentUpon>ExceptionStatusReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\IncompleteAccountAttributeReport.aspx.cs">
+      <DependentUpon>IncompleteAccountAttributeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\NewAccountReport.aspx.cs">
+      <DependentUpon>NewAccountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\OpenItemReportForCurrentRecPeriod.aspx.cs">
+      <DependentUpon>OpenItemReportForCurrentRecPeriod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\OpenItemsReport.aspx.cs">
+      <DependentUpon>OpenItemsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\QualityScoreReport.aspx.cs">
+      <DependentUpon>QualityScoreReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\ReconciliationStatusCountReport.aspx.cs">
+      <DependentUpon>ReconciliationStatusCountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\ReviewNoteReport.aspx.cs">
+      <DependentUpon>ReviewNoteReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\TaskCompletionReport.aspx.cs">
+      <DependentUpon>TaskCompletionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\UnassignedAccountsReport.aspx.cs">
+      <DependentUpon>UnassignedAccountsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reports\UnusualBalancesReport.aspx.cs">
+      <DependentUpon>UnusualBalancesReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RequestStatus.aspx.cs">
+      <DependentUpon>RequestStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReviewNotes.aspx.cs">
+      <DependentUpon>ReviewNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RoleConfiguration.aspx.cs">
+      <DependentUpon>RoleConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ScheduleDataImport.aspx.cs">
+      <DependentUpon>ScheduleDataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ShowSkippedRecPeriodMessage.aspx.cs">
+      <DependentUpon>ShowSkippedRecPeriodMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignedReports.aspx.cs">
+      <DependentUpon>SignedReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Support\ReportIssue.aspx.cs">
+      <DependentUpon>ReportIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SystemReconciledAccount.aspx.cs">
+      <DependentUpon>SystemReconciledAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SystemWideSettings.aspx.cs">
+      <DependentUpon>SystemWideSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\AddViewTaskComments.aspx.cs">
+      <DependentUpon>AddViewTaskComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\BulkCompleteTasks.aspx.cs">
+      <DependentUpon>BulkCompleteTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\CreateTask.aspx.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\EditTaskList.aspx.cs">
+      <DependentUpon>EditTaskList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\GeneralTaskImport.aspx.cs">
+      <DependentUpon>GeneralTaskImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskAttachment.aspx.cs">
+      <DependentUpon>TaskAttachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskImportStatusMessage.aspx.cs">
+      <DependentUpon>TaskImportStatusMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\TaskViewer.aspx.cs">
+      <DependentUpon>TaskViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TaskMaster\ViewTaskComments.aspx.cs">
+      <DependentUpon>ViewTaskComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateAccruableItemsForm.aspx.cs">
+      <DependentUpon>TemplateAccruableItemsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateAmortizableAccountsForm.aspx.cs">
+      <DependentUpon>TemplateAmortizableAccountsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateBankAccountForm.aspx.cs">
+      <DependentUpon>TemplateBankAccountForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateColumnMapping.aspx.cs">
+      <DependentUpon>TemplateColumnMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateDerivedCalculationForm.aspx.cs">
+      <DependentUpon>TemplateDerivedCalculationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateItemizedListForm.aspx.cs">
+      <DependentUpon>TemplateItemizedListForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TemplateSubledgerForm.aspx.cs">
+      <DependentUpon>TemplateSubledgerForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UnexplainedVariance.aspx.cs">
+      <DependentUpon>UnexplainedVariance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UnExplainedVarianceHistory.aspx.cs">
+      <DependentUpon>UnExplainedVarianceHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserAccountAssociation.aspx.cs">
+      <DependentUpon>UserAccountAssociation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserSearch.aspx.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UserDropDown.ascx.designer.cs">
+      <DependentUpon>UserDropDown.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ARTApp\ARTApp.csproj">
+      <Project>{cbdf8b74-2028-4caa-a3fb-d14534c2ee9d}</Project>
+      <Name>ARTApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARTClient\ARTClient.csproj">
+      <Project>{6adde1ab-5511-446f-9d83-e1d45d2172f1}</Project>
+      <Name>ARTClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARTModules\ARTModules.csproj">
+      <Project>{a7185c9e-508f-4977-bfde-5ab84a687df7}</Project>
+      <Name>ARTModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARTShared\ARTShared.csproj">
+      <Project>{5c171043-32e1-4cee-a8de-45701692402e}</Project>
+      <Name>ARTShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51126</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51126/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

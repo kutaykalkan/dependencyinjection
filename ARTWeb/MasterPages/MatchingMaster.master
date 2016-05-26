@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="MatchingMaster.master.cs" Inherits="MasterPages_MatchingMaster" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="MasterPages_MatchingMaster" Codebehind="MatchingMaster.master.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

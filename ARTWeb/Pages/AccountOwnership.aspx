@@ -1,6 +1,6 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccountOwnership.aspx.cs"
+<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_AccountOwnership" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="AccountOwnership.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"
     TagPrefix="UserControl" %>
@@ -39,19 +39,19 @@
                                     <telerikWebControls:ExGridTemplateColumn UniqueName="AccountNumber" LabelID="1357"
                                         HeaderStyle-Width="10%" SortExpression="AccountNumber" DataType="System.String">
                                         <ItemTemplate>
-                                            <webControls:ExLabel ID="lblAccountNumber" runat="server"></webControls:ExLabel>
+                                            <webControls:ExLabel ID="lblAccountNumberMass" runat="server"></webControls:ExLabel>
                                         </ItemTemplate>
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <telerikWebControls:ExGridTemplateColumn LabelID="1346" HeaderStyle-Width="15%" SortExpression="AccountName"
                                         UniqueName="AccountName" DataType="System.String">
                                         <ItemTemplate>
-                                            <webControls:ExLabel ID="lblAccountName" runat="server"></webControls:ExLabel>
+                                            <webControls:ExLabel ID="lblAccountNameMass" runat="server"></webControls:ExLabel>
                                         </ItemTemplate>
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <telerikWebControls:ExGridTemplateColumn LabelID="1257" HeaderStyle-Width="10%" SortExpression="NetAccount"
                                         UniqueName="NetAccount" DataType="System.String">
                                         <ItemTemplate>
-                                            <webControls:ExLabel ID="lblNetAccount" runat="server"></webControls:ExLabel>
+                                            <webControls:ExLabel ID="lblNetAccountMass" runat="server"></webControls:ExLabel>
                                         </ItemTemplate>
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <telerikWebControls:ExGridTemplateColumn UniqueName="Preparer" LabelID="1130" HeaderStyle-Width="5%" SortExpression="PreparerFullName"

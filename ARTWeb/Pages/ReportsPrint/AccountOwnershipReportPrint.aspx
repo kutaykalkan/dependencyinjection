@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewerPrint.master" AutoEventWireup="true"
-    CodeFile="AccountOwnershipReportPrint.aspx.cs" Inherits="Pages_ReportsPrint_AccountOwnershipReportPrint"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewerPrint.master" AutoEventWireup="true" Inherits="Pages_ReportsPrint_AccountOwnershipReportPrint"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="AccountOwnershipReportPrint.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">
     <table width="100%">

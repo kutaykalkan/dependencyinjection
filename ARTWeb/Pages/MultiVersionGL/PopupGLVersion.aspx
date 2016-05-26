@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="PopupGLVersion.aspx.cs" Inherits="Pages_MultiVersionGL_PopupGLVersion"
-    Theme="SkyStemBlueBrown" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_MultiVersionGL_PopupGLVersion"
+    Theme="SkyStemBlueBrown" Title="Untitled Page" Codebehind="PopupGLVersion.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

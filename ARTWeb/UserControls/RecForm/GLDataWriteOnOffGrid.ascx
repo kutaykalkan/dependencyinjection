@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GLDataWriteOnOffGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataWriteOnOffGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataWriteOnOffGrid" Codebehind="GLDataWriteOnOffGrid.ascx.cs" %>
 <table width="100%" cellpadding="0px" cellspacing="0px">
     <asp:Panel ID="pnlCurrency" runat="server">
         <tr>

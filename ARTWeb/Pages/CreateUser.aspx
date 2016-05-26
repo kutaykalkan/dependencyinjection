@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="CreateUser.aspx.cs" Inherits="Pages_CreateUser" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_CreateUser" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" EnableEventValidation="false" Codebehind="CreateUser.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="RoleSelection" Src="~/UserControls/RoleSelection.ascx" %>

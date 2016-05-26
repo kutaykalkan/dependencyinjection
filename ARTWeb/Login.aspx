@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="SkyStem.ART.Web.Login"
-    Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/LoginMasterPage.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="SkyStem.ART.Web.Login"
+    Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/LoginMasterPage.master" Codebehind="Login.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ARTLogoLogin" Src="~/UserControls/ARTLogoLogin.ascx" %>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="cphContents">

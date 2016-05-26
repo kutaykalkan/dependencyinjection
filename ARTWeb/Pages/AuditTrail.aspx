@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/RecProcessMasterPage.master"
-    AutoEventWireup="true" CodeFile="AuditTrail.aspx.cs" Inherits="Pages_AuditTrail"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" EnableEventValidation="true" ValidateRequest="false" %>
+    AutoEventWireup="true" Inherits="Pages_AuditTrail"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" EnableEventValidation="true" ValidateRequest="false" Codebehind="AuditTrail.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/AuditTrail.ascx" TagName="AuditTrail" TagPrefix="uc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRecProcess" runat="Server">

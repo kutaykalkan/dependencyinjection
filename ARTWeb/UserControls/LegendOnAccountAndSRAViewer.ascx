@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LegendOnAccountAndSRAViewer.ascx.cs"
-    Inherits="UserControls_LegendOnAccountAndSRAViewer" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_LegendOnAccountAndSRAViewer" Codebehind="LegendOnAccountAndSRAViewer.ascx.cs" %>
 <table class="LegendTable" width="100" cellpadding="0" cellspacing="0">
     <tr>
         <td class="LegendHeading" colspan="4">

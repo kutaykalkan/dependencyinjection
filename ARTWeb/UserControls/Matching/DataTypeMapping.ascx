@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DataTypeMapping.ascx.cs"
-    Inherits="UserControls_Matching_DataTypeMapping" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_Matching_DataTypeMapping" Codebehind="DataTypeMapping.ascx.cs" %>
 <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td width="1%">

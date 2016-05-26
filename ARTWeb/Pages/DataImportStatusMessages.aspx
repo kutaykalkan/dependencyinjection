@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DataImportStatusMessages.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_DataImportStatusMessages" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="DataImportStatusMessages.aspx.cs" %>
 
 <%@ Register TagPrefix="cc1" Namespace="SkyStem.Library.Controls.TelerikWebControls" Assembly="TelerikWebControls" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

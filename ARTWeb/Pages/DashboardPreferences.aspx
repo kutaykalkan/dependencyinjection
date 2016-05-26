@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DashboardPreferences.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_DashboardPreferences" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="DashboardPreferences.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:Panel ID="pnlHeader" runat="server">

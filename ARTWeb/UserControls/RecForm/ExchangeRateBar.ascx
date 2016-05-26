@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ExchangeRateBar.ascx.cs"
-    Inherits="UserControls_ExchangeRateBar" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_ExchangeRateBar" Codebehind="ExchangeRateBar.ascx.cs" %>
 <table width="80%" cellpadding="0" cellspacing="0" border="0" class="ExchangeRateBar">
     <col width="2%" />
     <col width="20%" />

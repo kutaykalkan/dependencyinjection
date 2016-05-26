@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecFormAccountTaskGrid.ascx.cs"
-    Inherits="UserControls_TaskMaster_RecFormAccountTaskGrid" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_TaskMaster_RecFormAccountTaskGrid" Codebehind="RecFormAccountTaskGrid.ascx.cs" %>
 <%@ Register Src="~/UserControls/TaskMaster/GeneralTaskGrid.ascx" TagName="GeneralTaskGrid"
     TagPrefix="UserControl" %>
 <div id="divMainContent" runat="server">

@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ConfigureJEColumns.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_ConfigureJEColumns" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="ConfigureJEColumns.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControl" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>

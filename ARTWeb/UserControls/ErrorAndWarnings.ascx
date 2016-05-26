@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ErrorAndWarnings.ascx.cs"
-    Inherits="UserControls_ErrorAndWarnings" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_ErrorAndWarnings" Codebehind="ErrorAndWarnings.ascx.cs" %>
 <asp:Panel ID="pnlHeader" runat="server">
     <table class="ErrorAndWarningHeading">  <%--InputRequrementsHeading--%>
         <tr>

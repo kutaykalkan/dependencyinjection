@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="BulkCloseAmortizableIndividual.aspx.cs" Inherits="Pages_BulkCloseAmortizableIndividual" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_BulkCloseAmortizableIndividual" Theme="SkyStemBlueBrown" Codebehind="BulkCloseAmortizableIndividual.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="userControl" TagName="DocumentUpload" Src="~/UserControls/DocumentUploadButton.ascx" %>

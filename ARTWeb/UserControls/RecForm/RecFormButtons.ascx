@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecFormButtons.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecFormButtons" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecFormButtons" Codebehind="RecFormButtons.ascx.cs" %>
 <table border="0" cellpadding="0" cellspacing="0" class="HideInPdf">
     <tr>
         <td>

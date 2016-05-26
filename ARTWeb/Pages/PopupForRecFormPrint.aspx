@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="PopupForRecFormPrint.aspx.cs" Inherits="Pages_PopupForRecFormPrint"
-    ValidateRequest="false" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_PopupForRecFormPrint"
+    ValidateRequest="false" Codebehind="PopupForRecFormPrint.aspx.cs" %>
     
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">

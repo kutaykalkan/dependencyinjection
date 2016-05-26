@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="EditRecControlCheckListComment.aspx.cs" Inherits="Pages_EditRecControlCheckListComment" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_EditRecControlCheckListComment" Theme="SkyStemBlueBrown" Codebehind="EditRecControlCheckListComment.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">

@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SessionExpiryNotification.ascx.cs"
-    Inherits="UserControls_SessionExpiryNotification" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_SessionExpiryNotification" Codebehind="SessionExpiryNotification.ascx.cs" %>
 <div>
 
     <script type="text/javascript" language="javascript">

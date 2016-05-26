@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CapabilityActivationDualLevelReview.ascx.cs"
-    Inherits="UserControls_CapabilityActivationDualLevelReview" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_CapabilityActivationDualLevelReview" Codebehind="CapabilityActivationDualLevelReview.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:UpdatePanel ID="upnlDualLevelReview" runat="server" UpdateMode="Conditional">
     <ContentTemplate>

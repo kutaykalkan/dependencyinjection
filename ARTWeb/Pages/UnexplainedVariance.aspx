@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/RecProcessMasterPage.master"
-    AutoEventWireup="true" CodeFile="UnexplainedVariance.aspx.cs" Inherits="Pages_UnexplainedVariance"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_UnexplainedVariance"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="UnexplainedVariance.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="userControl" TagName="DocumentUpload" Src="~/UserControls/DocumentUploadButton.ascx" %>

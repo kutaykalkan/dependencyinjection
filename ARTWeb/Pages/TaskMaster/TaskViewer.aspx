@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="TaskViewer.aspx.cs" Inherits="Pages_TaskMaster_TaskViewer" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_TaskMaster_TaskViewer" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" ValidateRequest="false" Codebehind="TaskViewer.aspx.cs" %>
 
 <%@ Register TagName="GeneralTaskGrid" TagPrefix="userControl" Src="~/UserControls/TaskMaster/GeneralTaskGrid.ascx" %>
 <%@ Register TagName="AccountTaskGrid" TagPrefix="userControl" Src="~/UserControls/TaskMaster/AccountTaskGrid.ascx" %>

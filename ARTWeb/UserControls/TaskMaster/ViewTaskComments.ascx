@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ViewTaskComments.ascx.cs"
-    Inherits="UserControls_TaskMaster_ViewTaskComments" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_TaskMaster_ViewTaskComments" Codebehind="ViewTaskComments.ascx.cs" %>
 <table width="100%">
     <tr>
         <td style="border: 1px solid #000000; padding: 0; margin: 0">

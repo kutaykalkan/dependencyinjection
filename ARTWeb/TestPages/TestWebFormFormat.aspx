@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="TestWebFormFormat.aspx.cs" Inherits="TestPages_TestWebFormFormat" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="TestPages_TestWebFormFormat" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" Codebehind="TestWebFormFormat.aspx.cs" %>
 
 <asp:content id="Content1" contentplaceholderid="ContentPlaceHolder1" runat="Server">
 <script language="javascript" type="text/javascript">

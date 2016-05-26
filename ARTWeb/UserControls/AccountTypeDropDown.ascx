@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountTypeDropDown.ascx.cs" Inherits="UserControls_AccountTypeDropDown" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_AccountTypeDropDown" Codebehind="AccountTypeDropDown.ascx.cs" %>
 <asp:DropDownList ID="ddlAccountType" runat="server">
 </asp:DropDownList>
 <asp:RequiredFieldValidator ID="vldAccountType" runat="server" ControlToValidate="ddlAccountType"

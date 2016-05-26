@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="GridCustomization.aspx.cs" Inherits="Pages_GridCustomization" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_GridCustomization" Theme="SkyStemBlueBrown" Codebehind="GridCustomization.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:content id="Content1" contentplaceholderid="ContentPlaceHolder1" runat="Server">

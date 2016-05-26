@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master" AutoEventWireup="true"
-    CodeFile="DelinquentAccountByUserReport.aspx.cs" Inherits="Pages_Reports_DelinquentAccountByUserReport"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master" AutoEventWireup="true" Inherits="Pages_Reports_DelinquentAccountByUserReport"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="DelinquentAccountByUserReport.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">

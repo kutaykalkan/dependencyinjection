@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CloseDate.ascx.cs" Inherits="UserControls_Report_CloseDate" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_Report_CloseDate" Codebehind="CloseDate.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="25%" />

@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AcctFltrRadioButtonListYesNoAll.ascx.cs"
-    Inherits="AcctFltrRadioButtonListYesNoAll" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="AcctFltrRadioButtonListYesNoAll" Codebehind="AcctFltrRadioButtonListYesNoAll.ascx.cs" %>
 <div>
     <div id="checkboxlistMaindiv" runat="server" style="width: auto; float: left;">
         <asp:RadioButtonList ID="rblCriteria" runat="server" RepeatDirection="Horizontal"

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProgressBar.ascx.cs" Inherits="UserControls_ProgressBar" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_ProgressBar" Codebehind="ProgressBar.ascx.cs" %>
 <asp:UpdateProgress ID="upProgress" runat="server" DisplayAfter="20">
     <ProgressTemplate>
         <iframe frameborder="0" src="about:blank" class="ProgressBarBackground"></iframe>

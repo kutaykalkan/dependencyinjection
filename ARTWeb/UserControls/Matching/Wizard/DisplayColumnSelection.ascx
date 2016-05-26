@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DisplayColumnSelection.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.DisplayColumnSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.DisplayColumnSelection" Codebehind="DisplayColumnSelection.ascx.cs" %>
 <%@ Register Src="~/UserControls/Matching/Wizard/MatchingCombinationSelection.ascx"
     TagName="MatchingCombinationSelection" TagPrefix="uc1" %>
 <%@ Register TagPrefix="usc" TagName="MatchSetInfo" Src="~/UserControls/Matching/MatchSetInfo.ascx" %>

@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LegendOnReconciliationTemplate.ascx.cs"
-    Inherits="UserControls_LegendOnReconciliationTemplate" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_LegendOnReconciliationTemplate" Codebehind="LegendOnReconciliationTemplate.ascx.cs" %>
 <table class="LegendTable" cellpadding="0" cellspacing="0" width="100%">
     <tr class="HideInPdf">
         <td class="LegendHeading" colspan="6">

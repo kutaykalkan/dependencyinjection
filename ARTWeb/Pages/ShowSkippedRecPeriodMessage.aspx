@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    AutoEventWireup="true" CodeFile="ShowSkippedRecPeriodMessage.aspx.cs" Inherits="Pages_ShowSkippedRecPeriodMessage"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_ShowSkippedRecPeriodMessage"
+    Theme="SkyStemBlueBrown" Codebehind="ShowSkippedRecPeriodMessage.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" cellpadding="0" cellspacing="0">

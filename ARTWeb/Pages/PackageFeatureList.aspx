@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="PackageFeatureList.aspx.cs" Inherits="Pages_PackageFeatureList" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_PackageFeatureList" Codebehind="PackageFeatureList.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="PackageFeatureList" Src="~/UserControls/PackageFeatureList.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

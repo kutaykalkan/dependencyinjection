@@ -1,7 +1,7 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ItemInputAccurable.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputAccurable" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputAccurable" Codebehind="ItemInputAccurable.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="LegendItemInput" Src="~/UserControls/LegendOnItemInputForm.ascx" %>
 <div id="divMainContent" runat="server">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

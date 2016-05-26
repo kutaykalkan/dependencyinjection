@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CheckBoxListWithSelectAll.ascx.cs"
-    Inherits="CheckBoxListWithSelectAll" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="CheckBoxListWithSelectAll" Codebehind="CheckBoxListWithSelectAll.ascx.cs" %>
 <div id="checkboxlistMaindiv" runat="server" class="CheckBoxListDiv"  style="width: auto; float: left;">
     <div id="divSelectAll" runat="server" class="CheckBoxListSelectALL" style="width: 225px;">
         <webControls:ExCheckBox ID="chkSelectAll" runat="server" LabelID="1262" />

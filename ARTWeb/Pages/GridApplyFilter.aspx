@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    AutoEventWireup="true" CodeFile="GridApplyFilter.aspx.cs" Inherits="Pages_GridApplyFilter"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_GridApplyFilter"
+    Theme="SkyStemBlueBrown" Codebehind="GridApplyFilter.aspx.cs" %>
 
 <%@ Register Src="../UserControls/AccountViewerFilter/StringRange.ascx" TagName="StringRange"
     TagPrefix="acctFilter" %>

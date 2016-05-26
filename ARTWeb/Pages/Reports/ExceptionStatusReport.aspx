@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master"
-    AutoEventWireup="true" CodeFile="ExceptionStatusReport.aspx.cs" Inherits="Pages_Reports_ExceptionStatusReport"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_Reports_ExceptionStatusReport"
+    Theme="SkyStemBlueBrown" Codebehind="ExceptionStatusReport.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">

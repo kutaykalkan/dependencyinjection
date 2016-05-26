@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserDropDown.ascx.cs"
-    Inherits="UserControls_UserDropDown" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_UserDropDown" Codebehind="UserDropDown.ascx.cs" %>
 <asp:DropDownList ID="ddlUser" runat="server" OnSelectedIndexChanged="ddlUser_SelectedIndexChanged" AutoPostBack="true">
 </asp:DropDownList>
 <asp:RequiredFieldValidator ID="vldUser" runat="server" Enabled="false" InitialValue="-2"

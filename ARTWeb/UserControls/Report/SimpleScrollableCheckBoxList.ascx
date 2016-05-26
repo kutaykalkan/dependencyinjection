@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SimpleScrollableCheckBoxList.ascx.cs"
-    Inherits="SimpleScrollableCheckBoxList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SimpleScrollableCheckBoxList" Codebehind="SimpleScrollableCheckBoxList.ascx.cs" %>
 <div id="checkboxlistMaindiv" runat="server" class="CheckBoxListDiv" style="width: auto;
     float: left;">
     <div id="divSelectAll" runat="server" class="CheckBoxListSelectALL" style="width: 200px;">

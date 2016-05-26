@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RuleDisplayControl.ascx.cs"
-    Inherits="RuleDisplayControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="RuleDisplayControl" Codebehind="RuleDisplayControl.ascx.cs" %>
 <%--<script type="text/javascript" language="javascript">
     function deleteClick(btnDelete) {
         debugger

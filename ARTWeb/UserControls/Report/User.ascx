@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="User.ascx.cs" 
-Inherits="User" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" 
+Inherits="User" Codebehind="User.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="25%" />

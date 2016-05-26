@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SRARuleSelection.ascx.cs"
-    Inherits="UserControls_SRARuleSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_SRARuleSelection" Codebehind="SRARuleSelection.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <asp:Panel ID="pnlHeader" runat="server">
     <table class="InputRequrementsHeading" width="100%">

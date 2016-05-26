@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GLDataRecurringScheduleItems.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItems" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItems" Codebehind="GLDataRecurringScheduleItems.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataRecurringScheduleItemsGrid"
     Src="~/UserControls/RecForm/GLDataRecurringScheduleItemsGrid.ascx" %>
 <div id="divMainContent" runat="server">
@@ -49,7 +49,7 @@
                                                 <telerikWebControls:ExGridTemplateColumn LabelID="2087" ItemStyle-HorizontalAlign="Left"
                                                     UniqueName="ExportFileIcon">
                                                     <ItemTemplate>
-                                                        <webControls:ExImageButton ID="imgViewFile" Visible="false" runat="server" ImageAlign="Left"
+                                                        <webControls:ExImageButton ID="imgViewFileOpenGrid" Visible="false" runat="server" ImageAlign="Left"
                                                             SkinID="FileDownloadIcon" />
                                                     </ItemTemplate>
                                                     <HeaderStyle Width="5%" />
@@ -70,7 +70,7 @@
                                                 <%--Edit Button--%>
                                                 <telerikWebControls:ExGridTemplateColumn UniqueName="ShowInputForm">
                                                     <ItemTemplate>
-                                                        <webControls:ExHyperLink ID="hlShowItemInputForm" runat="server" SkinID="ShowItemInputPopup" /><%--CommandName="ShowInputForm" CommandArgument='<%# Eval("GLReconciliationItemInputID") %>'--%>
+                                                        <webControls:ExHyperLink ID="hlShowItemInputFormOpenGrid" runat="server" SkinID="ShowItemInputPopup" /><%--CommandName="ShowInputForm" CommandArgument='<%# Eval("GLReconciliationItemInputID") %>'--%>
                                                     </ItemTemplate>
                                                     <HeaderStyle Width="5%" />
                                                 </telerikWebControls:ExGridTemplateColumn>

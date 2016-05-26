@@ -1,5 +1,5 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="ChangePassword"
-    MasterPageFile="~/MasterPages/ARTMasterPage.master" Theme="SkyStemBlueBrown" %>
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="ChangePassword"
+    MasterPageFile="~/MasterPages/ARTMasterPage.master" Theme="SkyStemBlueBrown" Codebehind="ChangePassword.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:Content ID="_content" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Matched.ascx.cs" Inherits="SkyStem.ART.Web.UserControls.Matched" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="SkyStem.ART.Web.UserControls.Matched" Codebehind="Matched.ascx.cs" %>
 <br />
 <!-- Content Area //-->
 <asp:Panel ID="pnlHeader" runat="server">

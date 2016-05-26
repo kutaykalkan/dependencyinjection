@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CapabilityActivationMateriality.ascx.cs"
-    Inherits="UserControls_CapabilityActivationMateriality" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_CapabilityActivationMateriality" Codebehind="CapabilityActivationMateriality.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:UpdatePanel ID="upnlMateriality" runat="server" UpdateMode="Conditional">
     <ContentTemplate>

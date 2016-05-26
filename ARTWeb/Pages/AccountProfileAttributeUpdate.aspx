@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccountProfileAttributeUpdate.aspx.cs"
-    Inherits="Pages_AccountProfileAttributeUpdate" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/ARTMasterPage.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"
+    Inherits="Pages_AccountProfileAttributeUpdate" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/ARTMasterPage.master" Codebehind="AccountProfileAttributeUpdate.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="DropDownList" Src="~/UserControls/UserDropDown.ascx" %>

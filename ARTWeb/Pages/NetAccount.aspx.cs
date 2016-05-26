@@ -144,14 +144,14 @@ public partial class Pages_NetAccount : PageBaseRecPeriod
             if (e.Item.ItemType == Telerik.Web.UI.GridItemType.Item || e.Item.ItemType == Telerik.Web.UI.GridItemType.AlternatingItem)
             {
                 AccountHdrInfo oAccountHdrInfo = (AccountHdrInfo)e.Item.DataItem;
-                AccountViewerHelper.BindCommonFields(e, oAccountHdrInfo);
+                AccountViewerHelper.BindCommonFields(e, oAccountHdrInfo, "AddedGrid");
 
                 //HACK: Vinay - Override Account# as It may come as "net account"
-                Helper.SetTextForLabel(e.Item, "lblAccountNumber", oAccountHdrInfo.AccountNumber);
+                Helper.SetTextForLabel(e.Item, "lblAccountNumberAddedGrid", oAccountHdrInfo.AccountNumber);
 
                 if (!Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.RiskRating))
                 {
-                    UserControls_PopupRecFrequency ucPopupRecFrequency = (UserControls_PopupRecFrequency)e.Item.FindControl("ucPopupRecFrequency");
+                    UserControls_PopupRecFrequency ucPopupRecFrequency = (UserControls_PopupRecFrequency)e.Item.FindControl("ucPopupRecFrequencyAddedGrid");
                     ucPopupRecFrequency.AccountID = oAccountHdrInfo.AccountID.Value;
                 }
             }

@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    CodeFile="PopupViewAccounts.aspx.cs" Inherits="Pages_Matching_PopupViewAccounts"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Inherits="Pages_Matching_PopupViewAccounts"
+    Theme="SkyStemBlueBrown" Codebehind="PopupViewAccounts.aspx.cs" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" ID="Content1" runat="server">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">

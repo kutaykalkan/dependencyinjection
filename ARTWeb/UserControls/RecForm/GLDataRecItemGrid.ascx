@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GLDataRecItemGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecItemGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecItemGrid" Codebehind="GLDataRecItemGrid.ascx.cs" %>
 <table width="100%" cellpadding="0px" cellspacing="0px">
     <asp:Panel ID="pnlCurrency" runat="server">
         <tr>

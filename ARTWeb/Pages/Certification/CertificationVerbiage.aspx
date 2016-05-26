@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    CodeFile="CertificationVerbiage.aspx.cs" Inherits="Pages_CertificationVerbiage"
-    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/ARTMasterPage.master" Inherits="Pages_CertificationVerbiage"
+    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" Codebehind="CertificationVerbiage.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

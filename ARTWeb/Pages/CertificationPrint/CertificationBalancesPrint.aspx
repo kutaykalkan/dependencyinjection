@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/CertificationMasterPagePrint.master"
-    AutoEventWireup="true" CodeFile="CertificationBalancesPrint.aspx.cs" Inherits="Pages_CertificationPrint_CertificationBalancesPrint"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_CertificationPrint_CertificationBalancesPrint"
+    Theme="SkyStemBlueBrown" Codebehind="CertificationBalancesPrint.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

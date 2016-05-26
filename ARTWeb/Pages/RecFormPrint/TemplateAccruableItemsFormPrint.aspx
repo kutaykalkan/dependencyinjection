@@ -1,6 +1,5 @@
-<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/RecFormPrint.master"
-    CodeFile="TemplateAccruableItemsFormPrint.aspx.cs" Inherits="Pages_RecFormPrint_TemplateAccruableItemsFormPrint"
-    Theme="SkyStemBlueBrown" %>
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/RecFormPrint.master" Inherits="Pages_RecFormPrint_TemplateAccruableItemsFormPrint"
+    Theme="SkyStemBlueBrown" Codebehind="TemplateAccruableItemsFormPrint.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>

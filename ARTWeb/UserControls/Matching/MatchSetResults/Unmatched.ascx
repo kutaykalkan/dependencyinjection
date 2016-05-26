@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Unmatched.ascx.cs" Inherits="SkyStem.ART.Web.UserControls.Unmatched" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="SkyStem.ART.Web.UserControls.Unmatched" Codebehind="Unmatched.ascx.cs" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>
 <br />
 <!-- Content Area //-->

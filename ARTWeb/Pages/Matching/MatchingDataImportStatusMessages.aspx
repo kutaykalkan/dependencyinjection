@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true" 
-CodeFile="MatchingDataImportStatusMessages.aspx.cs" 
-Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchingDataImportStatusMessages" %>
+Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchingDataImportStatusMessages" Codebehind="MatchingDataImportStatusMessages.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphMatching" Runat="Server">
  <table width="100%">

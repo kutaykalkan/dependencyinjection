@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ScrollableCheckboxListWithSelectAll.ascx.cs"
-    Inherits="ScrollableCheckboxListWithSelectAll" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="ScrollableCheckboxListWithSelectAll" Codebehind="ScrollableCheckboxListWithSelectAll.ascx.cs" %>
 <div>
     <asp:Panel ID="pnlScrollableCheckboxListWithSelectAll" runat="server">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">

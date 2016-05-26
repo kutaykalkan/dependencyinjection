@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GeneralTaskGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GeneralTaskGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GeneralTaskGrid" Codebehind="GeneralTaskGrid.ascx.cs" %>
 <table width="100%" cellpadding="0px" cellspacing="0px">
     <tr>
         <td style="width: 98%">

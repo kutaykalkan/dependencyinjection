@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="DocumentViewer.aspx.cs" Inherits="Pages_DocumentViewer" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_DocumentViewer" Codebehind="DocumentViewer.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <telerik:RadWindow ID="rwDocument" runat="server" VisibleOnPageLoad="true" AutoSize="true" BorderWidth="0px"

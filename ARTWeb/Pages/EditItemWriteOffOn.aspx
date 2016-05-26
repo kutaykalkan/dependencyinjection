@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="EditItemWriteOffOn.aspx.cs" Inherits="Pages_EditItemWriteOffOn" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_EditItemWriteOffOn" Theme="SkyStemBlueBrown" Codebehind="EditItemWriteOffOn.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="userControl" TagName="DocumentUpload" Src="~/UserControls/DocumentUploadButton.ascx" %>

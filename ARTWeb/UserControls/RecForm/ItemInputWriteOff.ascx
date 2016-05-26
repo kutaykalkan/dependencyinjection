@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ItemInputWriteOff.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputWriteOff" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputWriteOff" Codebehind="ItemInputWriteOff.ascx.cs" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <div id="divMainContent" runat="server">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

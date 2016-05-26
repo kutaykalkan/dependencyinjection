@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="FinancialYear.ascx.cs" Inherits="UserControls_Report_FinancialYear" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_Report_FinancialYear" Codebehind="FinancialYear.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="5%" />

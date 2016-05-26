@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="Home.aspx.cs" Async="true" Inherits="Pages_Home" Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Async="true" Inherits="Pages_Home" Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="Home.aspx.cs" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:WebPartManager ID="wpmDashboards" runat="server" Personalization-Enabled="true"

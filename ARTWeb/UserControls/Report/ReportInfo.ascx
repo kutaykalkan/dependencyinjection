@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ReportInfo.ascx.cs" Inherits="UserControls_Report_ReportInfo" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_Report_ReportInfo" Codebehind="ReportInfo.ascx.cs" %>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td>

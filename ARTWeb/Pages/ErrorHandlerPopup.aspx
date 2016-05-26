@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" CodeFile="ErrorHandlerPopup.aspx.cs" Inherits="Pages_ErrorHandlerPopup"
-Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_ErrorHandlerPopup"
+Theme="SkyStemBlueBrown" Codebehind="ErrorHandlerPopup.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">

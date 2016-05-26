@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true"
-    CodeFile="MatchSourceDataImport.aspx.cs" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchSourceDataImport"
-    Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchSourceDataImport"
+    Title="Untitled Page" Codebehind="MatchSourceDataImport.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"
     TagPrefix="UserControl" %>

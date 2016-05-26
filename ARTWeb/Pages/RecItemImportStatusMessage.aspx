@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RecItemImportStatusMessage.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_RecItemImportStatusMessage" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="RecItemImportStatusMessage.aspx.cs" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%">

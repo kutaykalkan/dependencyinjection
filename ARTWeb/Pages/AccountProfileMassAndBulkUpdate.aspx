@@ -1,6 +1,6 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccountProfileMassAndBulkUpdate.aspx.cs"
+<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_AccountProfileMassAndBulkUpdate" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="AccountProfileMassAndBulkUpdate.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"
     TagPrefix="UserControl" %>
@@ -51,19 +51,19 @@
                                         <telerikwebcontrols:exgridtemplatecolumn labelid="1357" headerstyle-width="15%" sortexpression="AccountNumber"
                                             datatype="System.String">
                                             <ItemTemplate>
-                                                <webControls:ExLabel ID="lblAccountNumber" runat="server"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblAccountNumberMass" runat="server"></webControls:ExLabel>
                                             </ItemTemplate>
                                         </telerikwebcontrols:exgridtemplatecolumn>
                                         <telerikwebcontrols:exgridtemplatecolumn labelid="1346" headerstyle-width="10%" sortexpression="AccountName"
                                             datatype="System.String">
                                             <ItemTemplate>
-                                                <webControls:ExLabel ID="lblAccountName" runat="server"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblAccountNameMass" runat="server"></webControls:ExLabel>
                                             </ItemTemplate>
                                         </telerikwebcontrols:exgridtemplatecolumn>
                                         <telerikwebcontrols:exgridtemplatecolumn labelid="1257" uniquename="NetAccount" headerstyle-width="10%"
                                             sortexpression="NetAccount" datatype="System.String">
                                             <ItemTemplate>
-                                                <webControls:ExLabel ID="lblNetAccount" runat="server"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblNetAccountMass" runat="server"></webControls:ExLabel>
                                             </ItemTemplate>
                                         </telerikwebcontrols:exgridtemplatecolumn>
                                         <telerikwebcontrols:exgridtemplatecolumn uniquename="ZeroBalance" labelid="1256"
@@ -155,7 +155,7 @@
                                 LabelID="1252" SkinID="OptBlack11Arial" Visible="false" />
                             <webControls:ExRadioButton ID="optIsNo" runat="server" GroupName="Attribute" TextAlign="Right"
                                 LabelID="1251" SkinID="OptBlack11Arial" Visible="false" />
-                            <RiskRating:DropDownList ID="ddlRiskRating" runat="server" Visible="false" />
+                            <RiskRating:DropDownList ID="ddlRiskRatingMass" runat="server" Visible="false" />
 <%--                            <DayType:DropDownList ID="ddlDayType" runat="server" Visible="false" />--%>
                             <%--<AccountType:DropDownList ID="ddlAccountType" runat="server"
                                 Visible="false" />--%>

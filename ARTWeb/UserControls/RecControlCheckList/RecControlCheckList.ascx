@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecControlCheckList.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecControlCheckList" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecControlCheckList" Codebehind="RecControlCheckList.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="RecControlCheckListGrid" Src="~/UserControls/RecControlCheckList/RecControlCheckListGrid.ascx" %>
 <div id="divMainContent" runat="server">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

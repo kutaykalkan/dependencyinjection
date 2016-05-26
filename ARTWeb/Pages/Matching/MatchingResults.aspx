@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master"
-    AutoEventWireup="true" CodeFile="MatchingResults.aspx.cs" Theme="SkyStemBlueBrown"
-    Inherits="Pages_Matching_MatchingResults" %>
+    AutoEventWireup="true" Theme="SkyStemBlueBrown"
+    Inherits="Pages_Matching_MatchingResults" Codebehind="MatchingResults.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="Matched" Src="~/UserControls/Matching/MatchSetResults/Matched.ascx" %>

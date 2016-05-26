@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LowerUpperBound.ascx.cs"
-    Inherits="LowerUpperBound" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="LowerUpperBound" Codebehind="LowerUpperBound.ascx.cs" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>
 <div>
     <table id="tblMain" width="75%" runat="server" cellpadding="0" cellspacing="0" border="0">

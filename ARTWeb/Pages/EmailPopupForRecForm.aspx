@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="EmailPopupForRecForm.aspx.cs" Inherits="Pages_EmailPopupForRecForm"
-    ValidateRequest="false" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_EmailPopupForRecForm"
+    ValidateRequest="false" Codebehind="EmailPopupForRecForm.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
