@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "ARTReport", "ARTreport\ARTReport.rptproj", "{A042F5F5-280F-4727-A718-BC398BD0A9C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Debug|Default.ActiveCfg = Debug
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Debug|Default.Build.0 = Debug
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Debug|Default.Deploy.0 = Debug
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.DebugLocal|Default.Build.0 = DebugLocal
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Release|Default.ActiveCfg = Release
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Release|Default.Build.0 = Release
+		{A042F5F5-280F-4727-A718-BC398BD0A9C7}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
