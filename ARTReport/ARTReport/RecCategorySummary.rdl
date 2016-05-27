@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.46649in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.62841in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.18866in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AmountBaseTotal">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(IsNothing(Fields!AmountBaseCurrencyTotal.Value),Format(0,"N"), Format(Fields!AmountBaseCurrencyTotal.Value,"N"))</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AmountBaseTotal</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AmountReportingTotal">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(IsNothing(Fields!AmountReportingCurrencyTotal.Value),Format(0,"N"), Format(Fields!AmountReportingCurrencyTotal.Value,"N"))</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AmountReportingTotal</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="table1_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>RecCategoryData</DataSetName>
+        <Height>0.18866in</Height>
+        <Width>4.0949in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.19958in</Height>
+    <Style />
+  </Body>
+  <Width>4.0949in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="RecCategorySummaryDS">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>=Parameters!ConnectionString.Value</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>818b71b8-e031-45c1-8345-984b3a7b34b4</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="RecCategoryData">
+      <Query>
+        <DataSourceName>RecCategorySummaryDS</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@MyReconciliationCategoryTypeID">
+            <Value>=Parameters!MyReconciliationCategoryTypeID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@GLdataID">
+            <Value>=Parameters!GLdataID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReconciliationTemplateID">
+            <Value>=Parameters!ReconciliationTemplateID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT 
+		  @MyReconciliationCategoryTypeID As ReconciliationCategoryTypeIDTotal
+		, sum(GRI.[Amount]) As AmountTotal
+		,sum(GRI.[AmountBaseCurrency]) As AmountBaseCurrencyTotal
+		, sum(GRI.[AmountReportingCurrency])  As AmountReportingCurrencyTotal
+	 
+		               
+	FROM 
+	ReconciliationCategoryTypeMst  X
+	Left outer join
+	(Select * from GLDataRecItem  Where GLdataID =   @GLdataID and CloseDate is null and IsActive=1) GRI
+	on GRI.ReconciliationCategoryTypeID =  @MyReconciliationCategoryTypeID
+	Where
+	X.ReconciliationCategoryTypeID IN (select ReconciliationCategoryTypeID from ReconciliationCategoryTypeMst
+	where (ReconciliationTemplateID =@ReconciliationTemplateID AND ReconciliationCategoryTypeID &lt;&gt; 39 AND X.ReconciliationCategoryTypeID = @MyReconciliationCategoryTypeID))
+	group by X.[ReconciliationCategoryTypeID]</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ReconciliationCategoryTypeIDTotal">
+          <DataField>ReconciliationCategoryTypeIDTotal</DataField>
+          <rd:TypeName>System.Object</rd:TypeName>
+        </Field>
+        <Field Name="AmountTotal">
+          <DataField>AmountTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AmountBaseCurrencyTotal">
+          <DataField>AmountBaseCurrencyTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AmountReportingCurrencyTotal">
+          <DataField>AmountReportingCurrencyTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="FormatData">
+      <Query>
+        <DataSourceName>RecCategorySummaryDS</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@LANGUAGEID">
+            <Value>=Parameters!LANGUAGEID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>Select
+(select Phrase from Phrases where LanguageID=@LANGUAGEID and labelid=2) As DateFormatText, 
+(select Phrase from Phrases where LanguageID=@LANGUAGEID and labelid=2416) As NumericFormatText</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="DateFormatText">
+          <DataField>DateFormatText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NumericFormatText">
+          <DataField>NumericFormatText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="MyReconciliationCategoryTypeID">
+      <DataType>String</DataType>
+      <Prompt>My Reconciliation Category Type ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GLdataID">
+      <DataType>String</DataType>
+      <Prompt>GLdata ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReconciliationTemplateID">
+      <DataType>String</DataType>
+      <Prompt>Reconciliation Template ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LANGUAGEID">
+      <DataType>String</DataType>
+      <Prompt>LANGUAGEID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="languageInfo">
+      <DataType>String</DataType>
+      <Prompt>languageInfo</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ConnectionString">
+      <DataType>String</DataType>
+      <Prompt>ConnectionString</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>=Parameters!languageInfo.Value</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>ebb1616d-c1f4-426c-9859-01d4a501a502</rd:ReportID>
+</Report>
