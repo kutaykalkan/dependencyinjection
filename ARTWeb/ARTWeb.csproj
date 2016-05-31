@@ -142,7 +142,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Site.css" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\SkyStemBlueBrown\default.skin" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\Thumbs.db" />
