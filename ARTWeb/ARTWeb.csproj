@@ -75,6 +75,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\lib\MySql.Data.dll</HintPath>
     </Reference>
@@ -95,6 +99,30 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -114,6 +142,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\SkyStemBlueBrown\default.skin" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\Thumbs.db" />
@@ -130,6 +159,8 @@
     <Content Include="MasterPages\RecProcessMasterPage.master" />
     <Content Include="MasterPages\ReportViewer.master" />
     <Content Include="MasterPages\ReportViewerPrint.master" />
+    <Content Include="Areas\mvc\.bowerrc" />
+    <Content Include="Areas\mvc\bower.json" />
     <Content Include="Templates\AccountsAttributes.xlsx" />
     <Content Include="Templates\AccountsUpload.xlsx" />
     <Content Include="Templates\CurrencyExchange.xlsx" />
@@ -147,6 +178,10 @@
     <Content Include="Templates\SubledgerSource.xlsx" />
     <Content Include="Templates\UserUpload.xlsx" />
     <Content Include="UserControls\Matching\Wizard\.#MatchingSourceSelection.ascx.cs.1.44" />
+    <Content Include="Areas\mvc\Views\web.config" />
+    <Content Include="Areas\mvc\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\mvc\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\mvc\Views\BSFlux\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -712,6 +747,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\mvc\Controllers\BSFluxController.cs" />
+    <Compile Include="Areas\mvc\mvcAreaRegistration.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3156,7 +3193,13 @@
       <DependentUpon>UserDropDown.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\mvc\Models\" />
+    <Folder Include="Areas\mvc\wwwroot\css\" />
+    <Folder Include="Areas\mvc\wwwroot\img\" />
+    <Folder Include="Areas\mvc\wwwroot\js\" />
+    <Folder Include="Areas\mvc\wwwroot\lib\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ARTApp\ARTApp.csproj">
       <Project>{cbdf8b74-2028-4caa-a3fb-d14534c2ee9d}</Project>
