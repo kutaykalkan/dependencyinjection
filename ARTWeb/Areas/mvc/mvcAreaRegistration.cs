@@ -14,9 +14,12 @@ namespace SkyStem.ART.Web.Areas.mvc
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            //context.Routes.IgnoreRoute("{*allaspx}", new { allaspx = @".*\.aspx(/.*)?" });
+            //context.Routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+
             context.MapRoute(
                 "mvc_default",
-                "{controller}/{action}/{id}",
+                "app/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

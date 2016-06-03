@@ -32,13 +32,13 @@
 
         <script type="text/javascript" src="../JavaScript/Reports.js"></script>
 
-        <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
+        <%--<script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
 
         <script type="text/javascript" src="../../JavaScript/CalendarPopup.js"></script>
 
         <script type="text/javascript" src="../../JavaScript/NumericValidations.js"></script>
 
-        <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>--%>
 
         <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
             EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">
