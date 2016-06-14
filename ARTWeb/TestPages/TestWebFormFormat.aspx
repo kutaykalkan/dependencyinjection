@@ -3,7 +3,7 @@
 
 <asp:content id="Content1" contentplaceholderid="ContentPlaceHolder1" runat="Server">
 <script language="javascript" type="text/javascript">
-<!--
+<!-- 
 
 function ValidateDate()
 {
