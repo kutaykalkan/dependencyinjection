@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CapabilityMandatoryReportSignoff.ascx.cs"
-    Inherits="UserControls_CapabilityMandatoryReportSignoff" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_CapabilityMandatoryReportSignoff" Codebehind="CapabilityMandatoryReportSignoff.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:UpdatePanel ID="upnlMandatoryReportSignoff" runat="server" UpdateMode="Conditional">
     <ContentTemplate>

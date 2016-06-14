@@ -11,6 +11,8 @@
         //        Path = "~/JavaScript/jquery-1.4.2.min.js"
         //    }
         //);
+
+        System.Web.Mvc.AreaRegistration.RegisterAllAreas();
     }
 
     void Application_End(object sender, EventArgs e)

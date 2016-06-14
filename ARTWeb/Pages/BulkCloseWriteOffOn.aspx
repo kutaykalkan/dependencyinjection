@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="BulkCloseWriteOffOn.aspx.cs" Inherits="Pages_BulkCloseWriteOffOn"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_BulkCloseWriteOffOn"
+    Theme="SkyStemBlueBrown" Codebehind="BulkCloseWriteOffOn.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataWriteOnOffGrid" Src="~/UserControls/RecForm/GLDataWriteOnOffGrid.ascx" %>

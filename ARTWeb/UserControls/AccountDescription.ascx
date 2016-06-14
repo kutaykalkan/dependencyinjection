@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountDescription.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountDescription" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountDescription" Codebehind="AccountDescription.ascx.cs" %>
 <table width="100%" cellpadding="0" cellspacing="0" class="blueBorder">
     <tr class="blueRow">
         <td align="center">

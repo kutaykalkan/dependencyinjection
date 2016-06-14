@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecItemColumnMapping.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.RecItemColumnMapping" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.RecItemColumnMapping" Codebehind="RecItemColumnMapping.ascx.cs" %>
 <%@ Register TagPrefix="usc" TagName="MatchingCombinationSelection" Src="~/UserControls/Matching/Wizard/MatchingCombinationSelection.ascx" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>
 <%@ Register TagPrefix="usc" TagName="MatchSetInfo" Src="~/UserControls/Matching/MatchSetInfo.ascx" %>

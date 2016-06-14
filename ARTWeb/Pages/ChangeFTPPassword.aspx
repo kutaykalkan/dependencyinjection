@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" CodeFile="ChangeFTPPassword.aspx.cs" Inherits="Pages_ChangeFTPPassword" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_ChangeFTPPassword" Theme="SkyStemBlueBrown" Codebehind="ChangeFTPPassword.aspx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

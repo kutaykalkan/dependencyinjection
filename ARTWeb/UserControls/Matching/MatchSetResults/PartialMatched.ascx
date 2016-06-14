@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PartialMatched.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.PartialMatched" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.PartialMatched" Codebehind="PartialMatched.ascx.cs" %>
 <br />
 <!-- Content Area //-->
 <asp:Panel ID="pnlHeader" runat="server">

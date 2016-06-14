@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="ConfirmPopUp.aspx.cs" Inherits="Pages_ConfirmPopUp" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_ConfirmPopUp" Theme="SkyStemBlueBrown" Codebehind="ConfirmPopUp.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <%--<asp:Panel ID="pnlSkipped" runat="server" SkinID="ModalPopupHoverPanel">--%>

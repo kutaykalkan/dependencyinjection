@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UnexplainedVariance.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_UnexplainedVariance" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_UnexplainedVariance" Codebehind="UnexplainedVariance.ascx.cs" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%--    <div id="divMainContent">--%>
 <div id="divMainContent" runat="server">

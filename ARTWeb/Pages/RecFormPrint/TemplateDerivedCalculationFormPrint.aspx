@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/RecFormPrint.master"
-    AutoEventWireup="true" CodeFile="TemplateDerivedCalculationFormPrint.aspx.cs"
-    Inherits="Pages_TemplateDerivedCalculationFormPrint" Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true"
+    Inherits="Pages_TemplateDerivedCalculationFormPrint" Theme="SkyStemBlueBrown" Codebehind="TemplateDerivedCalculationFormPrint.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="AccountInfoLeftPane" Src="~/UserControls/AccountInfoLeftPane.ascx" %>

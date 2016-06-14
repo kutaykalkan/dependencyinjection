@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CapabilityRiskRating.ascx.cs"
-    Inherits="UserControls_CapabilityRiskRating" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_CapabilityRiskRating" Codebehind="CapabilityRiskRating.ascx.cs" %>
 <asp:Panel ID="pnlRiskRatingFrequency" runat="server" Width="100%">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="2%" />

@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ARTMasterPage.master.cs"
-    Inherits="MasterPages_ARTMasterPage" EnableTheming="true" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    Inherits="MasterPages_ARTMasterPage" EnableTheming="true" Codebehind="ARTMasterPage.master.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="FooterMaster" Src="~/UserControls/FooterMaster.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
@@ -32,13 +32,13 @@
 
         <script type="text/javascript" src="../JavaScript/Reports.js"></script>
 
-        <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
+        <%--<script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
 
         <script type="text/javascript" src="../../JavaScript/CalendarPopup.js"></script>
 
         <script type="text/javascript" src="../../JavaScript/NumericValidations.js"></script>
 
-        <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>--%>
 
         <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
             EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">

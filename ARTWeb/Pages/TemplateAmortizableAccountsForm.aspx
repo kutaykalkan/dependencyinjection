@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/RecProcessMasterPage.master"
-    AutoEventWireup="true" CodeFile="TemplateAmortizableAccountsForm.aspx.cs" Inherits="Pages_TemplateAmortizableAccountsForm"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" ValidateRequest="false" %>
+    AutoEventWireup="true" Inherits="Pages_TemplateAmortizableAccountsForm"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" ValidateRequest="false" Codebehind="TemplateAmortizableAccountsForm.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="AccountInfoLeftPane" Src="~/UserControls/AccountInfoLeftPane.ascx" %>

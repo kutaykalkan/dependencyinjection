@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Untitled Page" Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master"
-    AutoEventWireup="true" CodeFile="TaskCompletionReport.aspx.cs" Inherits="Pages_Reports_TaskCompletionReport"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_Reports_TaskCompletionReport"
+    Theme="SkyStemBlueBrown" Codebehind="TaskCompletionReport.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">

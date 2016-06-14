@@ -375,7 +375,7 @@ namespace SkyStem.ART.Web.UserControls
                 GridDataItem oGridDataItem = e.Item as GridDataItem;
                 DataRow dr = ((DataRowView)oGridDataItem.DataItem).Row;
                 // ShowHide the Excel Button if  the Rec Item is imported through file (and not added manually)
-                ExImageButton imgViewFile = (ExImageButton)e.Item.FindControl("imgViewFile");
+                ExImageButton imgViewFile = (ExImageButton)e.Item.FindControl("imgViewFileOpenGrid");
                 if (dr["DataImportID"] != null)
                 {
                     int DataImportID;
@@ -396,7 +396,7 @@ namespace SkyStem.ART.Web.UserControls
                         }
                     }
                 }
-                ExHyperLink hlShowItemInputForm = (ExHyperLink)e.Item.FindControl("hlShowItemInputForm");
+                ExHyperLink hlShowItemInputForm = (ExHyperLink)e.Item.FindControl("hlShowItemInputFormOpenGrid");
                 Helper.SetImageURLForViewVersusEdit(EditMode, hlShowItemInputForm);
                 ExHyperLink hlAddRecItemComment = (ExHyperLink)e.Item.FindControl("hlAddRecItemComment");
 

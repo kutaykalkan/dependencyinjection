@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserRole.ascx.cs" Inherits="UserRole" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserRole" Codebehind="UserRole.ascx.cs" %>
 <%@ Register Src="~/UserControls/Report/ScrollableCheckboxListWithSelectAll.ascx"
     TagPrefix="ucRpt" TagName="scrollableCheckboxList" %>
 <%@ Register src="SimpleScrollableCheckBoxList.ascx" tagname="SimpleScrollableCheckBoxList" tagprefix="rptCriteria" %>

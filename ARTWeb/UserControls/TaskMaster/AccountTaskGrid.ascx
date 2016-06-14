@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountTaskGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountTaskGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountTaskGrid" Codebehind="AccountTaskGrid.ascx.cs" %>
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <table width="100%" cellpadding="0px" cellspacing="0px">
     <tr>

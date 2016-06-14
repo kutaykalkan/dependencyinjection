@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown"
-    AutoEventWireup="true" CodeFile="TaskAttachment.aspx.cs" Inherits="Pages_TaskMaster_TaskAttachment" %>
+    AutoEventWireup="true" Inherits="Pages_TaskMaster_TaskAttachment" Codebehind="TaskAttachment.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/TaskMaster/Attachments.ascx" TagName="Attachments" TagPrefix="UserControl" %>
 

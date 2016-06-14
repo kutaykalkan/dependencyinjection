@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="ConfigureJEWriteOnOffApprover.aspx.cs" Inherits="Pages_JournalEntry_ConfigureJEWriteOnOffApprover"
-    Theme="SkyStemBlueBrown" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_JournalEntry_ConfigureJEWriteOnOffApprover"
+    Theme="SkyStemBlueBrown" Title="Untitled Page" Codebehind="ConfigureJEWriteOnOffApprover.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControl" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/CertificationMasterPage.master"
-    AutoEventWireup="true" CodeFile="CertificationSignOff.aspx.cs" Inherits="Pages_CertificationSignOff"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_CertificationSignOff"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="CertificationSignOff.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register Src="~/UserControls/Signature.ascx" TagName="Signature" TagPrefix="UserControl" %>

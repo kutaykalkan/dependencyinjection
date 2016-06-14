@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewerPrint.master" AutoEventWireup="true"
-    CodeFile="CertificationTrackingReportPrint.aspx.cs" Inherits="Pages_ReportsPrint_CertificationTrackingReportPrint"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewerPrint.master" AutoEventWireup="true" Inherits="Pages_ReportsPrint_CertificationTrackingReportPrint"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="CertificationTrackingReportPrint.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">
     <telerikWebControls:ExRadGrid ID="rgReport" runat="server" OnItemDataBound="rgReport_GridItemDataBound"

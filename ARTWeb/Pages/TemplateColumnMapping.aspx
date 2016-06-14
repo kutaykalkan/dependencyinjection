@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" CodeFile="TemplateColumnMapping.aspx.cs" Inherits="Pages_TemplateColumnMapping" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_TemplateColumnMapping" Theme="SkyStemBlueBrown" Codebehind="TemplateColumnMapping.aspx.cs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <%-- code starts from here--%>

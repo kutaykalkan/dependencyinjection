@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ReconciliationStatusByFSCaption.ascx.cs"
-    Inherits="UserControls_Dashboard_ReconciliationStatusByFSCaption" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_Dashboard_ReconciliationStatusByFSCaption" Codebehind="ReconciliationStatusByFSCaption.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <table style="width: 100%" cellpadding="0" cellspacing="0" id="tblMessage" runat="server"
     visible="false">

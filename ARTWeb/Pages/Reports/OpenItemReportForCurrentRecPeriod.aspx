@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OpenItemReportForCurrentRecPeriod.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
 MasterPageFile="~/MasterPages/ReportViewer.master" Inherits="Pages_Reports_OpenItemReportForCurrentRecPeriod"
-Title="Untitled Page"  Theme="SkyStemBlueBrown" %>
+Title="Untitled Page"  Theme="SkyStemBlueBrown" Codebehind="OpenItemReportForCurrentRecPeriod.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">

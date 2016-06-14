@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="BulkCloseGLDataRecurringScheduleItems.aspx.cs" Inherits="Pages_BulkCloseGLDataRecurringScheduleItems"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_BulkCloseGLDataRecurringScheduleItems"
+    Theme="SkyStemBlueBrown" Codebehind="BulkCloseGLDataRecurringScheduleItems.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataRecurringScheduleItemsGrid" Src="~/UserControls/RecForm/GLDataRecurringScheduleItemsGrid.ascx" %>

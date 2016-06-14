@@ -850,10 +850,10 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
             {
                 AccountHdrInfo oAccountHdrInfo = (AccountHdrInfo)e.Item.DataItem;
 
-                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl("lblAccountNumber");
+                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl("lblAccountNumberOwnershipGrid");
                 lblAccountNumber.Text = oAccountHdrInfo.AccountNumber;
 
-                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountName");
+                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountNameOwnershipGrid");
                 lblAccountName.Text = oAccountHdrInfo.AccountName;
 
                 if ((e.Item as GridDataItem)["ID"] != null)

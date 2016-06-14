@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="RecBinders.aspx.cs" Inherits="Pages_RecBinders" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_RecBinders" Codebehind="RecBinders.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 

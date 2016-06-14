@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="FinancialYearSelectionPopup.aspx.cs" Inherits="FinancialYearSelectionPopup"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="FinancialYearSelectionPopup"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="FinancialYearSelectionPopup.aspx.cs" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">

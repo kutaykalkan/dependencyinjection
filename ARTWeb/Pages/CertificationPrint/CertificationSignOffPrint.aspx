@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/CertificationMasterPagePrint.master"
-    AutoEventWireup="true" CodeFile="CertificationSignOffPrint.aspx.cs" Inherits="Pages_CertificationPrint_CertificationSignOffPrint"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_CertificationPrint_CertificationSignOffPrint"
+    Theme="SkyStemBlueBrown" Codebehind="CertificationSignOffPrint.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

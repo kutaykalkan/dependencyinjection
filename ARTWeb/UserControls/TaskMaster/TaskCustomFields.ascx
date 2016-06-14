@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="TaskCustomFields.ascx.cs"
-    Inherits="UserControls_TaskCustomFields" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_TaskCustomFields" Codebehind="TaskCustomFields.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <asp:Panel ID="pnlHeader" runat="server">
     <table class="InputRequrementsHeading" width="100%">

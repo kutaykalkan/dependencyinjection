@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    AutoEventWireup="true" CodeFile="RoleConfiguration.aspx.cs" Inherits="Pages_RoleConfiguration"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_RoleConfiguration"
+    Theme="SkyStemBlueBrown" Codebehind="RoleConfiguration.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <%@ Register TagPrefix="cc1" Namespace="SkyStem.Library.Controls.TelerikWebControls" Assembly="TelerikWebControls" %>

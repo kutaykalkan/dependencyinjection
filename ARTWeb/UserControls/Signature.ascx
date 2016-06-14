@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Signature.ascx.cs" Inherits="UserControls_Signature" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_Signature" Codebehind="Signature.ascx.cs" %>
 <table style="width: 35%" cellpadding="0" cellspacing="0" class="CertificationSignature">
     <col width="30%" />
     <col width="70%" />

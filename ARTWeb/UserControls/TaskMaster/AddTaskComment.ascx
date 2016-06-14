@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AddTaskComment.ascx.cs"
-    Inherits="UserControls_TaskMaster_AddTaskComment" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_TaskMaster_AddTaskComment" Codebehind="AddTaskComment.ascx.cs" %>
 
 <script type="text/javascript" language="javascript">
     function checkLength(txtBox) {

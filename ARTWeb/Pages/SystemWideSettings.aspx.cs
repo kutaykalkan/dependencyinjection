@@ -1728,7 +1728,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
     {
         //var url = "CloseRecPeriodPopup.aspx";
         //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "newWindow", "OpenRadWindow('" + url + "','280','500');", true);
-        Int16? RecPeriodStatus = (Int16?)WebEnums.RecPeriodStatus.Closed;
+        //Int16? RecPeriodStatus = (Int16?)WebEnums.RecPeriodStatus.Closed;
         DateTime? RevisedTime = DateTime.Now;
 
         int selectedRecPeriodID = Convert.ToInt32(ddlCurrentRecPeriod.SelectedItem.Value);

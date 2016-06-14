@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" CodeFile="CreateDataImportTemplate.aspx.cs" Inherits="Pages_CreateDataImportTemplate" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_CreateDataImportTemplate" Theme="SkyStemBlueBrown" Codebehind="CreateDataImportTemplate.aspx.cs" %>
 
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>

@@ -138,10 +138,10 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
     {
 
 
-        DropDownList ddlRiskratiingtoStForHyperLink = (DropDownList)ddlRiskRating.FindControl("ddlRiskRating");
+        DropDownList ddlRiskratiingtoStForHyperLink = (DropDownList)ddlRiskRatingMass.FindControl("ddlRiskRating");
         ExHyperLink hlRecFrequency = (ExHyperLink)ucRiskRatingPeriod.FindControl("hlRecFrequency");
         ddlRiskratiingtoStForHyperLink.Attributes.Add("onchange", "SetURLForRiskRating('" + ddlRiskratiingtoStForHyperLink.ClientID + "', '" + hlRecFrequency.ClientID + "')");
-        if (ddlRiskRating.SelectedValue != "" && ddlRiskRating.SelectedValue != WebConstants.SELECT_ONE)
+        if (ddlRiskRatingMass.SelectedValue != "" && ddlRiskRatingMass.SelectedValue != WebConstants.SELECT_ONE)
         {
             hlRecFrequency.Attributes.CssStyle.Add("visibility", "visible");
         }
@@ -477,13 +477,13 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
                 IAccount oAccountClient = RemotingHelper.GetAccountObject();
                 this._AccountReconciliationPeriodInfoCollection = oAccountClient.SelectAccountRecPeriodByAccountID(Convert.ToInt32(oAccountHdrInfo.AccountID.Value), Helper.GetAppUserInfo());
 
-                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl("lblAccountNumber");
+                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl("lblAccountNumberMass");
                 lblAccountNumber.Text = Helper.GetDisplayStringValue(oAccountHdrInfo.AccountNumber);
 
-                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountName");
+                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountNameMass");
                 lblAccountName.Text = Helper.GetDisplayStringValue(oAccountHdrInfo.AccountName);
 
-                ExLabel lblNetAccount = (ExLabel)e.Item.FindControl("lblNetAccount");
+                ExLabel lblNetAccount = (ExLabel)e.Item.FindControl("lblNetAccountMass");
                 if (!string.IsNullOrEmpty(oAccountHdrInfo.NetAccount))
                 {
                     lblNetAccount.Text = Helper.GetDisplayStringValue(oAccountHdrInfo.NetAccount);
@@ -776,7 +776,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
                 case ARTEnums.AccountAttribute.IsReconcilable:
                     optIsNo.Visible = true;
                     optIsYes.Visible = true;
-                    ddlRiskRating.Visible = false;
+                    ddlRiskRatingMass.Visible = false;
                     ucRecFrequencySelectionMass.Visible = false;
                     ucRiskRatingPeriod.Visible = false;
                     txtDueDays.Visible = false;
@@ -785,26 +785,26 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
                     break;
 
                 case ARTEnums.AccountAttribute.RiskRating:
-                    ddlRiskRating.Visible = true;
+                    ddlRiskRatingMass.Visible = true;
                     ucRiskRatingPeriod.Visible = true;
                     optIsNo.Visible = false;
                     optIsYes.Visible = false;
                     ucRecFrequencySelectionMass.Visible = false;
                     txtDueDays.Visible = false;
                     //ddlDayType.Visible = false;
-                    Page.SetFocus(ddlRiskRating);
+                    Page.SetFocus(ddlRiskRatingMass);
                     break;
                 case ARTEnums.AccountAttribute.PreparerDueDays:
                 case ARTEnums.AccountAttribute.ReviewerDueDays:
                 case ARTEnums.AccountAttribute.ApproverDueDays:
                     txtDueDays.Visible = true;
-                    ddlRiskRating.Visible = false;
+                    ddlRiskRatingMass.Visible = false;
                     ucRiskRatingPeriod.Visible = false;
                     optIsNo.Visible = false;
                     optIsYes.Visible = false;
                     ucRecFrequencySelectionMass.Visible = false;
                     //ddlDayType.Visible = false;
-                    Page.SetFocus(ddlRiskRating);
+                    Page.SetFocus(ddlRiskRatingMass);
                     break;
                 //case ARTEnums.AccountAttribute.DayType:
                 //    ddlDayType.Visible = true;
@@ -817,7 +817,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
                 //    Page.SetFocus(ddlDayType);
                 //    break;
                 default:
-                    ddlRiskRating.Visible = false;
+                    ddlRiskRatingMass.Visible = false;
                     ucRiskRatingPeriod.Visible = false;
                     optIsNo.Visible = false;
                     optIsYes.Visible = false;
@@ -830,7 +830,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
         }
         else
         {
-            ddlRiskRating.Visible = false;
+            ddlRiskRatingMass.Visible = false;
             ucRiskRatingPeriod.Visible = false;
             optIsNo.Visible = false;
             optIsYes.Visible = false;
@@ -842,7 +842,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
 
         optIsNo.Checked = false;
         optIsYes.Checked = false;
-        ddlRiskRating.SelectedValue = WebConstants.SELECT_ONE;
+        ddlRiskRatingMass.SelectedValue = WebConstants.SELECT_ONE;
         //ddlDayType.SelectedValue = WebConstants.SELECT_ONE;
         txtDueDays.Text = "";
     }
@@ -1544,7 +1544,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
             //    break;
 
             case ARTEnums.AccountAttribute.RiskRating:
-                attributeValue = ddlRiskRating.SelectedValue;
+                attributeValue = ddlRiskRatingMass.SelectedValue;
                 oAccountHdrInfoCollectionNew.ForEach(o => o.RiskRatingID = Convert.ToInt16(attributeValue));
                 break;
             //case ARTEnums.AccountAttribute.DayType:
@@ -1582,7 +1582,7 @@ public partial class Pages_AccountProfileMassAndBulkUpdate : PageBaseRecPeriod
             //    break;
 
             case ARTEnums.AccountAttribute.RiskRating:
-                if (ddlRiskRating.SelectedValue == WebConstants.SELECT_ONE)
+                if (ddlRiskRatingMass.SelectedValue == WebConstants.SELECT_ONE)
                 {
                     throw new ARTException(5000051);
                 }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/CertificationMasterPage.master"
-    AutoEventWireup="true" CodeFile="CertificationHome.aspx.cs" Inherits="Pages_CertificationHome"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_CertificationHome"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="CertificationHome.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCertification" runat="Server">

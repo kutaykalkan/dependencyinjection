@@ -1,6 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="SystemWideSettings.aspx.cs" Inherits="Pages_SystemWideSettings" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_SystemWideSettings" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" Codebehind="SystemWideSettings.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ErrorAndWarnings" Src="~/UserControls/ErrorAndWarnings.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>

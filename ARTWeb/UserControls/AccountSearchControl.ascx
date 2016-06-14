@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountSearchControl.ascx.cs"
-    Inherits="UserControls_AccountSearchControl"  %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_AccountSearchControl"  Codebehind="AccountSearchControl.ascx.cs" %>
 <%@ Register TagPrefix="OrganizationalHierarchy" TagName="DropDownList" Src="~/UserControls/OrganizationalHierarchyDropdown.ascx" %>
 <%@ Register TagPrefix="RiskRating" TagName="DropDownList" Src="~/UserControls/RiskRatingDropDown.ascx" %>
 

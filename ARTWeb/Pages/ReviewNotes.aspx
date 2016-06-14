@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/RecProcessMasterPage.master"
-    AutoEventWireup="true" CodeFile="ReviewNotes.aspx.cs" Inherits="Pages_ReviewNotes"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_ReviewNotes"
+    Theme="SkyStemBlueBrown" Codebehind="ReviewNotes.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRecProcess" runat="Server">
 

@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MatchSetInfo.ascx.cs"
-    Inherits="UserControls_Matching_MatchSetInfo" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_Matching_MatchSetInfo" Codebehind="MatchSetInfo.ascx.cs" %>
 <webControls:ExLabel style="margin-left:8px;" ID="lblMatchSetRef" runat="server" LabelID="2315" SkinID="Black11Arial"
     FormatString="{0} :"></webControls:ExLabel>
 &nbsp;

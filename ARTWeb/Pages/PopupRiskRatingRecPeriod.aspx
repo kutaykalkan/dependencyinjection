@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    CodeFile="PopupRiskRatingRecPeriod.aspx.cs" Inherits="Pages_PopupRiskRatingRecPeriod"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Inherits="Pages_PopupRiskRatingRecPeriod"
+    Theme="SkyStemBlueBrown" Codebehind="PopupRiskRatingRecPeriod.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">

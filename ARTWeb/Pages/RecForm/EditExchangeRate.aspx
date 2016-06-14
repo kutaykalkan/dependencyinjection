@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    Theme="SkyStemBlueBrown" AutoEventWireup="true" CodeFile="EditExchangeRate.aspx.cs"
-    Inherits="Pages_RecForm_EditExchangeRate" %>
+    Theme="SkyStemBlueBrown" AutoEventWireup="true"
+    Inherits="Pages_RecForm_EditExchangeRate" Codebehind="EditExchangeRate.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%">

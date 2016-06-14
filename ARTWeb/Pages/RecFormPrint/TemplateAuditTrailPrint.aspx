@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/AuditTrailPrint.master"  Theme="SkyStemBlueBrown"
-    AutoEventWireup="true" CodeFile="TemplateAuditTrailPrint.aspx.cs" Inherits="Pages_RecFormPrint_TemplateAuditTrailPrint" %>
+    AutoEventWireup="true" Inherits="Pages_RecFormPrint_TemplateAuditTrailPrint" Codebehind="TemplateAuditTrailPrint.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/AuditTrail.ascx" TagName="AuditTrail" TagPrefix="UserControls" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

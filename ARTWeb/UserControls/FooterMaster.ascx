@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="FooterMaster.ascx.cs" Inherits="UserControls_FooterMaster" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_FooterMaster" Codebehind="FooterMaster.ascx.cs" %>
 
 <table width="100%" class="Footer">
     <tr>

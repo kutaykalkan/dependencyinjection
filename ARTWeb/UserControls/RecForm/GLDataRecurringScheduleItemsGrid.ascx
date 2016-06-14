@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GLDataRecurringScheduleItemsGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItemsGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItemsGrid" Codebehind="GLDataRecurringScheduleItemsGrid.ascx.cs" %>
 <table>
     <asp:Panel ID="pnlCurrency" runat="server">
         <tr>

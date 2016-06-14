@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="RecProcessMasterPage.master.cs" Inherits="MasterPages_RecProcessMasterPage" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="MasterPages_RecProcessMasterPage" Codebehind="RecProcessMasterPage.master.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="RecStatusBar" Src="~/UserControls/RecForm/RecStatusBar.ascx" %>

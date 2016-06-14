@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Matching Wizard" Language="C#" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/MatchingMaster.master"
-    AutoEventWireup="true" CodeFile="MatchingWizard.aspx.cs" Inherits="Pages_Matching_MatchingWizard"
-    EnableEventValidation="true" %>
+    AutoEventWireup="true" Inherits="Pages_Matching_MatchingWizard"
+    EnableEventValidation="true" Codebehind="MatchingWizard.aspx.cs" %>
 
 <%@ Register TagPrefix="wzSteps" TagName="MatchingSourceSelection" Src="~/UserControls/Matching/Wizard/MatchingSourceSelection.ascx" %>
 <%@ Register TagPrefix="wzSteps" TagName="MatchingSourceFilter" Src="~/UserControls/Matching/Wizard/MatchingSourceFilter.ascx" %>

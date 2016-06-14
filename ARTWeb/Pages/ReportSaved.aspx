@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="ReportSaved.aspx.cs" Inherits="Pages_ReportSaved" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_ReportSaved" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" Codebehind="ReportSaved.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register Src="~/UserControls/Report/ParameterViewer.ascx" TagPrefix="ucRpt" TagName="ParamViewer"  %>

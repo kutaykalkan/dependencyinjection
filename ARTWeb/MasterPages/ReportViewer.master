@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="ReportViewer.master.cs" Inherits="MasterPages_ReportViewer" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="MasterPages_ReportViewer" Codebehind="ReportViewer.master.cs" %>
 
 <%@ Register Src="~/UserControls/Signature.ascx" TagName="Signature" TagPrefix="UserControl" %>
 <%@ Register Src="~/UserControls/Report/ReportInfo.ascx" TagName="ReportInfo" TagPrefix="UserControl" %>

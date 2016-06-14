@@ -1,5 +1,5 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DataImport.aspx.cs" Inherits="Pages_DataImport"
-    MasterPageFile="~/MasterPages/ARTMasterPage.master" Theme="SkyStemBlueBrown" %>
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="Pages_DataImport"
+    MasterPageFile="~/MasterPages/ARTMasterPage.master" Theme="SkyStemBlueBrown" Codebehind="DataImport.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>

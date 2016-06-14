@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="PopupNetAccountComposition.aspx.cs" Inherits="Pages_PopupNetAccountComposition"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_PopupNetAccountComposition"
+    Theme="SkyStemBlueBrown" Codebehind="PopupNetAccountComposition.aspx.cs" %>
     
   <%@ Register Src="~/UserControls/NetAccountComposition.ascx" TagPrefix="usercontrol" TagName="NetAccountComposition" %>  
 

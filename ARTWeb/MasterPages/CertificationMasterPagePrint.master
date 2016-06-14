@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CertificationMasterPagePrint.master.cs"
-    Inherits="MasterPages_CertificationMasterPagePrint" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    Inherits="MasterPages_CertificationMasterPagePrint" Codebehind="CertificationMasterPagePrint.master.cs" %>
 
 <%@ Register Src="~/UserControls/Signature.ascx" TagName="Signature" TagPrefix="UserControl" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

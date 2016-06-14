@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MatchingConfiguration.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingConfiguration" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingConfiguration" Codebehind="MatchingConfiguration.ascx.cs" %>
 <%@ Register TagPrefix="UserControl" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="usc" TagName="MatchingCombinationSelection" Src="~/UserControls/Matching/Wizard/MatchingCombinationSelection.ascx" %>
 <%@ Register TagPrefix="usc" TagName="RuleDisplayControl" Src="~/UserControls/Matching/RuleDisplayControl.ascx" %>

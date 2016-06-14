@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="EditQualityScore.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.EditQualityScore" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.EditQualityScore" Codebehind="EditQualityScore.ascx.cs" %>
 <div id="divMainContent" runat="server">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>

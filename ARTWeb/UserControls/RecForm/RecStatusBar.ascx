@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecStatusBar.ascx.cs"
-    Inherits="UserControls_RecForm_RecStatusBar" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_RecForm_RecStatusBar" Codebehind="RecStatusBar.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="DisplayQualityScore" Src="~/UserControls/QualityScore/DisplayQualityScore.ascx" %>
 <asp:Panel ID="pnlStatus" runat="server">
     <table cellpadding="0" cellspacing="0" class="RecStatusBar" border="0">

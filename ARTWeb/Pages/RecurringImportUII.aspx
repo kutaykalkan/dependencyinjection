@@ -1,5 +1,5 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RecurringImportUII.aspx.cs"
-    Inherits="Pages_RecurringImportUII" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/RecProcessMasterPage.master" %>
+<%@ Page Language="C#" AutoEventWireup="true"
+    Inherits="Pages_RecurringImportUII" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/RecProcessMasterPage.master" Codebehind="RecurringImportUII.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>

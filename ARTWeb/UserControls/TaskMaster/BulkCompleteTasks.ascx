@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="BulkCompleteTasks.ascx.cs"
-    Inherits="UserControls_TaskMaster_BulkCompleteTasks" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_TaskMaster_BulkCompleteTasks" Codebehind="BulkCompleteTasks.ascx.cs" %>
 <%@ Register Src="~/UserControls/TaskMaster/GeneralTaskGrid.ascx" TagPrefix="UserControl"
     TagName="GeneralTaskGrid" %>
 <%@ Register Src="~/UserControls/TaskMaster/AccountTaskGrid.ascx" TagPrefix="UserControl"

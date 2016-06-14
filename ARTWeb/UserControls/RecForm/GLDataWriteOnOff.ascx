@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GLDataWriteOnOff.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataWriteOnOff" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_GLDataWriteOnOff" Codebehind="GLDataWriteOnOff.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataWriteOnOffGrid" Src="~/UserControls/RecForm/GLDataWriteOnOffGrid.ascx" %>
 <div id="divMainContent" runat="server">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -49,7 +49,7 @@
                                                 <%--Edit Button--%>
                                                 <telerikWebControls:ExGridTemplateColumn UniqueName="ShowInputForm">
                                                     <ItemTemplate>
-                                                        <webControls:ExHyperLink ID="hlShowItemInputForm" runat="server" SkinID="ShowItemInputPopup" />
+                                                        <webControls:ExHyperLink ID="hlShowItemInputFormOpenGrid" runat="server" SkinID="ShowItemInputPopup" />
                                                     </ItemTemplate>
                                                     <HeaderStyle Width="5%" />
                                                 </telerikWebControls:ExGridTemplateColumn>

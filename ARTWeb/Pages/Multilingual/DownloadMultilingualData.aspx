@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" 
-    Theme="SkyStemBlueBrown" CodeFile="DownloadMultilingualData.aspx.cs" Inherits="Pages_Multilingual_DownloadMultilingualData" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_Multilingual_DownloadMultilingualData" Codebehind="DownloadMultilingualData.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%">

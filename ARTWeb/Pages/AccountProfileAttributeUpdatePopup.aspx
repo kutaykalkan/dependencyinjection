@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="AccountProfileAttributeUpdatePopup.aspx.cs" Inherits="Pages_AccountProfileAttributeUpdatePopup"
-    Title="Attribute Update" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_AccountProfileAttributeUpdatePopup"
+    Title="Attribute Update" Theme="SkyStemBlueBrown" Codebehind="AccountProfileAttributeUpdatePopup.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="TextEditor" Src="~/UserControls/TextEditor.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

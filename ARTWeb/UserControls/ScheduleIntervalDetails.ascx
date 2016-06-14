@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ScheduleIntervalDetails.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_ScheduleIntervalDetails" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_ScheduleIntervalDetails" Codebehind="ScheduleIntervalDetails.ascx.cs" %>
 <asp:Panel ID="<%=this.ClientID%>">
     <asp:Panel ID="pnlHeader" runat="server">
         <table cellpadding="0" cellspacing="0" width="100%" class="blueBorder">

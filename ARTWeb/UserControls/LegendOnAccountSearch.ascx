@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LegendOnAccountSearch.ascx.cs" Inherits="UserControls_LegendOnAccountSearch" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_LegendOnAccountSearch" Codebehind="LegendOnAccountSearch.ascx.cs" %>
 <table class="LegendTable" cellpadding="0" cellspacing="0">
     <tr>
         <td class="LegendHeading" colspan="4">

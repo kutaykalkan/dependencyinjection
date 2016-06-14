@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DateRange.ascx.cs" Inherits="AcctFltrDateRange" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="AcctFltrDateRange" Codebehind="DateRange.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="5%" />

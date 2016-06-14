@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PackageFeatureList.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_PackageFeatureList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_PackageFeatureList" Codebehind="PackageFeatureList.ascx.cs" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
