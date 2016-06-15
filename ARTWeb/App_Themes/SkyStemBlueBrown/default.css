@@ -2208,3 +2208,70 @@ img
     border:none;
 }
 /*------------- Session Expiry Notification --------- */
+
+/* NEW UI */
+.ToolBar
+{
+    background: #e7f0fa;      
+}
+
+.MenuBar
+{
+    background: black;    /*#ab6501*/
+    height: 28px;
+}
+
+table.MenuBar { border-collapse: separate; }
+tr:first-child td:first-child .MenuBar { border-top-left-radius: 10px; }
+tr:first-child td:last-child .MenuBar { border-top-right-radius: 10px; }
+
+/*table { border-collapse: separate; }
+tr:first-child td:first-child  { border-top-left-radius: 10px; }
+tr:first-child td:last-child  { border-top-right-radius: 10px; }
+    */
+
+.TanBar
+{
+    background: #f6bde2;
+}
+
+.RecBg
+{
+    background: #f6bde2;
+}
+.RecBgWithoutPadding
+{
+    background: #f6bde2;
+}
+
+.PageTitleBg
+{
+    background: #ec008c;
+    color: #fff;
+}
+
+.LinkButton
+{    
+    color: #fff;    
+}
+
+.AccountMessageBar
+{
+    background: #e7f0fa;    
+    border: solid 1px #5ba9e2;    
+}
+
+.WebPartTitle
+{
+    background: #5ba9e2;    
+    border: #59ade8 solid 1px;
+    
+}
+
+.WebPart
+{
+    background: #e7f0fa;
+    background-color: #e7f0fa;
+    border-left: #5ba9e2 solid 1px;
+    border-right: #5ba9e2 solid 1px;    
+}
