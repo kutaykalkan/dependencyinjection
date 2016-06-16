@@ -2209,7 +2209,7 @@ img
 }
 /*------------- Session Expiry Notification --------- */
 
-/* NEW UI */
+/* Update-UI */
 .ToolBar
 {
     background: #e7f0fa;      
@@ -2263,8 +2263,13 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .WebPartTitle
 {
-    background: #5ba9e2;    
+    /*background: #5ba9e2;    
     border: #59ade8 solid 1px;
+    color: #fff;*/
+
+    background: #e7f0fa;    
+    border: #cdccca solid 1px;
+    color: #ec008c;
     
 }
 
@@ -2272,6 +2277,49 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 {
     background: #e7f0fa;
     background-color: #e7f0fa;
-    border-left: #5ba9e2 solid 1px;
-    border-right: #5ba9e2 solid 1px;    
+    border-left: #cdccca solid 1px;
+    border-right: #cdccca solid 1px;    
 }
+
+.MenuBarDynamicItem
+{
+    border-left: solid 1px #000;
+    border-bottom: solid 1px #000;
+    border-right: solid 1px #000;
+    background: #e8e7ec;       
+}
+
+.MenuBarDynamicHover
+{    
+    background-color: #f8f8f8;
+}
+.MenuBarDynamicSelected
+{
+    border-left: solid 1px #000;
+    border-bottom: solid 1px #000;
+    border-right: solid 1px #000;
+    background: #fff;    
+}
+
+.Footer
+{
+    background: #e7f0fa;   
+    border-top: #5ba9e2 solid 1px;   
+}
+
+.Black11Arial
+{    
+    color: #4c3460;    
+}
+
+.WhiteBold11Arial
+{
+    color: #4c3460;
+}
+
+.RoleLabel
+{   
+    color: inherit;
+    
+}
+
