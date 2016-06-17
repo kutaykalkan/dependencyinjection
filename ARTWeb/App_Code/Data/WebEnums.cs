@@ -244,7 +244,8 @@ namespace SkyStem.ART.Web.Data
             Open = 2,
             InProgress = 3,
             Closed = 4,
-            Skipped = 5
+            Skipped = 5,
+            OpeningInProgress = 6
         }
 
         public enum DataImportAvailableStatus

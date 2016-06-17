@@ -870,6 +870,19 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         }
     }
 
+    public override void RefreshPage(object sender, RefreshEventArgs args)
+    {
+        base.RefreshPage(sender, args);
+        string cacheKey = CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_RECONCILIATION_PERIODS_BASED_ON_FY);
+        CacheHelper.ClearCache(cacheKey);
+        MasterPageBase oMasterPageBase = (MasterPageBase)this.Master;
+        // Reload the Rec Periods and also the Status / Countdown
+        oMasterPageBase.ReloadRecPeriods();
+        CallEveryTime();
+        BindSystemWideSettingsRadGrid();
+        ddlCurrentRecPeriod_SelectedIndexChanged(null, null);
+    }
+
     private void HandleFinancialYearChange()
     {
         /* 
@@ -1042,6 +1055,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     {
                         case WebEnums.RecPeriodStatus.Open:
                         case WebEnums.RecPeriodStatus.InProgress:
+                        case WebEnums.RecPeriodStatus.OpeningInProgress:
                             {
                                 //TODO: uncomment following line- ddlCurrentRecPeriod.Enabled = false;
                                 //Multiple Open Periods
@@ -1096,6 +1110,9 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                             break;
                         case WebEnums.RecPeriodStatus.InProgress:
                             HideMarkOpenCBAndValidatorAndShowStatus(1090, false);
+                            break;
+                        case WebEnums.RecPeriodStatus.OpeningInProgress:
+                            HideMarkOpenCBAndValidatorAndShowStatus(2634, false);
                             break;
                         case WebEnums.RecPeriodStatus.NotStarted:
                             if (oIncompleteRequirementCollection != null && oIncompleteRequirementCollection.Count > 0)
@@ -1361,6 +1378,9 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     break;
                 case (short)WebEnums.RecPeriodStatus.InProgress:
                     isCalendarActive = true;
+                    break;
+                case (short)WebEnums.RecPeriodStatus.OpeningInProgress:
+                    isCalendarActive = false;
                     break;
                 case (short)WebEnums.RecPeriodStatus.Closed:
                     isCalendarActive = false;

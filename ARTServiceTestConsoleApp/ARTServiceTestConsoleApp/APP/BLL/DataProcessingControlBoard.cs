@@ -87,8 +87,8 @@ namespace SkyStem.ART.Service.APP.BLL
                         oCurrencyDataImport.ProcessCurrencyDataImport();
                     }
                 }
-                //CompanyCreation oCompanyCreation = new CompanyCreation();
-                //oCompanyCreation.ProcessCompanyCreation();
+                CompanyCreation oCompanyCreation = new CompanyCreation();
+                oCompanyCreation.ProcessCompanyCreation();
             }
             catch (Exception ex)
             {

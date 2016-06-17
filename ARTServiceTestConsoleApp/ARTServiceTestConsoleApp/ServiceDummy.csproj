@@ -420,6 +420,20 @@
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ARTApp\ARTApp.csproj">
+      <Project>{cbdf8b74-2028-4caa-a3fb-d14534c2ee9d}</Project>
+      <Name>ARTApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ARTClient\ARTClient.csproj">
+      <Project>{6adde1ab-5511-446f-9d83-e1d45d2172f1}</Project>
+      <Name>ARTClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ARTShared\ARTShared.csproj">
+      <Project>{5c171043-32e1-4cee-a8de-45701692402e}</Project>
+      <Name>ARTShared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

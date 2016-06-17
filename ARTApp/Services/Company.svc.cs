@@ -1066,6 +1066,7 @@ namespace SkyStem.ART.App.Services
                 ServiceHelper.SetConnectionStringCreateCompany(oServerCompanyInfo, oAppUserInfo);
                 CompanyHdrDAO oCompanyHdrDAO = new CompanyHdrDAO(oAppUserInfo);
                 oCompanyHdrDAO.CreateCompanyDatabase(oServerCompanyInfo, BaseDBPath);
+                oCompanyHdrDAO.EnableServiceBrokerInDatabase(oServerCompanyInfo);
                 bDatabaseCreated = true;
                 try
                 {

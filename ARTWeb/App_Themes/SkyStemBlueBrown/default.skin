@@ -69,6 +69,7 @@ Default skin template. The following skins are provided as examples only.
 <WebControls:ExImage SkinID="RecPeriodStatusInProgress" ImageUrl="Images/InProgress.gif" LabelID="1748"  ImageAlign="AbsMiddle"  runat="server" />
 <webControls:ExImage SkinID="RecPeriodStatusClosed" ImageUrl="Images/Closed.gif" LabelID="1749" ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="RecPeriodStatusSkipped" ImageUrl="Images/Skipped.gif" LabelID="1750" ImageAlign="AbsMiddle" runat="server" />
+<WebControls:ExImage SkinID="RecPeriodStatusOpeningInProgress" ImageUrl="Images/Progress.gif" LabelID="2634" height="18" ImageAlign="AbsMiddle"  runat="server" />
 
 <webControls:ExImage SkinID="CapabilityForwardedYes" LabelID="1807" ImageUrl="Images/CapabilityForwardedYes.gif" ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="CapabilityForwardedNo"  LabelID="1805" ImageUrl="Images/CapabilityForwardedNo.gif" ImageAlign="AbsMiddle" runat="server" />
