@@ -9,7 +9,7 @@ namespace DbMigrationSkyStemARTCore
     {
         static int Main(string[] args)
         {
-            var connectionString = args.FirstOrDefault() ?? "Server=(local)\\SkyStemARTCore; Database=MyApp; Trusted_connection=true";
+            var connectionString = args.FirstOrDefault() ?? "Server=(local); Database=SkyStemARTCore; Trusted_connection=true";
 
             var upgrader =
                 DeployChanges.To
