@@ -2217,8 +2217,11 @@ img
 
 .MenuBar
 {
-    background: black;    /*#ab6501*/
+    background: #959595; /*#e8e7ec;*/    /*#ab6501*/
     height: 28px;
+    color: #fff;
+    /*font-weight: normal;
+    font-size: 12px;*/    
 }
 
 table.MenuBar { border-collapse: separate; }
@@ -2232,16 +2235,16 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .TanBar
 {
-    background: #f6bde2;
+    background: #e7f0fa;
 }
 
 .RecBg
 {
-    background: #f6bde2;
+    background: #e7f0fa;
 }
 .RecBgWithoutPadding
 {
-    background: #f6bde2;
+    background: #e7f0fa;
 }
 
 .PageTitleBg
@@ -2257,19 +2260,19 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .AccountMessageBar
 {
-    background: #e7f0fa;    
-    border: solid 1px #5ba9e2;    
+    background: #fff;    
+    border: none;    
 }
 
 .WebPartTitle
 {
-    /*background: #5ba9e2;    
+    background: #5ba9e2;    
     border: #59ade8 solid 1px;
-    color: #fff;*/
+    color: #000;
 
-    background: #e7f0fa;    
+    /*background: #e7f0fa;    
     border: #cdccca solid 1px;
-    color: #ec008c;
+    color: #ec008c;*/
     
 }
 
@@ -2309,17 +2312,101 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .Black11Arial
 {    
-    color: #4c3460;    
+    color: #000;    
 }
 
 .WhiteBold11Arial
 {
-    color: #4c3460;
+    color: #000;
 }
 
 .RoleLabel
 {   
-    color: inherit;
+    color: #000;
     
 }
+
+/*.HyperLinkBold
+{    
+    color: #fff;    
+}*/
+
+.CheckBoxListDiv
+{
+    border: Solid 1px #5ba9e2;    
+}
+
+.InputRequrementsHeading
+{
+    background: #5ba9e2;
+    border: none;
+}
+
+.InputRequrementsTextNoBackColor
+{
+     border-bottom: none; 
+     border-left: none; 
+     border-right: none;     
+}
+
+.InputRequrementsText
+{   
+    border-bottom: solid 1px #5ba9e2;
+    border-left: solid 1px #5ba9e2;
+    border-right: solid 1px #5ba9e2;    
+}
+
+.PanelTitleBrown
+{
+    background-color: #e7f0fa;   
+}
+
+.DataImportRulesTable
+{
+    border: Solid 1px #5ba9e2;
+}
+
+.TableHeaderSameAsGrid td
+{
+    background: #5ba9e2;
+}
+
+.ExportToolBar
+{    
+    background: #5ba9e2;    
+    border: none;     
+}
+
+.DataImportStatusMessage
+{
+    border: none;
+    background-color: #5ba9e2;
+    text-align: left;
+    padding: 5px;
+}
+
+.ReportReportGroup
+{
+    background-color: #5ba9e2;
+    border: none;
+}
+
+.ReportActivity
+{
+    color: #000;    
+}
+
+.ChangePasswordBg
+{
+    background: #e7f0fa;
+    border: none;
+}
+
+table.ChangePasswordBg {
+    border-collapse:separate;    
+    border-radius:6px;
+    -moz-border-radius:6px;
+}
+
+
 

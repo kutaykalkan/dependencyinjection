@@ -14,7 +14,8 @@ Default skin template. The following skins are provided as examples only.
 <asp:Image runat="server" ImageUrl="~/images/image1.jpg" /> 
 --%>
 <asp:image runat="server" Imageurl="Images/SkyStemLogoLogin.gif" width="239" height="70" SkinID="SkyStemLogoLogin"/>
-<asp:image runat="server" Imageurl="Images/SkyStemLogo.gif" ImageAlign="Left" SkinID="SkyStemLogoMaster"/>
+<asp:image runat="server" Imageurl="Images/SkyStemCrystalLogo.png" ImageAlign="Left" SkinID="SkyStemLogoMaster" Height="29px"/>
+<asp:image runat="server" Imageurl="Images/SkyStemLogo.png" ImageAlign="Left" SkinID="SkyStemLogoArtMaster" />
 <asp:Image ImageUrl="Images/MenuBar.gif" AlternateText="" runat="server" SkinID="MenuSeparator" /> 
 <asp:Image ImageUrl="Images/wait.gif" AlternateText="" runat="server" SkinID="WaitImage" /> 
 <asp:Image ImageUrl="Images/clock.gif" AlternateText="" runat="server" SkinID="ClockImage" /> 

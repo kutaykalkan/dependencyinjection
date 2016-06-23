@@ -837,3 +837,12 @@ thead
     display: table-header-group;
 }
 
+/* Update-UI */
+
+.RadGrid_SkyStemBlueBrownPrint .rgHeader, .RadGrid_SkyStemBlueBrownPrint th.rgResizeCol
+{
+    background: #5ba9e2;
+}
+
+
+

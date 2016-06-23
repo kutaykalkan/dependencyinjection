@@ -930,3 +930,23 @@
 {
     border:none;
 }
+
+.RadGrid_SkyStemBlueBrown .rgGroupHeader
+{
+    background-color:#fddbef;	
+}
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #fddbef;
+}
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #fddbef;
+}
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #e7f0fa;
+}
