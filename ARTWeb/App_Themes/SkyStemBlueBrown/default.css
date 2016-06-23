@@ -2338,7 +2338,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .InputRequrementsHeading
 {
-    background: #5ba9e2;
+    background: #e7f0fa;
     border: none;
 }
 
@@ -2351,9 +2351,9 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .InputRequrementsText
 {   
-    border-bottom: solid 1px #5ba9e2;
-    border-left: solid 1px #5ba9e2;
-    border-right: solid 1px #5ba9e2;    
+    border-bottom: solid 1px #e7f0fa;
+    border-left: solid 1px #e7f0fa;
+    border-right: solid 1px #e7f0fa;    
 }
 
 .PanelTitleBrown
@@ -2408,5 +2408,45 @@ table.ChangePasswordBg {
     -moz-border-radius:6px;
 }
 
+/* Round corners
+table.PageTitleBg { border-collapse: separate; }
+tr .PageTitleBg td:first-child { border-top-left-radius: 10px;padding-left: 5px;}
+tr .PageTitleBg td:first-child { border-bottom-left-radius: 10px; }
+tr .PageTitleBg td:last-child  { border-top-right-radius: 10px; }
+    */
 
+tr .PageTitleBg td:first-child { padding-left: 10px;}
+
+.blueBorder
+{
+    border: none;
+}
+
+.rgNoRecords {
+    background: #fff;
+}
+
+.ListBox
+{
+    border: Solid 1px #5ba9e2;
+}
+
+
+input[type='text'] {
+    border: #5ba9e2 1px solid; 
+}
+
+.GridHyperLinkImageWithUnderline
+{
+    border-bottom: none;
+}
+
+.GridHyperLinkWithUnderline:hover
+{      
+    background-color: #fddbef;
+}
+.GridHyperLink:hover
+{        
+    background-color: #fddbef;
+}
 

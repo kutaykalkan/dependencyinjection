@@ -844,5 +844,15 @@ thead
     background: #5ba9e2;
 }
 
+.RadGrid_SkyStemBlueBrownPrint .rgRow td, .RadGrid_SkyStemBlueBrownPrint .rgEditRow td, .RadGrid_SkyStemBlueBrownPrint .rgFooter td
+{   
+    background: #fff;    
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgAltRow td
+{    
+    background: #ededec;    
+}
+
 
 
