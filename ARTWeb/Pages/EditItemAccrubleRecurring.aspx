@@ -747,14 +747,15 @@
                 var calEndDate = document.getElementById('<%=calScheduleEndDate.ClientID%>');
                 var txtTotalIntervals = document.getElementById('<%=txtTotalIntervals.ClientID%>');
                 var txtCurrentInterval = document.getElementById('<%=txtCurrentInterval.ClientID%>');
+                var ddlStartInterval = document.getElementById('<%= ddlStartInterval.ClientID %>');
                 if((calBeginDate.value != hdnPreviousScheduleBeginDateValue.value)
                     ||(calEndDate.value != hdnPreviousScheduleEndDateValue.value))
                 {
                     var dtStart = calBeginDate.value;
                     var dtEnd = calEndDate.value;
                     var dtRecPeriodDate = lblInputFormRecPeriodValue.firstChild.data;
-                    txtTotalIntervals.value = GetMonthsBetweenDateRanges(dtEnd, dtStart);
-                    txtCurrentInterval.value = GetMonthsBetweenDateRanges(dtRecPeriodDate, dtStart);
+                    txtTotalIntervals.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtEnd, ddlStartInterval);
+                    txtCurrentInterval.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtRecPeriodDate, ddlStartInterval);
                 }
             }
         }

@@ -154,6 +154,25 @@ function GetDaysBetweenDateRanges(startDate, endDate) {
 
     return diffDays;
 }
+
+(function (amortizeInterval, window, document, $, undefined) {    
+    amortizeInterval.numberOfPeriodsBetweenDates = function (startDate, endDate, recPeriods) {
+        var periods = "";
+        if (CompareDates(endDate, startDate) >= 0) {
+            var startDateFormat = GetDateBasedOnDateFormat(startDate); //new Date(getDateFromFormat(startDate, DATE_FORMAT));
+            var endDateFormat = GetDateBasedOnDateFormat(endDate);
+
+            for (var i = 0; i < recPeriods.length; i++) {                
+                var recPeriod = GetDateBasedOnDateFormat(recPeriods.options[i].text);
+                if (recPeriod >= startDateFormat && recPeriod <= endDateFormat) {
+                    periods++;
+                }
+            }            
+        }
+        return periods;
+    };
+}(window.amortizeInterval = window.amortizeInterval || {}, window, document, jQuery));
+
 // Get the number of months d2-d1
 function GetMonthsBetweenDateRanges(d2, d1) {
 
