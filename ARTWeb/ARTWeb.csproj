@@ -39,7 +39,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEMO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -181,6 +181,7 @@
     <Content Include="Areas\mvc\Views\_ViewStart.cshtml" />
     <Content Include="Areas\mvc\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\mvc\Views\BSFlux\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
