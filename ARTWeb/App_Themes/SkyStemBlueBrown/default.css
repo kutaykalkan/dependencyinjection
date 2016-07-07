@@ -2450,3 +2450,24 @@ input[type='text'] {
     background-color: #fddbef;
 }
 
+.blueRow
+{
+    background-color: #e7f0fa;
+    border: none;
+}
+
+.RecStatusBar
+{
+    background: none;    
+}
+
+.RecFormHeaderRow
+{
+    background-color: #e7f0fa;    
+}
+
+.tanBorder
+{
+    border: none;
+}
+
