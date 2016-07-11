@@ -854,5 +854,15 @@ thead
     background: #ededec;    
 }
 
+.RadGrid_SkyStemBlueBrownPrint .rgPager td
+{
+    background: #e7f0fa;
+}
+
+.RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage span, .RadGrid_SkyStemBlueBrownPrint .rgNumPart a.rgCurrentPage:hover span
+{
+    background-color: #ec008c;
+}
+
 
 

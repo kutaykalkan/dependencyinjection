@@ -2471,3 +2471,28 @@ input[type='text'] {
     border: none;
 }
 
+.htmlGridTitleDiv
+{    
+    background-color: #e7f0fa;    
+}
+
+.RecBalanceRow
+{
+    background-color: #5ba9e2;
+}
+
+.GLAdjustmentRowTotalSupportingDetail
+{
+    background-color: #aeaeae;
+}
+
+.coloredRow
+{
+    background-color: #e7f0fa;
+}
+
+.Blue11ArialLeftPaneValue
+{
+    color: #5ba9e2;
+}
+
