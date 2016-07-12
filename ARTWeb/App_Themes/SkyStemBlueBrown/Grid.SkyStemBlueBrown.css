@@ -912,13 +912,13 @@
 .RadGrid_SkyStemBlueBrown .rgHeader,
 .RadGrid_SkyStemBlueBrown th.rgResizeCol
 {	
-	background: #e7f0fa;
+	background: #dae9fa;
     color: black;
 }
 
 .RadGrid_SkyStemBlueBrown .rgPager td
 {	
-	background:#e7f0fa;
+	background:#dae9fa;
 }
 
 .RadGrid_SkyStemBlueBrown
@@ -943,7 +943,7 @@
 
 .RadGrid_SkyStemBlueBrown .rgFooter td
 {
-	background:  #e7f0fa;
+	background:  #dae9fa;
 }
 
 .RadGrid_SkyStemBlueBrown .rgAltRow td

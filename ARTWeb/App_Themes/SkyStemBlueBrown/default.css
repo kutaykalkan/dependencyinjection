@@ -2235,16 +2235,16 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .TanBar
 {
-    background: #e7f0fa;
+    background: #dae9fa;
 }
 
 .RecBg
 {
-    background: #e7f0fa;
+    background: #dae9fa;
 }
 .RecBgWithoutPadding
 {
-    background: #e7f0fa;
+    background: #dae9fa;
 }
 
 .PageTitleBg
@@ -2270,7 +2270,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
     border: #59ade8 solid 1px;
     color: #fff;
 
-    /*background: #e7f0fa;    
+    /*background: #dae9fa;    
     border: #cdccca solid 1px;
     color: #ec008c;*/
     
@@ -2278,8 +2278,8 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .WebPart
 {
-    background: #e7f0fa;
-    background-color: #e7f0fa;
+    background: #dae9fa;
+    background-color: #dae9fa;
     border-left: #cdccca solid 1px;
     border-right: #cdccca solid 1px;    
 }
@@ -2306,7 +2306,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .Footer
 {
-    background: #e7f0fa;   
+    background: #dae9fa;   
     border-top: #05acfd solid 1px;   
 }
 
@@ -2338,7 +2338,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .InputRequrementsHeading
 {
-    background: #e7f0fa;
+    background: #dae9fa;
     border: none;
 }
 
@@ -2351,14 +2351,14 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .InputRequrementsText
 {   
-    border-bottom: solid 1px #e7f0fa;
-    border-left: solid 1px #e7f0fa;
-    border-right: solid 1px #e7f0fa;    
+    border-bottom: solid 1px #dae9fa;
+    border-left: solid 1px #dae9fa;
+    border-right: solid 1px #dae9fa;    
 }
 
 .PanelTitleBrown
 {
-    background-color: #e7f0fa;   
+    background-color: #dae9fa;   
 }
 
 .DataImportRulesTable
@@ -2398,7 +2398,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .ChangePasswordBg
 {
-    background: #e7f0fa;
+    background: #dae9fa;
     border: none;
 }
 
@@ -2452,7 +2452,7 @@ input[type='text'] {
 
 .blueRow
 {
-    background-color: #e7f0fa;
+    background-color: #dae9fa;
     border: none;
 }
 
@@ -2463,7 +2463,7 @@ input[type='text'] {
 
 .RecFormHeaderRow
 {
-    background-color: #e7f0fa;    
+    background-color: #dae9fa;    
 }
 
 .tanBorder
@@ -2473,7 +2473,7 @@ input[type='text'] {
 
 .htmlGridTitleDiv
 {    
-    background-color: #e7f0fa;    
+    background-color: #dae9fa;    
 }
 
 .RecBalanceRow
@@ -2492,7 +2492,7 @@ input[type='text'] {
 
 .coloredRow
 {
-    background-color: #e7f0fa;    
+    background-color: #dae9fa;    
 }
 
 .Blue11ArialLeftPaneValue
