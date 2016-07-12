@@ -2212,7 +2212,7 @@ img
 /* Update-UI */
 .ToolBar
 {
-    background: #e7f0fa;      
+    background: #dae9fa;     /* Possible alternative - pale blue #7bd3f2 */ 
 }
 
 .MenuBar
@@ -2266,9 +2266,9 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .WebPartTitle
 {
-    background: #8dd2ef;    
+    background: #05acfd;  /* 8dd2ef */  
     border: #59ade8 solid 1px;
-    color: #000;
+    color: #fff;
 
     /*background: #e7f0fa;    
     border: #cdccca solid 1px;
@@ -2307,7 +2307,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 .Footer
 {
     background: #e7f0fa;   
-    border-top: #8dd2ef solid 1px;   
+    border-top: #05acfd solid 1px;   
 }
 
 .Black11Arial
@@ -2333,7 +2333,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .CheckBoxListDiv
 {
-    border: Solid 1px #8dd2ef;    
+    border: Solid 1px #05acfd;    
 }
 
 .InputRequrementsHeading
@@ -2363,31 +2363,31 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .DataImportRulesTable
 {
-    border: Solid 1px #8dd2ef;
+    border: Solid 1px #05acfd;
 }
 
 .TableHeaderSameAsGrid td
 {
-    background: #8dd2ef;
+    background: #05acfd;
 }
 
 .ExportToolBar
 {    
-    background: #8dd2ef;    
+    background: #05acfd;    
     border: none;     
 }
 
 .DataImportStatusMessage
 {
     border: none;
-    background-color: #8dd2ef;
+    background-color: #05acfd;
     text-align: left;
     padding: 5px;
 }
 
 .ReportReportGroup
 {
-    background-color: #8dd2ef;
+    background-color: #05acfd;
     border: none;
 }
 
@@ -2428,12 +2428,12 @@ tr .PageTitleBg td:first-child { padding-left: 10px;}
 
 .ListBox
 {
-    border: Solid 1px #8dd2ef;
+    border: Solid 1px #05acfd;
 }
 
 
 input[type='text'] {
-    border: #8dd2ef 1px solid; 
+    border: #05acfd 1px solid; 
 }
 
 .GridHyperLinkImageWithUnderline
