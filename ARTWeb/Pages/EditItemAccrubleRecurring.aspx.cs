@@ -631,9 +631,9 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
         if (CurrentGLDataRecurringItemScheduleInfo != null)
         {
             List<ReconciliationPeriodInfo> oRecPeriodInfoList = (List<ReconciliationPeriodInfo>)Helper.DeepClone(CacheHelper.GetAllReconciliationPeriods(null));
-            //hdnRecPeriods.Value = string.Join(",", from item in oRecPeriodInfoList where item.PeriodEndDate != null select ((DateTime)item.PeriodEndDate).ToShortDateString());
-            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-            _recPeriodsAll = jss.Serialize(from item in oRecPeriodInfoList where item.PeriodEndDate != null select ((DateTime)item.PeriodEndDate).ToShortDateString());
+
+            SetRecPeriodsAll(oRecPeriodInfoList);
+
             for (int i = oRecPeriodInfoList.Count - 1; i >= 0; i--)
             {                
                 if (oRecPeriodInfoList[i].PeriodEndDate < SessionHelper.CurrentReconciliationPeriodEndDate)
@@ -652,6 +652,14 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
                     this.ddlStartInterval.SelectedValue = CurrentGLDataRecurringItemScheduleInfo.StartIntervalRecPeriodID.ToString();
             }
         }
+    }
+
+    private void SetRecPeriodsAll(List<ReconciliationPeriodInfo> oRecPeriodInfoList)
+    {
+        var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+        _recPeriodsAll = jss.Serialize(from item in oRecPeriodInfoList
+            where item.PeriodEndDate != null
+            select ((DateTime) item.PeriodEndDate).ToShortDateString());
     }
 
     private void SetCompanyCabalityInfo()
