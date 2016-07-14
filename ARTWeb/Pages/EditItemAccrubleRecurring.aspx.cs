@@ -30,9 +30,12 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
 
     private long _GLDataRecurringItemScheduleID;
     private bool _IsMultiCurrencyEnabled;
+    private string _recPeriodsAll;
     #endregion
 
     #region Properties
+
+    protected string RecPeriodsAll { get { return _recPeriodsAll; } }
 
     private decimal? ExRateLCCYtoBCCY
     {
@@ -628,8 +631,11 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
         if (CurrentGLDataRecurringItemScheduleInfo != null)
         {
             List<ReconciliationPeriodInfo> oRecPeriodInfoList = (List<ReconciliationPeriodInfo>)Helper.DeepClone(CacheHelper.GetAllReconciliationPeriods(null));
+            //hdnRecPeriods.Value = string.Join(",", from item in oRecPeriodInfoList where item.PeriodEndDate != null select ((DateTime)item.PeriodEndDate).ToShortDateString());
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            _recPeriodsAll = jss.Serialize(from item in oRecPeriodInfoList where item.PeriodEndDate != null select ((DateTime)item.PeriodEndDate).ToShortDateString());
             for (int i = oRecPeriodInfoList.Count - 1; i >= 0; i--)
-            {
+            {                
                 if (oRecPeriodInfoList[i].PeriodEndDate < SessionHelper.CurrentReconciliationPeriodEndDate)
                     oRecPeriodInfoList.RemoveAt(i);
             }

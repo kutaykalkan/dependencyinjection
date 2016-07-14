@@ -163,8 +163,9 @@ function GetDaysBetweenDateRanges(startDate, endDate) {
             var endDateFormat = GetDateBasedOnDateFormat(endDate);
 
             for (var i = 0; i < recPeriods.length; i++) {                
-                var recPeriod = GetDateBasedOnDateFormat(recPeriods.options[i].text);
-                if (recPeriod >= startDateFormat && recPeriod <= endDateFormat) {
+                var recPeriod = GetDateBasedOnDateFormat(recPeriods[i]);
+                
+                if (recPeriod >= startDateFormat && recPeriod <= endDateFormat) {                    
                     periods++;
                 }
             }            

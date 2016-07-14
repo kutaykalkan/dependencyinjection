@@ -747,15 +747,19 @@
                 var calEndDate = document.getElementById('<%=calScheduleEndDate.ClientID%>');
                 var txtTotalIntervals = document.getElementById('<%=txtTotalIntervals.ClientID%>');
                 var txtCurrentInterval = document.getElementById('<%=txtCurrentInterval.ClientID%>');
-                var ddlStartInterval = document.getElementById('<%= ddlStartInterval.ClientID %>');
+                //var ddlStartInterval = document.getElementById('<%= ddlStartInterval.ClientID %>');
+                //var hdnRecPeriods = document.getElementById('<%= hdnRecPeriods.ClientID %>');
                 if((calBeginDate.value != hdnPreviousScheduleBeginDateValue.value)
                     ||(calEndDate.value != hdnPreviousScheduleEndDateValue.value))
                 {
                     var dtStart = calBeginDate.value;
                     var dtEnd = calEndDate.value;
                     var dtRecPeriodDate = lblInputFormRecPeriodValue.firstChild.data;
-                    txtTotalIntervals.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtEnd, ddlStartInterval);
-                    txtCurrentInterval.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtRecPeriodDate, ddlStartInterval);
+                    //var recPeriods = hdnRecPeriods.value.split(',');
+                    //var recPeriods = hdnRecPeriods.value;
+                    var recPeriodsAll = <%= RecPeriodsAll %>;
+                    txtTotalIntervals.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtEnd, recPeriodsAll);
+                    txtCurrentInterval.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtRecPeriodDate, recPeriodsAll);
                 }
             }
         }
