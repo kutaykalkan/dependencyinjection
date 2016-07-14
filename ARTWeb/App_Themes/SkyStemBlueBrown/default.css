@@ -762,7 +762,7 @@ table
 /*-------------Input Requirements Text-------------*/
 .InputRequrementsText
 {
-    background: #f5fbff;
+    background: #f8f8f8;
     border-bottom: solid 1px #90d2ff;
     border-left: solid 1px #90d2ff;
     border-right: solid 1px #90d2ff;
@@ -2487,7 +2487,7 @@ input[type='text'] {
 
 .GLAdjustmentRowTotalSupportingDetail
 {
-    background-color: #aeaeae;
+    background-color: #aeaeae; /* gray aeaeae */
 }
 
 .coloredRow
@@ -2504,5 +2504,32 @@ input[type='text'] {
     background: #f8f8f8;
 }
 
+.ProgressBar
+{
+    background-color: #dae9fa;   
+}
 
+.ErrorLabel
+{
+    background: #8453b6;
+    color: #fff;
+    border: none;    
+}
 
+.InputRequrementsText
+{
+    background: #f8f8f8;
+    border-bottom: solid 1px #dae9fa;
+    border-left: solid 1px #dae9fa;
+    border-right: solid 1px #dae9fa;    
+}
+
+.HyperLink:hover
+{    
+    background-color: #fddbef;
+}
+
+.GridHyperLinkImageWithUnderline:hover
+{
+    background-color: #fddbef;
+}

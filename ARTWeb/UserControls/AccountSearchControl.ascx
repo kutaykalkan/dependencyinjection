@@ -251,7 +251,7 @@
         </td>
     </tr>
 </table>
-<ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="AntiqueWhite" Radius="6"
+<ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="#dae9fa" Radius="6"
     TargetControlID="pnlSearchCommand" ID="RoundedCornersExtender1" runat="server">
 </ajaxToolkit:RoundedCornersExtender>
 <input type="hidden" id="hdnOrganizationalHierarchy" runat="server" />
