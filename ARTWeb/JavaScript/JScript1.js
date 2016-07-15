@@ -162,13 +162,21 @@ function GetDaysBetweenDateRanges(startDate, endDate) {
             var startDateFormat = GetDateBasedOnDateFormat(startDate); //new Date(getDateFromFormat(startDate, DATE_FORMAT));
             var endDateFormat = GetDateBasedOnDateFormat(endDate);
 
-            for (var i = 0; i < recPeriods.length; i++) {                
+            // FD Ticket 1118
+            var firstRecPeriod = GetDateBasedOnDateFormat(recPeriods[0]);
+            var lastRecPeriod = GetDateBasedOnDateFormat(recPeriods[recPeriods.length - 1]);
+
+            if (startDateFormat < firstRecPeriod || endDateFormat > lastRecPeriod) {
+                return GetMonthsBetweenDateRanges(endDate, startDate);
+            }
+            
+            for (var i = 0; i < recPeriods.length; i++) {
                 var recPeriod = GetDateBasedOnDateFormat(recPeriods[i]);
-                
-                if (recPeriod >= startDateFormat && recPeriod <= endDateFormat) {                    
+
+                if (recPeriod >= startDateFormat && recPeriod <= endDateFormat) {
                     periods++;
                 }
-            }            
+            }                                
         }
         return periods;
     };
