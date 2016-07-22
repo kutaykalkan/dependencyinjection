@@ -2307,7 +2307,8 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 .Footer
 {
     background: #dae9fa;   
-    border-top: #05acfd solid 1px;   
+    border-top: #05acfd solid 1px;
+    font-size: 9px;
 }
 
 .Black11Arial
