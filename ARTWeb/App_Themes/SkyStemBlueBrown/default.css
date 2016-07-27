@@ -51,7 +51,7 @@ body
 {
     background: url(images/BodyBgLogin.gif) repeat-x bottom;
     vertical-align: top;
-    width: 1003px;
+    width: 1153px;
 }
 table
 {
@@ -2533,4 +2533,9 @@ input[type='text'] {
 .GridHyperLinkImageWithUnderline:hover
 {
     background-color: #fddbef;
+}
+
+.CheckBoxList
+{
+    border-top: Solid 1px #1ba5df;   
 }

@@ -303,8 +303,8 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExLinkButton CssClass="LinkButton" runat="server" ></webControls:ExLinkButton>        
 
 <asp:Panel  runat="server" CssClass="ExtendedPanelCapability" SkinID="pnlExtended" />
-<asp:Panel runat="server" ScrollBars="Horizontal" Width="1003px" Height="100%" SkinID="RadGridScrollPanel" ></asp:Panel>     
-<asp:Panel runat="server" ScrollBars="Both" Width="1003px" Height="550px" SkinID="RadGridScrollPanelWithBothScroll" ></asp:Panel>     
+<asp:Panel runat="server" ScrollBars="Horizontal" Width="1153px" Height="100%" SkinID="RadGridScrollPanel" ></asp:Panel>     
+<asp:Panel runat="server" ScrollBars="Both" Width="1153px" Height="550px" SkinID="RadGridScrollPanelWithBothScroll" ></asp:Panel>     
 
 <asp:Panel runat="server" CssClass="ModalPopupHoverPanel" SkinID="ModalPopupHoverPanel"></asp:Panel>
 
