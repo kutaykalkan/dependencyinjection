@@ -35,7 +35,7 @@
                         </telerik:RadPane>
                         <telerik:RadSplitBar ID="Radsplitbar1" runat="server" CollapseMode="Forward">
                         </telerik:RadSplitBar>
-                        <telerik:RadPane ID="MiddlePane1" CssClass="RadMiddlePane" Width="763" runat="server"
+                        <telerik:RadPane ID="MiddlePane1" CssClass="RadMiddlePane" runat="server"
                             Scrolling="Both" Height="100%">
                             <asp:UpdatePanel ID="upnlLeftPane" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
                                 <ContentTemplate>
