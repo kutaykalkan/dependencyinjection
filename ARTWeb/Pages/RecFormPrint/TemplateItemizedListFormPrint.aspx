@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/RecFormPrint.master" AutoEventWireup="true"
-    CodeFile="TemplateItemizedListFormPrint.aspx.cs" Inherits="Pages_TemplateItemizedListFormPrint"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/RecFormPrint.master" AutoEventWireup="true" Inherits="Pages_TemplateItemizedListFormPrint"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" ValidateRequest="false" Codebehind="TemplateItemizedListFormPrint.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="AccountInfoLeftPane" Src="~/UserControls/AccountInfoLeftPane.ascx" %>

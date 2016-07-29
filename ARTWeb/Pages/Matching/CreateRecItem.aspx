@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateRecItem.aspx.cs" Inherits="Pages_Matching_CreateRecItem"
-    MasterPageFile="~/MasterPages/MatchingMaster.master" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Pages_Matching_CreateRecItem"
+    MasterPageFile="~/MasterPages/MatchingMaster.master" Theme="SkyStemBlueBrown" Codebehind="CreateRecItem.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>

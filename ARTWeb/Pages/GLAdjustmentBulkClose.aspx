@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master"
-    CodeFile="~/Pages/GLAdjustmentBulkClose.aspx.cs" Inherits="Pages_GLAdjustmentBulkClose"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Inherits="Pages_GLAdjustmentBulkClose"
+    Theme="SkyStemBlueBrown" Codebehind="~/Pages/GLAdjustmentBulkClose.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountHierarchyDetail" Src="~/UserControls/AccountHierarchyDetail.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataRecItemGrid" Src="~/UserControls/RecForm/GLDataRecItemGrid.ascx" %>

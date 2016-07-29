@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="CloseRecPeriodPopup.aspx.cs" Inherits="Pages_CloseRecPeriod" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_CloseRecPeriod" Codebehind="CloseRecPeriodPopup.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" cellpadding="0" cellspacing="0" border="0">

@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="MaterialityUnexplainedthresholdDetail.aspx.cs" Inherits="Pages_MaterialityUnexplainedthresholdDetail"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_MaterialityUnexplainedthresholdDetail"
+    Theme="SkyStemBlueBrown" Codebehind="MaterialityUnexplainedthresholdDetail.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div>

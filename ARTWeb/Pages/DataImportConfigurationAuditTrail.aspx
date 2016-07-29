@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" CodeFile="DataImportConfigurationAuditTrail.aspx.cs" Inherits="Pages_DataImportConfigurationAuditTrail" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_DataImportConfigurationAuditTrail" Theme="SkyStemBlueBrown" Codebehind="DataImportConfigurationAuditTrail.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" cellpadding="0" cellspacing="0">

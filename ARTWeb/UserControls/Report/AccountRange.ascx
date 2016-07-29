@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountRange.ascx.cs"
-    Inherits="UserControls_Report_AccountRange" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_Report_AccountRange" Codebehind="AccountRange.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="5%" />

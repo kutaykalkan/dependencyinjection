@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ARTMasterPage.master.cs"
-    Inherits="MasterPages_ARTMasterPage" EnableTheming="true" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    Inherits="MasterPages_ARTMasterPage" EnableTheming="true" Codebehind="ARTMasterPage.master.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="FooterMaster" Src="~/UserControls/FooterMaster.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>

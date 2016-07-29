@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="PopupExchangeRates.aspx.cs" Inherits="Pages_PopupExchangeRates" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_PopupExchangeRates" Theme="SkyStemBlueBrown" Codebehind="PopupExchangeRates.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" class="DueDatesPanelContent" width="100%">

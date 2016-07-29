@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ReportViewerPrint.master.cs"
-    Inherits="MasterPages_ReportViewerPrint" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    Inherits="MasterPages_ReportViewerPrint" Codebehind="ReportViewerPrint.master.cs" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Src="~/UserControls/Report/ReportInfo.ascx" TagName="ReportInfo" TagPrefix="UserControl" %>

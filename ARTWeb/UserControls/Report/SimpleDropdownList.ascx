@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SimpleDropdownList.ascx.cs"
-    Inherits="SimpleDropDownList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SimpleDropDownList" Codebehind="SimpleDropdownList.ascx.cs" %>
 <div>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <col width="5%" />

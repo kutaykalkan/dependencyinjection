@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Attachments.ascx.cs" Inherits="UserControls_TaskMaster_Attachments" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_TaskMaster_Attachments" Codebehind="Attachments.ascx.cs" %>
 <table width="100%">
     <col width="100%" />
     <tr>

@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserAccountAssociation.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true"
     Inherits="Pages_UserAccountAssociation" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    Theme="SkyStemBlueBrown" %>
+    Theme="SkyStemBlueBrown" Codebehind="UserAccountAssociation.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/OrganizationalHierarchyDropdown.ascx" TagName="OrganizationalHierarchyDropdown"
     TagPrefix="UserControl" %>
@@ -77,13 +77,13 @@
                                         <telerikWebControls:ExGridTemplateColumn LabelID="1357" HeaderStyle-Width="40%" SortExpression="AccountNumber"
                                             DataType="System.String">
                                             <ItemTemplate>
-                                                <webControls:ExLabel ID="lblAccountNumber" runat="server"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblAccountNumberOwnershipGrid" runat="server"></webControls:ExLabel>
                                             </ItemTemplate>
                                         </telerikWebControls:ExGridTemplateColumn>
                                         <telerikWebControls:ExGridTemplateColumn LabelID="1346" HeaderStyle-Width="40%" SortExpression="AccountName"
                                             DataType="System.String">
                                             <ItemTemplate>
-                                                <webControls:ExLabel ID="lblAccountName" runat="server"></webControls:ExLabel>
+                                                <webControls:ExLabel ID="lblAccountNameOwnershipGrid" runat="server"></webControls:ExLabel>
                                             </ItemTemplate>
                                         </telerikWebControls:ExGridTemplateColumn>
                                     </SkyStemGridColumnCollection>

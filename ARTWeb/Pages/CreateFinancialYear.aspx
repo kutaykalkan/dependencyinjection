@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="CreateFinancialYear.aspx.cs" Inherits="CreateFinancialYear" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="CreateFinancialYear" Theme="SkyStemBlueBrown" Codebehind="CreateFinancialYear.aspx.cs" %>
 
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>

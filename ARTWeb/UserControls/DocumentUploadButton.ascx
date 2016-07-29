@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DocumentUploadButton.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.DocumentUploadButton" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.DocumentUploadButton" Codebehind="DocumentUploadButton.ascx.cs" %>
 <webControls:ExImageButton ID="imgbtnDocument" runat="server" SkinID="ShowDocumentPopup"
     OnClientClick="ShowDocumentUpload();return false;" LabelID="1540" />
     

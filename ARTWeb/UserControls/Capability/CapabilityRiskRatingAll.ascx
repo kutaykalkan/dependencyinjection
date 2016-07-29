@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CapabilityRiskRatingAll.ascx.cs"
-    Inherits="UserControls_CapabilityRiskRatingAll" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_CapabilityRiskRatingAll" Codebehind="CapabilityRiskRatingAll.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="CapabilityRiskRating" Src="~/UserControls/Capability/CapabilityRiskRating.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:UpdatePanel ID="upnlRiskRating" runat="server" UpdateMode="Conditional">

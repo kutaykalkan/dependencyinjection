@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AccountInfoLeftPane.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountInfoLeftPane" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_AccountInfoLeftPane" Codebehind="AccountInfoLeftPane.ascx.cs" %>
 <%@ Register TagPrefix="Popup" TagName="RecFrequency" Src="~/UserControls/PopupRecFrequency.ascx" %>
 <div id="AccountInfoLeftPane">
     <table cellpadding="0" cellspacing="0" width="100%">

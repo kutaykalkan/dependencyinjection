@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewRecItems.aspx.cs" Inherits="Pages_Matching_ViewRecItems"
-    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Pages_Matching_ViewRecItems"
+    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" Codebehind="ViewRecItems.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="GLDataRecItemGrid" Src="~/UserControls/RecForm/GLDataRecItemGrid.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="GLDataRecurringScheduleItemsGrid"

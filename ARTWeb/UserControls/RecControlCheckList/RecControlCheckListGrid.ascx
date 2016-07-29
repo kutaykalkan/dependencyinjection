@@ -1,6 +1,6 @@
 ﻿<%@ Import Namespace="SkyStem.ART.Web.Utility" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecControlCheckListGrid.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecControlCheckListGrid" %>
+<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_RecControlCheckListGrid" Codebehind="RecControlCheckListGrid.ascx.cs" %>
 <table width="100%" cellpadding="0px" cellspacing="0px">
 
     <tr>

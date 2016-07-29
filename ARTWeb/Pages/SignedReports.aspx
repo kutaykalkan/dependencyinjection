@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="SignedReports.aspx.cs" Inherits="Pages_SignedReports" Title="Signed Reports"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_SignedReports" Title="Signed Reports"
+    Theme="SkyStemBlueBrown" Codebehind="SignedReports.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/Report/ParameterViewer.ascx" TagPrefix="ucRpt" TagName="ParamViewer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">  

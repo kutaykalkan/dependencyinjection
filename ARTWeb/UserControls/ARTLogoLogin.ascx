@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ARTLogoLogin.ascx.cs"
-    Inherits="UserControls_ARTLogoLogin" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_ARTLogoLogin" Codebehind="ARTLogoLogin.ascx.cs" %>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
         <td colspan="2" align="center">

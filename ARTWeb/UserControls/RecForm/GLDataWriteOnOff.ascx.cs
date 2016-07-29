@@ -333,7 +333,7 @@ namespace SkyStem.ART.Web.UserControls
                 GridDataItem oGridDataItem = e.Item as GridDataItem;
                 DataRow dr = ((DataRowView)oGridDataItem.DataItem).Row;
 
-                ExHyperLink hlShowItemInputForm = (ExHyperLink)e.Item.FindControl("hlShowItemInputForm");
+                ExHyperLink hlShowItemInputForm = (ExHyperLink)e.Item.FindControl("hlShowItemInputFormOpenGrid");
                 Helper.SetImageURLForViewVersusEdit(EditMode, hlShowItemInputForm);
                 bool IsForwardedItem;
                 bool.TryParse(dr["IsForwardedItem"].ToString(), out    IsForwardedItem);

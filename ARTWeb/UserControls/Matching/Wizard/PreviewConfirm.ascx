@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PreviewConfirm.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.PreviewConfirm" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.PreviewConfirm" Codebehind="PreviewConfirm.ascx.cs" %>
 <%@ Register TagPrefix="usc" TagName="MatchSetInfo" Src="~/UserControls/Matching/MatchSetInfo.ascx" %>
 <asp:Panel ID="pnlMatchingSources" runat="server">
     <usc:MatchSetInfo ID="uscMatchSetInfo" runat="server" />

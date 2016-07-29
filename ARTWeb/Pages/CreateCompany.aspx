@@ -1,6 +1,6 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateCompany.aspx.cs" Inherits="CreateCompany"
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="CreateCompany"
     MasterPageFile="~/MasterPages/ARTMasterPage.master" Theme="SkyStemBlueBrown"
-    ValidateRequest="false" %>
+    ValidateRequest="false" Codebehind="CreateCompany.aspx.cs" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>
 

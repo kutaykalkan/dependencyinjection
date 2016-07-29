@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LegendOnItemInputForm.ascx.cs" Inherits="UserControls_LegendOnItemInputForm" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_LegendOnItemInputForm" Codebehind="LegendOnItemInputForm.ascx.cs" %>
 <table class="LegendTable" width="100" cellpadding="0" cellspacing="0">
         <tr>
             <td id="tdLegendHeader"  runat="server" class="LegendHeading" colspan="2">

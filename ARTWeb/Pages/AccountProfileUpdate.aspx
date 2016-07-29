@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccountProfileUpdate.aspx.cs"
-    Inherits="Pages_AccountProfileUpdate" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/ARTMasterPage.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"
+    Inherits="Pages_AccountProfileUpdate" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/ARTMasterPage.master" Codebehind="AccountProfileUpdate.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"
     TagPrefix="UserControl" %>

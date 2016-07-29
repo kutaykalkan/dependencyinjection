@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MatchingSourceSelection.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingSourceSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingSourceSelection" Codebehind="MatchingSourceSelection.ascx.cs" %>
 
 <script type="text/javascript" language="javascript">
     function CheckOtherIsCheckedByGVID(spanChk) {

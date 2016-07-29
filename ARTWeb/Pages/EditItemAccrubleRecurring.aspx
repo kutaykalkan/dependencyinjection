@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    CodeFile="EditItemAccrubleRecurring.aspx.cs" Inherits="Pages_EditItemAccrubleRecurring"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true" Inherits="Pages_EditItemAccrubleRecurring"
+    Theme="SkyStemBlueBrown" Codebehind="EditItemAccrubleRecurring.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="ExchangeRateBar" Src="~/UserControls/REcForm/ExchangeRateBar.ascx" %>
@@ -747,15 +746,16 @@
                 var calBeginDate = document.getElementById('<%=calScheduleBeginDate.ClientID%>');
                 var calEndDate = document.getElementById('<%=calScheduleEndDate.ClientID%>');
                 var txtTotalIntervals = document.getElementById('<%=txtTotalIntervals.ClientID%>');
-                var txtCurrentInterval = document.getElementById('<%=txtCurrentInterval.ClientID%>');
+                var txtCurrentInterval = document.getElementById('<%=txtCurrentInterval.ClientID%>');                
                 if((calBeginDate.value != hdnPreviousScheduleBeginDateValue.value)
                     ||(calEndDate.value != hdnPreviousScheduleEndDateValue.value))
                 {
                     var dtStart = calBeginDate.value;
                     var dtEnd = calEndDate.value;
                     var dtRecPeriodDate = lblInputFormRecPeriodValue.firstChild.data;
-                    txtTotalIntervals.value = GetMonthsBetweenDateRanges(dtEnd, dtStart);
-                    txtCurrentInterval.value = GetMonthsBetweenDateRanges(dtRecPeriodDate, dtStart);
+                    var recPeriodsAll = <%= RecPeriodsAll %>;
+                    txtTotalIntervals.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtEnd, recPeriodsAll);
+                    txtCurrentInterval.value = amortizeInterval.numberOfPeriodsBetweenDates(dtStart, dtRecPeriodDate, recPeriodsAll);
                 }
             }
         }

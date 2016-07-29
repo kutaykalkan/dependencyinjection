@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master"
-    AutoEventWireup="true" CodeFile="RulesAndChecklists.aspx.cs" Inherits="Pages_Configuration_RulesAndChecklists"
-    Theme="SkyStemBlueBrown" %>
+    AutoEventWireup="true" Inherits="Pages_Configuration_RulesAndChecklists"
+    Theme="SkyStemBlueBrown" Codebehind="RulesAndChecklists.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="QualityScoreSelection" Src="~/UserControls/QualityScore/QualityScoreSelection.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="SRARuleSelection" Src="~/UserControls/Configuration/SRARuleSelection.ascx" %>

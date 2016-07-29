@@ -1,2 +1,2 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RoleUserSelection.ascx.cs" 
-Inherits="RoleUserSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" 
+Inherits="RoleUserSelection" Codebehind="RoleUserSelection.ascx.cs" %>

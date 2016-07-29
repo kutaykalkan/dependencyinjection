@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="AccountInformation.aspx.cs" Theme="SkyStemBlueBrown" Inherits="Pages_AccountInformation"
-    Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Theme="SkyStemBlueBrown" Inherits="Pages_AccountInformation"
+    Title="Untitled Page" Codebehind="AccountInformation.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/AccountSearchControl.ascx" TagName="AccountSearchControl"
     TagPrefix="UserControl" %>

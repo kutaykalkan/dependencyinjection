@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SkyStem.ART.Service</RootNamespace>
     <AssemblyName>ARTService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -243,15 +243,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ARTApp\ARTApp.csproj">
-      <Project>{CBDF8B74-2028-4CAA-A3FB-D14534C2EE9D}</Project>
+      <Project>{cbdf8b74-2028-4caa-a3fb-d14534c2ee9d}</Project>
       <Name>ARTApp</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ARTClient\ARTClient.csproj">
-      <Project>{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}</Project>
+      <Project>{6adde1ab-5511-446f-9d83-e1d45d2172f1}</Project>
       <Name>ARTClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ARTShared\ARTShared.csproj">
-      <Project>{5C171043-32E1-4CEE-A8DE-45701692402E}</Project>
+      <Project>{5c171043-32e1-4cee-a8de-45701692402e}</Project>
       <Name>ARTShared</Name>
     </ProjectReference>
   </ItemGroup>

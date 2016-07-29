@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateTask.aspx.cs" Inherits="Pages_CreateTask"
-    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="Pages_CreateTask"
+    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" Codebehind="CreateTask.aspx.cs" %>
 
 <%@ Register TagPrefix="Popup" TagName="RecFrequency" Src="~/UserControls/PopupRecFrequency.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="RiskRatingDDL" Src="~/UserControls/RiskRatingDropDown.ascx" %>
@@ -227,7 +227,7 @@
             </td>
             <td></td>
             <td>
-                <webControls:ExLabel ID="lblReviewer" runat="server" LabelID="1131" FormatString="{0}:"
+                <webControls:ExLabel ID="lblReviewerLabel" runat="server" LabelID="1131" FormatString="{0}:"
                     SkinID="Black11Arial"></webControls:ExLabel>
             </td>
             <td>
@@ -249,7 +249,7 @@
         <tr>
             <td class="ManadatoryField"></td>
             <td>
-                <webControls:ExLabel ID="lblApprover" runat="server" LabelID="1132" FormatString="{0}:"
+                <webControls:ExLabel ID="lblApproverLabel" runat="server" LabelID="1132" FormatString="{0}:"
                     SkinID="Black11Arial"></webControls:ExLabel>
             </td>
             <td>
@@ -647,73 +647,73 @@
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1357" HeaderStyle-Width="20%" SortExpression="AccountNumber"
                                     DataType="System.String">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblAccountNumber" runat="server"></webControls:ExLabel>
+                                        <webControls:ExLabel ID="lblAccountNumberAddedGrid" runat="server"></webControls:ExLabel>
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1346" HeaderStyle-Width="15%" SortExpression="AccountName"
                                     DataType="System.String">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblAccountName" runat="server"></webControls:ExLabel>
+                                        <webControls:ExLabel ID="lblAccountNameAddedGrid" runat="server"></webControls:ExLabel>
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1256" SortExpression="ZeroBalance"
                                     DataType="System.String" UniqueName="ZeroBalance" Visible="false">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblZeroBalance" runat="server" />
+                                        <webControls:ExLabel ID="lblZeroBalanceAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1014" SortExpression="KeyAccount"
                                     DataType="System.String" UniqueName="KeyAccount" Visible="false">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblKeyAccount" runat="server" />
+                                        <webControls:ExLabel ID="lblKeyAccountAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1013" SortExpression="RiskRating"
                                     DataType="System.String" UniqueName="RiskRating" Visible="false">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblRiskRating" runat="server" />
+                                        <webControls:ExLabel ID="lblRiskRatingAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1426" HeaderStyle-Width="15%" SortExpression="ReconciliationTemplate"
                                     DataType="System.String">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblReconciliationTemplate" runat="server"></webControls:ExLabel>
+                                        <webControls:ExLabel ID="lblReconciliationTemplateAddedGrid" runat="server"></webControls:ExLabel>
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1130" SortExpression="PreparerFullName"
                                     DataType="System.String" UniqueName="Preparer" Visible="true">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblPreparer" runat="server" />
+                                        <webControls:ExLabel ID="lblPreparerAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="2501" SortExpression="BackupPreparerFullName"
                                     DataType="System.String" UniqueName="BackupPreparer">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblBackupPreparer" runat="server" />
+                                        <webControls:ExLabel ID="lblBackupPreparerAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1131" SortExpression="ReviewerFullName"
                                     DataType="System.String" UniqueName="Reviewer" Visible="true">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblReviewer" runat="server" />
+                                        <webControls:ExLabel ID="lblReviewerAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="2502" SortExpression="BackupReviewerFullName"
                                     DataType="System.String" UniqueName="BackupReviewer">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblBackupReviewer" runat="server" />
+                                        <webControls:ExLabel ID="lblBackupReviewerAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="1132" SortExpression="ApproverFullName"
                                     DataType="System.String" UniqueName="Approver" Visible="false">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblApprover" runat="server" />
+                                        <webControls:ExLabel ID="lblApproverAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                                 <telerikWebControls:ExGridTemplateColumn LabelID="2503" SortExpression="BackupApproverFullName"
                                     DataType="System.String" UniqueName="BackupApprover" Visible="false">
                                     <ItemTemplate>
-                                        <webControls:ExLabel ID="lblBackupApprover" runat="server" />
+                                        <webControls:ExLabel ID="lblBackupApproverAddedGrid" runat="server" />
                                     </ItemTemplate>
                                 </telerikWebControls:ExGridTemplateColumn>
                             </SkyStemGridColumnCollection>

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SubledgerSourceDropDown.ascx.cs" Inherits="UserControls_SubledgerSourceDropDown" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_SubledgerSourceDropDown" Codebehind="SubledgerSourceDropDown.ascx.cs" %>
 <asp:DropDownList ID="ddlSubledgerSource" runat="server">
 </asp:DropDownList>
 <asp:RequiredFieldValidator ID="vldSubledgerSource" runat="server" ControlToValidate="ddlSubledgerSource"

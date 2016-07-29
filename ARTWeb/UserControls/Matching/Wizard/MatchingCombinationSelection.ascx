@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MatchingCombinationSelection.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.MatchingCombinationSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.MatchingCombinationSelection" Codebehind="MatchingCombinationSelection.ascx.cs" %>
 <webControls:ExLabel ID="lblDataSource" runat="server" LabelID="2308" FormatString="{0} :"
     SkinID="Black11Arial"></webControls:ExLabel>
 &nbsp;

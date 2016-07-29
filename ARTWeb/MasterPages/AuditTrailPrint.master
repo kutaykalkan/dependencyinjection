@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AuditTrailPrint.master.cs" Inherits="MasterPages_AuditTrailPrint"  %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MasterPages_AuditTrailPrint"  Codebehind="AuditTrailPrint.master.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="AccountDescription" Src="~/UserControls/AccountDescription.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="RecStatusBar" Src="~/UserControls/RecForm/RecStatusBar.ascx" %>

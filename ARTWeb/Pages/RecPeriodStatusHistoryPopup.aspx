@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" AutoEventWireup="true"
-    Theme="SkyStemBlueBrown" CodeFile="RecPeriodStatusHistoryPopup.aspx.cs" Inherits="Pages_RecPeriodStatusHistoryPopup" %>
+    Theme="SkyStemBlueBrown" Inherits="Pages_RecPeriodStatusHistoryPopup" Codebehind="RecPeriodStatusHistoryPopup.aspx.cs" %>
 <%@ OutputCache Duration="1" VaryByParam="none" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

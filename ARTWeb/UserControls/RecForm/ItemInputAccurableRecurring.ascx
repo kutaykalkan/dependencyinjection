@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ItemInputAccurableRecurring.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputAccurableRecurring" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_ItemInputAccurableRecurring" Codebehind="ItemInputAccurableRecurring.ascx.cs" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <div id="divMainContent" runat="server">

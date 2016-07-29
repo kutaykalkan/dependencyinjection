@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master" AutoEventWireup="true"
-    CodeFile="CertificationTrackingReport.aspx.cs" Inherits="Pages_Reports_CertificationTrackingReport"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ReportViewer.master" AutoEventWireup="true" Inherits="Pages_Reports_CertificationTrackingReport"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" Codebehind="CertificationTrackingReport.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphRptViewer" runat="Server">
     <table width="100%">

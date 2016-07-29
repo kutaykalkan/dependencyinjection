@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown"
-    AutoEventWireup="true" CodeFile="ViewTaskComments.aspx.cs" Inherits="Pages_TaskMaster_ViewTaskComments" %>
+    AutoEventWireup="true" Inherits="Pages_TaskMaster_ViewTaskComments" Codebehind="ViewTaskComments.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/TaskMaster/ViewTaskComments.ascx" TagName="ViewTaskComments"
     TagPrefix="UserControls" %>

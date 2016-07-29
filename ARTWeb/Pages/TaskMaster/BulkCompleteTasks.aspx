@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown"
-    AutoEventWireup="true" CodeFile="BulkCompleteTasks.aspx.cs" Inherits="Pages_TaskMaster_BulkCompleteTasks" %>
+    AutoEventWireup="true" Inherits="Pages_TaskMaster_BulkCompleteTasks" Codebehind="BulkCompleteTasks.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/TaskMaster/BulkCompleteTasks.ascx" TagName="BulkCompleteTasks"
     TagPrefix="UserControl" %>

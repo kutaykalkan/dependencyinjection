@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddUserMailOnDataImport.aspx.cs"
-    Inherits="Pages_AddUserMailOnDataImport" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/PopUpMasterPage.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"
+    Inherits="Pages_AddUserMailOnDataImport" Theme="SkyStemBlueBrown" MasterPageFile="~/MasterPages/PopUpMasterPage.master" Codebehind="AddUserMailOnDataImport.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

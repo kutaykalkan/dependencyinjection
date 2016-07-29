@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="OrganizationalHierarchy.ascx.cs"
-    Inherits="OrganizationalHierarchy" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="OrganizationalHierarchy" Codebehind="OrganizationalHierarchy.ascx.cs" %>
 <div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <col width="5%" />

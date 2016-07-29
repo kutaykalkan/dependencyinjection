@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RuleSetupPopup.aspx.cs" Inherits="RuleSetupPopup"
-    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="RuleSetupPopup"
+    MasterPageFile="~/MasterPages/PopUpMasterPage.master" Theme="SkyStemBlueBrown" Codebehind="RuleSetupPopup.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/Matching/LowerUpperBound.ascx" TagName="LowerUpperBoundControl"
     TagPrefix="RuleSetup" %>

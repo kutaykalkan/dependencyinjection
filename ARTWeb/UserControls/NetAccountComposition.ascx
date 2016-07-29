@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="NetAccountComposition.ascx.cs"
-    Inherits="UserControls_NetAccountComposition" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_NetAccountComposition" Codebehind="NetAccountComposition.ascx.cs" %>
 <%@ Register Src="SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>
 <%@ Register Src="~/UserControls/AccountHierarchyDetail.ascx" TagName="AccountHierarchyDetail" TagPrefix="UserControl" %>
 

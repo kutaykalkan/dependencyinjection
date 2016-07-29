@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="TextEditor.ascx.cs" Inherits="UserControls_TextEditor" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_TextEditor" Codebehind="TextEditor.ascx.cs" %>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
         <td>

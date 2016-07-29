@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="ReportParameter.aspx.cs" Inherits="Pages_ReportParameter" Title="Untitled Page"
-    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_ReportParameter" Title="Untitled Page"
+    Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" Codebehind="ReportParameter.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"

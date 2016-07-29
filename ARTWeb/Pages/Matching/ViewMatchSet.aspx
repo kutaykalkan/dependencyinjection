@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true"
-    CodeFile="ViewMatchSet.aspx.cs" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_ViewMatchSet" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_ViewMatchSet" Codebehind="ViewMatchSet.aspx.cs" %>
 
 <%@ Register Src="~/UserControls/LegendOnAccountSearch.ascx" TagName="LegendOnAccountSearch"
     TagPrefix="UserControl" %>

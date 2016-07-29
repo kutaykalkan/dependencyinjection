@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="SystemReconciledAccount.aspx.cs" Inherits="Pages_SystemReconciledAccount"
-    Title="Untitled Page" Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_SystemReconciledAccount"
+    Title="Untitled Page" Theme="SkyStemBlueBrown" MaintainScrollPositionOnPostback="true" Codebehind="SystemReconciledAccount.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <%@ Register Src="~/UserControls/SkyStemARTGrid.ascx" TagName="SkyStemARTGrid" TagPrefix="UserControl" %>

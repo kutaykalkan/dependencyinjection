@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RoleSelection.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.UserControls_RoleSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.UserControls_RoleSelection" Codebehind="RoleSelection.ascx.cs" %>
 <div style="width: 500px; height: 200px;">
     <table cellpadding="0" cellspacing="0">
         <tr>

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MappingUpload.ascx.cs" Inherits="UserControls_MappingUpload_MappingUpload" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_MappingUpload_MappingUpload" Codebehind="MappingUpload.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 
 <script type="text/javascript">

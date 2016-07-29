@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AuditTrail.ascx.cs" Inherits="UserControls_AuditTrail" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_AuditTrail" Codebehind="AuditTrail.ascx.cs" %>
 <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td>

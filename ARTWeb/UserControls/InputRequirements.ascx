@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="InputRequirements.ascx.cs"
-    Inherits="UserControls_InputRequirements" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_InputRequirements" Codebehind="InputRequirements.ascx.cs" %>
 <asp:Panel ID="pnlHeader" runat="server">
     <table class="InputRequrementsHeading">
         <tr>

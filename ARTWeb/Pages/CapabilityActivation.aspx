@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true"
-    CodeFile="CapabilityActivation.aspx.cs" Inherits="Pages_CapabilityActivation"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_CapabilityActivation"
+    Theme="SkyStemBlueBrown" Codebehind="CapabilityActivation.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="CapabilityRiskRatingAll" Src="~/UserControls/Capability/CapabilityRiskRatingAll.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="CapabilityMateriality" Src="~/UserControls/Capability/CapabilityActivationMateriality.ascx" %>

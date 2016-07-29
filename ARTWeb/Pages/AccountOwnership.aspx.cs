@@ -626,13 +626,13 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
             {
                 AccountHdrInfo oAccountHdrInfo = (AccountHdrInfo)e.Item.DataItem;
 
-                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl(LABEL_ACCOUNT_NUMBER);
+                ExLabel lblAccountNumber = (ExLabel)e.Item.FindControl("lblAccountNumberMass");
                 lblAccountNumber.Text = HttpUtility.HtmlEncode(oAccountHdrInfo.AccountNumber);
 
-                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountName");
+                ExLabel lblAccountName = (ExLabel)e.Item.FindControl("lblAccountNameMass");
                 lblAccountName.Text = HttpUtility.HtmlEncode(oAccountHdrInfo.AccountName);
 
-                ExLabel lblNetAccount = (ExLabel)e.Item.FindControl(LABEL_NET_ACCOUNT);
+                ExLabel lblNetAccount = (ExLabel)e.Item.FindControl("lblNetAccountMass");
 
                 if (!string.IsNullOrEmpty(oAccountHdrInfo.NetAccount))
                 {

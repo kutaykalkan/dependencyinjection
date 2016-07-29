@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="QualityScoreSelection.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.QualityScoreSelection" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.QualityScoreSelection" Codebehind="QualityScoreSelection.ascx.cs" %>
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <asp:Panel ID="pnlHeader" runat="server">
     <table class="InputRequrementsHeading" width="100%">

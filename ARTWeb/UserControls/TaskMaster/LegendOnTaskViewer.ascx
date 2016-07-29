@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LegendOnTaskViewer.ascx.cs"
-    Inherits="UserControls_LegendOnTaskViewer" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_LegendOnTaskViewer" Codebehind="LegendOnTaskViewer.ascx.cs" %>
 <table class="LegendTable" width="100" cellpadding="0" cellspacing="0">
     <tr>
         <td class="LegendHeading" colspan="12">

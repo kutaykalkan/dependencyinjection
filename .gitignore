@@ -251,4 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 ARTWeb/logs/logfile-SkyStemARTWeb.txt
-ARTWeb/logs/*.txt
+ARTWeb/Areas/mvc/wwwroot/lib/*
+ARTWeb/logs/*

@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true"
-    CodeFile="MatchsetStatusMessages.aspx.cs" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchsetStatusMessages" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true" Theme="SkyStemBlueBrown" Inherits="Pages_Matching_MatchsetStatusMessages" Codebehind="MatchsetStatusMessages.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphMatching" runat="Server">
     <table width="100%">

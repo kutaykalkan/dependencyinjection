@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ItemInputAmortizableTemplate.ascx.cs"
-    Inherits="UserControls_ItemInputAmortizableTemplate" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_ItemInputAmortizableTemplate" Codebehind="ItemInputAmortizableTemplate.ascx.cs" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>

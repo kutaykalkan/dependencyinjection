@@ -1,6 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true"
-    CodeFile="MatchSourceDataTypeMapping.aspx.cs" Inherits="Pages_Matching_MatchSourceDataTypeMapping"
-    Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/MatchingMaster.master" AutoEventWireup="true" Inherits="Pages_Matching_MatchSourceDataTypeMapping"
+    Theme="SkyStemBlueBrown" Codebehind="MatchSourceDataTypeMapping.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControl" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Import Namespace="SkyStem.Language.LanguageUtility" %>

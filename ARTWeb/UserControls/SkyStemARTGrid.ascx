@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SkyStemARTGrid.ascx.cs"
-    Inherits="UserControls_SkyStemARTGrid" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="UserControls_SkyStemARTGrid" Codebehind="SkyStemARTGrid.ascx.cs" %>
 <asp:HiddenField ID="hdnNewPageSize" runat="server" Value="10" />
 <telerikWebControls:ExRadGrid ID="rgAccount" runat="server" AllowMultiRowSelection="true"
     GroupHeaderItemStyle-Height="25px" ClientSettings-Selecting-AllowRowSelect="true"

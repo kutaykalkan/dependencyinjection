@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MatchingSourceFilter.ascx.cs"
-    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingSourceFilter" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true"
+    Inherits="SkyStem.ART.Web.UserControls.Matching.Wizard.MatchingSourceFilter" Codebehind="MatchingSourceFilter.ascx.cs" %>
 <%@ Register TagPrefix="UserControl" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="usc" TagName="MatchSetInfo" Src="~/UserControls/Matching/MatchSetInfo.ascx" %>
 <asp:UpdatePanel ID="upnlMain" runat="server" UpdateMode="Conditional">

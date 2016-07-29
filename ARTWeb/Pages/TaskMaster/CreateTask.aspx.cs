@@ -1761,8 +1761,8 @@ public partial class Pages_CreateTask : PopupPageBaseTaskMaster
             if (e.Item.ItemType == Telerik.Web.UI.GridItemType.Item || e.Item.ItemType == Telerik.Web.UI.GridItemType.AlternatingItem)
             {
                 AccountHdrInfo oAccountHdrInfo = (AccountHdrInfo)e.Item.DataItem;
-                AccountViewerHelper.BindCommonFields(e, oAccountHdrInfo);
-                Helper.SetTextForLabel(e.Item, "lblAccountNumber", oAccountHdrInfo.AccountNumber);
+                AccountViewerHelper.BindCommonFields(e, oAccountHdrInfo, "AddedGrid");
+                Helper.SetTextForLabel(e.Item, "lblAccountNumberAddedGrid", oAccountHdrInfo.AccountNumber);
                 CheckBox checkBox = (CheckBox)(e.Item as GridDataItem)["CheckboxSelectColumn"].Controls[0];
                 if (checkBox != null && oAccountHdrInfo.IsTaskCompleted.HasValue)
                     checkBox.Visible = !oAccountHdrInfo.IsTaskCompleted.Value;

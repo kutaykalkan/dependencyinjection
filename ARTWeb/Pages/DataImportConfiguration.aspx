@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" CodeFile="DataImportConfiguration.aspx.cs" Inherits="Pages_DataImportConfiguration" Theme="SkyStemBlueBrown" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ARTMasterPage.master" AutoEventWireup="true" Inherits="Pages_DataImportConfiguration" Theme="SkyStemBlueBrown" Codebehind="DataImportConfiguration.aspx.cs" %>
 
 <%@ Register TagPrefix="UserControls" TagName="InputRequirements" Src="~/UserControls/InputRequirements.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

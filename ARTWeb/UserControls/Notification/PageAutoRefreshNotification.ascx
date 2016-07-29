@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PageAutoRefreshNotification.ascx.cs" Inherits="UserControls_Notification_PageAutoRefreshNotification" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_Notification_PageAutoRefreshNotification" Codebehind="PageAutoRefreshNotification.ascx.cs" %>
 <div>
     <asp:HiddenField ID="hdnPreviousPeriodStatusID" runat="server" />
     <telerikwebcontrols:exradnotification id="rnPageAutoRefresh" runat="server"
