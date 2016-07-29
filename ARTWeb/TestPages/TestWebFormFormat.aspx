@@ -3,7 +3,7 @@
 
 <asp:content id="Content1" contentplaceholderid="ContentPlaceHolder1" runat="Server">
 <script language="javascript" type="text/javascript">
-<!--
+<!-- 
 
 function ValidateDate()
 {
@@ -13,7 +13,7 @@ function ValidateDate()
     //var v = dateFormat(calTest.value, "dd/MM/yyyy");
     //var v1 = ConvertDateFormat(calTest.value);
     //alert(v1);
-//    var val = getDateFromFormat(calTest.value);
+    //var val = getDateFromFormat(calTest.value);
 //    alert(getDateFromFormat(calTest.value));
     alert("returnes = " + IsDate(calTest.value));
 //    alert("returnes val = " + IsDate(val));

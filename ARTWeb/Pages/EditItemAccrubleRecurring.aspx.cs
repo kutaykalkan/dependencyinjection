@@ -20,6 +20,7 @@ using SkyStem.ART.Web.Classes;
 using SkyStem.ART.Client.Data;
 using SkyStem.Library.Controls.WebControls;
 using System.Text;
+using System.Web.Script.Serialization;
 using SkyStem.Library.Controls.TelerikWebControls;
 using Telerik.Web.UI;
 using SkyStem.ART.Shared.Utility;
@@ -30,9 +31,12 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
 
     private long _GLDataRecurringItemScheduleID;
     private bool _IsMultiCurrencyEnabled;
+    private string _recPeriodsAll;
     #endregion
 
     #region Properties
+
+    protected string RecPeriodsAll { get { return _recPeriodsAll; } }
 
     private decimal? ExRateLCCYtoBCCY
     {
@@ -117,6 +121,7 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
 
             }
 
+            SetRecPeriodsAll();
             SetExchangeRates();
             this.lblInputFormRecPeriodValue.Text = Helper.GetDisplayDate(SessionHelper.CurrentReconciliationPeriodEndDate);
             ucAccountHierarchyDetailPopup.AccountID = this.AccountID.Value;
@@ -628,8 +633,9 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
         if (CurrentGLDataRecurringItemScheduleInfo != null)
         {
             List<ReconciliationPeriodInfo> oRecPeriodInfoList = (List<ReconciliationPeriodInfo>)Helper.DeepClone(CacheHelper.GetAllReconciliationPeriods(null));
+            
             for (int i = oRecPeriodInfoList.Count - 1; i >= 0; i--)
-            {
+            {                
                 if (oRecPeriodInfoList[i].PeriodEndDate < SessionHelper.CurrentReconciliationPeriodEndDate)
                     oRecPeriodInfoList.RemoveAt(i);
             }
@@ -648,6 +654,15 @@ public partial class Pages_EditItemAccrubleRecurring : PopupPageBaseRecItem
         }
     }
 
+    private void SetRecPeriodsAll()
+    {
+        var recPeriodInfoList = (List<ReconciliationPeriodInfo>)Helper.DeepClone(CacheHelper.GetAllReconciliationPeriods(null));
+        var jss = new JavaScriptSerializer();
+        _recPeriodsAll = jss.Serialize(from item in recPeriodInfoList
+                                       where item.PeriodEndDate != null
+                                       select ((DateTime)item.PeriodEndDate).ToShortDateString());
+    }
+    
     private void SetCompanyCabalityInfo()
     {
         this._IsMultiCurrencyEnabled = Helper.IsCapabilityActivatedForRecPeriodID(ARTEnums.Capability.MultiCurrency, SessionHelper.CurrentReconciliationPeriodID.Value, true);
