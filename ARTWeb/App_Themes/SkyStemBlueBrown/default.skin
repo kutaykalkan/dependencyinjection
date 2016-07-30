@@ -129,7 +129,7 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExImageButton SkinID="EditIcon" LabelID="1429" ImageUrl="Images/Edit.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImageButton SkinID="ClearNotify" ImageUrl="Images/del_user.gif"  runat="server" LabelID="2663"  ImageAlign="top"  />
 <webControls:ExImageButton SkinID="DeleteTaskLoadIcon" LabelID="1933" ImageUrl="Images/DelExcelIcon.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImageButton SkinID="DownloadAttachments" LabelID="2791" ImageUrl="Images/download.gif" runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExImageButton SkinID="DownloadAttachments" LabelID="2791" ImageUrl="Images/download.gif" runat="server"  ImageAlign="AbsMiddle" AlternateText="Downlaod" />
 
 <webControls:ExImageButton SkinID="HideGridRowsIcon" ImageUrl="Images/Cancel.gif"  ImageAlign="Top"  runat="server"/>
 <webControls:ExImageButton SkinID="ShowGridRowsIcon" ImageUrl="Images/Add.gif"  ImageAlign="Top"  runat="server"/>
