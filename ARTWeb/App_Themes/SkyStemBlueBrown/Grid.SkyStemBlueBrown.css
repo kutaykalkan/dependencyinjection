@@ -948,7 +948,8 @@
 
 .RadGrid_SkyStemBlueBrown .rgAltRow td
 {	
-	background: #fff;	
+	background: #fff;
+    /*border-bottom: solid 1px;*/	
 }
 
 .RadGrid_SkyStemBlueBrown .rgRow td,
@@ -956,7 +957,10 @@
 .RadGrid_SkyStemBlueBrown .rgEditRow td,
 .RadGrid_SkyStemBlueBrown .rgFooter td
 {	
-	background: #ededec;	
+	background: #EDF3F9;
+    /*border-bottom:Solid 1px red;*/
+    /*background: #ECF9D9;*/
+    /*border-bottom: solid 1px;*/
 }
 
 .RadGrid_SkyStemBlueBrown .rgNumPart a.rgCurrentPage span,
@@ -984,4 +988,9 @@
 .RadGrid_SkyStemBlueBrown .rgHeader a
 {	
 	color: #000;
+}
+
+.LegendTable
+{    
+    margin-left: 10px;
 }

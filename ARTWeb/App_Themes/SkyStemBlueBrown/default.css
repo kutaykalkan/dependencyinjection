@@ -304,17 +304,12 @@ table
 /*-------------  CountDown Bar Background -------------*/
 .CountDownBg
 {
-    background: url(images/CountdownBg.gif) no-repeat;
+    background: none;
     font-family: arial;
     font-size: 11px;
-    color: #ffffff;
+    color: #002b7b;
     text-decoration: none;
     font-weight: bold;
-    height: 25px;
-    width: 45px;
-    text-indent: 4px;
-    letter-spacing: 8px;
-    text-align: left;
 }
 .CountdownLabel
 {
@@ -2539,4 +2534,13 @@ input[type='text'] {
 .CheckBoxList
 {
     border-top: Solid 1px #1ba5df;   
+}
+
+.CountdownLabel
+{
+    font-family: arial;
+    font-size: 11px;
+    color: #ec008c;
+    font-weight: bold;
+    padding-right: 2px;
 }
