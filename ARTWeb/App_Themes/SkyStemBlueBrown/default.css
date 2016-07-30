@@ -2521,7 +2521,7 @@ input[type='text'] {
 .ErrorLabel
 {
     background: #fddbef;
-    color: #fff;
+    color: #000;
     border: none;    
 }
 
