@@ -188,21 +188,21 @@ public partial class UserControls_Dashboard_OpenItemStatus : UserControlWebPartB
             oDataPointReconciliationForm.SetValueY(Helper.GetDisplayValue(amountForAgingCategory1/1000,WebEnums.DataType.Decimal));
             oDataPointReconciliationForm.AxisLabel = categoryForAgingCategory1;
             //oDataPointReconciliationForm.ToolTip = (Helper.GetDisplayValue(amountForAgingCategory1, WebEnums.DataType.Decimal));
-            oDataPointReconciliationForm.Color = ColorTranslator.FromHtml("#027402");// Color.Green;
+            oDataPointReconciliationForm.Color = ColorTranslator.FromHtml("#9ad41f");// Color.Green;
             oDataPointReconciliationForm.Label = (Helper.GetDisplayValue(amountForAgingCategory1 / 1000, WebEnums.DataType.Decimal));
 
             DataPoint oDataPointReconciliationForm2 = new DataPoint();
             oDataPointReconciliationForm2.SetValueY(Helper.GetDisplayValue(amountForAgingCategory2 / 1000, WebEnums.DataType.Decimal));
             oDataPointReconciliationForm2.AxisLabel = categoryForAgingCategory2;
            // oDataPointReconciliationForm2.ToolTip = (Helper.GetDisplayValue(amountForAgingCategory2, WebEnums.DataType.Decimal));
-            oDataPointReconciliationForm2.Color = ColorTranslator.FromHtml("#F2CDB0");//Color.Blue;
+            oDataPointReconciliationForm2.Color = ColorTranslator.FromHtml("#fddbef");//Color.Blue;
             oDataPointReconciliationForm2.Label = (Helper.GetDisplayValue(amountForAgingCategory2 / 1000, WebEnums.DataType.Decimal));
 
             DataPoint oDataPointReconciliationForm3 = new DataPoint();
             oDataPointReconciliationForm3.SetValueY(Helper.GetDisplayValue(amountForAgingCategory3 / 1000, WebEnums.DataType.Decimal));
             oDataPointReconciliationForm3.AxisLabel = categoryForAgingCategory3;
            // oDataPointReconciliationForm3.ToolTip = (Helper.GetDisplayValue(amountForAgingCategory3, WebEnums.DataType.Decimal));
-            oDataPointReconciliationForm3.Color = ColorTranslator.FromHtml("#EE7B1E");//Color.Yellow;
+            oDataPointReconciliationForm3.Color = ColorTranslator.FromHtml("#32ccfe");//Color.Yellow;
             oDataPointReconciliationForm3.Label = (Helper.GetDisplayValue(amountForAgingCategory3 / 1000, WebEnums.DataType.Decimal));
 
 
@@ -210,7 +210,7 @@ public partial class UserControls_Dashboard_OpenItemStatus : UserControlWebPartB
             oDataPointReconciliationForm4.SetValueY(Helper.GetDisplayValue(amountForAgingCategory4 / 1000, WebEnums.DataType.Decimal));
             oDataPointReconciliationForm4.AxisLabel = categoryForAgingCategory4;
            // oDataPointReconciliationForm4.ToolTip = (Helper.GetDisplayValue(amountForAgingCategory4, WebEnums.DataType.Decimal));
-            oDataPointReconciliationForm4.Color = ColorTranslator.FromHtml("#C40200"); //Color.Red;
+            oDataPointReconciliationForm4.Color = ColorTranslator.FromHtml("#c01a2c"); //Color.Red;
             oDataPointReconciliationForm4.Label = (Helper.GetDisplayValue(amountForAgingCategory4 / 1000, WebEnums.DataType.Decimal));
 
             oSeries.Points.Add(oDataPointReconciliationForm);
