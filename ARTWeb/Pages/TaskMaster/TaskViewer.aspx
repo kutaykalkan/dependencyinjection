@@ -6,7 +6,7 @@
 <%@ Register TagPrefix="UserControls" TagName="Legend" Src="~/UserControls/TaskMaster/LegendOnTaskViewer.ascx" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <asp:Content ID="cphTask" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table width="1000px" style="table-layout: fixed;" border="0" cellpadding="0" cellspacing="0">
+    <table Width="1050px" style="table-layout: fixed;" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td align="right" style="padding: 10px">
                 <webControls:ExLabel ID="lblTaskCategory" runat="server" LabelID="2610" SkinID="Black11Arial"
