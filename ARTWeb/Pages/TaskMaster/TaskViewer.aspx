@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td colspan="2" class="TDTabPageArea">
-                <telerikWebControls:ExRadMultiPage Width="95%" Height="100%" ID="rmpTabPages" runat="server"
+                <telerikWebControls:ExRadMultiPage Width="100%" Height="100%" ID="rmpTabPages" runat="server"
                     SelectedIndex="0">
                     <telerikWebControls:ExRadPageView ID="rpvGeneralTask" runat="server">
                         <table width="100%" cellpadding="0" cellspacing="0" border="0">
