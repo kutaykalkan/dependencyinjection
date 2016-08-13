@@ -1,0 +1,138 @@
+body {
+    background: url(../images/background.jpg);
+    background-size: cover;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    height: 100vh;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    color: white;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+a {
+    cursor: pointer;
+}
+
+.header {
+    background: white;
+    border-bottom: 4px solid $blue;
+    padding: 10px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .logo {
+        height: 30px;
+    }
+    @media screen and (max-width: 768px) {
+       .container {
+            padding-left: 26px;
+        }
+    }
+}
+
+.row {
+    padding: 0 10px;
+}
+
+.main {
+    & > .row {
+        padding: 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+    }
+}
+
+.button {
+    transition: all 0.3s;
+    font-weight: 600;
+    font-size: .9em;
+}
+
+#main-right-col {
+    background: rgba($blue, 0.5);
+    height: 100vh;
+    padding: 40px;
+    padding-top: 12vh;
+    a {
+        color: white;
+    }
+}
+
+.helper-text {
+    font-size: .9em;
+    display: inline-block;
+    &.phone {
+        margin-right: 10px;
+    }
+}
+
+.errorMessage {
+    @extend .helper-text;
+    color: white;
+    display: none;
+}
+
+.copyright {
+    font-size: .7em;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.login-input-box {
+    input[type="text"] {
+        border: none;
+        border-radius: 3px;
+        color: $black;
+        font-weight: 400;
+        padding: 5px 10px;
+        width: 100%;
+        margin: 5px 0;
+        font-size: 0.8em;
+        &.error-focus {
+            outline: 2px solid $error-red;
+        }
+    }
+
+    ::-webkit-input-placeholder { font-weight: 300; color: $blue;  }
+    ::-moz-placeholder { font-weight: 300; color: $blue;  } /* firefox 19+ */
+    :-ms-input-placeholder { font-weight: 300; color: $blue;  } /* ie */
+    input:-moz-placeholder { font-weight: 300; color: $blue;  }
+
+    input[type="checkbox"] {
+        margin: 10px 10px 10px 0;
+    }
+    .login-btn {
+        background: $blue;
+        border: 1px solid white;
+        padding: 5px 40px;
+        margin-right: 5px;
+        &:hover {
+            background: $pink;
+            color: white;
+        }
+    }
+}
+
+.need-help-box {
+    h2 {
+        margin-bottom: 0;
+    }
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.content-box {
+    h2 {
+        margin-top: 0;
+    }
+    padding: 20px 0;
+}

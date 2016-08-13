@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <% include partials/head %>
+    <body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here -->
+        <div class="header">
+            <div class="container">
+                <a href="http://skystem.com/"><img class="logo" src="<%= root %>images/logo.svg"/></a>
+            </div>
+        </div>
+        <div class="bxslider-background hidden-xs">
+            <% include bxslider %>
+        </div>
+        <div class="container main" role="main">
+            <div class="row">
+                <div id="main-right-col" class="col-sm-4 col-sm-push-8">
+                    <div class="row ">
+                        <div class="content-box login-input-box">
+                            <h2>Welcome to your crystal clear close.</h2>
+                            <form id="login-form" accept-charset="utf-8">
+                                <input type="text" name="user_name" placeholder="User Name" >
+                                <div id="user_name_error" class="errorMessage"></div>
+                                <input type="text" name="password" placeholder="Password" >
+                                <div id="password_error" class="errorMessage"></div>
+                                <input type="checkbox" name="remember"><span class="helper-text">Remember Me</span>
+                                <div class="submit-div">
+                                    <input type="submit" name="submit" value="Login" class="button btn login-btn">
+                                    <a href="" class="helper-text">Forgot Your Password</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="content-box need-help-box">
+                            <h2>Need Help with ART?</h2>
+                            <a href="tel://877.778.3320" class="helper-text phone"><i class="fa fa-volume-control-phone" aria-hidden="true"></i>&nbsp;1-877-778-3320</a><a href="mailto:helpme@skystem.com?subject=ART Help Request" class="helper-text" ><i class="fa fa-envelope" aria-hidden="true"></i> helpme@skystem.com</a>
+                        </div>
+                    </div>
+                    <footer class="row">
+                        <div class="copyright">
+                            &copy; Copyright 2010-2015 Skystem LLC. Web-based Reconciliation Tool - ART. All rights reserved. Various trademarks held by their respective owners.
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <% include partials/footer %>
+    </body>
+</html>

@@ -148,6 +148,20 @@
     <Content Include="App_Themes\SkyStemBlueBrown\Images\ReadOnly.png" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\SkyStemCrystalLogo.png" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\StartReconciliation.png" />
+    <Content Include="Areas\mvc\gulpfile.js" />
+    <Content Include="Areas\mvc\Login.html" />
+    <Content Include="Areas\mvc\src\images\background.jpg" />
+    <Content Include="Areas\mvc\src\images\logo.svg" />
+    <Content Include="Areas\mvc\src\images\skystem_img_1.jpg" />
+    <Content Include="Areas\mvc\src\images\skystem_img_2.jpg" />
+    <Content Include="Areas\mvc\src\js\main.js" />
+    <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\mvc\wwwroot\images\background.jpg" />
+    <Content Include="Areas\mvc\wwwroot\images\bx_loader.gif" />
+    <Content Include="Areas\mvc\wwwroot\images\controls.png" />
+    <Content Include="Areas\mvc\wwwroot\images\logo.svg" />
+    <Content Include="Areas\mvc\wwwroot\images\skystem_img_1.jpg" />
+    <Content Include="Areas\mvc\wwwroot\images\skystem_img_2.jpg" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\SkyStemBlueBrown\default.skin" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\Thumbs.db" />
@@ -187,6 +201,23 @@
     <Content Include="Areas\mvc\Views\_ViewStart.cshtml" />
     <Content Include="Areas\mvc\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\mvc\Views\BSFlux\Index.cshtml" />
+    <Content Include="Areas\mvc\Views\Login\Index.cshtml" />
+    <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\mvc\wwwroot\fonts\FontAwesome.otf" />
+    <Content Include="Areas\mvc\package.json" />
+    <Content Include="Areas\mvc\src\scss\main.scss" />
+    <Content Include="Areas\mvc\src\scss\_bxslider.scss" />
+    <Content Include="Areas\mvc\src\scss\_global.scss" />
+    <Content Include="Areas\mvc\src\scss\_variables.scss" />
+    <Content Include="Areas\mvc\src\templates\base.ejs" />
+    <Content Include="Areas\mvc\src\templates\bxslider.ejs" />
+    <Content Include="Areas\mvc\src\templates\partials\footer.ejs" />
+    <Content Include="Areas\mvc\src\templates\partials\head.ejs" />
+    <Content Include="Areas\mvc\src\templates\slides\slide-1.ejs" />
+    <Content Include="Areas\mvc\src\templates\slides\slide-2.ejs" />
     <None Include="Properties\PublishProfiles\release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -754,6 +785,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\mvc\Controllers\BSFluxController.cs" />
+    <Compile Include="Areas\mvc\Controllers\LoginController.cs" />
     <Compile Include="Areas\mvc\mvcAreaRegistration.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
