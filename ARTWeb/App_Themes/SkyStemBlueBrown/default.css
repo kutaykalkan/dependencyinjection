@@ -2278,10 +2278,14 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .WebPart
 {
-    background: #dae9fa;
-    background-color: #dae9fa;
+    background: #dae9fa; /*dae9fa*/
+    background-color: #dae9fa; /*dae9fa*/
     border-left: #cdccca solid 1px;
     border-right: #cdccca solid 1px;    
+}
+
+.WebPart img {
+    box-shadow: 26px 0 0px 0px #fff, -26px 0 0px 0px #fff;
 }
 
 .MenuBarDynamicItem
