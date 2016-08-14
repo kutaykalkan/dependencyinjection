@@ -18,6 +18,12 @@ namespace SkyStem.ART.Web.Areas.mvc
             //context.Routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             context.MapRoute(
+                "login",
+                "login",
+                new { controller = "login", action = "Index" }
+            );
+
+            context.MapRoute(
                 "mvc_default",
                 "app/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }

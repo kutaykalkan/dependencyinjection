@@ -2266,8 +2266,8 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .WebPartTitle
 {
-    background: #05acfd;  /* 8dd2ef */  
-    border: #59ade8 solid 1px;
+    background: #fff;  /* 05acfd */  
+    border: #cdccca solid 1px;
     color: #fff;
 
     /*background: #dae9fa;    

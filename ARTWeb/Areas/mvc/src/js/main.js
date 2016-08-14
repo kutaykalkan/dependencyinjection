@@ -27,7 +27,7 @@ $(document).ready(function() {
   });
 
   $('#login-form').submit(function(e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     // Initialize inputs object
     var inputs = {
@@ -58,10 +58,10 @@ $(document).ready(function() {
     }
 
     // Use form data
-    alert("Form submitted: " +
-      inputs.name + " " +
-      inputs.password + " " +
-      inputs.remember);
-    return false;
+    //alert("Form submitted: " +
+    //  inputs.name + " " +
+    //  inputs.password + " " +
+      //  inputs.remember);
+    return true;
   });
 });
