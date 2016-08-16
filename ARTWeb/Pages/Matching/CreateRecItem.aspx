@@ -138,7 +138,7 @@
                 <asp:Panel ID="pnlScheduleItems" Visible="false" runat="server">
                     <tr class="BlankRow">
                         <td colspan="2" style="padding: 5px">
-                            <asp:Panel ID="Panel1" ScrollBars="Auto" Width="990PX" runat="server">
+                            <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
                                 <telerikWebControls:ExRadGrid ID="rgCreateScheduleRecItem" runat="server" EntityNameLabelID="1229"
                                     AllowPaging="true" AllowSorting="true" OnItemDataBound="rgCreateScheduleRecItem_ItemDataBound"
                                     OnNeedDataSource="rgCreateScheduleRecItem_NeedDataSource" AllowMultiRowSelection="true"
@@ -231,7 +231,7 @@
                 <asp:Panel ID="pnlWriteOffOnItems" Visible="false" runat="server">
                     <tr class="BlankRow">
                         <td colspan="2" style="padding: 5px">
-                            <asp:Panel ID="Panel2" ScrollBars="Auto" Width="990PX" runat="server">
+                            <asp:Panel ID="Panel2" ScrollBars="Auto" runat="server">
                                 <telerikWebControls:ExRadGrid ID="rgCreateWriteOffOnRecItem" runat="server" EntityNameLabelID="1229"
                                     AllowPaging="true" AllowSorting="true" OnItemDataBound="rgCreateWriteOffOnRecItem_ItemDataBound"
                                     OnNeedDataSource="rgCreateWriteOffOnRecItem_NeedDataSource" AllowMultiRowSelection="true"

@@ -18,7 +18,7 @@
         <tr class="BlankRow">
         </tr>
         <tr>
-            <td>
+            <td class="TDTabEmptyArea">
                 <telerikWebControls:ExRadTabStrip Skin="SkyStemBlueBrown" EnableEmbeddedSkins="false"
                     ID="rtsTabs" runat="server" ReorderTabsOnSelect="true" Align="Justify" MultiPageID="rmpTabPages"
                     Width="500px">
@@ -61,7 +61,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Panel ID="pnlGeneralPendingOverdueTasks" runat="server" ScrollBars="Auto" Width="990px">
+                                    <asp:Panel ID="pnlGeneralPendingOverdueTasks" runat="server" ScrollBars="Auto" >
                                         <table cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
                                                 <td align="center">
@@ -116,7 +116,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Panel ID="pnlGeneralCompletedTasks" runat="server" ScrollBars="Auto" Width="990px">
+                                    <asp:Panel ID="pnlGeneralCompletedTasks" runat="server" ScrollBars="Auto" >
                                         <table cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
                                                 <td align="center">
@@ -175,7 +175,7 @@
                             <tr>
                                 <td>
                                     <asp:Panel ID="pnlAccountPendingOverdueTasks" runat="server" ScrollBars="Auto" Style="padding-left: 2px;
-                                        padding-right: 2px" Width="990px">
+                                        padding-right: 2px">
                                         <table cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
                                                 <td align="center">
@@ -233,7 +233,7 @@
                                         <tr>
                                             <td>
                                                 <asp:Panel ID="pnlAccountCompletedTasks" runat="server" ScrollBars="Auto" Style="padding-left: 2px;
-                                                    padding-right: 2px" Width="990px">
+                                                    padding-right: 2px">
                                                     <userControl:AccountTaskGrid ID="ucAccountTaskGridCompleted" runat="server" AllowCustomFilter="true"
                                                         AllowCustomPaging="true" AllowExportToExcel="true" AllowExportToPDF="true" AllowSelectionPersist="true"
                                                         BasePageTitleLabelID="2547" EditMode="Edit" IsOnPage="true" IsPrintMode="false"
