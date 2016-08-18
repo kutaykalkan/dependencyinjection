@@ -72,7 +72,7 @@ a {
 .login-input-box {
   /* firefox 19+ */
   /* ie */ }
-  .login-input-box input[type="text"] {
+  .login-input-box input[type="text"], .login-input-box input[type="password"] {
     border: none;
     border-radius: 3px;
     color: #231f20;
@@ -81,7 +81,7 @@ a {
     width: 100%;
     margin: 5px 0;
     font-size: 0.8em; }
-    .login-input-box input[type="text"].error-focus {
+    .login-input-box input[type="text"].error-focus, .login-input-box input[type="password"].error-focus {
       outline: 2px solid #e70188; }
   .login-input-box ::-webkit-input-placeholder {
     font-weight: 300;

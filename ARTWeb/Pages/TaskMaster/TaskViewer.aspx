@@ -6,7 +6,7 @@
 <%@ Register TagPrefix="UserControls" TagName="Legend" Src="~/UserControls/TaskMaster/LegendOnTaskViewer.ascx" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
 <asp:Content ID="cphTask" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table Width="1050px" style="table-layout: fixed;" border="0" cellpadding="0" cellspacing="0">
+    <table Width="100%" style="table-layout: fixed;" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td align="right" style="padding: 10px">
                 <webControls:ExLabel ID="lblTaskCategory" runat="server" LabelID="2610" SkinID="Black11Arial"
@@ -175,7 +175,7 @@
                             <tr>
                                 <td>
                                     <asp:Panel ID="pnlAccountPendingOverdueTasks" runat="server" ScrollBars="Auto" Style="padding-left: 2px;
-                                        padding-right: 2px">
+                                        padding-right: 2px" Width="1150px">
                                         <table cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
                                                 <td align="center">
@@ -233,7 +233,7 @@
                                         <tr>
                                             <td>
                                                 <asp:Panel ID="pnlAccountCompletedTasks" runat="server" ScrollBars="Auto" Style="padding-left: 2px;
-                                                    padding-right: 2px">
+                                                    padding-right: 2px" Width="1150px">
                                                     <userControl:AccountTaskGrid ID="ucAccountTaskGridCompleted" runat="server" AllowCustomFilter="true"
                                                         AllowCustomPaging="true" AllowExportToExcel="true" AllowExportToPDF="true" AllowSelectionPersist="true"
                                                         BasePageTitleLabelID="2547" EditMode="Edit" IsOnPage="true" IsPrintMode="false"

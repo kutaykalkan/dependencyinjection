@@ -2268,7 +2268,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 {
     background: #fff;  /* 05acfd */  
     border: #cdccca solid 1px;
-    color: #fff;
+    color: #000;
 
     /*background: #dae9fa;    
     border: #cdccca solid 1px;

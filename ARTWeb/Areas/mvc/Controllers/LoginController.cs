@@ -19,8 +19,10 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
     public class LoginController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string old)
         {
+            if (old != null) return Redirect("login.aspx?old=true");
+
             return View();
         }
 

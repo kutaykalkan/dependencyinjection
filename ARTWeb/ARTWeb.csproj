@@ -155,6 +155,13 @@
     <Content Include="Areas\mvc\src\images\skystem_img_1.jpg" />
     <Content Include="Areas\mvc\src\images\skystem_img_2.jpg" />
     <Content Include="Areas\mvc\src\js\main.js" />
+    <Content Include="Areas\mvc\wwwroot\css\bootstrap.min.css" />
+    <Content Include="Areas\mvc\wwwroot\css\font-awesome.min.css" />
+    <Content Include="Areas\mvc\wwwroot\css\images\bx_loader.gif" />
+    <Content Include="Areas\mvc\wwwroot\css\images\controls.png" />
+    <Content Include="Areas\mvc\wwwroot\css\jquery.bxslider.min.css" />
+    <Content Include="Areas\mvc\wwwroot\css\site.css" />
+    <Content Include="Areas\mvc\wwwroot\css\site.min.css" />
     <Content Include="Areas\mvc\wwwroot\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\mvc\wwwroot\images\background.jpg" />
     <Content Include="Areas\mvc\wwwroot\images\bx_loader.gif" />
@@ -162,6 +169,10 @@
     <Content Include="Areas\mvc\wwwroot\images\logo.svg" />
     <Content Include="Areas\mvc\wwwroot\images\skystem_img_1.jpg" />
     <Content Include="Areas\mvc\wwwroot\images\skystem_img_2.jpg" />
+    <Content Include="Areas\mvc\wwwroot\js\jquery.bxslider.min.js" />
+    <Content Include="Areas\mvc\wwwroot\js\jquery.min.js" />
+    <Content Include="Areas\mvc\wwwroot\js\site.js" />
+    <Content Include="Areas\mvc\wwwroot\js\site.min.js" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\SkyStemBlueBrown\default.skin" />
     <Content Include="App_Themes\SkyStemBlueBrown\Images\Thumbs.db" />
@@ -3233,9 +3244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\mvc\Models\" />
-    <Folder Include="Areas\mvc\wwwroot\css\" />
-    <Folder Include="Areas\mvc\wwwroot\img\" />
-    <Folder Include="Areas\mvc\wwwroot\js\" />
     <Folder Include="Areas\mvc\wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
