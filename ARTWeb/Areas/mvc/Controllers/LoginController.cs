@@ -13,16 +13,23 @@ using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
 using SkyStem.Language.LanguageUtility.Classes;
+using SkyStem.Library.Controls.WebControls;
 
 namespace SkyStem.ART.Web.Areas.mvc.Controllers
 {
     public class LoginController : Controller
     {
+        private ExLabel _label = new ExLabel();
+
         [HttpGet]
         public ActionResult Index(string old)
         {
-            if (old != null) return Redirect("login.aspx?old=true");
+            if (old != null) return Redirect("~/login.aspx?old=true");
 
+            if (Request.QueryString[QueryStringConstants.LOGOUT_MESSAGE] != null)
+            {
+                ViewBag.Message = "Your session has ended, please log in.";
+            }
             return View();
         }
 
@@ -56,9 +63,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                     {
                         FTPHelper.SetupFTPUser(userHdrInfo, false);
                         SendNotificationToSystemAdmin(userHdrInfo);
-                        userHdrInfo = null;
-                        //TODO: CG
-                        //hlForgotPassword.Visible = false;
+                        userHdrInfo = null;                        
                         throw new ARTException(5000411);
                     }
 
@@ -141,35 +146,29 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                             // Set the Current Company as User's Company
                             SessionHelper.CurrentCompanyID = userHdrInfo.CompanyID;
                         }
-                        // Company User
-                        //TODO: CG
-                        //Helper.RedirectToHomePage();
+                        // Company User                       
                         var url = SessionHelper.ResolveUrl(Helper.GetHomePageUrl());
                         return Redirect(url);
 
-                    }
-                    else
-                    {
-                        //TODO: CG
-                        //Helper.FormatAndShowErrorMessage(lblErrorMessage, LanguageUtil.GetValue(5000001));
-                        return View();
-                    }
-
+                    }                    
+                    Helper.FormatAndShowErrorMessage(_label, LanguageUtil.GetValue(5000001));
+                    ViewBag.Message = _label.Text;
+                    return View();
                 }
             }
             catch (ARTException ex)
             {
-                //TODO: CG
-                //Helper.FormatAndShowErrorMessage(lblErrorMessage, ex);
+                Helper.FormatAndShowErrorMessage(_label, ex);
+                ViewBag.Message = _label.Text;
             }
             catch (Exception ex)
             {
-                //TODO: CG
-                //Helper.FormatAndShowErrorMessage(lblErrorMessage, ex);
-            }            
-            return Redirect("login.aspx");
+                Helper.FormatAndShowErrorMessage(_label, ex);
+                ViewBag.Message = _label.Text;
+            }
+            return View();
         }
-
+        
         //TODO: CG
         //protected void cvUserName_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         //{
