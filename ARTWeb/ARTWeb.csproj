@@ -229,6 +229,8 @@
     <Content Include="Areas\mvc\src\templates\partials\head.ejs" />
     <Content Include="Areas\mvc\src\templates\slides\slide-1.ejs" />
     <Content Include="Areas\mvc\src\templates\slides\slide-2.ejs" />
+    <Content Include="Areas\mvc\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\mvc\Views\Login\ForgotPassword.cshtml" />
     <None Include="Properties\PublishProfiles\release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

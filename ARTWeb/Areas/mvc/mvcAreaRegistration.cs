@@ -24,6 +24,12 @@ namespace SkyStem.ART.Web.Areas.mvc
             );
 
             context.MapRoute(
+                "forgotpassword",
+                "forgotpassword",
+                new { controller = "login", action = "ForgotPassword" }
+            );
+
+            context.MapRoute(
                 "mvc_default",
                 "app/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }

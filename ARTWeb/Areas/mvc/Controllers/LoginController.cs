@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.UI;
 using SkyStem.ART.Client.Exception;
 using SkyStem.ART.Client.IServices;
 using SkyStem.ART.Client.Model;
+using SkyStem.ART.Shared.Data;
 using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
@@ -19,7 +18,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
 {
     public class LoginController : Controller
     {
-        private ExLabel _label = new ExLabel();
+        private readonly ExLabel _label = new ExLabel();
 
         [HttpGet]
         public ActionResult Index(string old)
@@ -29,13 +28,39 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
             if (Request.QueryString[QueryStringConstants.LOGOUT_MESSAGE] != null)
             {
                 ViewBag.Message = "Your session has ended, please log in.";
+                return View();
             }
+
+            // Get the Browser Language and store in Session
+            if (Request.UserLanguages != null)
+            {
+                var oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
+
+                // Check for Test LCID
+                oCurrentCultureInfo = Helper.GetTestCurrentCultureInfoWithoutSession(oCurrentCultureInfo);
+                System.Threading.Thread.CurrentThread.CurrentCulture = oCurrentCultureInfo;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = oCurrentCultureInfo;
+
+                // For Login Page - Business Entity is Default
+                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), oCurrentCultureInfo.LCID, AppSettingHelper.GetDefaultBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
+            }
+
+            
+            //TODO CG: client side error message
+            // Set the Error Message
+            //rfvUserName.ErrorMessage = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1003);
+            //rfvPassword.ErrorMessage = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1004);
+            
+            ViewBag.Title = LanguageUtil.GetValue(1002);
+            //TODO CG: Focus
+            //Page.SetFocus(txtUserName);
+
             return View();
         }
 
         [HttpPost]
         [ActionName("Index")]        
-        public ActionResult IndexPost(string user_name, string password)
+        public ActionResult IndexPost(string userName, string password, bool remember = false)
         {
             try
             {
@@ -43,7 +68,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                 {
                     //Min 6 characters,at least one caps, at least 1 letter and 1 number is required, special characters optional
 
-                    var loginId = user_name.Trim();                    
+                    var loginId = userName.Trim();                    
                     var hashedPassword = Helper.GetHashedPassword(password);
 
                     var userClient = RemotingHelper.GetUserObject();
@@ -63,7 +88,6 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                     {
                         FTPHelper.SetupFTPUser(userHdrInfo, false);
                         SendNotificationToSystemAdmin(userHdrInfo);
-                        userHdrInfo = null;                        
                         throw new ARTException(5000411);
                     }
 
@@ -79,7 +103,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                             if (userHdrInfo.CompanyID != null
                                 && userHdrInfo.CompanyID != 0)
                             {
-                                CompanyHdrInfo oCompanyHdrInfo = Helper.GetCompanyInfoLiteObject(userHdrInfo.CompanyID);
+                                var oCompanyHdrInfo = Helper.GetCompanyInfoLiteObject(userHdrInfo.CompanyID);
 
                                 if (oCompanyHdrInfo.IsActive == false)
                                 {
@@ -132,13 +156,10 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
 
                         MembershipCreateStatus obj;
 
-                        MembershipUser mUser = Membership.GetUser(loginId);
+                        var mUser = Membership.GetUser(loginId) ??
+                                               Membership.CreateUser(loginId, "3rdp@rty", "xyz@tdsc.com", "no question", "no answer", true, out obj);
 
-                        if (mUser == null)
-                        {
-                            mUser = Membership.CreateUser(loginId, "3rdp@rty", "xyz@tdsc.com", "no question", "no answer", true, out obj);
-                        }
-                        FormsAuthentication.RedirectFromLoginPage(mUser.UserName, false);
+                        if (mUser != null) FormsAuthentication.RedirectFromLoginPage(mUser.UserName, remember);
 
                         // check for SkyStem Admin
                         if (userHdrInfo.DefaultRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
@@ -168,7 +189,73 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
             }
             return View();
         }
-        
+
+        [HttpGet]
+        public ActionResult ForgotPassword(string old)
+        {
+            ViewBag.Title = LanguageUtil.GetValue(1005);
+            //// Get the Browser Language and store in Session
+            if (Request.UserLanguages != null)
+            {
+                var oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
+
+                // Check for Test LCID
+                oCurrentCultureInfo = Helper.GetTestCurrentCultureInfoWithoutSession(oCurrentCultureInfo);
+                System.Threading.Thread.CurrentThread.CurrentCulture = oCurrentCultureInfo;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = oCurrentCultureInfo;
+
+                //// For Login Page - Business Entity is Default
+                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), oCurrentCultureInfo.LCID, AppSettingHelper.GetDefaultBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
+            }
+
+            ViewBag.Message = LanguageUtil.GetValue(1561);
+            //// Set the Error Message
+            //TODO CG: not sure if we need below?
+            //ViewBag.Message = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1003);
+            //TODO CG
+            //Page.SetFocus(txtUserName);
+            //pnlForgotPassword.DefaultButton = "btnGetPassword";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("ForgotPassword")]
+        public ActionResult ForgotPasswordPost(string userName)
+        {
+            var loginId = userName.Trim();
+            var generatedPassword = Helper.CreateRandomPassword(SharedConstants.LENGTH_GENERATED_PASSWORD, loginId);
+            var hashedPassword = Helper.GetHashedPassword(generatedPassword);
+            var oUserClient = RemotingHelper.GetUserObject();
+            var oAppUserInfo = new AppUserInfo();
+            oAppUserInfo.LoginID = loginId;
+            var result = oUserClient.UpdatePassword(loginId, hashedPassword, oAppUserInfo);
+
+            if (result > 0)
+            {
+                var oUserHdrInfo = oUserClient.GetUserByLoginID(loginId, oAppUserInfo);
+                // Create multilingual attribute info
+                var oMultilingualAttributeInfo = LanguageHelper.GetMultilingualAttributeInfo(SessionHelper.CurrentCompanyID, oUserHdrInfo.DefaultLanguageID);
+
+                if (SendMailToUser(oUserHdrInfo, generatedPassword, oUserHdrInfo.EmailID, oMultilingualAttributeInfo))
+                {
+                    ViewBag.Message = LanguageUtil.GetValue(1537);                    
+                }
+                else
+                {                    
+                    Helper.FormatAndShowErrorMessage(_label, LanguageUtil.GetValue(5000386));
+                    ViewBag.Message = _label.Text;
+                }
+            }
+            else
+            {                
+                Helper.FormatAndShowErrorMessage(_label, LanguageUtil.GetValue(5000004));
+                ViewBag.Message = _label.Text;
+            }
+
+            return View();
+        }
+
         //TODO: CG
         //protected void cvUserName_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         //{
@@ -189,12 +276,58 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
         //    }
         //}
 
+        private bool SendMailToUser(UserHdrInfo oUserHdrInfo, string password, string emailId, MultilingualAttributeInfo oMultilingualAttributeInfo)
+        {
+            try
+            {
+                AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_PASSWORD);
+                StringBuilder oMailBody = new StringBuilder();
+
+
+                oMailBody.Append(string.Format("{0} ", LanguageUtil.GetValue(1845, oMultilingualAttributeInfo)));
+                oMailBody.Append(oUserHdrInfo.Name);
+                oMailBody.Append(",");
+                oMailBody.Append("<br>");
+
+                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1935, oMultilingualAttributeInfo)));
+                oMailBody.Append("<br>");
+                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1004, oMultilingualAttributeInfo)));
+                oMailBody.Append(password);
+                oMailBody.Append("<br>");
+                oMailBody.Append("<br>");
+                String msg;
+                msg = LanguageUtil.GetValue(2384, oMultilingualAttributeInfo);
+                //if (Request.Url != null)
+                //{
+                //    var url = Request.Url.AbsoluteUri;
+                //    url = url.Replace("Pages/CreateUser.aspx", AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL));
+                //}
+                oMailBody.Append(string.Format(msg, AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL)));
+
+                string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
+                oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress, oMultilingualAttributeInfo));
+
+
+                string mailSubject = string.Format("{0}", LanguageUtil.GetValue(1760, oMultilingualAttributeInfo));
+
+                string toAddress = emailId;
+                MailHelper.SendEmail(fromAddress, toAddress, mailSubject, oMailBody.ToString());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Helper.FormatAndShowErrorMessage(null, ex);
+            }
+            return false;
+        }
+
         private void SendNotificationToSystemAdmin(UserHdrInfo oLockedUserHdrInfo)
         {
             IUser oUser = RemotingHelper.GetUserObject();
             AppUserInfo oAppUserInfo = new AppUserInfo();
             oAppUserInfo.LoginID = oLockedUserHdrInfo.LoginID;
             oAppUserInfo.CompanyID = oLockedUserHdrInfo.CompanyID;
+            if (oLockedUserHdrInfo.CompanyID == null) return;
             List<UserHdrInfo> oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)WebEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
             foreach (UserHdrInfo oUserHdrInfo in oUserHdrInfoList)
             {

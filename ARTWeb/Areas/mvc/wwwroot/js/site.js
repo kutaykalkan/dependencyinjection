@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     // Initialize inputs object
     var inputs = {
-      name: $('input[name="user_name"]').val(),
+      name: $('input[name="username"]').val(),
       password: $('input[name="password"]').val(),
       remember: $('input[name="remember"]').is(":checked") || undefined
     };
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     // Validate inputs and display errors if found
     if (!inputs.name) {
-      $('input[name="user_name"]').addClass('error-focus');
+      $('input[name="username"]').addClass('error-focus');
       $('#user_name_error').show().text('* This field is required.');
       return false;
     } else {
