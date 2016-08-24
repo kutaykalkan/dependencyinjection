@@ -57,11 +57,30 @@ $(document).ready(function() {
       $('#password_error').hide();
     }
 
-    // Use form data
-    //alert("Form submitted: " +
-    //  inputs.name + " " +
-    //  inputs.password + " " +
-      //  inputs.remember);
     return true;
+  });
+
+  $('#forgotpassword-form').submit(function (e) {
+      //e.preventDefault();
+
+      // Initialize inputs object
+      var inputs = {
+          name: $('input[name="username"]').val()
+      };
+
+      // Reset form error display 
+      $('.error-focus').removeClass('error-focus');
+      $('#user_name_error').hide();
+
+      // Validate inputs and display errors if found
+      if (!inputs.name) {
+          $('input[name="username"]').addClass('error-focus');
+          $('#user_name_error').show().text('* This field is required.');
+          return false;
+      } else {
+          $('#user_name_error').hide();
+      }
+      
+      return true;
   });
 });

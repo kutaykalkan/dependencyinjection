@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Security;
 using SkyStem.ART.Client.Exception;
-using SkyStem.ART.Client.IServices;
 using SkyStem.ART.Client.Model;
 using SkyStem.ART.Shared.Data;
 using SkyStem.ART.Web.Data;
@@ -31,32 +29,19 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                 return View();
             }
 
-            // Get the Browser Language and store in Session
-            if (Request.UserLanguages != null)
-            {
-                var oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
+            SetLanguageFromRequest();
 
-                // Check for Test LCID
-                oCurrentCultureInfo = Helper.GetTestCurrentCultureInfoWithoutSession(oCurrentCultureInfo);
-                System.Threading.Thread.CurrentThread.CurrentCulture = oCurrentCultureInfo;
-                System.Threading.Thread.CurrentThread.CurrentUICulture = oCurrentCultureInfo;
-
-                // For Login Page - Business Entity is Default
-                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), oCurrentCultureInfo.LCID, AppSettingHelper.GetDefaultBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
-            }
-
-            
             //TODO CG: client side error message
             // Set the Error Message
             //rfvUserName.ErrorMessage = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1003);
             //rfvPassword.ErrorMessage = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1004);
             
             ViewBag.Title = LanguageUtil.GetValue(1002);
-            //TODO CG: Focus
-            //Page.SetFocus(txtUserName);
-
+            
             return View();
         }
+
+        
 
         [HttpPost]
         [ActionName("Index")]        
@@ -88,45 +73,14 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                     {
                         FTPHelper.SetupFTPUser(userHdrInfo, false);
                         SendNotificationToSystemAdmin(userHdrInfo);
+                        ViewBag.IsUserLocked = true;
                         throw new ARTException(5000411);
                     }
 
                     if (userHdrInfo != null)
                     {
-                        if (userHdrInfo.IsActive == false)
-                        {
-                            // 2. Your account is deactivated. Please contact system administrator. 
-                            throw new ARTSystemException(5000012);
-                        }
-                        else
-                        {
-                            if (userHdrInfo.CompanyID != null
-                                && userHdrInfo.CompanyID != 0)
-                            {
-                                var oCompanyHdrInfo = Helper.GetCompanyInfoLiteObject(userHdrInfo.CompanyID);
+                        ValidateCompanyUser(userHdrInfo);
 
-                                if (oCompanyHdrInfo.IsActive == false)
-                                {
-                                    // 3. Active Company -> The Company is no longer available. Please contact system administrator.
-                                    throw new ARTSystemException(5000013);
-                                }
-                                else if (oCompanyHdrInfo.SubscriptionEndDate < DateTime.Now)
-                                {
-                                    // 3a.               -> The Company's Subscription has expired. Please contact system administrator. 
-                                    throw new ARTSystemException(5000041);
-                                }
-                                else if (oCompanyHdrInfo.SubscriptionStartDate > DateTime.Now)
-                                {
-                                    // 3b. The Company Subscription has not yet started. Please contact system administrator. 
-                                    throw new ARTSystemException(5000040);
-                                }
-                                else if (userHdrInfo.UserRoleByUserID == null || (userHdrInfo.UserRoleByUserID.Count <= 0))
-                                {
-                                    // 4. Role Check -> You do not have Roles assigned. Please contact system administrator. 
-                                    throw new ARTSystemException(5000014);
-                                }
-                            }
-                        }
                         // Clear the session if user is on Login Page
                         if (System.Web.HttpContext.Current.Session != null && System.Web.HttpContext.Current.Session[SessionConstants.USER_INFO] != null)
                         {
@@ -139,14 +93,8 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                          * If Default Role available, that becomes Current Role, 
                          * else pick the first from all available roles 
                          */
-                        if (userHdrInfo.DefaultRoleID != null)
-                        {
-                            SessionHelper.CurrentRoleID = userHdrInfo.DefaultRoleID;
-                        }
-                        else
-                        {
-                            SessionHelper.CurrentRoleID = userHdrInfo.UserRoleByUserID[0].RoleID;
-                        }
+                        SessionHelper.CurrentRoleID = userHdrInfo.DefaultRoleID ??
+                                                      userHdrInfo.UserRoleByUserID[0].RoleID;
 
                         // Update the Last Logged In Information in DB
                         userHdrInfo.LastLoggedIn = DateTime.Now;
@@ -190,32 +138,20 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
             return View();
         }
 
+        
+
         [HttpGet]
         public ActionResult ForgotPassword(string old)
         {
             ViewBag.Title = LanguageUtil.GetValue(1005);
-            //// Get the Browser Language and store in Session
-            if (Request.UserLanguages != null)
-            {
-                var oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
 
-                // Check for Test LCID
-                oCurrentCultureInfo = Helper.GetTestCurrentCultureInfoWithoutSession(oCurrentCultureInfo);
-                System.Threading.Thread.CurrentThread.CurrentCulture = oCurrentCultureInfo;
-                System.Threading.Thread.CurrentThread.CurrentUICulture = oCurrentCultureInfo;
-
-                //// For Login Page - Business Entity is Default
-                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), oCurrentCultureInfo.LCID, AppSettingHelper.GetDefaultBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
-            }
+            SetLanguageFromRequest();
 
             ViewBag.Message = LanguageUtil.GetValue(1561);
             //// Set the Error Message
             //TODO CG: not sure if we need below?
             //ViewBag.Message = Helper.GetErrorMessage(WebEnums.FieldType.MandatoryField, 1003);
-            //TODO CG
-            //Page.SetFocus(txtUserName);
-            //pnlForgotPassword.DefaultButton = "btnGetPassword";
-
+            
             return View();
         }
 
@@ -227,8 +163,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
             var generatedPassword = Helper.CreateRandomPassword(SharedConstants.LENGTH_GENERATED_PASSWORD, loginId);
             var hashedPassword = Helper.GetHashedPassword(generatedPassword);
             var oUserClient = RemotingHelper.GetUserObject();
-            var oAppUserInfo = new AppUserInfo();
-            oAppUserInfo.LoginID = loginId;
+            var oAppUserInfo = new AppUserInfo {LoginID = loginId};
             var result = oUserClient.UpdatePassword(loginId, hashedPassword, oAppUserInfo);
 
             if (result > 0)
@@ -254,9 +189,155 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
             }
 
             return View();
+        }        
+
+        private static void ValidateCompanyUser(UserHdrInfo userHdrInfo)
+        {
+            if (userHdrInfo.IsActive == false)
+            {
+                // 2. Your account is deactivated. Please contact system administrator. 
+                throw new ARTSystemException(5000012);
+            }
+            if (userHdrInfo.CompanyID != null
+                && userHdrInfo.CompanyID != 0)
+            {
+                var oCompanyHdrInfo = Helper.GetCompanyInfoLiteObject(userHdrInfo.CompanyID);
+
+                if (oCompanyHdrInfo.IsActive == false)
+                {
+                    // 3. Active Company -> The Company is no longer available. Please contact system administrator.
+                    throw new ARTSystemException(5000013);
+                }
+                if (oCompanyHdrInfo.SubscriptionEndDate < DateTime.Now)
+                {
+                    // 3a.               -> The Company's Subscription has expired. Please contact system administrator. 
+                    throw new ARTSystemException(5000041);
+                }
+                if (oCompanyHdrInfo.SubscriptionStartDate > DateTime.Now)
+                {
+                    // 3b. The Company Subscription has not yet started. Please contact system administrator. 
+                    throw new ARTSystemException(5000040);
+                }
+                if (userHdrInfo.UserRoleByUserID == null || (userHdrInfo.UserRoleByUserID.Count <= 0))
+                {
+                    // 4. Role Check -> You do not have Roles assigned. Please contact system administrator. 
+                    throw new ARTSystemException(5000014);
+                }
+            }
         }
 
-        //TODO: CG
+        private static bool SendMailToUser(UserHdrInfo oUserHdrInfo, string password, string emailId, MultilingualAttributeInfo oMultilingualAttributeInfo)
+        {
+            try
+            {
+                AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_PASSWORD);
+                var oMailBody = new StringBuilder();
+
+                oMailBody.Append($"{LanguageUtil.GetValue(1845, oMultilingualAttributeInfo)} ");
+                oMailBody.Append(oUserHdrInfo.Name);
+                oMailBody.Append(",");
+                oMailBody.Append("<br>");
+
+                oMailBody.Append($"{LanguageUtil.GetValue(1935, oMultilingualAttributeInfo)}: ");
+                oMailBody.Append("<br>");
+                oMailBody.Append($"{LanguageUtil.GetValue(1004, oMultilingualAttributeInfo)}: ");
+                oMailBody.Append(password);
+                oMailBody.Append("<br>");
+                oMailBody.Append("<br>");
+                var msg = LanguageUtil.GetValue(2384, oMultilingualAttributeInfo);
+                
+                oMailBody.Append(string.Format(msg, AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL)));
+
+                var fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
+                oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress, oMultilingualAttributeInfo));
+
+
+                var mailSubject = $"{LanguageUtil.GetValue(1760, oMultilingualAttributeInfo)}";
+
+                var toAddress = emailId;
+                MailHelper.SendEmail(fromAddress, toAddress, mailSubject, oMailBody.ToString());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Helper.FormatAndShowErrorMessage(null, ex);
+            }
+            return false;
+        }
+
+        private static void SendNotificationToSystemAdmin(UserHdrInfo oLockedUserHdrInfo)
+        {
+            var oUser = RemotingHelper.GetUserObject();
+            var oAppUserInfo = new AppUserInfo
+            {
+                LoginID = oLockedUserHdrInfo.LoginID,
+                CompanyID = oLockedUserHdrInfo.CompanyID
+            };
+
+            if (oLockedUserHdrInfo.CompanyID == null) return;
+
+            var oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)WebEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
+            foreach (var oUserHdrInfo in oUserHdrInfoList)
+            {
+                var oMailBody = new StringBuilder();
+                var oMultilingualAttributeInfo = LanguageHelper.GetMultilingualAttributeInfo(SessionHelper.CurrentCompanyID, oUserHdrInfo.DefaultLanguageID);
+
+                oMailBody.Append($"{LanguageUtil.GetValue(1845, oMultilingualAttributeInfo)} ");
+                oMailBody.Append(oUserHdrInfo.Name);
+                oMailBody.Append(",");
+                oMailBody.Append("<br>");
+                oMailBody.Append($"{LanguageUtil.GetValue(2937, oMultilingualAttributeInfo)}: ");
+                oMailBody.Append("<br>");
+                oMailBody.Append($"{LanguageUtil.GetValue(1003, oMultilingualAttributeInfo)}: ");
+                oMailBody.Append(oLockedUserHdrInfo.Name);
+                oMailBody.Append("<br>");
+                oMailBody.Append($"{LanguageUtil.GetValue(1269, oMultilingualAttributeInfo)}: ");
+                oMailBody.Append(oLockedUserHdrInfo.LoginID);
+                oMailBody.Append("<br>");
+
+                var fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
+
+                oMailBody.Append("<br/><b>" + LanguageUtil.GetValue(1133, oMultilingualAttributeInfo) + "</b>");
+                oMailBody.Append("<br/>" + oLockedUserHdrInfo.CompanyDisplayName);
+
+                var mailSubject =
+                    $"{LanguageUtil.GetValue(2938, oMultilingualAttributeInfo)}: {oLockedUserHdrInfo.Name}";
+
+                var toAddress = oUserHdrInfo.EmailID;
+                MailHelper.SendEmail(fromAddress, toAddress, mailSubject, oMailBody.ToString());
+            }
+        }
+
+        private void SetLanguageFromRequest()
+        {
+            // Get the Browser Language and store in Session
+            if (Request.UserLanguages == null) return;
+
+            var oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
+
+            // Check for Test LCID
+            oCurrentCultureInfo = Helper.GetTestCurrentCultureInfoWithoutSession(oCurrentCultureInfo);
+            System.Threading.Thread.CurrentThread.CurrentCulture = oCurrentCultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = oCurrentCultureInfo;
+
+            // For Login Page - Business Entity is Default
+            LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), oCurrentCultureInfo.LCID,
+                AppSettingHelper.GetDefaultBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(),
+                AppSettingHelper.GetDefaultBusinessEntityID());
+        }
+
+        private static bool HideForgotPassword(string username)
+        {
+            var isUserLocked = false;
+            if (string.IsNullOrEmpty(username)) return false;
+
+            var oIUser = RemotingHelper.GetUserObject();
+            var userLocked = oIUser.IsUserLocked(username);
+            if (userLocked != null) isUserLocked = (bool)userLocked;
+
+            return isUserLocked;
+        }
+        //Below will hide forgot pwd link after username entered
         //protected void cvUserName_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         //{
         //    string loginID = txtUserName.Text.Trim();
@@ -275,88 +356,5 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
         //        }
         //    }
         //}
-
-        private bool SendMailToUser(UserHdrInfo oUserHdrInfo, string password, string emailId, MultilingualAttributeInfo oMultilingualAttributeInfo)
-        {
-            try
-            {
-                AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_PASSWORD);
-                StringBuilder oMailBody = new StringBuilder();
-
-
-                oMailBody.Append(string.Format("{0} ", LanguageUtil.GetValue(1845, oMultilingualAttributeInfo)));
-                oMailBody.Append(oUserHdrInfo.Name);
-                oMailBody.Append(",");
-                oMailBody.Append("<br>");
-
-                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1935, oMultilingualAttributeInfo)));
-                oMailBody.Append("<br>");
-                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1004, oMultilingualAttributeInfo)));
-                oMailBody.Append(password);
-                oMailBody.Append("<br>");
-                oMailBody.Append("<br>");
-                String msg;
-                msg = LanguageUtil.GetValue(2384, oMultilingualAttributeInfo);
-                //if (Request.Url != null)
-                //{
-                //    var url = Request.Url.AbsoluteUri;
-                //    url = url.Replace("Pages/CreateUser.aspx", AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL));
-                //}
-                oMailBody.Append(string.Format(msg, AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL)));
-
-                string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-                oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress, oMultilingualAttributeInfo));
-
-
-                string mailSubject = string.Format("{0}", LanguageUtil.GetValue(1760, oMultilingualAttributeInfo));
-
-                string toAddress = emailId;
-                MailHelper.SendEmail(fromAddress, toAddress, mailSubject, oMailBody.ToString());
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Helper.FormatAndShowErrorMessage(null, ex);
-            }
-            return false;
-        }
-
-        private void SendNotificationToSystemAdmin(UserHdrInfo oLockedUserHdrInfo)
-        {
-            IUser oUser = RemotingHelper.GetUserObject();
-            AppUserInfo oAppUserInfo = new AppUserInfo();
-            oAppUserInfo.LoginID = oLockedUserHdrInfo.LoginID;
-            oAppUserInfo.CompanyID = oLockedUserHdrInfo.CompanyID;
-            if (oLockedUserHdrInfo.CompanyID == null) return;
-            List<UserHdrInfo> oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)WebEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
-            foreach (UserHdrInfo oUserHdrInfo in oUserHdrInfoList)
-            {
-                StringBuilder oMailBody = new StringBuilder();
-                MultilingualAttributeInfo oMultilingualAttributeInfo = LanguageHelper.GetMultilingualAttributeInfo(SessionHelper.CurrentCompanyID, oUserHdrInfo.DefaultLanguageID);
-
-                oMailBody.Append(string.Format("{0} ", LanguageUtil.GetValue(1845, oMultilingualAttributeInfo)));
-                oMailBody.Append(oUserHdrInfo.Name);
-                oMailBody.Append(",");
-                oMailBody.Append("<br>");
-                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(2937, oMultilingualAttributeInfo)));
-                oMailBody.Append("<br>");
-                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1003, oMultilingualAttributeInfo)));
-                oMailBody.Append(oLockedUserHdrInfo.Name);
-                oMailBody.Append("<br>");
-                oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1269, oMultilingualAttributeInfo)));
-                oMailBody.Append(oLockedUserHdrInfo.LoginID);
-                oMailBody.Append("<br>");
-
-                string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-
-                oMailBody.Append("<br/><b>" + LanguageUtil.GetValue(1133, oMultilingualAttributeInfo) + "</b>");
-                oMailBody.Append("<br/>" + oLockedUserHdrInfo.CompanyDisplayName);
-
-                string mailSubject = string.Format("{0}: {1}", LanguageUtil.GetValue(2938, oMultilingualAttributeInfo), oLockedUserHdrInfo.Name);
-
-                string toAddress = oUserHdrInfo.EmailID;
-                MailHelper.SendEmail(fromAddress, toAddress, mailSubject, oMailBody.ToString());
-            }
-        }
     }
 }

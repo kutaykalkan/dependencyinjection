@@ -10,9 +10,13 @@
     <div id="user_name_error" class="errorMessage"></div>
     <input type="password" name="password" placeholder="Password">
     <div id="password_error" class="errorMessage"></div>
-    <input type="checkbox" name="remember"><span class="helper-text">Remember Me</span>
+    @*<input type="checkbox" name="remember" value="true"><span class="helper-text">Remember Me</span>    
+    <input type="hidden" value="false" name="remember" />*@
     <div class="submit-div">
         <input type="submit" name="submit" value="Login" class="button btn login-btn">
-        <a href="ForgotPassword" class="helper-text">Forgot Your Password</a>
+        @if (ViewBag.IsUserLocked == null || ViewBag.IsUserLocked == false)
+        {
+            <a href="ForgotPassword" class="helper-text">Forgot Your Password</a>
+        }
     </div>
 </form>
