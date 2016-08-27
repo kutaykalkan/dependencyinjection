@@ -28,7 +28,7 @@
                                     <div id="divSelectAll" runat="server" class="CheckBoxListSelectALL">
                                         <webControls:ExCheckBox ID="chkSelectAll" runat="server" LabelID="1262" />
                                     </div>
-                                    <div id="divCheckBoxList" class="CheckBoxList" runat="server" style="height: 100px;
+                                    <div id="divCheckBoxList" class="CheckBoxList" runat="server" style="
                                         overflow-y: scroll;">
                                         <asp:CheckBoxList ID="cblOptions" Width="100%" runat="server" AutoPostBack="false"
                                             OnDataBound="cblOptions_DataBound">

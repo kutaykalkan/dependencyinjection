@@ -2392,7 +2392,7 @@ tr:first-child td:last-child  { border-top-right-radius: 10px; }
 
 .ReportReportGroup
 {
-    background-color: #05acfd;
+    background-color: #dae9fa;
     border: none;
 }
 
@@ -2560,3 +2560,14 @@ input[type='text'] {
     font-weight: bold;
     padding-right: 2px;
 }
+
+.BlueBold11ArialUnderline
+{
+    font-size: 13px;
+}
+
+.reportLightBlueRow
+{
+    background-color: #edf3f9;
+}
+
