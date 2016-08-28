@@ -77,7 +77,7 @@
                         </td>
                         <td colspan="0">
                             <telerikWebControls:ExRadUpload LabelID="2494" ID="RadFileUpload" runat="server" ControlObjectsVisibility="None"
-                                InitialFileInputsCount="1" MaxFileInputsCount="1" />
+                                InitialFileInputsCount="1" MaxFileInputsCount="1" InputSize="35" />
                             <asp:CustomValidator ID="cvFileUpload" runat="server" ClientValidationFunction="ValidateFileExtension"
                                 Display="Dynamic" ErrorMessage="" OnServerValidate="cvFileUpload_ServerValidate" Text="!"></asp:CustomValidator>
                         </td>

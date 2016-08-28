@@ -778,43 +778,43 @@ namespace SkyStem.ART.Web.Utility
 
             if (e.Item is GridGroupHeaderItem && isExportPDF)
             {
-                e.Item.Style["background-color"] = "#DBC682";
+                e.Item.Style["background-color"] = "#dae9fa";
                 GridGroupHeaderItem headerItem = (GridGroupHeaderItem)e.Item;
                 headerItem.CssClass = "groupRadGrid";
                 headerItem.Style["font-size"] = "8px";
                 headerItem.Style["font-family"] = "Arial";
                 headerItem.Style["vertical-align"] = "middle";
                 headerItem.Style["font-weight"] = "normal";
-                headerItem.Style["background-color"] = "#DBC682";
+                headerItem.Style["background-color"] = "#dae9fa";
                 foreach (TableCell cell in headerItem.Cells)
                 {
                     cell.Style["text-align"] = "left";
                     cell.Style["font-size"] = "8pt";
                     cell.Style["font-family"] = "Arial";
                     cell.Style["vertical-align"] = "middle";
-                    cell.Style["background"] = "#DBC682";
-                    cell.Style["background-color"] = "#DBC682";
+                    cell.Style["background"] = "#dae9fa";
+                    cell.Style["background-color"] = "#dae9fa";
                     cell.Style["font-weight"] = "normal";
                 }
             }
 
             if (e.Item is GridHeaderItem && isExportPDF)
             {
-                e.Item.Style["background-color"] = "#ab6501";
+                e.Item.Style["background-color"] = "#d0d7e5";
                 GridHeaderItem headerItem = (GridHeaderItem)e.Item;
                 headerItem.Style["font-size"] = "9px";
                 headerItem.Style["font-family"] = "Arial";
                 headerItem.Style["vertical-align"] = "middle";
-                headerItem.Style["color"] = "#ffffff";
-                headerItem.Style["background-color"] = "#ab6501";
+                headerItem.Style["color"] = "#000";
+                headerItem.Style["background-color"] = "#dae9fa";
                 foreach (TableCell cell in headerItem.Cells)
                 {
                     cell.Style["text-align"] = "left";
                     cell.Style["font-size"] = "9pt";
                     cell.Style["font-family"] = "Arial";
                     cell.Style["vertical-align"] = "middle";
-                    cell.Style["background"] = "#ab6501";
-                    cell.Style["background-color"] = "#ab6501";
+                    cell.Style["background"] = "#dae9fa";
+                    cell.Style["background-color"] = "#dae9fa";
                 }
             }
             if (e.Item is GridFooterItem && isExportPDF)
@@ -826,9 +826,9 @@ namespace SkyStem.ART.Web.Utility
                 gridItem.Style["vertical-align"] = "middle";
                 gridItem.Style["font-weight"] = "normal";
                 if (e.Item.ItemIndex % 2 == 0)
-                    gridItem.Style["background-color"] = "#E8D59C";
+                    gridItem.Style["background-color"] = "#fff";
                 else
-                    gridItem.Style["background-color"] = "#E8D59C";
+                    gridItem.Style["background-color"] = "#dae9fa";
                 foreach (TableCell cell in gridItem.Cells)
                 {
                     cell.Style["font-size"] = "8pt";
@@ -898,9 +898,9 @@ namespace SkyStem.ART.Web.Utility
                     gridItem.Style["font-weight"] = "normal";
                     //gridItem.Style["text-align"] = "left";
                     if (e.Item.ItemIndex % 2 == 0)
-                        gridItem.Style["background-color"] = "#e2f2fc";
+                        gridItem.Style["background-color"] = "#fff";
                     else
-                        gridItem.Style["background-color"] = "#a6d3f7";
+                        gridItem.Style["background-color"] = "#dae9fa";
                     foreach (TableCell cell in gridItem.Cells)
                     {
                         //cell.Style["text-align"] = "left";
@@ -923,7 +923,7 @@ namespace SkyStem.ART.Web.Utility
                     gridItem.Style["vertical-align"] = "middle";
                     gridItem.Style["font-weight"] = "normal";
                     //gridItem.Style["text-align"] = "middle";
-                    gridItem.Style["border"] = "1px solid #d0d7e5";
+                    gridItem.Style["border"] = "1px solid #dae9fa";
                     foreach (TableCell cell in gridItem.Cells)
                     {
 
@@ -933,7 +933,7 @@ namespace SkyStem.ART.Web.Utility
                         cell.Style["font-family"] = "Arial";
                         cell.Style["vertical-align"] = "middle";
                         cell.Style["font-weight"] = "normal";
-                        cell.Style["border"] = "1px solid #d0d7e5";
+                        cell.Style["border"] = "1px solid #dae9fa";
                     }
                 }
 

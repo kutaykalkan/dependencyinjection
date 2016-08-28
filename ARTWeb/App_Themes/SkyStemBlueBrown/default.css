@@ -2571,3 +2571,10 @@ input[type='text'] {
     background-color: #edf3f9;
 }
 
+.GridLinkButton:hover
+{
+    color: #000;
+    background-color: #fddbef;
+}
+
+

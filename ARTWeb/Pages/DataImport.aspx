@@ -126,7 +126,7 @@
                                                 <td>
                                                     <%--<telerik:RadProgressManager ID="Radprogressmanager1" runat="server" />--%>
                                                     <telerikWebControls:ExRadUpload LabelID="2494" ID="RadFileUpload" runat="server" ControlObjectsVisibility="None"
-                                                        InitialFileInputsCount="1" InputSize="50" MaxFileInputsCount="1" />
+                                                        InitialFileInputsCount="1" InputSize="35" MaxFileInputsCount="1" />
                                                     <%--<telerik:RadProgressArea ID="RadProgressArea1" runat="server" />--%>
                                                 </td>
                                                 <td>
