@@ -3,7 +3,7 @@
 <table width="100%" class="Footer">
     <tr>
         <td align="center">
-            <asp:Image ID="Image1" runat="server" SkinID="SkyStemLogoArtMaster" Width="100px" />
+            <asp:Image ID="Image1" runat="server" SkinID="SkyStemLogoArtMaster"  />
             <webControls:ExLabel ID="lblFooterCopyright" LabelID="1199" runat="server"></webControls:ExLabel>
             &nbsp;
             <webControls:ExLabel ID="lblFooterRight" LabelID="1200" runat="server"></webControls:ExLabel>

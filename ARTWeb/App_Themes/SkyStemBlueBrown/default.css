@@ -2064,20 +2064,48 @@ table
 
 .outerTable
 {
-    border: solid #9bc7ec 4px;
-    background: #c4e4ff;
+    border: solid #05acfd 4px;
+    /*background: #c4e4ff;*/
 }
+
+.outerTable h2
+{
+    color: #000;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.outerTable #btnRefresh {
+    background: #e90e8b;
+    color: white;
+    border: none;
+    border-radius: 3px;    
+    font-weight: 400;
+    padding: 5px 10px;
+    width: 100%;
+    margin: 5px 0;
+    font-size: 0.8em;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.outerTable .Black11Arial {
+    font-size: .8em;
+    padding: 5px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
 .topBg
 {
-    background: url(images/TopBg.gif) repeat-x;
+    /*background: url(images/TopBg.gif) repeat-x;*/
+    background: #dae9fa;
     height: 71px;
 }
 .text
 {
-    font-family: verdana;
-    color: #003871;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: #000;
     font-size: 18px;
     line-height: 30px;
+    padding-right: 30px;
 }
 .MatchingResultHighlightKeyColumn
 {

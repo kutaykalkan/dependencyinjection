@@ -24,7 +24,7 @@
                 &nbsp
             </td>
             <td align="center" width="75%">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="outerTable">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="outerTable">                    
                     <tr>
                         <td colspan="2" align="center" class="topBg">
                             <asp:Image ID="imgLogo" runat="server" SkinID="SkyStemLogo" />
@@ -60,7 +60,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Image ID="imgWait" runat="server" SkinID="WaitImage" />
+                                        <%--<asp:Image ID="imgWait" runat="server" SkinID="WaitImage" />--%>
+                                        <h2>Please wait....</h2>
                                     </td>
                                 </tr>
                                 <tr>

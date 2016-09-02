@@ -19,7 +19,7 @@ Default skin template. The following skins are provided as examples only.
 <asp:Image ImageUrl="Images/MenuBar.gif" AlternateText="" runat="server" SkinID="MenuSeparator" /> 
 <asp:Image ImageUrl="Images/wait.gif" AlternateText="" runat="server" SkinID="WaitImage" /> 
 <asp:Image ImageUrl="Images/clock.gif" AlternateText="" runat="server" SkinID="ClockImage" /> 
-<asp:Image ImageUrl="Images/logo.gif" AlternateText="" runat="server" SkinID="SkyStemLogo" /> 
+<asp:Image ImageUrl="Images/SkyStemCrystalLogo.png" AlternateText="" runat="server" SkinID="SkyStemLogo" /> 
 <asp:Image ImageUrl="Images/InfoIcon.gif" AlternateText="" runat="server" SkinID="InfoIcon" />
 <asp:Image ImageUrl="Images/Info_Big.gif" AlternateText="" runat="server" SkinID="InfoBig" /> 
 
