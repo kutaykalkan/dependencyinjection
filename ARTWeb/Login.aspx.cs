@@ -24,7 +24,11 @@ namespace SkyStem.ART.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString["old"] == null) Response.Redirect("~/login");
+            if (Request.QueryString["old"] == null)
+            {
+                Response.Redirect("~/login", false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
 
             // Get the Browser Language and store in Session
             CultureInfo oCurrentCultureInfo = CultureInfo.CreateSpecificCulture(Request.UserLanguages[0]);
