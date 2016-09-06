@@ -2231,190 +2231,14 @@ img
 /*------------- Session Expiry Notification --------- */
 
 /* ui-update */
-/*.ToolBar
-{
-    background: #dae9fa;     
-}*/
-
-/*#e8e7ec;*/    /*#ab6501*/
-/*.MenuBar
-{
-    background: #959595; 
-    height: 28px;
-    color: #fff;   
-}*/
-
-/*.MenuBarStaticHover {
-    background: none;
-}*/
 
 table.MenuBar { border-collapse: separate; }
 tr:first-child td:first-child .MenuBar { border-top-left-radius: 10px; }
 tr:first-child td:last-child .MenuBar { border-top-right-radius: 10px; }
 
-/*.TanBar
-{
-    background: #dae9fa;
-}*/
-
-/*.RecBg
-{
-    background: #dae9fa;
-}
-.RecBgWithoutPadding
-{
-    background: #dae9fa;
-}*/
-
-/*.PageTitleBg
-{
-    background: #ec008c;
-    color: #fff;
-}
-
-.LinkButton
-{    
-    color: #fff;    
-}
-
-.AccountMessageBar
-{
-    background: #fff;    
-    border: none;    
-}*/
-
-/*.WebPartTitle
-{
-    background: #fff;  
-    border: #cdccca solid 1px;
-    color: #000;
-}
-
-.WebPart
-{
-    background: #dae9fa; 
-    background-color: #dae9fa; 
-    border-left: #cdccca solid 1px;
-    border-right: #cdccca solid 1px;    
-}*/
-
 .WebPart img {
     box-shadow: 26px 0 0px 0px #fff, -26px 0 0px 0px #fff;
 }
-
-/*.MenuBarDynamicItem
-{
-    border-left: solid 1px #000;
-    border-bottom: solid 1px #000;
-    border-right: solid 1px #000;
-    background: #e8e7ec;       
-}*/
-
-/*.MenuBarDynamicHover
-{    
-    background-color: #f8f8f8;
-}*/
-/*.MenuBarDynamicSelected
-{
-    border-left: solid 1px #000;
-    border-bottom: solid 1px #000;
-    border-right: solid 1px #000;
-    background: #fff;    
-}*/
-
-/*.Footer
-{
-    background: #dae9fa;   
-    border-top: #05acfd solid 1px;
-    font-size: 9px;
-}*/
-
-/*.Black11Arial
-{    
-    color: #000;    
-}*/
-
-/*.WhiteBold11Arial
-{
-    color: #000;
-}*/
-
-/*.RoleLabel
-{   
-    color: #000;
-    
-}*/
-
-/*.CheckBoxListDiv
-{
-    border: Solid 1px #05acfd;    
-}*/
-
-/*.InputRequrementsHeading
-{
-    background: #dae9fa;
-    border: none;
-}*/
-
-/*.InputRequrementsTextNoBackColor
-{
-     border-bottom: none; 
-     border-left: none; 
-     border-right: none;     
-}*/
-
-/*.InputRequrementsText
-{   
-    border-bottom: solid 1px #dae9fa;
-    border-left: solid 1px #dae9fa;
-    border-right: solid 1px #dae9fa;    
-}*/
-
-/*.PanelTitleBrown
-{
-    background-color: #dae9fa;   
-}*/
-
-/*.DataImportRulesTable
-{
-    border: Solid 1px #05acfd;
-}*/
-
-/*.TableHeaderSameAsGrid td
-{
-    background: #05acfd;
-}*/
-
-/*.ExportToolBar
-{    
-    background: #05acfd;    
-    border: none;     
-}*/
-
-/*.DataImportStatusMessage
-{
-    border: none;
-    background-color: #05acfd;
-    text-align: left;
-    padding: 5px;
-}*/
-
-/*.ReportReportGroup
-{
-    background-color: #dae9fa;
-    border: none;
-}*/
-
-/*.ReportActivity
-{
-    color: #000;    
-}*/
-
-/*.ChangePasswordBg
-{
-    background: #dae9fa;
-    border: none;
-}*/
 
 table.ChangePasswordBg {
     border-collapse:separate;    
@@ -2431,54 +2255,13 @@ tr .PageTitleBg td:last-child  { border-top-right-radius: 10px; }
 
 tr .PageTitleBg td:first-child { padding-left: 10px;}
 
-/*.blueBorder
-{
-    border: none;
-}*/
-
 .rgNoRecords {
     background: #fff;
 }
 
-/*.ListBox
-{
-    border: Solid 1px #05acfd;
-}*/
-
-
 input[type='text'] {
     border: #05acfd 1px solid; 
 }
-
-/*.GridHyperLinkImageWithUnderline
-{
-    border-bottom: none;
-}*/
-
-/*.GridHyperLinkWithUnderline:hover
-{      
-    background-color: #fddbef;
-}*/
-/*.GridHyperLink:hover
-{        
-    background-color: #fddbef;
-}*/
-
-/*.blueRow
-{
-    background-color: #dae9fa;
-    border: none;
-}*/
-
-/*.RecStatusBar
-{
-    background: none;    
-}*/
-
-/*.RecFormHeaderRow
-{
-    background-color: #dae9fa;    
-}*/
 
 .RecFormHeaderRow.first{
     background-color:#ec008c;
@@ -2488,102 +2271,9 @@ input[type='text'] {
     color: #fff;
 }
 
-/*.tanBorder
-{
-    border: none;
-}*/
-
-/*.htmlGridTitleDiv
-{
-    background-color: #fff; 
-}*/
-
-/*.RecBalanceRow
-{
-    background-color: #fddbef;
-}*/
-
 .RecBalanceRow .Black11Arial {
     color: #000;
 }
 
-/*.GLAdjustmentRowTotalSupportingDetail
-{
-    background-color: #aeaeae; 
-}*/
-
-/*.coloredRow
-{
-    background-color: #dae9fa;    
-}*/
-
-/*.Blue11ArialLeftPaneValue
-{
-    color: #002b7b;
-}*/
-
-/*.Breadcrumbs {
-    background: #f8f8f8;
-}*/
-
-/*.ProgressBar
-{
-    background-color: #dae9fa;   
-}*/
-
-/*.ErrorLabel
-{
-    background: #fddbef;
-    color: #000;
-    border: none;    
-}*/
-
-/*.InputRequrementsText
-{
-    border-bottom: solid 1px #dae9fa;
-    border-left: solid 1px #dae9fa;
-    border-right: solid 1px #dae9fa; 
-    background: #f8f8f8;        
-}*/
-
-/*.HyperLink:hover
-{    
-    background-color: #fddbef;
-}*/
-
-/*.GridHyperLinkImageWithUnderline:hover
-{
-    background-color: #fddbef;
-}*/
-
-/*.CheckBoxList
-{
-    border-top: Solid 1px #1ba5df;   
-}*/
-
-/*.CountdownLabel
-{
-    font-family: arial;
-    font-size: 11px;
-    color: #ec008c;
-    font-weight: bold;
-    padding-right: 2px;
-}*/
-
-/*.BlueBold11ArialUnderline
-{
-    font-size: 13px;
-}*/
-
-/*.reportLightBlueRow
-{
-    background-color: #edf3f9;
-}*/
-
-/*.GridLinkButton:hover
-{
-    color: #000;
-    background-color: #fddbef;
-}*/
 
 
