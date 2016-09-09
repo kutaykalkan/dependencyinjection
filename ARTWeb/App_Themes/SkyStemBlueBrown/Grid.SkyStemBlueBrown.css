@@ -4,8 +4,7 @@
 
 .RadGrid_SkyStemBlueBrown
 {
-    border:1px solid #000000;
-    border-collapse:collapse;
+    border:none;
     background:#e2f2fc;
 }
 
@@ -134,13 +133,13 @@
 .RadGrid_SkyStemBlueBrown .rgHeader,
 .RadGrid_SkyStemBlueBrown th.rgResizeCol
 {
+    background: #dae9fa;
+    color: black;
 	font-family: Arial;
 	font-size: 11px;
 	font-weight: bold;
-	color: #ffffff;
 	text-decoration: none;
 	height: 25px;
-	background: #ab6501;
 	text-align: left;
 	padding-left: 3px;
 }
@@ -362,7 +361,7 @@
 	text-align: center;
 	padding: 5px;
 	letter-spacing: 0px;
-	background:#e8d59c;
+	background:#dae9fa;
 }
 
 .RadGrid_SkyStemBlueBrown .rgPager .rgPagerCell
@@ -702,7 +701,7 @@
 
 .RadGrid_SkyStemBlueBrown .rgGroupHeader
 {
-    background-color:#f2e9c9;
+    background-color:#fddbef;
 	font-family: Arial;
 	font-size: 11px;
 	color: #000000;
@@ -908,28 +907,6 @@
 }
 
 /* Update-UI */
-
-.RadGrid_SkyStemBlueBrown .rgHeader,
-.RadGrid_SkyStemBlueBrown th.rgResizeCol
-{	
-	background: #dae9fa;
-    color: black;
-}
-
-.RadGrid_SkyStemBlueBrown .rgPager td
-{	
-	background:#dae9fa;
-}
-
-.RadGrid_SkyStemBlueBrown
-{
-    border:none;
-}
-
-.RadGrid_SkyStemBlueBrown .rgGroupHeader
-{
-    background-color:#fddbef;	
-}
 
 .RadGrid_SkyStemBlueBrown .rgFooter td
 {
