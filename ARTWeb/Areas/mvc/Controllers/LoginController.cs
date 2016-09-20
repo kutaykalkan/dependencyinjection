@@ -23,6 +23,13 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
         {
             if (old != null) return Redirect("~/login.aspx?old=true");
 
+            if (Request.Url != null
+                && (Request.Url.ToString().IndexOf("login.skystem.com/ART", StringComparison.OrdinalIgnoreCase) >= 0
+                    && !Request.IsSecureConnection))
+            {
+                Response.Redirect(Request.Url.ToString().Replace("http:", "https:"));
+            }
+
             if (Request.QueryString[QueryStringConstants.LOGOUT_MESSAGE] != null)
             {
                 ViewBag.Message = "Your session has ended, please log in.";
