@@ -1698,6 +1698,9 @@ table
     font-weight: normal;
 }
 
+.LinkButtonSpecial .LinkButton {
+    color: #000;
+}
 .LinkButtonBold
 {
     font-family: Arial;
