@@ -1,45 +1,38 @@
-﻿using SkyStem.ART.Client.Model;
-using SkyStem.ART.Web.Classes;
+﻿using SkyStem.ART.Web.Classes;
 using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
 using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Pages_Support_ReportIssue : PopupPageBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string url = GetSsoUrl(AppSettingHelper.GetAppSettingValue(AppSettingConstants.SUPPORT_SITE_BASE_URL), //including trailing slash
+        var url = GetSsoUrl(AppSettingHelper.GetAppSettingValue(AppSettingConstants.SUPPORT_SITE_BASE_URL), //including trailing slash
                                AppSettingHelper.GetAppSettingValue(AppSettingConstants.SUPPORT_SITE_PRIVATE_KEY), Helper.GetUserFullName(), SessionHelper.CurrentUserLoginID);
         Response.Redirect(url);
     }
 
-    string GetSsoUrl(string baseUrl, string secert, string name, string email)
+    private string GetSsoUrl(string baseUrl, string secret, string name, string email)
     {
-        return String.Format("{0}login/sso/?name={1}&email={2}&hash={3}", baseUrl, Server.UrlEncode(name),
-                             Server.UrlEncode(email), GetHash(secert, name, email));
+        var timems = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString(CultureInfo.InvariantCulture);
+        return
+            $"{baseUrl}/login/sso?name={Server.UrlEncode(name)}&email={Server.UrlEncode(email)}&timestamp={timems}&hash={GetHash(secret, name, email, timems)}";        
     }
 
-    static string GetHash(string secert, string name, string email)
+    private static string GetHash(string secret, string name, string email, string timems)
     {
-        string input = name + email + secert;
-
-        MD5 md5 = System.Security.Cryptography.MD5.Create();
-        byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-        byte[] hash = md5.ComputeHash(inputBytes);
-
-        StringBuilder sb = new StringBuilder();
-        foreach (byte b in hash)
-        {
-            string hexValue = b.ToString("X").ToLower(); // Lowercase for compatibility on case-sensitive systems
-            sb.Append((hexValue.Length == 1 ? "0" : "") + hexValue);
-        }
-        return sb.ToString();
+        var input = name + secret + email + timems;
+        var keybytes = Encoding.UTF8.GetBytes(secret);
+        var inputBytes = Encoding.UTF8.GetBytes(input);
+        var crypto = new HMACMD5(keybytes);
+        var hash = crypto.ComputeHash(inputBytes);
+        return hash.Select(b => b.ToString("x2"))
+            .Aggregate(new StringBuilder(),
+                (current, next) => current.Append(next),
+                current => current.ToString());        
     }
 }
