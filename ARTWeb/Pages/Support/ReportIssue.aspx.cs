@@ -18,7 +18,7 @@ public partial class Pages_Support_ReportIssue : PopupPageBase
 
     private string GetSsoUrl(string baseUrl, string secret, string name, string email)
     {
-        var timems = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString(CultureInfo.InvariantCulture);
+        var timems = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString(CultureInfo.InvariantCulture);        
         return
             $"{baseUrl}login/sso?name={Server.UrlEncode(name)}&email={Server.UrlEncode(email)}&timestamp={timems}&hash={GetHash(secret, name, email, timems)}";        
     }
