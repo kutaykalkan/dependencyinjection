@@ -338,6 +338,7 @@ namespace SkyStem.ART.Web.Data
         public const string REC_CONTROL_CHECK_LIST_ID = "RecControlCheckListID";
         public const string TASK_USER_ROLE_ID = "TaskUserRoleID";
         public const string TASK_LIST_LEVEL = "TasklistLevel";
+        public const string LOGOUT_MESSAGE = "SessionExpired";
     }
 
     public class SessionConstants

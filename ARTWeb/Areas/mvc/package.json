@@ -1,0 +1,40 @@
+{
+  "name": "artlogin",
+  "version": "1.0.0",
+  "description": "Login page for ART",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://drew_drew@bitbucket.org/cliffordru2/artlogin.git"
+  },
+  "author": "Andrew Joia (drewdrewthis.com)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/cliffordru2/artlogin#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-csscss": "^0.1.2",
+    "gulp-ejs": "^2.1.3",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "livereload": "^0.5.0"
+  }
+}

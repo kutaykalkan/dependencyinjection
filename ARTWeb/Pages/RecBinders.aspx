@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Panel runat="server" ID="pnlServiceDataImport" Width="1000px" ScrollBars="Horizontal">
+                        <asp:Panel runat="server" ID="pnlServiceDataImport" Width="1050px" ScrollBars="Horizontal">
                             <asp:HiddenField ID="hdnNewPageSize" runat="server" />
                             <telerikWebControls:ExRadGrid ID="rgRecBinders" OnItemDataBound="rgRecBinders_ItemDataBound"
                                 OnItemCommand="rgRecBinders_ItemCommand" OnItemCreated="rgRecBinders_ItemCreated" OnSortCommand="rgRecBinders_SortCommand"

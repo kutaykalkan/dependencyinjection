@@ -150,7 +150,7 @@
         <td colspan="2">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr id="trKeyAccount" runat="server">
-                    <td width="145px">
+                    <td width="170px">
                         <webControls:ExLabel ID="lblIsKeyAccount" LabelID="1339" runat="server" FormatString="{0}:"
                             SkinID="Black11Arial"></webControls:ExLabel>
                     </td>
@@ -194,7 +194,7 @@
         <td colspan="2">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr id="trIsReconcilable" runat="server">
-                    <td width="145px">
+                    <td width="170px">
                         <webControls:ExLabel ID="lblIsReconcilable" LabelID="2401" runat="server" FormatString="{0}:"
                             SkinID="Black11Arial"></webControls:ExLabel>
                     </td>
@@ -251,7 +251,7 @@
         </td>
     </tr>
 </table>
-<ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="AntiqueWhite" Radius="6"
+<ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="#dae9fa" Radius="6"
     TargetControlID="pnlSearchCommand" ID="RoundedCornersExtender1" runat="server">
 </ajaxToolkit:RoundedCornersExtender>
 <input type="hidden" id="hdnOrganizationalHierarchy" runat="server" />

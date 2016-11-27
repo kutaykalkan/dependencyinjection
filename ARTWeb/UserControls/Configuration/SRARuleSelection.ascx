@@ -44,6 +44,8 @@
                                                 <webControls:ExLabel ID="lblSRARuleNo" Text='<%# DataBinder.Eval(Container.DataItem, "SystemReconciliationRuleNumber") %>'
                                                     runat="server" />
                                             </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
                                         </telerikWebControls:ExGridTemplateColumn>
                                     </Columns>
                                 </MasterTableView>

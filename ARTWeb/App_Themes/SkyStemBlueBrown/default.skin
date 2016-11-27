@@ -14,11 +14,12 @@ Default skin template. The following skins are provided as examples only.
 <asp:Image runat="server" ImageUrl="~/images/image1.jpg" /> 
 --%>
 <asp:image runat="server" Imageurl="Images/SkyStemLogoLogin.gif" width="239" height="70" SkinID="SkyStemLogoLogin"/>
-<asp:image runat="server" Imageurl="Images/SkyStemLogo.gif" ImageAlign="Left" SkinID="SkyStemLogoMaster"/>
+<asp:image runat="server" Imageurl="Images/SkyStemCrystalLogo.png" ImageAlign="Left" SkinID="SkyStemLogoMaster" Height="29px"/>
+<asp:image runat="server" Imageurl="Images/SkyStemLogo.png" ImageAlign="Left" SkinID="SkyStemLogoArtMaster" />
 <asp:Image ImageUrl="Images/MenuBar.gif" AlternateText="" runat="server" SkinID="MenuSeparator" /> 
 <asp:Image ImageUrl="Images/wait.gif" AlternateText="" runat="server" SkinID="WaitImage" /> 
 <asp:Image ImageUrl="Images/clock.gif" AlternateText="" runat="server" SkinID="ClockImage" /> 
-<asp:Image ImageUrl="Images/logo.gif" AlternateText="" runat="server" SkinID="SkyStemLogo" /> 
+<asp:Image ImageUrl="Images/SkyStemCrystalLogo.png" AlternateText="" runat="server" SkinID="SkyStemLogo" /> 
 <asp:Image ImageUrl="Images/InfoIcon.gif" AlternateText="" runat="server" SkinID="InfoIcon" />
 <asp:Image ImageUrl="Images/Info_Big.gif" AlternateText="" runat="server" SkinID="InfoBig" /> 
 
@@ -44,9 +45,9 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExImage SkinID="ImportItem" LabelID="1497" ImageUrl="Images/Import.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="FilterItem" LabelID="1633 " ImageUrl="Images/AddMoreFilter.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="ViewItemGrid" LabelID="1803" ImageUrl="Images/View.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImage SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImage SkinID="EditMode"  LabelID="1429"   ImageUrl="Images/EditMode.gif" ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImage SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="EditMode"  LabelID="1429"   ImageUrl="Images/EditMode.png" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.png"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="AddUser" LabelID="1607" ImageUrl="Images/add_user.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="SuccessIcon" ImageUrl="Images/Tick.gif" ImageAlign="AbsMiddle"  runat="server"/>
 <webControls:ExImage SkinID="History" ImageUrl="Images/History.gif" ImageAlign="AbsMiddle"  runat="server"/>
@@ -101,7 +102,7 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExImage SkinID="Done" LabelID="2590" ImageUrl="Images/done.png"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="BulkEdit" LabelID="2572" ImageUrl="Images/BulkEdit.png"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="Edit" LabelID="1429" ImageUrl="Images/Edit.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImage SkinID="ReadOnly" LabelID="1470" ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImage SkinID="ReadOnly" LabelID="1470" ImageUrl="Images/ReadOnly.png"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImage SkinID="Delete" LabelID="2646" ImageUrl="Images/Delete.gif"  ImageAlign="AbsMiddle" runat="server" />
 
 
@@ -112,9 +113,9 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExImageButton SkinID="AccountMatching" LabelID="1497"  ImageUrl="Images/AccountMatching.gif"  runat="server"/>
 
 <webControls:ExImageButton SkinID="ImportItem" LabelID="1497"  ImageUrl="Images/Import.gif"  runat="server"/>
-<webControls:ExImageButton SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImageButton SkinID="EditMode"  LabelID="1635"   ImageUrl="Images/EditMode.gif" ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImageButton SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.gif"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="ReadOnlyMode"   LabelID="1634 "  ImageUrl="Images/ReadOnly.png"  ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="EditMode"  LabelID="1635"   ImageUrl="Images/EditMode.png" ImageAlign="AbsMiddle" runat="server" />
+<webControls:ExImageButton SkinID="StartReconciliation" LabelID="1636" ImageUrl="Images/StartReconciliation.png"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImageButton SkinID="DeleteIcon" LabelID="1564 " ImageUrl="Images/delete.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImageButton SkinID="History"   LabelID="1391" ImageUrl="Images/History.gif"  runat="server"/>
 <webControls:ExImageButton SkinID="AddUser" LabelID="1607" ImageUrl="Images/add_user.gif"  ImageAlign="AbsMiddle" runat="server" />
@@ -128,7 +129,7 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExImageButton SkinID="EditIcon" LabelID="1429" ImageUrl="Images/Edit.gif"  ImageAlign="AbsMiddle" runat="server" />
 <webControls:ExImageButton SkinID="ClearNotify" ImageUrl="Images/del_user.gif"  runat="server" LabelID="2663"  ImageAlign="top"  />
 <webControls:ExImageButton SkinID="DeleteTaskLoadIcon" LabelID="1933" ImageUrl="Images/DelExcelIcon.gif"  ImageAlign="AbsMiddle" runat="server" />
-<webControls:ExImageButton SkinID="DownloadAttachments" LabelID="2791" ImageUrl="Images/download.gif" runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExImageButton SkinID="DownloadAttachments" LabelID="2791" ImageUrl="Images/download.gif" runat="server"  ImageAlign="AbsMiddle" AlternateText="Downlaod" />
 
 <webControls:ExImageButton SkinID="HideGridRowsIcon" ImageUrl="Images/Cancel.gif"  ImageAlign="Top"  runat="server"/>
 <webControls:ExImageButton SkinID="ShowGridRowsIcon" ImageUrl="Images/Add.gif"  ImageAlign="Top"  runat="server"/>
@@ -242,21 +243,21 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExHyperLink SkinID="GridHyperLink" CssClass="GridHyperLink" runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkWithUnderline" CssClass="GridHyperLinkWithUnderline" runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderline" CssClass="GridHyperLinkImageWithUnderline" runat="server" ></webControls:ExHyperLink>
-<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineReadOnlyMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/ReadOnly.gif"  runat="server" ></webControls:ExHyperLink>
-<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineEditMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/EditMode.gif"  runat="server" ></webControls:ExHyperLink>
-<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineStartRecMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/StartReconciliation.gif"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineReadOnlyMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/ReadOnly.png"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineEditMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/EditMode.png"  runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithUnderlineStartRecMode" CssClass="GridHyperLinkImageWithUnderline" ImageUrl="Images/StartReconciliation.png"  runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="HyperLinkBoldBrown" CssClass="ReportActivity" runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="ExportToPDF" LabelID="1405" ImageUrl="Images/pdf.gif" runat="server"  ImageAlign="AbsMiddle" />
 
 <webControls:ExHyperLink SkinID="MatchSetResult" ToolTipLabelID="2341" ImageUrl="Images/MatchingResult.gif" runat="server" ImageAlign="AbsMiddle" />
-<webControls:ExHyperLink SkinID="GridHyperLinkImageWithoutUnderlineReadOnlyMode" ImageUrl="Images/ReadOnly.gif" runat="server" ></webControls:ExHyperLink>
+<webControls:ExHyperLink SkinID="GridHyperLinkImageWithoutUnderlineReadOnlyMode" ImageUrl="Images/ReadOnly.png" runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithCompletedStatus" ImageUrl="Images/Completed.gif"  runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithPendingStatus"  ImageUrl="Images/Pending.gif"  runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithOverDueStatus"  ImageUrl="Images/Overdue.gif"  runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="AddUser" ImageUrl="Images/add_user.gif"  runat="server"  ImageAlign="AbsMiddle" />
 <webControls:ExHyperLink SkinID="GridHyperLinkImageComment" ImageUrl="Images/Comment.gif"  runat="server"  ImageAlign="AbsMiddle" />
 <webControls:ExHyperLink SkinID="GridHyperLinkImageEdit" ImageUrl="Images/Edit.gif"  runat="server"  ImageAlign="AbsMiddle" />
-<webControls:ExHyperLink SkinID="GridHyperLinkImageReadOnly" ImageUrl="Images/ReadOnly.gif"  runat="server"  ImageAlign="AbsMiddle" />
+<webControls:ExHyperLink SkinID="GridHyperLinkImageReadOnly" ImageUrl="Images/ReadOnly.png"  runat="server"  ImageAlign="AbsMiddle" />
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithHiddenStatus"  ImageUrl="Images/hide.png"  runat="server" ></webControls:ExHyperLink>
 <webControls:ExHyperLink SkinID="GridHyperLinkImageWithDeleteStatus"  ImageUrl="Images/Delete.gif"  runat="server" ></webControls:ExHyperLink>
 
@@ -302,8 +303,8 @@ Default skin template. The following skins are provided as examples only.
 <webControls:ExLinkButton CssClass="LinkButton" runat="server" ></webControls:ExLinkButton>        
 
 <asp:Panel  runat="server" CssClass="ExtendedPanelCapability" SkinID="pnlExtended" />
-<asp:Panel runat="server" ScrollBars="Horizontal" Width="1003px" Height="100%" SkinID="RadGridScrollPanel" ></asp:Panel>     
-<asp:Panel runat="server" ScrollBars="Both" Width="1003px" Height="550px" SkinID="RadGridScrollPanelWithBothScroll" ></asp:Panel>     
+<asp:Panel runat="server" ScrollBars="Horizontal" Width="1153px" Height="100%" SkinID="RadGridScrollPanel" ></asp:Panel>     
+<asp:Panel runat="server" ScrollBars="Both" Width="1153px" Height="550px" SkinID="RadGridScrollPanelWithBothScroll" ></asp:Panel>     
 
 <asp:Panel runat="server" CssClass="ModalPopupHoverPanel" SkinID="ModalPopupHoverPanel"></asp:Panel>
 

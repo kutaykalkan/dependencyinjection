@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Panel runat="server" ID="pnlServiceDataImport" Width="1000px" ScrollBars="Horizontal">
+                        <asp:Panel runat="server" ID="pnlServiceDataImport" Width="1050px" ScrollBars="Horizontal">
                             <telerikWebControls:ExRadGrid ID="rgRequests" runat="server" OnItemDataBound="rgRequests_ItemDataBound"
                                 OnSortCommand="rgRequests_SortCommand" OnNeedDataSource="rgRequests_NeedDataSource"
                                 AllowExportToExcel="true" AllowExportToPDF="true" AllowPrint="true" AllowPrintAll="true"

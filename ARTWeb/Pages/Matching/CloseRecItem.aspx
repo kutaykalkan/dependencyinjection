@@ -74,7 +74,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="padding: 5px">
-                        <asp:Panel ID="PanelScrollBars" ScrollBars="Auto" Visible="false" Width="990PX" runat="server">
+                        <asp:Panel ID="PanelScrollBars" ScrollBars="Auto" Visible="false" runat="server">
                             <table>
                                 <tr>
                                     <td valign="top">
