@@ -153,7 +153,7 @@
                                     </tr>
                                     <tr>
                                         <td />
-                                        <td colspan="3">
+                                        <td colspan="3" class="LinkButtonSpecial">
                                             <webControls:ExLinkButton ID="lnkBtnAttachMore" Visible="false" runat="server" LabelID="2790" CausesValidation="false" OnClick="lnkBtnAttachMore_Click" />
                                         </td>
                                         <td colspan="4"></td>

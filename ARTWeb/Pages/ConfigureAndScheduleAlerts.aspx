@@ -78,7 +78,7 @@
                                                 </tr>
                                             </table>
                                         </ItemTemplate>
-                                        <HeaderStyle HorizontalAlign="Right" />
+                                        <HeaderStyle/>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <%--Recurrence--%>
@@ -191,7 +191,7 @@
                                                 </tr>
                                             </table>
                                         </ItemTemplate>
-                                        <HeaderStyle HorizontalAlign="Right" />
+                                        <HeaderStyle />
                                         <ItemStyle HorizontalAlign="Right" />
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <%--Recurrence--%>
@@ -304,7 +304,7 @@
                                                 </tr>
                                             </table>
                                         </ItemTemplate>
-                                        <HeaderStyle HorizontalAlign="Right" />
+                                        <HeaderStyle />
                                         <ItemStyle HorizontalAlign="Right" />
                                     </telerikWebControls:ExGridTemplateColumn>
                                     <%--Recurrence--%>

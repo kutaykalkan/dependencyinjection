@@ -77,9 +77,9 @@ public partial class Pages_Reports_TaskCompletionReport : PageBaseReport
                     GetGridData();
                     ucSkyStemARTGrid.BindGrid();
                     string SelectedDisplaycolumn = ReportHelper.GetCriteriaForCriteriaKey(_oCriteriaCollection, ReportCriteriaKeyName.RPTCRITERIAKEYNAME_DISPLAYCOLUMN);
-                    short TaskTypeID;
-                    TaskTypeID = Convert.ToInt16(ReportHelper.GetCriteriaForCriteriaKey(_oCriteriaCollection, ReportCriteriaKeyName.RPTCRITERIAKEYNAME_TASKTYPE));
-                    ReportHelper.ShowHideGridColumns(ucSkyStemARTGrid.Grid, _reportID.Value, SelectedDisplaycolumn, TaskTypeID);
+                    var typeId = ReportHelper.GetCriteriaForCriteriaKey(_oCriteriaCollection, ReportCriteriaKeyName.RPTCRITERIAKEYNAME_TASKTYPE);
+                    var taskTypeId = string.IsNullOrEmpty(typeId) ? (short) 1 : Convert.ToInt16(typeId);
+                    ReportHelper.ShowHideGridColumns(ucSkyStemARTGrid.Grid, _reportID.Value, SelectedDisplaycolumn, taskTypeId);
                 }
             }
         }
@@ -133,8 +133,8 @@ public partial class Pages_Reports_TaskCompletionReport : PageBaseReport
                     oFilterCriteria.Value = TaskListFilterValue;
                     oTaskFilterCriteriaCollection.Add(oFilterCriteria);
                 }
-                short taskType;
-                taskType = Convert.ToInt16(ReportHelper.GetCriteriaForCriteriaKey(_oCriteriaCollection, ReportCriteriaKeyName.RPTCRITERIAKEYNAME_TASKTYPE));
+                var type = ReportHelper.GetCriteriaForCriteriaKey(_oCriteriaCollection, ReportCriteriaKeyName.RPTCRITERIAKEYNAME_TASKTYPE);
+                var taskType = string.IsNullOrEmpty(type) ? (short)1 : Convert.ToInt16(type);
                 oTaskCompletionReportInfoList = oReportClient.GetReportTaskCompletionReport(taskType, oReportSearchCriteria, dtEntity, dtUser, dtRole, oTaskFilterCriteriaCollection, LanguageUtil.GetValue(2689), Helper.GetAppUserInfo());
                 oTaskCompletionReportInfoList = LanguageHelper.TranslateLabelsTaskCompletionReport(oTaskCompletionReportInfoList);
                 Session[SessionConstants.REPORT_DATA_TASK_COMPLETION_REPORT] = oTaskCompletionReportInfoList;

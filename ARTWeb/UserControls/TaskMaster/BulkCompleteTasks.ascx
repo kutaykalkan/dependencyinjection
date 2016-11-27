@@ -195,7 +195,7 @@ function removeSpaces(string) {
         <td colspan="3" style="width: 100%">
             <UserControl:GeneralTaskGrid ID="ucGeneralTaskGrid" runat="server" AllowCustomPaging="true"
                 Grid-ClientSettings-Scrolling-AllowScroll="true" AllowExportToExcel="false" AllowExportToPDF="false"
-                AllowSelectionPersist="true" Grid-Width="990px" Grid-Hieght="300px">
+                AllowSelectionPersist="true" Grid-Hieght="300px">
             </UserControl:GeneralTaskGrid>
         </td>
     </tr>
@@ -203,7 +203,7 @@ function removeSpaces(string) {
         <td colspan="3" style="width: 100%">
             <UserControl:AccountTaskGrid ID="ucAccountTaskGrid" runat="server" AllowCustomPaging="true"
                 Grid-ClientSettings-Scrolling-AllowScroll="true" AllowExportToExcel="false" AllowExportToPDF="false"
-                AllowSelectionPersist="true" Grid-Width="990px" Grid-Hieght="300px"></UserControl:AccountTaskGrid>
+                AllowSelectionPersist="true" Grid-Hieght="300px"></UserControl:AccountTaskGrid>
         </td>
     </tr>
     <tr class="BlankRow">

@@ -35,7 +35,7 @@
                         </telerik:RadPane>
                         <telerik:RadSplitBar ID="Radsplitbar1" runat="server" CollapseMode="Forward">
                         </telerik:RadSplitBar>
-                        <telerik:RadPane ID="MiddlePane1" CssClass="RadMiddlePane" Width="763" runat="server"
+                        <telerik:RadPane ID="MiddlePane1" CssClass="RadMiddlePane" runat="server"
                             Scrolling="Both" Height="100%">
                             <asp:UpdatePanel ID="upnlLeftPane" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
                                 <ContentTemplate>
@@ -47,7 +47,7 @@
                                                     <col width="20%" />
                                                     <col width="20%" />
                                                     <%--GL Balance Row--%>
-                                                    <tr class="RecFormHeaderRow">
+                                                    <tr class="RecFormHeaderRow first">
                                                         <td class="RecFormFirstCol">
                                                             <webControls:ExLabel ID="lblGLBalance" runat="server" LabelID="1382" SkinID="WhiteBold11Arial"></webControls:ExLabel>
                                                             <webControls:ExLabel ID="lblPeriodEndDate" runat="server" FormatString="({0})" SkinID="WhiteBold11Arial"></webControls:ExLabel>

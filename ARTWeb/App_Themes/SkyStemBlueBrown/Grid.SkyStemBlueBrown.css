@@ -4,8 +4,7 @@
 
 .RadGrid_SkyStemBlueBrown
 {
-    border:1px solid #000000;
-    border-collapse:collapse;
+    border:none;
     background:#e2f2fc;
 }
 
@@ -134,13 +133,13 @@
 .RadGrid_SkyStemBlueBrown .rgHeader,
 .RadGrid_SkyStemBlueBrown th.rgResizeCol
 {
+    background: #dae9fa;
+    color: black;
 	font-family: Arial;
 	font-size: 11px;
 	font-weight: bold;
-	color: #ffffff;
 	text-decoration: none;
 	height: 25px;
-	background: #ab6501;
 	text-align: left;
 	padding-left: 3px;
 }
@@ -362,7 +361,7 @@
 	text-align: center;
 	padding: 5px;
 	letter-spacing: 0px;
-	background:#e8d59c;
+	background:#dae9fa;
 }
 
 .RadGrid_SkyStemBlueBrown .rgPager .rgPagerCell
@@ -702,7 +701,7 @@
 
 .RadGrid_SkyStemBlueBrown .rgGroupHeader
 {
-    background-color:#f2e9c9;
+    background-color:#fddbef;
 	font-family: Arial;
 	font-size: 11px;
 	color: #000000;
@@ -905,4 +904,70 @@
 {
 	background-color:Gray;
 	border:Solid 1px #00000;
+}
+
+/* Update-UI */
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #fddbef;
+}
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #fddbef;
+}
+
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{
+	background:  #dae9fa;
+}
+
+.RadGrid_SkyStemBlueBrown .rgAltRow td
+{	
+	background: #fff;
+    /*border-bottom: solid 1px;*/	
+}
+
+.RadGrid_SkyStemBlueBrown .rgRow td,
+/*.RadGrid_SkyStemBlueBrown .rgAltRow td,*/
+.RadGrid_SkyStemBlueBrown .rgEditRow td,
+.RadGrid_SkyStemBlueBrown .rgFooter td
+{	
+	background: #EDF3F9;
+    /*border-bottom:Solid 1px red;*/
+    /*background: #ECF9D9;*/
+    /*border-bottom: solid 1px;*/
+}
+
+.RadGrid_SkyStemBlueBrown .rgNumPart a.rgCurrentPage span,
+.RadGrid_SkyStemBlueBrown .rgNumPart a.rgCurrentPage:hover span
+{	
+	background-color:#ec008c;
+}
+
+.RadGrid_SkyStemBlueBrown .rgCommandRow
+{
+	background: #fff; 	
+}
+
+.RadGrid_SkyStemBlueBrown th.rgHeader
+{	
+	color: #000;
+}
+
+.RadGrid_SkyStemBlueBrown .rgCommandCell
+{
+    border: none;
+}
+
+.RadGrid_SkyStemBlueBrown .rgHeader,
+.RadGrid_SkyStemBlueBrown .rgHeader a
+{	
+	color: #000;
+}
+
+.LegendTable
+{    
+    margin-left: 0;
 }

@@ -223,7 +223,7 @@
             </tr>
         </table>
     </div>
-    <ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="AntiqueWhite" Radius="6"
+    <ajaxToolkit:RoundedCornersExtender Corners="All" BorderColor="#dae9fa" Radius="6"
         TargetControlID="pnlCriteria" ID="RoundedCornersExtender1" runat="server">
     </ajaxToolkit:RoundedCornersExtender>
     <asp:HiddenField ID="hdnHeight" runat="server" />

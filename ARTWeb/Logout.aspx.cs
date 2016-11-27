@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using SkyStem.ART.Client.Model;
 using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
 using System.Globalization;
+using SkyStem.ART.Web.Data;
 
 public partial class Logout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Session.Abandon();
+        if (Request.QueryString["old"] == null) Response.Redirect($"{ResolveUrl("~/login")}?{QueryStringConstants.LOGOUT_MESSAGE}=true");
+
         string loginURL = this.ResolveUrl("~/Login.aspx");
         // Put user code to initialize the page here
         UserHdrInfo oUserInfo = SessionHelper.GetCurrentUser();

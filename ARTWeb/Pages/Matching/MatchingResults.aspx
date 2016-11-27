@@ -10,9 +10,9 @@
 <%@ Register TagPrefix="usc" TagName="MatchSetInfo" Src="~/UserControls/Matching/MatchSetInfo.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphMatching" runat="Server">
     <asp:Panel ID="pnlMessage" runat="server">
-        <table width="1003px">
+        <table width="1153px">
             <tr>
-                <td width="1003px" align="center">
+                <td width="1153px" align="center">
                     <webControls:ExLabel ID="lblError" runat="server" LabelID="1051" FormatString="{0}:"
                         SkinID="Black11Arial"></webControls:ExLabel>&nbsp;&nbsp;
                     <webControls:ExLabel ID="lblErrorMessage" LabelID="2352" SkinID="Black11ArialNormal"
@@ -23,7 +23,7 @@
     </asp:Panel>
     <asp:Panel ID="pnlResult" runat="server">
         &nbsp;<usc:MatchSetInfo ID="uscMatchSetInfo" runat="server" />
-        <table width="1003px">
+        <table width="1153px">
             <tr>
                 <td>
                     <UserControls:MatchingCombinationSelection ID="ucMatchingCombinationSelection" runat="server" EnabledValidatePageData="false" />
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td valign="bottom">
-                    <table width="1003px" style="table-layout: fixed" border="0" cellpadding="0" cellspacing="0">
+                    <table width="1153px" style="table-layout: fixed" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td width="600px">
                                 <telerikWebControls:ExRadTabStrip Skin="SkyStemBlueBrown" EnableEmbeddedSkins="false"
