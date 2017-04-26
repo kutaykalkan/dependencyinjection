@@ -133,7 +133,8 @@
                                                         <%--<webControls:ExCompareValidator ID="cmpvPrepareDueDateCurrent" runat="server"  ControlToValidate="calPrepareDueDate"
                                                             Operator="GreaterThanEqual"   Type="Date"></webControls:ExCompareValidator>--%>
                                                         <asp:CustomValidator ID="cvComparePrepareDueDateWithCurrentDate" runat="server" Text="!"
-                                                            Font-Bold="true" ControlToValidate="calPrepareDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"></asp:CustomValidator>
+                                                            Font-Bold="true" ControlToValidate="calPrepareDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"
+                                                            OnServerValidate="cvCompareDateWithCurrentDate_OnServerValidate"></asp:CustomValidator>
                                                     </ItemTemplate>
                                                 </telerikWebControls:ExGridTemplateColumn>
                                                 <%--Reviewer Due Date--%>
@@ -143,7 +144,8 @@
                                                         <webControls:ExCustomValidator runat="server" OnServerValidate="cvIsOnHoliday_ServerValidate"
                                                             ID="cvReviewerDueDateHoliday" ControlToValidate="calReviewerDueDate" LabelID="5000085">!</webControls:ExCustomValidator>
                                                         <asp:CustomValidator ID="cvCompareReviewerDueDateWithCurrentDate" runat="server"
-                                                            Text="!" Font-Bold="true" ControlToValidate="calReviewerDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"></asp:CustomValidator>
+                                                            Text="!" Font-Bold="true" ControlToValidate="calReviewerDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"
+                                                            OnServerValidate="cvCompareDateWithCurrentDate_OnServerValidate"></asp:CustomValidator>
                                                         <asp:RequiredFieldValidator ID="rfvReviewerDueDate" runat="server" ControlToValidate="calReviewerDueDate" Enabled="false" />
                                                     </ItemTemplate>
                                                 </telerikWebControls:ExGridTemplateColumn>
@@ -155,7 +157,8 @@
                                                         <webControls:ExCustomValidator runat="server" OnServerValidate="cvIsOnHoliday_ServerValidate"
                                                             ID="cvApproverDueDateHoliday" ControlToValidate="calApproverDueDate" LabelID="5000085">!</webControls:ExCustomValidator>
                                                         <asp:CustomValidator ID="cvCompareApproverDueDateWithCurrentDate" runat="server"
-                                                            Text="!" Font-Bold="true" ControlToValidate="calApproverDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"></asp:CustomValidator>
+                                                            Text="!" Font-Bold="true" ControlToValidate="calApproverDueDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"
+                                                            OnServerValidate="cvCompareDateWithCurrentDate_OnServerValidate"></asp:CustomValidator>
                                                         <asp:RequiredFieldValidator ID="rfvApproverDueDate" runat="server" ControlToValidate="calApproverDueDate" Enabled="false" />
                                                     </ItemTemplate>
                                                 </telerikWebControls:ExGridTemplateColumn>
@@ -168,7 +171,8 @@
                                                             ID="cvCertificationStartDateHoliday" ControlToValidate="calCertificationStartDate"
                                                             LabelID="5000085">!</webControls:ExCustomValidator>
                                                         <asp:CustomValidator ID="cvCompareCertificationStartDateWithCurrentDate" runat="server"
-                                                            Text="!" Font-Bold="true" ControlToValidate="calCertificationStartDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"></asp:CustomValidator>
+                                                            Text="!" Font-Bold="true" ControlToValidate="calCertificationStartDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"
+                                                            OnServerValidate="cvCompareDateWithCurrentDate_OnServerValidate"></asp:CustomValidator>
                                                         <asp:RequiredFieldValidator ID="rfvCertificationStartDate" runat="server" ControlToValidate="calCertificationStartDate" Enabled="false" />
                                                     </ItemTemplate>
                                                 </telerikWebControls:ExGridTemplateColumn>
@@ -189,7 +193,7 @@
                                                             LabelID="5000085">!</webControls:ExCustomValidator>
                                                         <asp:CustomValidator ID="cvCompareCloseOrLockDownDateWithCurrentDate" runat="server"
                                                             Text="!" Font-Bold="true" ControlToValidate="calCloseOrLockDownDate" ClientValidationFunction="CompareDateNotBeforeCurrentDate"
-                                                            OnServerValidate="cvMaximumDocumentSize_OnServerValidate"></asp:CustomValidator>
+                                                            OnServerValidate="cvCompareDateWithCurrentDate_OnServerValidate"></asp:CustomValidator>
                                                         <asp:RequiredFieldValidator ID="rfvCloseOrLockDownDate" runat="server" ControlToValidate="calCloseOrLockDownDate" Enabled="false" />
                                                         <asp:CustomValidator ID="cvcalCloseOrLockDownDate" runat="server" ControlToValidate="calCloseOrLockDownDate"
                                                             ClientValidationFunction="ValidateDate">
@@ -589,7 +593,7 @@
         }
 
         function CompareDateNotBeforeCurrentDate(sender, args) {
-            var dateToCompare = sender.dateToCompare;
+            var dateToCompare = sender.getAttribute("dateToCompare");
             var dateCal = document.getElementById(sender.controltovalidate).value;
             var result = CompareDates(dateCal, dateToCompare);
             if (result == -1) //what about <0
