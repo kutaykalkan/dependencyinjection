@@ -171,6 +171,7 @@ namespace SkyStem.ART.Web
                             // Set the Current Company as User's Company
                             SessionHelper.CurrentCompanyID = oUserHdrInfo.CompanyID;
                         }
+                        LanguageHelper.SetLanguageAndLoadPhrases(oUserHdrInfo.DefaultLanguageID.GetValueOrDefault());
                         // Company User
                         Helper.RedirectToHomePage();
                     }

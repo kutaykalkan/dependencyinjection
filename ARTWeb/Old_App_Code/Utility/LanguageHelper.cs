@@ -819,6 +819,26 @@ namespace SkyStem.ART.Web.Utility
         }
 
         /// <summary>
+        /// Set Language and Load Phrases
+        /// </summary>
+        /// <param name="lcid"></param>
+        public static void SetLanguageAndLoadPhrases(int lcid)
+        {
+            // Clear the translated master data from session
+            SessionHelper.ClearMasterDataFromSession();
+
+            // Get the User/Browser Language and store in Session
+            if (lcid == 0)
+                lcid = System.Threading.Thread.CurrentThread.CurrentCulture.LCID;
+            SessionHelper.SetUserLanguage(lcid);
+            // Check for Test LCID, if set
+            LanguageHelper.SetTestLanguage();
+
+            // Set Current Culture and Load Phrases
+            LanguageHelper.SetCurrentCultureAndLoadPhrases();
+        }
+
+        /// <summary>
         /// Gets the multilingual attribute info.
         /// </summary>
         /// <param name="lcid">The lcid.</param>

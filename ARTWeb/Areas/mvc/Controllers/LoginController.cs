@@ -122,6 +122,8 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                             // Set the Current Company as User's Company
                             SessionHelper.CurrentCompanyID = userHdrInfo.CompanyID;
                         }
+                        LanguageHelper.SetLanguageAndLoadPhrases(userHdrInfo.DefaultLanguageID.GetValueOrDefault());
+
                         // Company User                       
                         var url = SessionHelper.ResolveUrl(Helper.GetHomePageUrl());
                         return Redirect(url);
