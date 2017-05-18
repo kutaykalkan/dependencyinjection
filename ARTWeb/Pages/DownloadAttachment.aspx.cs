@@ -53,6 +53,11 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
         filePhysicalPath = strRequestedDoc;
         if (strRequestedDoc != null)
         {
+            string basePath = SharedDataImportHelper.GetBaseFolder();
+            if (!filePhysicalPath.Contains(basePath))
+            {
+                filePhysicalPath = Path.Combine(basePath, filePhysicalPath);
+            }
             FileInfo objFileInfo = new FileInfo(filePhysicalPath);
 
             ContentType = ExportHelper.GetContentType(objFileInfo.Extension);

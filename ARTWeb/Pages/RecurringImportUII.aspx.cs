@@ -22,6 +22,7 @@ using SkyStem.ART.Shared.Data;
 using SkyStem.Library.Controls.TelerikWebControls.Data;
 using SkyStem.ART.Client.Params.RecItemUpload;
 using SkyStem.Language.LanguageUtility.Classes;
+using SkyStem.ART.Shared.Utility;
 
 public partial class Pages_RecurringImportUII : PageBaseRecPeriod
 {
@@ -2050,7 +2051,7 @@ public partial class Pages_RecurringImportUII : PageBaseRecPeriod
         hlRecordsAffected.Text = Helper.GetDisplayIntegerValue(oDataImportHdrInfo.RecordsImported);
         hlFileName.Text = oDataImportHdrInfo.FileName;
 
-        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oDataImportHdrInfo.PhysicalPath);
+        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
         imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
 
         //// Icons

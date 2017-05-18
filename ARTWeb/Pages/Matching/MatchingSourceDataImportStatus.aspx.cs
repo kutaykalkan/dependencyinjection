@@ -23,6 +23,7 @@ using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Web.Data;
 using System.IO;
 using SkyStem.ART.Client.Model;
+using SkyStem.ART.Shared.Utility;
 
 public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMatching
 {
@@ -287,7 +288,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         else
             lblMatchSetID.Text = "0";
 
-        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oMatchingSourceDataImportHdrInfo.PhysicalPath);
+        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
         imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
 
         WebEnums.DataImportStatus eDataImportStatus = (WebEnums.DataImportStatus)System.Enum.Parse(typeof(WebEnums.DataImportStatus), oMatchingSourceDataImportHdrInfo.DataImportStatusID.Value.ToString());

@@ -756,7 +756,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
 
         List<DateTime> pastDateList = new List<DateTime>();
 
-        if (calPrepareDueDate != null && !String.IsNullOrEmpty(calPrepareDueDate.Text))
+        if (calPrepareDueDate != null && calPrepareDueDate.Enabled && !String.IsNullOrEmpty(calPrepareDueDate.Text))
         {
             DateTime dtPreparerDueDate = new DateTime();
             if (DateTime.TryParse(calPrepareDueDate.Text, out dtPreparerDueDate))
@@ -766,7 +766,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
             }
         }
 
-        if (calReviewerDueDate != null && !String.IsNullOrEmpty(calReviewerDueDate.Text))
+        if (calReviewerDueDate != null && calReviewerDueDate.Enabled && !String.IsNullOrEmpty(calReviewerDueDate.Text))
         {
             DateTime dtReviewerDueDate = new DateTime();
             if (DateTime.TryParse(calReviewerDueDate.Text, out dtReviewerDueDate))
@@ -775,7 +775,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     pastDateList.Add(Convert.ToDateTime(dtReviewerDueDate));
             }
         }
-        if (calApproverDueDate != null && !String.IsNullOrEmpty(calApproverDueDate.Text))
+        if (calApproverDueDate != null && calApproverDueDate.Enabled && !String.IsNullOrEmpty(calApproverDueDate.Text))
         {
             DateTime dtApproverDueDate = new DateTime();
             if (DateTime.TryParse(calApproverDueDate.Text, out dtApproverDueDate))
@@ -784,7 +784,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     pastDateList.Add(Convert.ToDateTime(dtApproverDueDate));
             }
         }
-        if (calCertificationStartDate != null && !String.IsNullOrEmpty(calCertificationStartDate.Text))
+        if (calCertificationStartDate != null && calCertificationStartDate.Enabled && !String.IsNullOrEmpty(calCertificationStartDate.Text))
         {
             DateTime dtCertStartDate = new DateTime();
             if (DateTime.TryParse(calCertificationStartDate.Text, out dtCertStartDate))
@@ -793,7 +793,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     pastDateList.Add(Convert.ToDateTime(dtCertStartDate));
             }
         }
-        if (calCloseOrLockDownDate != null && !String.IsNullOrEmpty(calCloseOrLockDownDate.Text))
+        if (calCloseOrLockDownDate != null && calCloseOrLockDownDate.Enabled && !String.IsNullOrEmpty(calCloseOrLockDownDate.Text))
         {
             DateTime dtCloseRecOrCertLockDownDate = new DateTime();
             if (DateTime.TryParse(calCloseOrLockDownDate.Text, out dtCloseRecOrCertLockDownDate))

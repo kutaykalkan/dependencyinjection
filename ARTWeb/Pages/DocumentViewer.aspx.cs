@@ -1,4 +1,5 @@
-﻿using SkyStem.ART.Web.Classes;
+﻿using SkyStem.ART.Shared.Utility;
+using SkyStem.ART.Web.Classes;
 using SkyStem.ART.Web.Data;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ public partial class Pages_DocumentViewer : PopupPageBase
             strRequestedDoc = Request.QueryString[QueryStringConstants.FILE_PATH];
         if (strRequestedDoc != null)
         {
-            string downloadUrl = this.ResolveUrl("~/Pages/DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(strRequestedDoc) + "&" + QueryStringConstants.DOWNLOAD_MODE + "=" + WebEnums.DownloadMode.inline);
+            string downloadUrl = this.ResolveUrl("~/Pages/DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(strRequestedDoc)) + "&" + QueryStringConstants.DOWNLOAD_MODE + "=" + WebEnums.DownloadMode.inline);
             //string strPrint = "javascript:OpenPrintRadWindowFromRadWindow('" + downloadUrl + "', " + WebConstants.PRINT_POPUP_HEIGHT + ", " + WebConstants.PRINT_POPUP_WIDTH + ");";
             //if (!Page.ClientScript.IsStartupScriptRegistered("OpenDocumentViewer"))
             //    Page.ClientScript.RegisterStartupScript(Page.GetType(), "OpenDocumentViewer", strPrint, true);

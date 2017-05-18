@@ -601,10 +601,12 @@ namespace SkyStem.ART.Web.UserControls
                 ExLabel lblDateForImport = (ExLabel)e.Item.FindControl("lblDateForImport");
                 lblDateForImport.Text = Helper.GetDisplayDate(Convert.ToDateTime(dr["OpenDate"]));
 
+                DateTime? closeDate = null;
                 if (_ShowCloseDateColum)
                 {
                     ExLabel lblCloseDate = (ExLabel)e.Item.FindControl("lblCloseDate");
-                    lblCloseDate.Text = Helper.GetDisplayDate(Convert.ToDateTime(dr["CloseDate"]));
+                    closeDate = Convert.ToDateTime(dr["CloseDate"]);
+                    lblCloseDate.Text = Helper.GetDisplayDate(closeDate);
                 }
                 if (_ShowDocsColumn)
                 {
@@ -616,7 +618,7 @@ namespace SkyStem.ART.Web.UserControls
                 ExLabel lblRecItemNumber = (ExLabel)e.Item.FindControl("lblRecItemNumber");
                 lblRecItemNumber.Text = Helper.GetDisplayStringValue(dr["RecItemNumber"].ToString());
                 ExLabel lblAging = (ExLabel)e.Item.FindControl("lblAging");
-                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), DateTime.Now));
+                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime))? DateTime.Now: closeDate));
                 ExLabel lblRefNo = (ExLabel)e.Item.FindControl("lblRefNo");
                 if (refNo.HasValue)
                 {

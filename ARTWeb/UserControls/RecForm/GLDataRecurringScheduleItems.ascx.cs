@@ -26,7 +26,7 @@ using System.Text;
 using SkyStem.ART.Client.Data;
 using SkyStem.ART.Client.Exception;
 using SkyStem.Library.Controls.TelerikWebControls.Data;
-
+using SkyStem.ART.Shared.Utility;
 
 namespace SkyStem.ART.Web.UserControls
 {
@@ -317,7 +317,7 @@ namespace SkyStem.ART.Web.UserControls
                             //if (oDataImportHdrInfo != null)
                             //{
                             imgViewFile.Visible = true;
-                            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(dr["PhysicalPath"].ToString());
+                            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(dr["PhysicalPath"].ToString()));
                             imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
                             //}
                         }
