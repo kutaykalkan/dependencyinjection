@@ -37,6 +37,9 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            throw new AccessViolationException("User is not authenticated and is attempting to download a file.");
+
         // Put user code to initialize the page here
         //string strDocPath = Helper.GetFolderForAttachment(SessionHelper.CurrentCompanyID.Value, SessionHelper.CurrentReconciliationPeriodID.Value);
         string ContentType;
