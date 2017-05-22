@@ -69,7 +69,10 @@ public partial class ChangePassword : PageBase
             try
             {
                 IUser oUserClient = RemotingHelper.GetUserObject();
-                oUserClient.VerifyAndUpdatePassword(userID, loginID, oldPasswordHash, newPasswordHash, Helper.GetAppUserInfo());
+                AppUserInfo oAppUserInfo = Helper.GetAppUserInfo();
+                if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+                    oAppUserInfo.CompanyID = null;
+                oUserClient.VerifyAndUpdatePassword(userID, loginID, oldPasswordHash, newPasswordHash, oAppUserInfo);
                 oUserHdrInfo.IsPasswordResetRequired = false;
                 Helper.RedirectToHomePage(1264);
             }

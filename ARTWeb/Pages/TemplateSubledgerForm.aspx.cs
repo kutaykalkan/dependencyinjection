@@ -23,6 +23,7 @@ using SkyStem.ART.Client.Data;
 using SkyStem.ART.Client.Exception;
 using SkyStem.Library.Controls.WebControls;
 using SkyStem.Library.Controls.TelerikWebControls;
+using SkyStem.ART.Shared.Utility;
 
 public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
 {
@@ -358,7 +359,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
             //oDataImportHdr = oDataImportClient.GetDataImportInfo(DataImportID, Helper.GetAppUserInfo());
             //if (oDataImportHdr != null)
             //{
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(PhysicalPath);
+            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(PhysicalPath));
             imgFileDownload.OnClientClick = "document.location.href = '" + url + "';return false;";
             imgFileDownload.ToolTip = LanguageUtil.GetValue(2051);
             imgFileDownload.Visible = true;

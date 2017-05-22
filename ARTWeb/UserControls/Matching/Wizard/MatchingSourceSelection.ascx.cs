@@ -19,7 +19,7 @@ using System.Data;
 using SkyStem.Library.Controls.TelerikWebControls;
 using SkyStem.ART.Web.Classes;
 using SkyStem.ART.App.DAO.Matching;
-
+using SkyStem.ART.Shared.Utility;
 
 namespace SkyStem.ART.Web.UserControls.Matching.Wizard
 {
@@ -463,7 +463,7 @@ namespace SkyStem.ART.Web.UserControls.Matching.Wizard
             lblAddedBy.Text = Helper.GetDisplayStringValue(oMatchingSourceDataImportHdrInfo.AddedBy);
             lblDateAdded.Text = Helper.GetDisplayDate(oMatchingSourceDataImportHdrInfo.DateAdded);
 
-            string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oMatchingSourceDataImportHdrInfo.PhysicalPath);
+            string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
             imgDownloadFile.OnClientClick = "document.location.href = '" + url + "';return false;";
 
         }

@@ -68,17 +68,7 @@ namespace SkyStem.ART.Web.Classes
                 if (!SessionHelper.IsUserLanguageExists() || lcid != SessionHelper.GetUserLanguage())
                 {
                     // Clear the translated master data from session
-                    SessionHelper.ClearMasterDataFromSession();
-
-                    // Get the User/Browser Language and store in Session
-                    if (lcid == 0)
-                        lcid = System.Threading.Thread.CurrentThread.CurrentCulture.LCID;
-                    SessionHelper.SetUserLanguage(lcid);
-                    // Check for Test LCID, if set
-                    LanguageHelper.SetTestLanguage();
-
-                    // Set Current Culture and Load Phrases
-                    LanguageHelper.SetCurrentCultureAndLoadPhrases();
+                    LanguageHelper.SetLanguageAndLoadPhrases(lcid);
                 }
                 // Set the Language (Culture) for the Current Thread
                 LanguageHelper.SetCurrentCulture();

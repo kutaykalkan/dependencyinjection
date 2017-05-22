@@ -297,7 +297,7 @@ namespace SkyStem.ART.Web.UserControls
                     if (oRecControlCheckListInfo.PhysicalPath != null)
                     {
                         imgViewFile.Visible = true;
-                        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oRecControlCheckListInfo.PhysicalPath);
+                        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oRecControlCheckListInfo.PhysicalPath));
                         imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
                     }
                 }

@@ -21,27 +21,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <script type="text/javascript" src="../JavaScript/JScript1.js"></script>
-
-        <script type="text/javascript" src="../JavaScript/CalendarPopup.js"></script>
-
-        <script type="text/javascript" src="../JavaScript/NumericValidations.js"></script>
-
-        <script type="text/javascript" src="../JavaScript/jquery-1.4.2.min.js"></script>
-
-        <script type="text/javascript" src="../JavaScript/Reports.js"></script>
-
-        <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
-
-        <script type="text/javascript" src="../../JavaScript/CalendarPopup.js"></script>
-
-        <script type="text/javascript" src="../../JavaScript/NumericValidations.js"></script>
-
-        <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>
-
-        <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
+       <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
             EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">
+            <Scripts>
+            <asp:ScriptReference Path="~/JavaScript/jquery-1.4.2.min.js" />
+            <asp:ScriptReference Path="~/JavaScript/CalendarPopup.js" />
+            <asp:ScriptReference Path="~/JavaScript/NumericValidations.js" />
+            <asp:ScriptReference Path="~/JavaScript/JScript1.js" />
+            <asp:ScriptReference Path="~/JavaScript/Reports.js" />
+            </Scripts>
         </asp:ScriptManager>
         <telerik:radwindowmanager reloadonshow="true" backcolor="White" showcontentduringload="false"
             id="rwmManager" runat="server" behaviors="Close, Move" onclientpageload="SetStatusBarForTelerikPopup"

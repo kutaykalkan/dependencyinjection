@@ -132,7 +132,7 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
             lblDateRevised.Text = Helper.GetDisplayDate(oImportTemplateInfo.DateRevised);
             lblRevisedBy.Text = oImportTemplateInfo.RevisedBy;
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oImportTemplateInfo.PhysicalPath);
+            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oImportTemplateInfo.PhysicalPath));
             imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
 
             if (oImportTemplateInfo.DataImportTypeLabelID == 1052 || oImportTemplateInfo.DataImportTypeLabelID == 1054)

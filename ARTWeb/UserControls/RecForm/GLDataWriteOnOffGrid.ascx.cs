@@ -573,10 +573,12 @@ namespace SkyStem.ART.Web.UserControls
                 lblAmountReportingCurrency.Text = Helper.GetDisplayDecimalValue(Convert.ToDecimal(dr["AmountReportingCurrency"]));
                 ExLabel lblOpenDate = (ExLabel)e.Item.FindControl("lblOpenDate");
                 lblOpenDate.Text = Helper.GetDisplayDate(Convert.ToDateTime(dr["OpenDate"]));
+                DateTime? closeDate = null;
                 if (_ShowCloseDateColum)
                 {
                     ExLabel lblCloseDate = (ExLabel)e.Item.FindControl("lblCloseDate");
-                    lblCloseDate.Text = Helper.GetDisplayDate(Convert.ToDateTime(dr["CloseDate"]));
+                    closeDate = Convert.ToDateTime(dr["CloseDate"]);
+                    lblCloseDate.Text = Helper.GetDisplayDate(closeDate);
                 }
                 ExLabel lblRecItemNumber = (ExLabel)e.Item.FindControl("lblRecItemNumber");
                 lblRecItemNumber.Text = Helper.GetDisplayStringValue(dr["RecItemNumber"].ToString());
@@ -584,7 +586,7 @@ namespace SkyStem.ART.Web.UserControls
                 lblUserName.Text = Helper.GetDisplayStringValue(dr["UserName"].ToString());
 
                 ExLabel lblAging = (ExLabel)e.Item.FindControl("lblAging");
-                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), DateTime.Now));
+                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime)) ? DateTime.Now: closeDate));
                 if (IsMultiCurrencyActivated)
                 {
                     if (TotalAmount.HasValue)

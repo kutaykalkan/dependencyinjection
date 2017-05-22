@@ -15,6 +15,7 @@ using SkyStem.ART.Client.Exception;
 using SkyStem.ART.Web.Utility;
 using SkyStem.ART.Web.Data;
 using SkyStem.Language.LanguageUtility;
+using SkyStem.ART.Web.Classes;
 
 public partial class Pages_DownloadAttachment : System.Web.UI.Page
 {
@@ -25,6 +26,15 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
     #region Delegates & Events
     #endregion
     #region Page Events
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        // Check for Http Referrer
+        Helper.CheckReferrer();
+
+        // Check for Session
+        SessionHelper.CheckSessionForUser();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!HttpContext.Current.User.Identity.IsAuthenticated)
@@ -46,6 +56,11 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
         filePhysicalPath = strRequestedDoc;
         if (strRequestedDoc != null)
         {
+            string basePath = SharedDataImportHelper.GetBaseFolder();
+            if (!filePhysicalPath.Contains(basePath))
+            {
+                filePhysicalPath = Path.Combine(basePath, filePhysicalPath);
+            }
             FileInfo objFileInfo = new FileInfo(filePhysicalPath);
 
             ContentType = ExportHelper.GetContentType(objFileInfo.Extension);
@@ -66,7 +81,7 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
                 }
                 Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
                 Response.ContentType = ContentType;
-                Response.WriteFile(strResponsePath);
+                Response.TransmitFile(strResponsePath);
                 Response.End();
             }
             else
@@ -102,5 +117,5 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
     #endregion
 
 
-   
+
 }

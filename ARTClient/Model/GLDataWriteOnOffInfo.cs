@@ -83,16 +83,16 @@ namespace SkyStem.ART.Client.Model
 
 
 
-        public int Aging
-        {
-            get
-            {
-                if (OpenDate.HasValue)
-                    return ModelHelper.GetAging(this.OpenDate);
-                else return 0;
+        public int Aging { get; set; }
+        //{
+        //    get
+        //    {
+        //        if (OpenDate.HasValue)
+        //            return ModelHelper.GetAging(this.OpenDate);
+        //        else return 0;
 
-            }
-        }
+        //    }
+        //}
         /// <summary>
         /// String equivalant of DebitCredit boolean property
         /// </summary>

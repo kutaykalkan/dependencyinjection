@@ -21,6 +21,7 @@ using SkyStem.ART.Shared.Data;
 using SkyStem.ART.Client.Params;
 using SkyStem.Library.Controls.TelerikWebControls.Data;
 using SkyStem.Language.LanguageUtility.Classes;
+using SkyStem.ART.Shared.Utility;
 
 public partial class Pages_TaskMaster_GeneralTaskImport : PageBaseRecForm
 {
@@ -1313,7 +1314,7 @@ public partial class Pages_TaskMaster_GeneralTaskImport : PageBaseRecForm
         hlRecordsAffected.Text = Helper.GetDisplayIntegerValue(oDataImportHdrInfo.RecordsImported);
         hlFileName.Text = oDataImportHdrInfo.FileName;
 
-        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oDataImportHdrInfo.PhysicalPath);
+        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
         imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
 
         //// Icons

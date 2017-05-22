@@ -11,6 +11,7 @@ using System.Globalization;
 using SkyStem.Language.LanguageUtility;
 using System.IO;
 using SkyStem.ART.Client.Exception;
+using SkyStem.ART.Web.Utility;
 
 namespace SkyStem.ART.Shared.Utility
 {
@@ -141,6 +142,11 @@ namespace SkyStem.ART.Shared.Utility
                     break;
             }
             return value;
+        }
+
+        public static string GetDisplayFilePath(string filePath)
+        {
+            return filePath.Replace(SharedDataImportHelper.GetBaseFolder(), "");
         }
         #endregion
 

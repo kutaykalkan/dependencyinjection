@@ -25,6 +25,7 @@ using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Client.Data;
 using SkyStem.ART.Client.Exception;
 using SkyStem.Library.Controls.TelerikWebControls.Data;
+using SkyStem.ART.Shared.Utility;
 
 public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecItemBase
 {
@@ -507,7 +508,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                         if (oDataImportHdrInfo != null)
                         {
                             imgViewFile.Visible = true;
-                            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oDataImportHdrInfo.PhysicalPath);
+                            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
                             imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
                         }
                     }
@@ -694,7 +695,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                             if (oDataImportHdrInfo != null)
                             {
                                 imgViewFile.Visible = true;
-                                string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oDataImportHdrInfo.PhysicalPath);
+                                string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
                                 imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
                             }
                         }

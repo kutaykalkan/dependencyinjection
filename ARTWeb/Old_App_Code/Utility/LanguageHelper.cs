@@ -581,7 +581,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     foreach (DataImportMessageDetailInfo oDataImportMessageDetailInfo in oDataImportHdrInfo.DataImportMessageDetailInfoList)
                     {
-                        if(oDataImportMessageDetailInfo.DescriptionLabelID.HasValue)
+                        if (oDataImportMessageDetailInfo.DescriptionLabelID.HasValue)
                             oDataImportMessageDetailInfo.Description = LanguageUtil.GetValue(oDataImportMessageDetailInfo.DescriptionLabelID.Value);
                         if (oDataImportMessageDetailInfo.DataImportMessageLabelID.HasValue)
                             oDataImportMessageDetailInfo.DataImportMessage = LanguageUtil.GetValue(oDataImportMessageDetailInfo.DataImportMessageLabelID.Value);
@@ -808,14 +808,41 @@ namespace SkyStem.ART.Web.Utility
             SetCurrentCulture();
             int lcid = System.Threading.Thread.CurrentThread.CurrentCulture.LCID;
             int businessEntityID = AppSettingHelper.GetDefaultBusinessEntityID();
-            if (SessionHelper.CurrentCompanyID != null)
+            if (SessionHelper.CurrentCompanyID.HasValue && SessionHelper.CurrentCompanyID.Value > 0)
             {
                 businessEntityID = SessionHelper.CurrentCompanyID.Value;
+                LanguageUtil.SetBusinessEntityPhrasesDictionaryToNull(businessEntityID);
+                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), lcid, businessEntityID, AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
+                // Load all available Phrases based on the Language Settings 
+                LanguageHelper.LoadLanguagePhrases();
             }
-            LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), lcid, businessEntityID, AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
+            else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+            {
+                LanguageUtil.SetBusinessEntityPhrasesDictionaryToNull(businessEntityID);
+                LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), lcid, businessEntityID, AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());
+                // Load all available Phrases based on the Language Settings 
+                LanguageHelper.LoadLanguagePhrases();
+            }
+        }
 
-            // Load all available Phrases based on the Language Settings 
-            LanguageHelper.LoadLanguagePhrases();
+        /// <summary>
+        /// Set Language and Load Phrases
+        /// </summary>
+        /// <param name="lcid"></param>
+        public static void SetLanguageAndLoadPhrases(int lcid)
+        {
+            // Clear the translated master data from session
+            SessionHelper.ClearMasterDataFromSession();
+
+            // Get the User/Browser Language and store in Session
+            if (lcid == 0)
+                lcid = System.Threading.Thread.CurrentThread.CurrentCulture.LCID;
+            SessionHelper.SetUserLanguage(lcid);
+            // Check for Test LCID, if set
+            LanguageHelper.SetTestLanguage();
+
+            // Set Current Culture and Load Phrases
+            LanguageHelper.SetCurrentCultureAndLoadPhrases();
         }
 
         /// <summary>

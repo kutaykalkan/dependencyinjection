@@ -24,6 +24,7 @@ using SkyStem.ART.Client.Exception;
 using System.Text;
 using SkyStem.ART.Client.Data;
 using SkyStem.Library.Controls.TelerikWebControls;
+using SkyStem.ART.Shared.Utility;
 
 public partial class Pages_DocumentUpload : PopupPageBase
 {
@@ -286,7 +287,7 @@ public partial class Pages_DocumentUpload : PopupPageBase
 
             lblIsPermanentOrTemporary.Text = SetPermanentOrTemporary(oAttachmentInfo);
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oAttachmentInfo.PhysicalPath);
+            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oAttachmentInfo.PhysicalPath));
             hlDocumentName.NavigateUrl = url;
 
             GridColumn gcDelete = rgGLAdjustments.Columns.FindByUniqueNameSafe("DeleteColumn");

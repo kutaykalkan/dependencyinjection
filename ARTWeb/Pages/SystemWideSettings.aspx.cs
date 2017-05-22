@@ -102,7 +102,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                 CallEveryTime();
                 CallOnlyWhenFirstTime();
             }
-          //  HandleRefreshForceClose();
+            //  HandleRefreshForceClose();
             HandleRefreshReopen();
         }
         catch (ARTException ex)
@@ -159,7 +159,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
             RequiredFieldValidator rfvCloseOrLockDownDate = e.Item.FindControl("rfvCloseOrLockDownDate") as RequiredFieldValidator;
 
             ExLabel lblRecPeriodStatus = e.Item.FindControl("lblRecPeriodStatus") as ExLabel;
-            ExHyperLink hlRecPeriodHistory = e.Item.FindControl("hlRecPeriodHistory") as ExHyperLink;   
+            ExHyperLink hlRecPeriodHistory = e.Item.FindControl("hlRecPeriodHistory") as ExHyperLink;
 
             ReconciliationPeriodInfo oReconciliationPeriodInfo = new ReconciliationPeriodInfo();
             oReconciliationPeriodInfo = (ReconciliationPeriodInfo)e.Item.DataItem;
@@ -257,17 +257,16 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
             AddPropertyForAdjacentDateCheck(cvAllDueDateAdjacent, controlListForAdjacentToCompare
                                             , Helper.GetDisplayDate(oReconciliationPeriodInfo.PeriodEndDate), e.Item.ItemIndex);
 
-
             SetCompareValidatorProperty(clientIDPreparerDueDate, clientIDReviewerDueDate, clientIDApproverDueDate,
                 clientIDCertificationStartDate, clientIDCloseOrLockDownDate, oReconciliationPeriodInfo,
                 cvComparePrepareDueDateWithCurrentDate, cvCompareReviewerDueDateWithCurrentDate,
                 cvCompareApproverDueDateWithCurrentDate, cvCompareCertificationStartDateWithCurrentDate,
-                cvCompareCloseOrLockDownDateWithCurrentDate, eFeatureCapabilityModeDualReview, eFeatureCapabilityModeCertification, cvcalCloseOrLockDownDate);
+                cvCompareCloseOrLockDownDateWithCurrentDate, eFeatureCapabilityModeDualReview, eFeatureCapabilityModeCertification, cvcalCloseOrLockDownDate, e.Item.ItemIndex);
 
             //New logic as per multiple open periods. Logis below has been commented
             if (!EnableDisableCalendarsBasedOnRecPeriodStatus(oReconciliationPeriodInfo.ReconciliationPeriodStatusID))
             {
-               // e.Item.Enabled = false;
+                // e.Item.Enabled = false;
 
                 calPrepareDueDate.Enabled = false;
                 calReviewerDueDate.Enabled = false;
@@ -277,8 +276,8 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                 cbAllowCertificationLockDown.Enabled = false;
                 hlRecPeriodHistory.Enabled = true;
 
-               
-                 
+
+
 
                 cvPrepareDueDateHoliday.Visible = false;
                 cvReviewerDueDateHoliday.Visible = false;
@@ -294,7 +293,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                 cvCompareCertificationStartDateWithCurrentDate.Visible = false;
                 cvCompareCloseOrLockDownDateWithCurrentDate.Visible = false;
             }
-            
+
             //if (!EnableDisableCalendarsBasedOnRecPeriodStatus(oReconciliationPeriodInfo.ReconciliationPeriodID, oReconciliationPeriodInfo.PeriodEndDate.Value))
             //{
             //    e.Item.Enabled = false;
@@ -394,7 +393,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     cvComparePrepareDueDateWithCurrentDate.Enabled = IsEnable;
                     cvCompareReviewerDueDateWithCurrentDate.Enabled = IsEnable;
                     cvCompareApproverDueDateWithCurrentDate.Enabled = IsEnable;
-                   // cvAllDueDateAdjacent.Enabled = IsEnable;
+                    // cvAllDueDateAdjacent.Enabled = IsEnable;
 
 
                     break;
@@ -603,7 +602,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         List<DateTime> reviewerDueDateList = new List<DateTime>();
         List<DateTime> approverDueDateList = new List<DateTime>();
         List<DateTime> certStartDueDateList = new List<DateTime>();
-        List<DateTime> recCloseOrCertLockDownDateList = new List<DateTime>();  
+        List<DateTime> recCloseOrCertLockDownDateList = new List<DateTime>();
 
         string errorMessage = LanguageUtil.GetValue(5000342);
 
@@ -620,7 +619,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                 DateTime dtPreparerDueDate = new DateTime();
                 if (DateTime.TryParse(calPrepareDueDate.Text, out dtPreparerDueDate))
                 {
-                    preparerDueDateList.Add(Convert.ToDateTime(dtPreparerDueDate));                 
+                    preparerDueDateList.Add(Convert.ToDateTime(dtPreparerDueDate));
                 }
             }
 
@@ -686,7 +685,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         {
             args.IsValid = false;
             Helper.ShowErrorMessage(this, cvValidateDatesTopDown.Attributes["RecCloseDateErrorMessage"]);
-        }  
+        }
     }
 
     protected void cvAllDueDateAdjacent_OnServerValidate(object sender, ServerValidateEventArgs args)
@@ -738,9 +737,78 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         {
             args.IsValid = false;
             Helper.ShowErrorMessage(this, cv.ErrorMessage);
-
         }
     }
+
+    protected void cvCompareDateWithCurrentDate_OnServerValidate(object sender, ServerValidateEventArgs args)
+    {
+        CustomValidator cv = (CustomValidator)sender;
+        int itemindex = Convert.ToInt32((cv).Attributes["itemIndex"]);
+        GridDataItem gdi = rgSystemWideSettings.Items[itemindex];
+
+        ExCalendar calPrepareDueDate = gdi.FindControl("calPrepareDueDate") as ExCalendar;
+        ExCalendar calReviewerDueDate = gdi.FindControl("calReviewerDueDate") as ExCalendar;
+        ExCalendar calApproverDueDate = gdi.FindControl("calApproverDueDate") as ExCalendar;
+        ExCalendar calCertificationStartDate = gdi.FindControl("calCertificationStartDate") as ExCalendar;
+        ExCalendar calCloseOrLockDownDate = gdi.FindControl("calCloseOrLockDownDate") as ExCalendar;
+        DateTime compareDate = new DateTime();
+        DateTime.TryParse(cv.Attributes["dateToCompare"], out compareDate);
+
+        List<DateTime> pastDateList = new List<DateTime>();
+
+        if (calPrepareDueDate != null && calPrepareDueDate.Enabled && !String.IsNullOrEmpty(calPrepareDueDate.Text))
+        {
+            DateTime dtPreparerDueDate = new DateTime();
+            if (DateTime.TryParse(calPrepareDueDate.Text, out dtPreparerDueDate))
+            {
+                if (compareDate > dtPreparerDueDate)
+                    pastDateList.Add(Convert.ToDateTime(dtPreparerDueDate));
+            }
+        }
+
+        if (calReviewerDueDate != null && calReviewerDueDate.Enabled && !String.IsNullOrEmpty(calReviewerDueDate.Text))
+        {
+            DateTime dtReviewerDueDate = new DateTime();
+            if (DateTime.TryParse(calReviewerDueDate.Text, out dtReviewerDueDate))
+            {
+                if (compareDate > dtReviewerDueDate)
+                    pastDateList.Add(Convert.ToDateTime(dtReviewerDueDate));
+            }
+        }
+        if (calApproverDueDate != null && calApproverDueDate.Enabled && !String.IsNullOrEmpty(calApproverDueDate.Text))
+        {
+            DateTime dtApproverDueDate = new DateTime();
+            if (DateTime.TryParse(calApproverDueDate.Text, out dtApproverDueDate))
+            {
+                if (compareDate > dtApproverDueDate)
+                    pastDateList.Add(Convert.ToDateTime(dtApproverDueDate));
+            }
+        }
+        if (calCertificationStartDate != null && calCertificationStartDate.Enabled && !String.IsNullOrEmpty(calCertificationStartDate.Text))
+        {
+            DateTime dtCertStartDate = new DateTime();
+            if (DateTime.TryParse(calCertificationStartDate.Text, out dtCertStartDate))
+            {
+                if (compareDate > dtCertStartDate)
+                    pastDateList.Add(Convert.ToDateTime(dtCertStartDate));
+            }
+        }
+        if (calCloseOrLockDownDate != null && calCloseOrLockDownDate.Enabled && !String.IsNullOrEmpty(calCloseOrLockDownDate.Text))
+        {
+            DateTime dtCloseRecOrCertLockDownDate = new DateTime();
+            if (DateTime.TryParse(calCloseOrLockDownDate.Text, out dtCloseRecOrCertLockDownDate))
+            {
+                if (compareDate > dtCloseRecOrCertLockDownDate)
+                    pastDateList.Add(Convert.ToDateTime(dtCloseRecOrCertLockDownDate));
+            }
+        }
+        if (pastDateList.Count > 0)
+        {
+            args.IsValid = false;
+            Helper.ShowErrorMessage(this, cv.ErrorMessage);
+        }
+    }
+
     protected void cvMaximumDocumentSize_OnServerValidate(object source, ServerValidateEventArgs args)
     {
         try
@@ -852,10 +920,10 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         if (hdIsRefreshData.Value == "1")
         {
             string cacheKey = CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_RECONCILIATION_PERIODS_BASED_ON_FY);
-            CacheHelper.ClearCache(cacheKey);  
+            CacheHelper.ClearCache(cacheKey);
             MasterPageBase oMasterPageBase = (MasterPageBase)this.Master;
             // Reload the Rec Periods and also the Status / Countdown
-            oMasterPageBase.ReloadRecPeriods();            
+            oMasterPageBase.ReloadRecPeriods();
             CallEveryTime();
             BindSystemWideSettingsRadGrid();
             hdIsRefreshData.Value = "0";
@@ -1290,7 +1358,8 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         CustomValidator cvComparePrepareDueDateWithCurrentDate, CustomValidator cvCompareReviewerDueDateWithCurrentDate,
         CustomValidator cvCompareApproverDueDateWithCurrentDate, CustomValidator cvCompareCertificationStartDateWithCurrentDate,
         CustomValidator cvCompareCloseOrLockDownDateWithCurrentDate,
-        WebEnums.FeatureCapabilityMode eFeatureCapabilityModeDualReview, WebEnums.FeatureCapabilityMode eFeatureCapabilityModeCertification, CustomValidator cvcalCloseOrLockDownDate)
+        WebEnums.FeatureCapabilityMode eFeatureCapabilityModeDualReview, WebEnums.FeatureCapabilityMode eFeatureCapabilityModeCertification, 
+        CustomValidator cvcalCloseOrLockDownDate, int itemIndex)
     {
         string textDateToCompare = "";
         string textPeriodEndDate = Helper.GetDisplayDate(oReconciliationPeriodInfo.PeriodEndDate);
@@ -1305,10 +1374,15 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         }
 
         cvComparePrepareDueDateWithCurrentDate.Attributes.Add("dateToCompare", textDateToCompare);
+        cvComparePrepareDueDateWithCurrentDate.Attributes.Add("itemIndex", itemIndex.ToString());
         cvCompareReviewerDueDateWithCurrentDate.Attributes.Add("dateToCompare", textDateToCompare);
+        cvCompareReviewerDueDateWithCurrentDate.Attributes.Add("itemIndex", itemIndex.ToString());
         cvCompareApproverDueDateWithCurrentDate.Attributes.Add("dateToCompare", textDateToCompare);
+        cvCompareApproverDueDateWithCurrentDate.Attributes.Add("itemIndex", itemIndex.ToString());
         cvCompareCertificationStartDateWithCurrentDate.Attributes.Add("dateToCompare", textDateToCompare);
+        cvCompareCertificationStartDateWithCurrentDate.Attributes.Add("itemIndex", itemIndex.ToString());
         cvCompareCloseOrLockDownDateWithCurrentDate.Attributes.Add("dateToCompare", textDateToCompare);
+        cvCompareCloseOrLockDownDateWithCurrentDate.Attributes.Add("itemIndex", itemIndex.ToString());
 
         cvComparePrepareDueDateWithCurrentDate.ErrorMessage = Helper.GetErrorMessageForSystemWide(WebEnums.FieldType.DateCompareWithRecOrCurrentDateField, textPeriodEndDate, 1417);
         cvCompareReviewerDueDateWithCurrentDate.ErrorMessage = Helper.GetErrorMessageForSystemWide(WebEnums.FieldType.DateCompareWithRecOrCurrentDateField, textPeriodEndDate, 1418);
@@ -1494,7 +1568,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
         cvValidateDatesTopDown.Attributes.Add("CertStartDateErrorMessage", string.Format(errorMessage, LanguageUtil.GetValue(1453)));
         cvValidateDatesTopDown.Attributes.Add("RecCloseDateErrorMessage", string.Format(errorMessage, LanguageUtil.GetValue(1419)));
         cvValidateDatesTopDown.Attributes.Add("AllDueDateErrorMessage", string.Format(errorMessage, LanguageUtil.GetValue(2976)));
-        
+
 
     }
 
@@ -1810,11 +1884,11 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
     }
 
     protected void btnReopenPeriod_Click(object sender, EventArgs e)
-    { 
-            IsRefreshData = true;
-            string url = "ReOpenRecPeriodPopup.aspx?";
-            url += "&" + QueryStringConstants.PARENT_HIDDEN_FIELD + "=" + hdIsRefreshData.ClientID;
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "newWindow", "OpenRadWindow('" + url + "','320','400');", true);           
+    {
+        IsRefreshData = true;
+        string url = "ReOpenRecPeriodPopup.aspx?";
+        url += "&" + QueryStringConstants.PARENT_HIDDEN_FIELD + "=" + hdIsRefreshData.ClientID;
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "newWindow", "OpenRadWindow('" + url + "','320','400');", true);
     }
 
     private IList<CompanyWeekDayInfo> SetCompanyWorkWeekByRecPeriodID(int RecPeriodID)

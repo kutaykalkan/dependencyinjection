@@ -20,7 +20,7 @@ using System.Configuration;
 using SkyStem.ART.Shared.Data;
 using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Web.Classes;
-
+using SkyStem.ART.Shared.Utility;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -401,7 +401,7 @@ namespace SkyStem.ART.Web.Utility
             SetLabelText(lblAddedBy, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.AddedByUserName));
             SetLabelText(lblStatusMessage, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.StatusMessage));
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(oBulkExportToExcelInfo.PhysicalPath) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
+            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(SharedHelper.GetDisplayFilePath(oBulkExportToExcelInfo.PhysicalPath)) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
             if (imgFileTypeExcel != null)
                 imgFileTypeExcel.OnClientClick = "document.location.href = '" + url + "';return false;";
             if (imgFileTypeZip != null)
