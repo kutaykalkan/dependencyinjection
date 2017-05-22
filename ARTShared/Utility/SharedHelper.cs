@@ -146,7 +146,8 @@ namespace SkyStem.ART.Shared.Utility
 
         public static string GetDisplayFilePath(string filePath)
         {
-            return filePath.Replace(SharedDataImportHelper.GetBaseFolder(), "");
+            return filePath;
+            //return filePath.Replace(SharedDataImportHelper.GetBaseFolder(), "");
         }
         #endregion
 

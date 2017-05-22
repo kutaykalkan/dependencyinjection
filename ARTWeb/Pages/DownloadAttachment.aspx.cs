@@ -56,7 +56,7 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
             string basePath = SharedDataImportHelper.GetBaseFolder();
             if (!filePhysicalPath.Contains(basePath))
             {
-                filePhysicalPath = Path.Combine(basePath, filePhysicalPath);
+                filePhysicalPath = basePath + Path.DirectorySeparatorChar + filePhysicalPath;
             }
             FileInfo objFileInfo = new FileInfo(filePhysicalPath);
 
@@ -71,14 +71,17 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
                 if (eDownloadMode == WebEnums.DownloadMode.inline)
                 {
                     Response.AddHeader("Content-Disposition", "inline; filename=" + ExportHelper.GetOriginalFileName(objFileInfo.Name));
+                    Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
+                    Response.ContentType = ContentType;
+                    Response.WriteFile(strResponsePath);
                 }
                 else
                 {
                     Response.AddHeader("Content-Disposition", "attachment; filename=" + ExportHelper.GetOriginalFileName(objFileInfo.Name));
+                    Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
+                    Response.ContentType = ContentType;
+                    Response.TransmitFile(strResponsePath);
                 }
-                Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
-                Response.ContentType = ContentType;
-                Response.TransmitFile(strResponsePath);
                 Response.End();
             }
             else
