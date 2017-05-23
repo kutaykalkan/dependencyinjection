@@ -784,7 +784,7 @@ public partial class Pages_SystemWideSettings : PageBaseRecPeriod
                     pastDateList.Add(Convert.ToDateTime(dtApproverDueDate));
             }
         }
-        if (calCertificationStartDate != null && calCertificationStartDate.Enabled && !String.IsNullOrEmpty(calCertificationStartDate.Text) // Ignore disabled
+        if (calCertificationStartDate != null && calCertificationStartDate.Enabled && !String.IsNullOrEmpty(calCertificationStartDate.Text)) // Ignore disabled
         {
             DateTime dtCertStartDate = new DateTime();
             if (DateTime.TryParse(calCertificationStartDate.Text, out dtCertStartDate))
