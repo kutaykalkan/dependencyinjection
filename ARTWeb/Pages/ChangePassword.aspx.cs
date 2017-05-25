@@ -14,7 +14,7 @@ using SkyStem.ART.Client.Exception;
 using SkyStem.Language.LanguageUtility;
 using SkyStem.ART.Shared.Utility;
 using SkyStem.ART.Shared.Data;
-
+using SkyStem.ART.Client.Data;
 
 public partial class ChangePassword : PageBase
 {
@@ -70,7 +70,7 @@ public partial class ChangePassword : PageBase
             {
                 IUser oUserClient = RemotingHelper.GetUserObject();
                 AppUserInfo oAppUserInfo = Helper.GetAppUserInfo();
-                if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+                if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN)
                     oAppUserInfo.CompanyID = null;
                 oUserClient.VerifyAndUpdatePassword(userID, loginID, oldPasswordHash, newPasswordHash, oAppUserInfo);
                 oUserHdrInfo.IsPasswordResetRequired = false;

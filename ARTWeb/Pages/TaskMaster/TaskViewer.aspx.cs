@@ -747,7 +747,7 @@ public partial class Pages_TaskMaster_TaskViewer : PageBaseRecForm
     #region "Private Methods"
     private void ShowHideReopenBtn()
     {
-        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
         {
             ucGeneralTaskGridCompleted.AllowCustomReopen = true;
             ucAccountTaskGridCompleted.AllowCustomReopen = true;

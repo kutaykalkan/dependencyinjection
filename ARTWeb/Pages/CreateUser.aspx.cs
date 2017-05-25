@@ -237,7 +237,7 @@ public partial class Pages_CreateUser : PageBaseCompany
     protected void cvEnableFTP_ServerValidate(object source, ServerValidateEventArgs args)
     {
         List<int> SelectedRoles = GetSelectedUserRoles();
-        List<int> FTPRoles = SelectedRoles.FindAll(T => T == (int)WebEnums.UserRole.SYSTEM_ADMIN || T == (int)WebEnums.UserRole.BUSINESS_ADMIN);
+        List<int> FTPRoles = SelectedRoles.FindAll(T => T == (int)ARTEnums.UserRole.SYSTEM_ADMIN || T == (int)ARTEnums.UserRole.BUSINESS_ADMIN);
         if ((FTPRoles == null || FTPRoles.Count == 0) && (rbYes.Checked && ddlServerFTP.SelectedValue != WebConstants.SELECT_ONE))
         {
             args.IsValid = false;
@@ -299,9 +299,9 @@ public partial class Pages_CreateUser : PageBaseCompany
 
             ShowHideFTPSection(oUserRoleInfoCollection);
 
-            if (SessionHelper.CurrentRoleEnum != WebEnums.UserRole.SKYSTEM_ADMIN
-                && SessionHelper.CurrentRoleEnum != WebEnums.UserRole.SYSTEM_ADMIN
-                && SessionHelper.CurrentRoleEnum != WebEnums.UserRole.USER_ADMIN)
+            if (SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.SKYSTEM_ADMIN
+                && SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.SYSTEM_ADMIN
+                && SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.USER_ADMIN)
             {
                 // For all users other than SkyStem Admin and System Admin
                 // Hide Potential Role and Active / InActive
@@ -344,10 +344,10 @@ public partial class Pages_CreateUser : PageBaseCompany
 
         if (Request.QueryString[QueryStringConstants.User_ID] == null && Request.QueryString[QueryStringConstants.FROMPAGE] == FrompageID)
         {
-            hdnSelectValue.Value = Convert.ToString((int)WebEnums.UserRole.SYSTEM_ADMIN);
+            hdnSelectValue.Value = Convert.ToString((int)ARTEnums.UserRole.SYSTEM_ADMIN);
 
             List<int> listUserRoles = new List<int>();
-            listUserRoles.Add((int)WebEnums.UserRole.SYSTEM_ADMIN);
+            listUserRoles.Add((int)ARTEnums.UserRole.SYSTEM_ADMIN);
             this.UserRoleSelection.RemoveaddItemsFromListBoxonvalue(listUserRoles, true);
 
             List<ListItem> lstSelectedListItems = this.UserRoleSelection.GetSelectedItems();
@@ -366,10 +366,10 @@ public partial class Pages_CreateUser : PageBaseCompany
         trEnableFTP.Visible = false;
         trEnableFTPLabel.Visible = false;
         if (oCompanyHdrFTPInfo.IsFTPEnabled == true
-            && (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN
-                || SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SYSTEM_ADMIN
-                || SessionHelper.CurrentRoleEnum == WebEnums.UserRole.USER_ADMIN
-                || SessionHelper.CurrentRoleEnum == WebEnums.UserRole.BUSINESS_ADMIN))
+            && (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN
+                || SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SYSTEM_ADMIN
+                || SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.USER_ADMIN
+                || SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.BUSINESS_ADMIN))
         {
             if (!CheckRolesForEnableFTP(oUserRoleInfoList))
             {
@@ -469,7 +469,7 @@ public partial class Pages_CreateUser : PageBaseCompany
             //oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1324)));
             //oMailBody.Append(AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL));
             string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-            if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress, oMultilingualAttributeInfo));
             }
@@ -658,7 +658,7 @@ public partial class Pages_CreateUser : PageBaseCompany
                 }
             }
             if (roleexists)
-                if ((role.RoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN))
+                if ((role.RoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN))
                 {
                     if (isDatabaseExists)
                         lstListItem.Add(new ListItem(LanguageUtil.GetValue(role.RoleLabelID.Value), role.RoleID.Value.ToString()));
@@ -721,7 +721,7 @@ public partial class Pages_CreateUser : PageBaseCompany
                 }
 
                 // For SkyStem Admin when updating the self profile Company ID should be null
-                if (_UserID.HasValue && _UserID == SessionHelper.CurrentUserID && SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                if (_UserID.HasValue && _UserID == SessionHelper.CurrentUserID && SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                     oUserHdrInfo.CompanyID = null;
 
                 listUserRoles = GetSelectedUserRoles();
@@ -1023,20 +1023,20 @@ public partial class Pages_CreateUser : PageBaseCompany
     private bool CheckRolesForUserAccountAssociation(List<RoleMstInfo> oUserRoleInfoCollection)
     {
         bool bShowAccountAssociationButton = false;
-        WebEnums.UserRole eUserRole = WebEnums.UserRole.None;
+        ARTEnums.UserRole eUserRole = ARTEnums.UserRole.None;
 
         foreach (RoleMstInfo oRoleMstInfo in oUserRoleInfoCollection)
         {
-            eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), oRoleMstInfo.RoleID.Value.ToString());
+            eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), oRoleMstInfo.RoleID.Value.ToString());
             switch (eUserRole)
             {
-                case WebEnums.UserRole.FINANCIAL_MANAGER:
-                case WebEnums.UserRole.BUSINESS_ADMIN:
-                case WebEnums.UserRole.ACCOUNT_MANAGER:
-                case WebEnums.UserRole.CONTROLLER:
-                case WebEnums.UserRole.EXECUTIVE:
-                case WebEnums.UserRole.AUDIT:
-                case WebEnums.UserRole.TASK_OWNER:
+                case ARTEnums.UserRole.FINANCIAL_MANAGER:
+                case ARTEnums.UserRole.BUSINESS_ADMIN:
+                case ARTEnums.UserRole.ACCOUNT_MANAGER:
+                case ARTEnums.UserRole.CONTROLLER:
+                case ARTEnums.UserRole.EXECUTIVE:
+                case ARTEnums.UserRole.AUDIT:
+                case ARTEnums.UserRole.TASK_OWNER:
                     bShowAccountAssociationButton = true;
                     break;
             }
@@ -1051,21 +1051,21 @@ public partial class Pages_CreateUser : PageBaseCompany
     private bool CheckRolesForUserAccountAssociation(List<int> listUserRoles)
     {
         bool bShowAccountAssociationButton = false;
-        WebEnums.UserRole eUserRole = WebEnums.UserRole.None;
+        ARTEnums.UserRole eUserRole = ARTEnums.UserRole.None;
 
         //to do use enums for comparison
         for (int i = 0; i < listUserRoles.Count; i++)
         {
-            eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), listUserRoles[i].ToString());
+            eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), listUserRoles[i].ToString());
             switch (eUserRole)
             {
-                case WebEnums.UserRole.FINANCIAL_MANAGER:
-                case WebEnums.UserRole.BUSINESS_ADMIN:
-                case WebEnums.UserRole.ACCOUNT_MANAGER:
-                case WebEnums.UserRole.CONTROLLER:
-                case WebEnums.UserRole.EXECUTIVE:
-                case WebEnums.UserRole.AUDIT:
-                case WebEnums.UserRole.TASK_OWNER:
+                case ARTEnums.UserRole.FINANCIAL_MANAGER:
+                case ARTEnums.UserRole.BUSINESS_ADMIN:
+                case ARTEnums.UserRole.ACCOUNT_MANAGER:
+                case ARTEnums.UserRole.CONTROLLER:
+                case ARTEnums.UserRole.EXECUTIVE:
+                case ARTEnums.UserRole.AUDIT:
+                case ARTEnums.UserRole.TASK_OWNER:
                     bShowAccountAssociationButton = true;
                     break;
             }
@@ -1076,16 +1076,16 @@ public partial class Pages_CreateUser : PageBaseCompany
     private bool CheckRolesForEnableFTP(List<RoleMstInfo> oUserRoleInfoCollection)
     {
         bool bShowEnableFTP = false;
-        WebEnums.UserRole eUserRole = WebEnums.UserRole.None;
+        ARTEnums.UserRole eUserRole = ARTEnums.UserRole.None;
         if (oUserRoleInfoCollection != null)
         {
             foreach (RoleMstInfo oRoleMstInfo in oUserRoleInfoCollection)
             {
-                eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), oRoleMstInfo.RoleID.Value.ToString());
+                eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), oRoleMstInfo.RoleID.Value.ToString());
                 switch (eUserRole)
                 {
-                    case WebEnums.UserRole.SYSTEM_ADMIN:
-                    case WebEnums.UserRole.BUSINESS_ADMIN:
+                    case ARTEnums.UserRole.SYSTEM_ADMIN:
+                    case ARTEnums.UserRole.BUSINESS_ADMIN:
                         bShowEnableFTP = true;
                         break;
                 }
@@ -1137,7 +1137,7 @@ public partial class Pages_CreateUser : PageBaseCompany
             //oMailBody.Append(string.Format("{0}: ", LanguageUtil.GetValue(1324)));
             //oMailBody.Append(AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_SYSTEM_URL));
             string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-            if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress, oMultilingualAttributeInfo));
             }

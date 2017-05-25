@@ -23,7 +23,7 @@
                     btnDownloadSelected.disabled = true;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         var btnReset = document.getElementById('<%=btnReset.ClientID %>');
                         if (btnReset != null && btnReset != "undefined")
                             btnReset.disabled = true;
@@ -60,23 +60,23 @@
                         var RoleID = '<%= HttpContext.Current.Session[SessionConstants.CURRENT_ROLE_ID] %>';
 
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                             EnableDisableResetButton(LstSatatus);
                             EnableDisableReOpenButton(LstSatatus);
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                             EnableDisableSignOffButton(LstSatatus);
                             EnableDisableSubmitnButton(LstSatatus);
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                             EnableDisableAcceptButton(LstSatatus);
                             EnableDisableReSubmitnButton(LstSatatus);
 
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                             EnableDisableApproveAcceptButton(LstSatatus);
                             EnableDisableApproveSubmitnButton(LstSatatus);
 
@@ -106,22 +106,22 @@
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                      EnableDisableResetButton(LstSatatus);
                      EnableDisableReOpenButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                      EnableDisableSignOffButton(LstSatatus);
                      EnableDisableSubmitnButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                      EnableDisableAcceptButton(LstSatatus);
                      EnableDisableReSubmitnButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                      EnableDisableApproveAcceptButton(LstSatatus);
                      EnableDisableApproveSubmitnButton(LstSatatus);
                  }
@@ -157,22 +157,22 @@
                     btnDownloadSelected.disabled = false;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         EnableDisableResetButton(LstSatatus);
                         EnableDisableReOpenButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                         EnableDisableSignOffButton(LstSatatus);
                         EnableDisableSubmitnButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                         EnableDisableAcceptButton(LstSatatus);
                         EnableDisableReSubmitnButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                         EnableDisableApproveAcceptButton(LstSatatus);
                         EnableDisableApproveSubmitnButton(LstSatatus);
                     }
@@ -185,7 +185,7 @@
                 btnDownloadSelected.disabled = true;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         var btnReset = document.getElementById('<%=btnReset.ClientID %>');
                         if (btnReset != null && btnReset != "undefined")
                             btnReset.disabled = true;

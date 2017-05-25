@@ -243,6 +243,7 @@ namespace SkyStem.ART.Web.Data
         public const string REPORT_SECTION_ID = "ReportSection_ID";
         public const string IS_REPORT_ACTIVITY = "IsReportActivity";
         public const string DATA_IMPORT_ID = "dtimpid";
+        public const string DATA_IMPORT_TYPE_ID = "dtimptypeid";
         public const string Reconciliation_TemplateID = "templateID";
         public const string SHOW_USER_CREATED = "createuser";
         public const string PREVIOUS_PAGE_FROM_QUERYSTRING = "Prv_Page";

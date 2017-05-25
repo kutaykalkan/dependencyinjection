@@ -83,7 +83,7 @@ public partial class Pages_DataImportConfiguration : PageBaseCompany
         if (e.Item.ItemType == GridItemType.Header)
         {
             rgDataImportWarning.MasterTableView.Columns.FindByUniqueName("CheckboxSelectColumn").Visible = this.selectOption;
-            if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID.Value != (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID.Value != (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 CheckBox chkbx = (CheckBox)(e.Item as GridHeaderItem)["CheckboxSelectColumn"].Controls[0];
                 chkbx.Enabled = false;
@@ -133,7 +133,7 @@ public partial class Pages_DataImportConfiguration : PageBaseCompany
                 chkbox.Checked = true;
                 lblDataImportWarningPreferencesID.Value = Helper.GetDisplayIntegerValue(0);
             }
-            if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID.Value != (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID.Value != (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 chkbox.Enabled = false;
             }

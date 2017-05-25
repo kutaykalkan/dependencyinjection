@@ -182,14 +182,14 @@ namespace SkyStem.ART.Web.UserControls
 
                 // Enable/Disable Based Upon Role
                 // Preparer can modify all except two below
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER)
                 {
                     if (oGLDataQualityScoreInfo.CompanyQualityScoreInfo.QualityScoreID == (int)ARTEnums.QualityScoreItem.ReviewerDueDate
                         || oGLDataQualityScoreInfo.CompanyQualityScoreInfo.QualityScoreID == (int)ARTEnums.QualityScoreItem.ApproverDueDate)
                         txtComments.Enabled = false;
                 }
                 // Reviewer can modify only one below
-                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER)
+                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER)
                 {
                     ddlUserQualityScoreStatus.Enabled = false;
                     if (oGLDataQualityScoreInfo.CompanyQualityScoreInfo.QualityScoreID != (int)ARTEnums.QualityScoreItem.ReviewerDueDate)
@@ -198,7 +198,7 @@ namespace SkyStem.ART.Web.UserControls
                     }
                 }
                 // Approver can modify only one below
-                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.APPROVER)
+                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.APPROVER)
                 {
                     ddlUserQualityScoreStatus.Enabled = false;
                     if (oGLDataQualityScoreInfo.CompanyQualityScoreInfo.QualityScoreID != (int)ARTEnums.QualityScoreItem.ApproverDueDate)

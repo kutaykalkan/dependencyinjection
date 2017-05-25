@@ -159,12 +159,12 @@ public partial class Pages_ReportParameter : PageBaseCompany
 
                 if (this.ucPreparer.Visible)
                 {
-                    this.ucPreparer.SetDefaultSelectedRoles = ((short)WebEnums.UserRole.PREPARER).ToString();
+                    this.ucPreparer.SetDefaultSelectedRoles = ((short)ARTEnums.UserRole.PREPARER).ToString();
                     this.FetchClickedPreparer(this.ucPreparer.GetSelectedRoles);
                 }
-                if (this.ucRoleUser.Visible && SessionHelper.CurrentRoleID.Value == (short)WebEnums.UserRole.PREPARER)
+                if (this.ucRoleUser.Visible && SessionHelper.CurrentRoleID.Value == (short)ARTEnums.UserRole.PREPARER)
                 {
-                    this.ucRoleUser.SetDefaultSelectedRoles = ((short)WebEnums.UserRole.PREPARER).ToString();
+                    this.ucRoleUser.SetDefaultSelectedRoles = ((short)ARTEnums.UserRole.PREPARER).ToString();
                     this.FetchClicked(this.ucRoleUser.GetSelectedRoles);
                 }
                 int recPeriodID;
@@ -219,7 +219,7 @@ public partial class Pages_ReportParameter : PageBaseCompany
 
             if (this.ucPreparer.Visible)
             {
-                this.ucPreparer.SetDefaultSelectedRoles = ((short)WebEnums.UserRole.PREPARER).ToString();
+                this.ucPreparer.SetDefaultSelectedRoles = ((short)ARTEnums.UserRole.PREPARER).ToString();
                 this.FetchClickedPreparer(this.ucPreparer.GetSelectedRoles);
             }
 

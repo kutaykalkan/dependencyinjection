@@ -106,8 +106,8 @@ namespace SkyStem.ART.Web.Utility
 
 
             short currentRoleID = SessionHelper.CurrentRoleID.Value;
-            if (currentRoleID == (short)WebEnums.UserRole.PREPARER
-                || currentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+            if (currentRoleID == (short)ARTEnums.UserRole.PREPARER
+                || currentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
                 if (!oGLDataHdrInfo.IsEditable.GetValueOrDefault()
                     || (oGLDataHdrInfo.ReconciliationStatusID.HasValue
@@ -120,8 +120,8 @@ namespace SkyStem.ART.Web.Utility
                     //Sel.Value += e.Item.ItemIndex.ToString() + ":";
                 }
             }
-            else if (currentRoleID == (short)WebEnums.UserRole.REVIEWER
-                || currentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            else if (currentRoleID == (short)ARTEnums.UserRole.REVIEWER
+                || currentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
 
                 if (!oGLDataHdrInfo.IsEditable.GetValueOrDefault()
@@ -134,8 +134,8 @@ namespace SkyStem.ART.Web.Utility
                     //Sel.Value += e.Item.ItemIndex.ToString() + ":";
                 }
             }
-            else if (currentRoleID == (short)WebEnums.UserRole.APPROVER
-                || currentRoleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (currentRoleID == (short)ARTEnums.UserRole.APPROVER
+                || currentRoleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 if (!oGLDataHdrInfo.IsEditable.GetValueOrDefault()
                     || (oGLDataHdrInfo.ReconciliationStatusID.HasValue
@@ -146,7 +146,7 @@ namespace SkyStem.ART.Web.Utility
                     //Sel.Value += e.Item.ItemIndex.ToString() + ":";
                 }
             }
-            else if (currentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            else if (currentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 if (oGLDataHdrInfo.IsLocked.GetValueOrDefault() || (oGLDataHdrInfo.ReconciliationStatusID.HasValue && (oGLDataHdrInfo.ReconciliationStatusID.Value == (short)WebEnums.ReconciliationStatus.NotStarted || (oGLDataHdrInfo.IsSystemReconcilied.HasValue && oGLDataHdrInfo.IsSystemReconcilied.Value == true && oGLDataHdrInfo.ReconciliationStatusID.Value == (short)WebEnums.ReconciliationStatus.Prepared))))
                 {
@@ -209,14 +209,14 @@ namespace SkyStem.ART.Web.Utility
             hlStartReconciliationStatus.Visible = false;
 
             WebEnums.ReconciliationStatus eReconciliationStatus = (WebEnums.ReconciliationStatus)System.Enum.Parse(typeof(WebEnums.ReconciliationStatus), oGLDataHdrInfo.ReconciliationStatusID.Value.ToString());
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)Enum.Parse(typeof(WebEnums.UserRole), currentRoleID.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)Enum.Parse(typeof(ARTEnums.UserRole), currentRoleID.ToString());
 
             if (oGLDataHdrInfo.IsEditable.GetValueOrDefault())
             {
                 switch (eUserRole)
                 {
-                    case WebEnums.UserRole.PREPARER:
-                    case WebEnums.UserRole.BACKUP_PREPARER:
+                    case ARTEnums.UserRole.PREPARER:
+                    case ARTEnums.UserRole.BACKUP_PREPARER:
                         switch (eReconciliationStatus)
                         {
                             case WebEnums.ReconciliationStatus.NotStarted:
@@ -237,8 +237,8 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.REVIEWER:
-                    case WebEnums.UserRole.BACKUP_REVIEWER:
+                    case ARTEnums.UserRole.REVIEWER:
+                    case ARTEnums.UserRole.BACKUP_REVIEWER:
                         switch (eReconciliationStatus)
                         {
                             case WebEnums.ReconciliationStatus.PendingReview:
@@ -252,8 +252,8 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.APPROVER:
-                    case WebEnums.UserRole.BACKUP_APPROVER:
+                    case ARTEnums.UserRole.APPROVER:
+                    case ARTEnums.UserRole.BACKUP_APPROVER:
                         switch (eReconciliationStatus)
                         {
                             case WebEnums.ReconciliationStatus.PendingApproval:
@@ -550,17 +550,17 @@ namespace SkyStem.ART.Web.Utility
             }
 
             // Check based on Role
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
-                case WebEnums.UserRole.REVIEWER:
-                case WebEnums.UserRole.APPROVER:
-                case WebEnums.UserRole.BACKUP_PREPARER:
-                case WebEnums.UserRole.BACKUP_REVIEWER:
-                case WebEnums.UserRole.BACKUP_APPROVER:
-                case WebEnums.UserRole.SYSTEM_ADMIN:
+                case ARTEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.REVIEWER:
+                case ARTEnums.UserRole.APPROVER:
+                case ARTEnums.UserRole.BACKUP_PREPARER:
+                case ARTEnums.UserRole.BACKUP_REVIEWER:
+                case ARTEnums.UserRole.BACKUP_APPROVER:
+                case ARTEnums.UserRole.SYSTEM_ADMIN:
                     eFormMode = WebEnums.FormMode.Edit;
                     break;
 
@@ -580,7 +580,7 @@ namespace SkyStem.ART.Web.Utility
             // Check for Due Dates
             //////////switch (eUserRole)
             //////////{
-            //////////    case WebEnums.UserRole.PREPARER:
+            //////////    case ARTEnums.UserRole.PREPARER:
             //////////        // Get the Preparer Due Date for the Current Rec Period
             //////////        if (oReconciliationPeriodInfo.PreparerDueDate.HasValue && DateTime.Now.Date > oReconciliationPeriodInfo.PreparerDueDate.Value.Date)
             //////////        {
@@ -589,7 +589,7 @@ namespace SkyStem.ART.Web.Utility
 
             //////////        break;
 
-            //////////    case WebEnums.UserRole.REVIEWER:
+            //////////    case ARTEnums.UserRole.REVIEWER:
             //////////        // Get the Preparer Due Date for the Current Rec Period
             //////////        if (oReconciliationPeriodInfo.ReviewerDueDate.HasValue && DateTime.Now.Date > oReconciliationPeriodInfo.ReviewerDueDate.Value.Date)
             //////////        {
@@ -597,7 +597,7 @@ namespace SkyStem.ART.Web.Utility
             //////////        }
             //////////        break;
 
-            //////////    case WebEnums.UserRole.APPROVER:
+            //////////    case ARTEnums.UserRole.APPROVER:
             //////////        // Get the Preparer Due Date for the Current Rec Period
             //////////        if (oReconciliationPeriodInfo.ApproverDueDate.HasValue && DateTime.Now.Date > oReconciliationPeriodInfo.ApproverDueDate.Value.Date)
             //////////        {
@@ -820,7 +820,7 @@ namespace SkyStem.ART.Web.Utility
         public static bool ShowHideReopenAccountbtn(short RoleID, WebEnums.RecPeriodStatus eRecPeriodStatus, bool IsCertificationStarted)
         {
             bool flag = false;
-            if (RoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            if (RoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 if (eRecPeriodStatus == WebEnums.RecPeriodStatus.InProgress || eRecPeriodStatus == WebEnums.RecPeriodStatus.Open)
                 {

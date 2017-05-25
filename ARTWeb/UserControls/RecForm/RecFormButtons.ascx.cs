@@ -19,6 +19,7 @@ using SkyStem.Language.LanguageUtility;
 using SkyStem.ART.Client.Exception;
 using SkyStem.ART.Web.Utility;
 using SkyStem.ART.Web.Classes;
+using SkyStem.ART.Client.Data;
 
 namespace SkyStem.ART.Web.UserControls
 {
@@ -268,7 +269,7 @@ namespace SkyStem.ART.Web.UserControls
 
         private void ShowHideButtonsForPreparer()
         {
-            if (this._currentUserRole == (short)WebEnums.UserRole.PREPARER || this._currentUserRole == (short)WebEnums.UserRole.BACKUP_PREPARER)
+            if (this._currentUserRole == (short)ARTEnums.UserRole.PREPARER || this._currentUserRole == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
                 WebEnums.ReconciliationStatus eReconciliationStatus = (WebEnums.ReconciliationStatus)System.Enum.Parse(typeof(WebEnums.ReconciliationStatus), _reconciliationStatusID.Value.ToString());
                 switch (eReconciliationStatus)
@@ -297,7 +298,7 @@ namespace SkyStem.ART.Web.UserControls
 
         private void ShowHideButtonsForReviewer()
         {
-            if (this._currentUserRole == (short)WebEnums.UserRole.REVIEWER || this._currentUserRole == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            if (this._currentUserRole == (short)ARTEnums.UserRole.REVIEWER || this._currentUserRole == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 WebEnums.ReconciliationStatus eReconciliationStatus = (WebEnums.ReconciliationStatus)System.Enum.Parse(typeof(WebEnums.ReconciliationStatus), _reconciliationStatusID.Value.ToString());
                 switch (eReconciliationStatus)
@@ -318,7 +319,7 @@ namespace SkyStem.ART.Web.UserControls
 
         private void ShowHideButtonsForApprover()
         {
-            if (this._currentUserRole == (short)WebEnums.UserRole.APPROVER || this._currentUserRole == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            if (this._currentUserRole == (short)ARTEnums.UserRole.APPROVER || this._currentUserRole == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 WebEnums.ReconciliationStatus eReconciliationStatus = (WebEnums.ReconciliationStatus)System.Enum.Parse(typeof(WebEnums.ReconciliationStatus), _reconciliationStatusID.Value.ToString());
                 switch (eReconciliationStatus)

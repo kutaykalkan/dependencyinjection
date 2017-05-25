@@ -325,8 +325,8 @@ namespace SkyStem.ART.Web.Utility
                 short roleID = oRoleMstInfo.RoleID.Value;
                 if (permittedRolesList.Contains(roleID))
                 {
-                    if ((roleID == (short)WebEnums.UserRole.BACKUP_PREPARER || roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER
-                        || roleID == (short)WebEnums.UserRole.BACKUP_APPROVER) && !Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
+                    if ((roleID == (short)ARTEnums.UserRole.BACKUP_PREPARER || roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER
+                        || roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER) && !Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                     { }
                     else
                     {
@@ -352,8 +352,8 @@ namespace SkyStem.ART.Web.Utility
             ListItemCollection lstListItem = new ListItemCollection();
             foreach (RoleMstInfo oRoleMstInfo in oRoleMstInfoCollection)
             {
-                if ((oRoleMstInfo.RoleID.Value == (short)WebEnums.UserRole.PREPARER)
-                    || (oRoleMstInfo.RoleID.Value == (short)WebEnums.UserRole.BACKUP_PREPARER
+                if ((oRoleMstInfo.RoleID.Value == (short)ARTEnums.UserRole.PREPARER)
+                    || (oRoleMstInfo.RoleID.Value == (short)ARTEnums.UserRole.BACKUP_PREPARER
                     && Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID)))
                 {
                     lstListItem.Add(new ListItem(oRoleMstInfo.Role, oRoleMstInfo.RoleID.Value.ToString()));
@@ -1921,8 +1921,8 @@ namespace SkyStem.ART.Web.Utility
 
                 lblRole.Text = oCertificationTrackingReportInfo.Role;
                 lblUserName.Text = Helper.GetDisplayUserFullName(oCertificationTrackingReportInfo.FirstName, oCertificationTrackingReportInfo.LastName);
-                if ((oCertificationTrackingReportInfo.RoleID.Value == (short)WebEnums.UserRole.REVIEWER) ||
-                    (oCertificationTrackingReportInfo.RoleID.Value == (short)WebEnums.UserRole.APPROVER))
+                if ((oCertificationTrackingReportInfo.RoleID.Value == (short)ARTEnums.UserRole.REVIEWER) ||
+                    (oCertificationTrackingReportInfo.RoleID.Value == (short)ARTEnums.UserRole.APPROVER))
                 {
                     lblMadatoryReportSignOffDate.Text = Helper.GetDisplayStringValue(ReportHelper.GetDisplayCertificationTrackingReportDate(oCertificationTrackingReportInfo.MadatoryReportSignOffDate, _CertificationStartDate));
                 }

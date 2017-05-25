@@ -22,7 +22,7 @@ public partial class UserControls_Matching_AccountMatchingButton : UserControlBa
         _gLDataID = glDataID;
         _Url = Url;
 
-        //if ((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.PREPARER
+        //if ((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.PREPARER
         //    && ((WebEnums.RecPeriodStatus)SessionHelper.CurrentRecProcessStatusEnum == WebEnums.RecPeriodStatus.Open
         //    || (WebEnums.RecPeriodStatus)SessionHelper.CurrentRecProcessStatusEnum == WebEnums.RecPeriodStatus.InProgress)
         //    && _accountID != null && _accountID > 0)
@@ -43,11 +43,11 @@ public partial class UserControls_Matching_AccountMatchingButton : UserControlBa
             return Flag;
         }
 
-        if ((((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.PREPARER)
-            || ((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.REVIEWER)
-            || ((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.APPROVER)
-            || ((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.BACKUP_PREPARER)
-            || ((WebEnums.UserRole)SessionHelper.CurrentRoleID == WebEnums.UserRole.AUDIT))
+        if ((((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.PREPARER)
+            || ((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.REVIEWER)
+            || ((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.APPROVER)
+            || ((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.BACKUP_PREPARER)
+            || ((ARTEnums.UserRole)SessionHelper.CurrentRoleID == ARTEnums.UserRole.AUDIT))
            && (CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.Open
            || CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.InProgress
            || CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.Closed)

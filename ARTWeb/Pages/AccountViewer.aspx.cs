@@ -103,8 +103,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             ompage_ReconciliationPeriodChangedEventHandler(null, null);
             this.txtIsPostbackFromPopupScreen.Value = "0";
         }
-        WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
-        if (eCurrentRole == WebEnums.UserRole.PREPARER || eCurrentRole == WebEnums.UserRole.BACKUP_PREPARER)
+        ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
+        if (eCurrentRole == ARTEnums.UserRole.PREPARER || eCurrentRole == ARTEnums.UserRole.BACKUP_PREPARER)
             btnAccept.LabelID = 1377;
         else
             btnAccept.LabelID = 1481;
@@ -119,9 +119,9 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
     protected void Page_PreRender(object sender, EventArgs e)
     {
         RePopulateCheckBoxStates();
-        WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
+        ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
         //for user other then PRA and Backups the submmit button shoud not be there
-        if (!(eCurrentRole == WebEnums.UserRole.PREPARER || eCurrentRole == WebEnums.UserRole.BACKUP_PREPARER || eCurrentRole == WebEnums.UserRole.REVIEWER || eCurrentRole == WebEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == WebEnums.UserRole.APPROVER || eCurrentRole == WebEnums.UserRole.BACKUP_APPROVER))
+        if (!(eCurrentRole == ARTEnums.UserRole.PREPARER || eCurrentRole == ARTEnums.UserRole.BACKUP_PREPARER || eCurrentRole == ARTEnums.UserRole.REVIEWER || eCurrentRole == ARTEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == ARTEnums.UserRole.APPROVER || eCurrentRole == ARTEnums.UserRole.BACKUP_APPROVER))
             ShowHideButtons(false);
         ShowHideDownloadAllRecsBtn();
         //btnCreateBinders.Visible = Helper.IsFeatureActivated(WebEnums.Feature.ERecBinders, SessionHelper.CurrentReconciliationPeriodID);
@@ -204,7 +204,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 AccountViewerHelper.BindCommonFields(e, oGLDataHdrInfo);
                 List<GLDataHdrInfo> temp = (List<GLDataHdrInfo>)ucSkyStemARTGrid.DataSource;
                 //TODO : Patching code for fix Checkbox selection button visibility.
-                WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
+                ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
                 switch (e.Item.OwnerTableView.Name)
                 {
                     case "NetAccountDetails":
@@ -217,7 +217,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                         {
                             case WebEnums.FormMode.Edit:
                                 // Commented by manoj all buttons will visible all time    
-                                //if (eCurrentRole == WebEnums.UserRole.PREPARER)
+                                //if (eCurrentRole == ARTEnums.UserRole.PREPARER)
                                 //{
                                 //    //Checking here to confirm that submit button should activate when Rec Status is Reviewed.
                                 //    if (oGLDataHdrInfo.ReconciliationStatusID == (short)SkyStem.ART.Web.Data.WebEnums.ReconciliationStatus.Prepared)
@@ -229,7 +229,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                                 //        btnAccept.Visible = true;
                                 //    }
                                 //}
-                                //else if (eCurrentRole == WebEnums.UserRole.REVIEWER)
+                                //else if (eCurrentRole == ARTEnums.UserRole.REVIEWER)
                                 //{
                                 //    //Checking here to confirm that submit button should activate when Rec Status is Reviewed.
                                 //    if (oGLDataHdrInfo.ReconciliationStatusID == (short)SkyStem.ART.Web.Data.WebEnums.ReconciliationStatus.Reviewed)
@@ -241,7 +241,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                                 //        btnAccept.Visible = true;
                                 //    }
                                 //}
-                                //else if (eCurrentRole == WebEnums.UserRole.APPROVER)
+                                //else if (eCurrentRole == ARTEnums.UserRole.APPROVER)
                                 //{
                                 //    //Checking here to confirm that submit button should activate when Rec Status is Reviewed.
                                 //    if (oGLDataHdrInfo.ReconciliationStatusID == (short)SkyStem.ART.Web.Data.WebEnums.ReconciliationStatus.Approved)
@@ -254,7 +254,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                                 //    }
                                 //}
                                 //else 
-                                if (eCurrentRole == WebEnums.UserRole.SYSTEM_ADMIN)
+                                if (eCurrentRole == ARTEnums.UserRole.SYSTEM_ADMIN)
                                 {
                                     ShowHideButtons(false);
                                     this.btnReopen.Visible = true;
@@ -275,14 +275,14 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                                     //    this.btnReset.Visible = AccountViewerHelper.ShowHideReopenAccountbtn(_RoleID, eRecPeriodStatus, IsCertificationStarted);
                                     //}
                                 }
-                                else if (eCurrentRole == WebEnums.UserRole.PREPARER || eCurrentRole == WebEnums.UserRole.REVIEWER || eCurrentRole == WebEnums.UserRole.APPROVER ||
-                                    eCurrentRole == WebEnums.UserRole.BACKUP_PREPARER || eCurrentRole == WebEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == WebEnums.UserRole.BACKUP_APPROVER)
+                                else if (eCurrentRole == ARTEnums.UserRole.PREPARER || eCurrentRole == ARTEnums.UserRole.REVIEWER || eCurrentRole == ARTEnums.UserRole.APPROVER ||
+                                    eCurrentRole == ARTEnums.UserRole.BACKUP_PREPARER || eCurrentRole == ARTEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == ARTEnums.UserRole.BACKUP_APPROVER)
                                 {
                                     this.btnReopen.Visible = false;
                                     this.btnReset.Visible = false;
                                     ShowHideButtons(true);
                                 }
-                                else if (eCurrentRole == WebEnums.UserRole.AUDIT)
+                                else if (eCurrentRole == ARTEnums.UserRole.AUDIT)
                                 {
                                     this.btnReopen.Visible = false;
                                     this.btnReset.Visible = false;
@@ -347,8 +347,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 oGLDataHdrInfoCollection = oGLDataClient.SelectGLDataAndAccountInfoByUserID(oFilterCriteriaCollection,
                 this._ReconciliationPeriodID, this._CompanyID, this._UserID, this._RoleID, this._IsDualReviewEnabled, this._IsMaterialityEnabled,
                 (short)ARTEnums.AccountAttribute.Preparer, (short)ARTEnums.AccountAttribute.Reviewer, (short)ARTEnums.AccountAttribute.Approver,
-                (short)WebEnums.UserRole.PREPARER, (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER,
-                (short)WebEnums.UserRole.SYSTEM_ADMIN, (short)WebEnums.UserRole.CEO_CFO, (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                (short)ARTEnums.UserRole.PREPARER, (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER,
+                (short)ARTEnums.UserRole.SYSTEM_ADMIN, (short)ARTEnums.UserRole.CEO_CFO, (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                 , chkShowSRAAsWell.Checked, count, Helper.GetAccountAttributeIDCollection(WebEnums.AccountPages.AccountViewer),
                 SessionHelper.GetUserLanguage(), SessionHelper.GetBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(),
                 sortExpression, sortDirection, Helper.GetAppUserInfo());
@@ -451,7 +451,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 IGLData oGLDataClient = RemotingHelper.GetGLDataObject();
                 bool result = false;
                 List<long> oGLDataIDCollection = new List<long>();
-                if (this._RoleID == (short)WebEnums.UserRole.PREPARER || this._RoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                if (this._RoleID == (short)ARTEnums.UserRole.PREPARER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Prepared);
                     if (oGLDataIDCollection.Count > 0)
@@ -464,7 +464,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                             oAccountIDCollection, oNetAccountIDCollection, this._RoleID, null);
                     }
                 }
-                else if (this._RoleID == (short)WebEnums.UserRole.REVIEWER || this._RoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                else if (this._RoleID == (short)ARTEnums.UserRole.REVIEWER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Reviewed);
                     if (oGLDataIDCollection.Count > 0)
@@ -485,7 +485,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                         }
                     }
                 }
-                else if (this._RoleID == (short)WebEnums.UserRole.APPROVER || this._RoleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                else if (this._RoleID == (short)ARTEnums.UserRole.APPROVER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Approved);
                     if (oGLDataIDCollection.Count > 0)
@@ -523,8 +523,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 IGLData oGLDataClient = RemotingHelper.GetGLDataObject();
                 bool result = false;
                 List<long> oGLDataIDCollection = new List<long>();
-                if (this._RoleID == (short)WebEnums.UserRole.PREPARER
-                    || this._RoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                if (this._RoleID == (short)ARTEnums.UserRole.PREPARER
+                    || this._RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingModificationPreparer);
                     if (oGLDataIDCollection.Count > 0)
@@ -533,8 +533,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
 
                     }
                 }
-                else if (this._RoleID == (short)WebEnums.UserRole.REVIEWER
-                    || this._RoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                else if (this._RoleID == (short)ARTEnums.UserRole.REVIEWER
+                    || this._RoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingReview);
                     oGLDataIDCollection.InsertRange(oGLDataIDCollection.Count, GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingModificationReviewer));
@@ -544,8 +544,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
 
                     }
                 }
-                else if (this._RoleID == (short)WebEnums.UserRole.APPROVER
-                    || this._RoleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                else if (this._RoleID == (short)ARTEnums.UserRole.APPROVER
+                    || this._RoleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                 {
                     oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingApproval);
                     if (oGLDataIDCollection.Count > 0)
@@ -678,8 +678,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 List<GLDataHdrInfo> oGLDataHdrInfoList = oGLDataClient.SelectGLDataAndAccountInfoByUserID(oFilterCriteriaCollection,
                             this._ReconciliationPeriodID, this._CompanyID, this._UserID, this._RoleID, this._IsDualReviewEnabled, this._IsMaterialityEnabled,
                             (short)ARTEnums.AccountAttribute.Preparer, (short)ARTEnums.AccountAttribute.Reviewer, (short)ARTEnums.AccountAttribute.Approver,
-                            (short)WebEnums.UserRole.PREPARER, (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER,
-                            (short)WebEnums.UserRole.SYSTEM_ADMIN, (short)WebEnums.UserRole.CEO_CFO, (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                            (short)ARTEnums.UserRole.PREPARER, (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER,
+                            (short)ARTEnums.UserRole.SYSTEM_ADMIN, (short)ARTEnums.UserRole.CEO_CFO, (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                             , isSRA, null, Helper.GetAccountAttributeIDCollection(WebEnums.AccountPages.AccountViewer),
                             SessionHelper.GetUserLanguage(), SessionHelper.GetBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(),
                             "NetAccountID", "ASC", Helper.GetAppUserInfo());
@@ -716,8 +716,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 List<GLDataHdrInfo> oGLDataHdrInfoList = oGLDataClient.SelectGLDataAndAccountInfoByUserID(oFilterCriteriaCollection,
                             this._ReconciliationPeriodID, this._CompanyID, this._UserID, this._RoleID, this._IsDualReviewEnabled, this._IsMaterialityEnabled,
                             (short)ARTEnums.AccountAttribute.Preparer, (short)ARTEnums.AccountAttribute.Reviewer, (short)ARTEnums.AccountAttribute.Approver,
-                            (short)WebEnums.UserRole.PREPARER, (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER,
-                            (short)WebEnums.UserRole.SYSTEM_ADMIN, (short)WebEnums.UserRole.CEO_CFO, (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                            (short)ARTEnums.UserRole.PREPARER, (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER,
+                            (short)ARTEnums.UserRole.SYSTEM_ADMIN, (short)ARTEnums.UserRole.CEO_CFO, (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                             , isSRA, null, Helper.GetAccountAttributeIDCollection(WebEnums.AccountPages.AccountViewer),
                             SessionHelper.GetUserLanguage(), SessionHelper.GetBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(),
                             "NetAccountID", "ASC", Helper.GetAppUserInfo());
@@ -792,18 +792,18 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             SaveCheckBoxStates();
             String ErrorMessage = "";
             List<long> oGLDataIDCollection = new List<long>();
-            if (this._RoleID == (short)WebEnums.UserRole.PREPARER || this._RoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+            if (this._RoleID == (short)ARTEnums.UserRole.PREPARER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingModificationPreparer);
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1755));
             }
-            else if (this._RoleID == (short)WebEnums.UserRole.REVIEWER || this._RoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            else if (this._RoleID == (short)ARTEnums.UserRole.REVIEWER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingReview);
                 oGLDataIDCollection.InsertRange(oGLDataIDCollection.Count, GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingModificationReviewer));
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1091));
             }
-            else if (this._RoleID == (short)WebEnums.UserRole.APPROVER || this._RoleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (this._RoleID == (short)ARTEnums.UserRole.APPROVER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.PendingApproval);
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1094));
@@ -845,18 +845,18 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             SaveCheckBoxStates();
             String ErrorMessage = "";
             List<long> oGLDataIDCollection = new List<long>();
-            if (this._RoleID == (short)WebEnums.UserRole.PREPARER || this._RoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+            if (this._RoleID == (short)ARTEnums.UserRole.PREPARER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Prepared);
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1089));
             }
-            else if (this._RoleID == (short)WebEnums.UserRole.REVIEWER || this._RoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            else if (this._RoleID == (short)ARTEnums.UserRole.REVIEWER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Reviewed);
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1093));
 
             }
-            else if (this._RoleID == (short)WebEnums.UserRole.APPROVER || this._RoleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (this._RoleID == (short)ARTEnums.UserRole.APPROVER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Approved);
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1095));
@@ -897,7 +897,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             SaveCheckBoxStates();
             String ErrorMessage = "";
             List<long> oGLDataIDCollection = new List<long>();
-            if (this._RoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            if (this._RoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 oGLDataIDCollection = GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Reconciled);
                 if (this.chkShowSRAAsWell.Checked)
@@ -943,7 +943,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             SaveCheckBoxStates();
             String ErrorMessage = "";
             List<long> oGLDataIDCollection = new List<long>();
-            if (this._RoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+            if (this._RoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
             {
 
                 List<short> ReconciliationStatusIDList = new List<short>();
@@ -1049,12 +1049,12 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 lblDueDateValue.Visible = true;
 
                 IReconciliationPeriod oReconciliationPeriodClient = RemotingHelper.GetReconciliationPeriodObject();
-                DateTime? dueDate = oReconciliationPeriodClient.GetDueDateByUserRoleID(this._RoleID, (short)WebEnums.UserRole.PREPARER,
-                    (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER, this._ReconciliationPeriodID, Helper.GetAppUserInfo());
+                DateTime? dueDate = oReconciliationPeriodClient.GetDueDateByUserRoleID(this._RoleID, (short)ARTEnums.UserRole.PREPARER,
+                    (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER, this._ReconciliationPeriodID, Helper.GetAppUserInfo());
 
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER
-                    || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER
-                    || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.APPROVER)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER
+                    || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER
+                    || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.APPROVER)
                 {
                     if (dueDate.HasValue)
                     {
@@ -1085,12 +1085,12 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             , (short)ARTEnums.AccountAttribute.Preparer
             , (short)ARTEnums.AccountAttribute.Reviewer
             , (short)ARTEnums.AccountAttribute.Approver
-            , (short)WebEnums.UserRole.PREPARER
-            , (short)WebEnums.UserRole.REVIEWER
-            , (short)WebEnums.UserRole.APPROVER
-            , (short)WebEnums.UserRole.SYSTEM_ADMIN
-            , (short)WebEnums.UserRole.CEO_CFO
-            , (short)WebEnums.UserRole.SKYSTEM_ADMIN
+            , (short)ARTEnums.UserRole.PREPARER
+            , (short)ARTEnums.UserRole.REVIEWER
+            , (short)ARTEnums.UserRole.APPROVER
+            , (short)ARTEnums.UserRole.SYSTEM_ADMIN
+            , (short)ARTEnums.UserRole.CEO_CFO
+            , (short)ARTEnums.UserRole.SKYSTEM_ADMIN
             , (short)WebEnums.ReconciliationStatus.SysReconciled
             , isSRA
             , Helper.GetAppUserInfo());
@@ -1118,7 +1118,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
         //TODO: Change false to actual check box selected value when check box for include SRA's is included
         //int defaultItemCount = Convert.ToInt32(AppSettingHelper.GetAppSettingValue(AppSettingConstants.DEFAULT_CHUNK_SIZE));
         int defaultItemCount = Helper.GetDefaultChunkSize(ucSkyStemARTGrid.Grid.PageSize);
-        WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
+        ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
         ucSkyStemARTGrid.Grid.AllowPaging = true;
         List<FilterCriteria> oFilterCriteriaCollection = (List<FilterCriteria>)Session[sessionKey];
         //Added for checkBox State
@@ -1126,8 +1126,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
         oGLDataHdrInfoCollection = oGLDataClient.SelectGLDataAndAccountInfoByUserID(oFilterCriteriaCollection,
                     this._ReconciliationPeriodID, this._CompanyID, this._UserID, this._RoleID, this._IsDualReviewEnabled, this._IsMaterialityEnabled,
                     (short)ARTEnums.AccountAttribute.Preparer, (short)ARTEnums.AccountAttribute.Reviewer, (short)ARTEnums.AccountAttribute.Approver,
-                    (short)WebEnums.UserRole.PREPARER, (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER,
-                    (short)WebEnums.UserRole.SYSTEM_ADMIN, (short)WebEnums.UserRole.CEO_CFO, (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                    (short)ARTEnums.UserRole.PREPARER, (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER,
+                    (short)ARTEnums.UserRole.SYSTEM_ADMIN, (short)ARTEnums.UserRole.CEO_CFO, (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                     , isSRA, defaultItemCount, Helper.GetAccountAttributeIDCollection(WebEnums.AccountPages.AccountViewer),
                     SessionHelper.GetUserLanguage(), SessionHelper.GetBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID(),
                     "NetAccountID", "ASC", Helper.GetAppUserInfo());
@@ -1419,8 +1419,8 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
     private void ShowHideDownloadAllRecsBtn()
     {
 
-        //WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
-        //if (eCurrentRole == WebEnums.UserRole.SYSTEM_ADMIN)
+        //ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
+        //if (eCurrentRole == ARTEnums.UserRole.SYSTEM_ADMIN)
         //{
         if (SessionHelper.CurrentReconciliationPeriodID.HasValue && Helper.IsFeatureActivated(WebEnums.Feature.DownloadAllRecs, SessionHelper.CurrentReconciliationPeriodID))
         {
@@ -1456,14 +1456,14 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
     #region Other Methods
     protected void buttonShowHideOnserverValidate()
     {
-        WebEnums.UserRole eCurrentRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), this._RoleID.ToString());
-        if (eCurrentRole == WebEnums.UserRole.SYSTEM_ADMIN)
+        ARTEnums.UserRole eCurrentRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), this._RoleID.ToString());
+        if (eCurrentRole == ARTEnums.UserRole.SYSTEM_ADMIN)
         {
             ShowHideButtons(false);
 
         }
-        else if (eCurrentRole == WebEnums.UserRole.PREPARER || eCurrentRole == WebEnums.UserRole.REVIEWER || eCurrentRole == WebEnums.UserRole.APPROVER ||
-                            eCurrentRole == WebEnums.UserRole.BACKUP_PREPARER || eCurrentRole == WebEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == WebEnums.UserRole.BACKUP_APPROVER)
+        else if (eCurrentRole == ARTEnums.UserRole.PREPARER || eCurrentRole == ARTEnums.UserRole.REVIEWER || eCurrentRole == ARTEnums.UserRole.APPROVER ||
+                            eCurrentRole == ARTEnums.UserRole.BACKUP_PREPARER || eCurrentRole == ARTEnums.UserRole.BACKUP_REVIEWER || eCurrentRole == ARTEnums.UserRole.BACKUP_APPROVER)
         {
 
             ShowHideButtons(true);

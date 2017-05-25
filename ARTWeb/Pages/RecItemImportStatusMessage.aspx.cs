@@ -13,6 +13,7 @@ using SkyStem.ART.Client.Exception;
 using System.Text;
 using SkyStem.Language.LanguageUtility;
 using System.Data;
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
 {
@@ -364,7 +365,7 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
             oMailBody.Append("<br>");
 
             string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-            if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress));
             }

@@ -816,7 +816,7 @@ namespace SkyStem.ART.Web.Utility
                 // Load all available Phrases based on the Language Settings 
                 LanguageHelper.LoadLanguagePhrases();
             }
-            else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+            else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 LanguageUtil.SetBusinessEntityPhrasesDictionaryToNull(businessEntityID);
                 LanguageUtil.SetMultilingualAttributes(AppSettingHelper.GetApplicationID(), lcid, businessEntityID, AppSettingHelper.GetDefaultLanguageID(), AppSettingHelper.GetDefaultBusinessEntityID());

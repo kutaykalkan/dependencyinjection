@@ -16,7 +16,7 @@ using SkyStem.Language.LanguageUtility;
 using SkyStem.ART.Client.IServices;
 using Telerik.Web.UI;
 using SkyStem.ART.Client.Exception;
-
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 {
@@ -102,7 +102,7 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 
         Session[SessionConstants.USER_ACCOUNT_ASSOCIATION] = oUserAccountHdrInfocollection;
 
-        if (SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SKYSTEM_ADMIN)
+        if (SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SKYSTEM_ADMIN)
         {
             ucSkyStemARTAccountOwnershipGrid.ShowSelectCheckBoxColum = false;
             makeReadOnly();
@@ -126,7 +126,7 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 
         Session[SessionConstants.USER_ACCOUNT_ASSOCIATION] = oUserAccountHdrInfocollection;
 
-        if (SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SKYSTEM_ADMIN)
+        if (SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SKYSTEM_ADMIN)
         {
             ucSkyStemARTAccountOwnershipGrid.ShowSelectCheckBoxColum = false;
             makeReadOnly();
@@ -655,7 +655,7 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 
         }
 
-        //if (SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)WebEnums.UserRole.SKYSTEM_ADMIN)
+        //if (SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID != (int)ARTEnums.UserRole.SKYSTEM_ADMIN)
         //{
         //    url = "CreateUser.aspx?" + QueryStringConstants.User_ID + "=" + Convert.ToInt32(Request.QueryString[QueryStringConstants.User_ID]); 
         //}
@@ -903,13 +903,13 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
         IUser oUserClient;
         oUserClient = RemotingHelper.GetUserObject();
         oUserRoleInfoCollection = oUserClient.GetUserRole(userID, Helper.GetAppUserInfo());
-        ddlRole.DataSource = oUserRoleInfoCollection.Where(p => (p.RoleID == (short)WebEnums.UserRole.ACCOUNT_MANAGER
-                            || p.RoleID == (short)WebEnums.UserRole.FINANCIAL_MANAGER
-                            || p.RoleID == (short)WebEnums.UserRole.CONTROLLER
-                            || p.RoleID == (short)WebEnums.UserRole.EXECUTIVE
-                            || p.RoleID == (short)WebEnums.UserRole.AUDIT
-                            || p.RoleID == (short)WebEnums.UserRole.BUSINESS_ADMIN
-                            || p.RoleID == (short)WebEnums.UserRole.TASK_OWNER));
+        ddlRole.DataSource = oUserRoleInfoCollection.Where(p => (p.RoleID == (short)ARTEnums.UserRole.ACCOUNT_MANAGER
+                            || p.RoleID == (short)ARTEnums.UserRole.FINANCIAL_MANAGER
+                            || p.RoleID == (short)ARTEnums.UserRole.CONTROLLER
+                            || p.RoleID == (short)ARTEnums.UserRole.EXECUTIVE
+                            || p.RoleID == (short)ARTEnums.UserRole.AUDIT
+                            || p.RoleID == (short)ARTEnums.UserRole.BUSINESS_ADMIN
+                            || p.RoleID == (short)ARTEnums.UserRole.TASK_OWNER));
         ddlRole.DataTextField = "Role";
         ddlRole.DataValueField = "RoleID";
         ddlRole.DataBind();

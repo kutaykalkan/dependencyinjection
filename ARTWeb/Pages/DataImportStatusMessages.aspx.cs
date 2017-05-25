@@ -740,7 +740,7 @@ public partial class Pages_DataImportStatusMessages : PageBaseCompany
             oMailBody.Append("<br>");
 
             string fromAddress = AppSettingHelper.GetAppSettingValue(AppSettingConstants.EMAIL_FROM_DEFAULT);
-            if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 oMailBody.Append("<br/>" + MailHelper.GetEmailSignature(WebEnums.SignatureEnum.SendBySkyStemSystem, fromAddress));
             }

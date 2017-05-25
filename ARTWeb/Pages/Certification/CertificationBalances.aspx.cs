@@ -222,8 +222,8 @@ public partial class Pages_CertificationBalances : PageBaseRecPeriod
                 oGLDataHdrInfoCollection = oGLDataClient.SelectGLDataAndAccountInfoByUserIDForCertificationBalances(
                        this._ReconciliationPeriodID, this._CompanyID, this._UserID, this._RoleID, this._IsDualReviewEnabled, this._IsMaterialityEnabled,
                        (short)ARTEnums.AccountAttribute.Preparer, (short)ARTEnums.AccountAttribute.Reviewer, (short)ARTEnums.AccountAttribute.Approver,
-                       (short)WebEnums.UserRole.PREPARER, (short)WebEnums.UserRole.REVIEWER, (short)WebEnums.UserRole.APPROVER,
-                       (short)WebEnums.UserRole.SYSTEM_ADMIN, (short)WebEnums.UserRole.CEO_CFO, (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                       (short)ARTEnums.UserRole.PREPARER, (short)ARTEnums.UserRole.REVIEWER, (short)ARTEnums.UserRole.APPROVER,
+                       (short)ARTEnums.UserRole.SYSTEM_ADMIN, (short)ARTEnums.UserRole.CEO_CFO, (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                        , true, count, Helper.GetAccountAttributeIDCollection(WebEnums.AccountPages.AccountViewer),
                        SessionHelper.GetUserLanguage(), SessionHelper.GetBusinessEntityID(), AppSettingHelper.GetDefaultLanguageID()
                        , Helper.GetAppUserInfo());

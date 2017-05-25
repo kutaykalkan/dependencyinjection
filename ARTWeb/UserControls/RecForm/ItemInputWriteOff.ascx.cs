@@ -971,10 +971,10 @@ namespace SkyStem.ART.Web.UserControls
 
         private void ShowHideButtonBasedOnUserRole()
         {
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)SessionHelper.CurrentRoleID;
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)SessionHelper.CurrentRoleID;
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.PREPARER:
                     btnAdd.Visible = true;
                     break;
                 default:

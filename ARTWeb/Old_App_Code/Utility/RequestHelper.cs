@@ -284,11 +284,11 @@ namespace SkyStem.ART.Web.Utility
             dr[DownloadAllRecsConstants.HeaderFields.PREPARERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Preparer;
             dr[DownloadAllRecsConstants.HeaderFields.REVIEWERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Reviewer;
             dr[DownloadAllRecsConstants.HeaderFields.APPROVERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Approver;
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.AUDIT || Helper.IsQualityScoreEnabled())
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.AUDIT || Helper.IsQualityScoreEnabled())
                 dr[DownloadAllRecsConstants.HeaderFields.ISQUALITYSCOREENABLED] = Helper.IsFeatureActivated(WebEnums.Feature.QualityScore, SessionHelper.CurrentReconciliationPeriodID);
             else
                 dr[DownloadAllRecsConstants.HeaderFields.ISQUALITYSCOREENABLED] = false;
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.AUDIT || Helper.IsReviewNotesEnabled())
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.AUDIT || Helper.IsReviewNotesEnabled())
                 dr[DownloadAllRecsConstants.HeaderFields.ISREVIEWNOTESENABLED] = true;
             else
                 dr[DownloadAllRecsConstants.HeaderFields.ISREVIEWNOTESENABLED] = false;

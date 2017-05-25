@@ -9,6 +9,7 @@ using SkyStem.ART.Client.Model;
 using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
+using System.IO;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -27,34 +28,23 @@ namespace SkyStem.ART.Web.Utility
 
         public void ProcessRequest(HttpContext context)
         {
-            string sessionID = context.Request.QueryString[QueryStringConstants.SESSION_ID];
-            string filename = context.Request.QueryString[QueryStringConstants.FILE_NAME];
-            var data = context.Session[sessionID] as System.Data.DataTable;
-            if (data != null)
-            {
-                MatchingHelper.ExportToExcel(data, filename);
-            }
-            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.HANDLER_ACTION]))
-            {
-                int handlerAction;
-                if (Int32.TryParse(context.Request.QueryString[QueryStringConstants.HANDLER_ACTION], out handlerAction))
-                    ProcessHandlerActions(handlerAction, context);
-            }
-        }
-
-        protected void ProcessHandlerActions(int handlerAction, HttpContext context)
-        {
             try
             {
-                if (handlerAction > 0)
+                if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                    throw new AccessViolationException("User is not authenticated and is attempting to download a file.");
+
+                string sessionID = context.Request.QueryString[QueryStringConstants.SESSION_ID];
+                string filename = context.Request.QueryString[QueryStringConstants.FILE_NAME];
+                var data = context.Session[sessionID] as System.Data.DataTable;
+                if (data != null)
                 {
-                    WebEnums.HandlerActionType eHandlerAction = (WebEnums.HandlerActionType)handlerAction;
-                    switch (eHandlerAction)
-                    {
-                        case WebEnums.HandlerActionType.DownloadRecAttachments:
-                            DownloadAttachments(context);
-                            break;
-                    }
+                    MatchingHelper.ExportToExcel(data, filename);
+                }
+                if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.HANDLER_ACTION]))
+                {
+                    int handlerAction;
+                    if (Int32.TryParse(context.Request.QueryString[QueryStringConstants.HANDLER_ACTION], out handlerAction))
+                        ProcessHandlerActions(handlerAction, context);
                 }
             }
             catch (ARTException ex)
@@ -71,6 +61,23 @@ namespace SkyStem.ART.Web.Utility
             finally
             {
                 context.Response.End();
+            }
+        }
+
+        protected void ProcessHandlerActions(int handlerAction, HttpContext context)
+        {
+            if (handlerAction > 0)
+            {
+                WebEnums.HandlerActionType eHandlerAction = (WebEnums.HandlerActionType)handlerAction;
+                switch (eHandlerAction)
+                {
+                    case WebEnums.HandlerActionType.DownloadRecAttachments:
+                        DownloadAttachments(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadDataImportFile:
+                        DownloadDataImportFile(context);
+                        break;
+                }
             }
         }
 
@@ -104,6 +111,79 @@ namespace SkyStem.ART.Web.Utility
             }
         }
 
+        protected void DownloadDataImportFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                int? dataImportID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_ID]);
+                short? dataImportTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_TYPE_ID]);
+                IDataImport oDataImport = RemotingHelper.GetDataImportObject();
+                DataImportHdrInfo oDataImportHdrInfo = oDataImport.GetDataImportInfo(dataImportID, Helper.GetAppUserInfo());
+                if (oDataImportHdrInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oDataImportHdrInfo.PhysicalPath, context);
+            }
+        }
+
+        private void DownloadFile(string strRequestedDoc, HttpContext context)
+        {
+            // Put user code to initialize the page here
+            //string strDocPath = Helper.GetFolderForAttachment(SessionHelper.CurrentCompanyID.Value, SessionHelper.CurrentReconciliationPeriodID.Value);
+            string ContentType;
+            string strResponsePath;
+            string filePhysicalPath = "";
+            //string strRequestedDoc = HttpContext.Current.Server.UrlDecode(Request.QueryString[QueryStringConstants.FILE_PATH]);
+            WebEnums.DownloadMode eDownloadMode = WebEnums.DownloadMode.attachment;
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.DOWNLOAD_MODE]))
+            {
+                eDownloadMode = (WebEnums.DownloadMode)Enum.Parse(typeof(WebEnums.DownloadMode), context.Request.QueryString[QueryStringConstants.DOWNLOAD_MODE]);
+            }
+            //filePhysicalPath = strDocPath + "/" + strRequestedDoc;
+            filePhysicalPath = strRequestedDoc;
+            if (strRequestedDoc != null)
+            {
+                FileInfo objFileInfo = new FileInfo(filePhysicalPath);
+
+                ContentType = ExportHelper.GetContentType(objFileInfo.Extension);
+
+                if (objFileInfo.Exists)
+                {
+                    strResponsePath = objFileInfo.FullName;
+                    // if the file for the requested media exists on the disk
+                    // send the headers to the client's browser
+
+                    if (eDownloadMode == WebEnums.DownloadMode.inline)
+                    {
+                        context.Response.AddHeader("Content-Disposition", "inline; filename=" + ExportHelper.GetOriginalFileName(objFileInfo.Name));
+                        context.Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
+                        context.Response.ContentType = ContentType;
+                        context.Response.WriteFile(strResponsePath);
+                    }
+                    else
+                    {
+                        context.Response.AddHeader("Content-Disposition", "attachment; filename=" + ExportHelper.GetOriginalFileName(objFileInfo.Name));
+                        context.Response.AddHeader("Content-Length", objFileInfo.Length.ToString());
+                        context.Response.ContentType = ContentType;
+                        context.Response.TransmitFile(strResponsePath);
+                    }
+                    context.Response.End();
+                }
+                else
+                {
+                    string responseScript = string.Empty;
+                    responseScript += "<script language='javascript'>";
+                    responseScript += "alert('" + LanguageUtil.GetValue(5000206) + "');";
+                    responseScript += "document.location.href='" + HttpContext.Current.Request.UrlReferrer + "';";
+                    responseScript += "</script>";
+                    context.Response.Write(responseScript);
+                }
+
+            }
+            else
+                throw new ARTSystemException(5000030);
+        }
         #endregion
     }
 }

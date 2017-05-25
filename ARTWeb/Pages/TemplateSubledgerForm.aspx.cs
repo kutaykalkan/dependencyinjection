@@ -206,7 +206,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
                             }
                             else
                             {
-                                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                     {
@@ -218,7 +218,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
                                         Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                     }
                                 }
-                                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                     {
@@ -238,7 +238,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
                         }
                         else
                         {
-                            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                 {
@@ -250,7 +250,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
                                     Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                 }
                             }
-                            else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                            else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                 {

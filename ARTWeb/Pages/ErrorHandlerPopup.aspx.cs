@@ -8,6 +8,7 @@ using SkyStem.ART.Web.Utility;
 using SkyStem.ART.Web.Classes;
 using SkyStem.Language.LanguageUtility;
 using SkyStem.ART.Web.Data;
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_ErrorHandlerPopup : PopupPageBase
 {
@@ -33,7 +34,7 @@ public partial class Pages_ErrorHandlerPopup : PopupPageBase
 
             if (Request.QueryString[QueryStringConstants.ERROR_MESSAGE_SYSTEM] != null)
             {
-                if (SessionHelper.CurrentRoleEnum != WebEnums.UserRole.SYSTEM_ADMIN)
+                if (SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.SYSTEM_ADMIN)
                 {
                     lblMessage.Text = string.Format(LanguageUtil.GetValue(5000062), LanguageUtil.GetValue(errorLabelID));
                 }

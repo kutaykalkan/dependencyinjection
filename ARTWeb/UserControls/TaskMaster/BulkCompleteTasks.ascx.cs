@@ -611,7 +611,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                             ucAddTaskComment.DisAbleAttachementControl = true;
                         break;
                     case ARTEnums.TaskActionType.Remove:
-                        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+                        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
                         {
                             DataSource = TaskMasterHelper.GetDeleteAccessableTaskByUserID(SessionHelper.CurrentUserID.Value, SessionHelper.CurrentRoleID.Value, SessionHelper.CurrentReconciliationPeriodID.Value
                                 , (ARTEnums.TaskType)_taskTypeID.Value, null, false);

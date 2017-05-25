@@ -219,7 +219,7 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
                     DataTable dt = null;
                     int result = 0;
                     int companyID = SessionHelper.CurrentCompanyID.Value;
-                    if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                    if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                         companyID = 0;
                     try
                     {
@@ -250,7 +250,7 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
 
                         DataImportHelper.GetCompanyDataStorageCapacityAndCurrentUsage(out dataStorageCapacity, out currentUsage);
 
-                        if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
+                        if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
                         {
                             string exceptionMessage = string.Format(Helper.GetLabelIDValue(5000181), (dataStorageCapacity - currentUsage), dataStorageCapacity);
                             throw new Exception(exceptionMessage);

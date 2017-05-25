@@ -316,7 +316,7 @@ namespace SkyStem.ART.Web.Utility
             // Get Certification Started or not
             bool isCertificationStarted = CertificationHelper.IsCertificationStarted();
             // Get User Role
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)SessionHelper.CurrentRoleID.Value;
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)SessionHelper.CurrentRoleID.Value;
             // Get Matching Status
             ARTEnums.MatchingStatus? eMatchingStatus = null;
             int? addedByUserID = null;
@@ -355,7 +355,7 @@ namespace SkyStem.ART.Web.Utility
                     return WebEnums.FormMode.ReadOnly;
 
                 // Check for User Role
-                if (!(eUserRole == WebEnums.UserRole.PREPARER || eUserRole == WebEnums.UserRole.BACKUP_PREPARER))
+                if (!(eUserRole == ARTEnums.UserRole.PREPARER || eUserRole == ARTEnums.UserRole.BACKUP_PREPARER))
                     return WebEnums.FormMode.ReadOnly;
 
                 // Check for Rec Status
@@ -398,10 +398,10 @@ namespace SkyStem.ART.Web.Utility
                         && CurrentRecProcessStatus != WebEnums.RecPeriodStatus.InProgress)
                             return WebEnums.FormMode.ReadOnly;
                         // Check User Role
-                        if (eUserRole != WebEnums.UserRole.SYSTEM_ADMIN
-                            && eUserRole != WebEnums.UserRole.BUSINESS_ADMIN
-                            && eUserRole != WebEnums.UserRole.PREPARER
-                            && eUserRole != WebEnums.UserRole.BACKUP_PREPARER)
+                        if (eUserRole != ARTEnums.UserRole.SYSTEM_ADMIN
+                            && eUserRole != ARTEnums.UserRole.BUSINESS_ADMIN
+                            && eUserRole != ARTEnums.UserRole.PREPARER
+                            && eUserRole != ARTEnums.UserRole.BACKUP_PREPARER)
                             return WebEnums.FormMode.ReadOnly;
                     }
                     break;
