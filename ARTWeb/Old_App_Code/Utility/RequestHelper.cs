@@ -401,7 +401,11 @@ namespace SkyStem.ART.Web.Utility
             SetLabelText(lblAddedBy, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.AddedByUserName));
             SetLabelText(lblStatusMessage, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.StatusMessage));
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(SharedHelper.GetDisplayFilePath(oBulkExportToExcelInfo.PhysicalPath)) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
+            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(SharedHelper.GetDisplayFilePath(oBulkExportToExcelInfo.PhysicalPath)) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRequestFile);
+            url += "&" + QueryStringConstants.REQUEST_ID + "=" + oBulkExportToExcelInfo.RequestID.GetValueOrDefault()
+            + "&" + QueryStringConstants.REQUEST_TYPE_ID + "=" + oBulkExportToExcelInfo.RequestTypeID.GetValueOrDefault();
+           
             if (imgFileTypeExcel != null)
                 imgFileTypeExcel.OnClientClick = "document.location.href = '" + url + "';return false;";
             if (imgFileTypeZip != null)

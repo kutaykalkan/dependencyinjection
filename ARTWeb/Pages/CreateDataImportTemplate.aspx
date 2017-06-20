@@ -204,6 +204,7 @@
             </td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
     <script type="text/javascript">
         function ValidateFileExtension(source, arguments) {
             var flag = 0;

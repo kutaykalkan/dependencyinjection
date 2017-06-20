@@ -289,8 +289,13 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         else
             lblMatchSetID.Text = "0";
 
-        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
-        imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        //string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
+        //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadMatchingImportFile);
+        url += "&" + QueryStringConstants.MATCHING_SOURCE_DATA_IMPORT_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceDataImportID.GetValueOrDefault()
+        + "&" + QueryStringConstants.MATCHING_SOURCE_TYPE_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceTypeID.GetValueOrDefault();
+        imgFileType.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
+
 
         WebEnums.DataImportStatus eDataImportStatus = (WebEnums.DataImportStatus)System.Enum.Parse(typeof(WebEnums.DataImportStatus), oMatchingSourceDataImportHdrInfo.DataImportStatusID.Value.ToString());
 

@@ -112,8 +112,9 @@ namespace SkyStem.ART.App.DAO
             return dtTaskNumber;
         }
 
-        public List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, ARTEnums.TaskType taskType
-            , List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList)
+        public List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, short taskCategoryID, ARTEnums.TaskType taskType
+            , List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList
+            , bool? isShowHidden, int? LanguageID, int? DefaultLanguageID)
         {
             IDbCommand oCmd = null;
             IDbConnection oConn = null;
@@ -121,11 +122,11 @@ namespace SkyStem.ART.App.DAO
             List<TaskHdrInfo> oTaskHdrInfoList = new List<TaskHdrInfo>();
             try
             {
-                DataTable dtFilterCriteria = filterCriteriaList == null ? null : ServiceHelper.ConvertFilterCriteriaIntoDataTable(filterCriteriaList);
-                DataTable dtTaskStatus = taskStatusMstInfoList == null ? null : ServiceHelper.ConvertTaskStatusMstInfoListToDataTable(taskStatusMstInfoList);
+                DataTable dtFilterCriteria = ServiceHelper.ConvertFilterCriteriaIntoDataTable(filterCriteriaList);
+                DataTable dtTaskStatus = ServiceHelper.ConvertTaskStatusMstInfoListToDataTable(taskStatusMstInfoList);
 
                 oConn = this.CreateConnection();
-                oCmd = this.GetAccessableTaskByUserIDCommand(userID, roleID, recPeriodID, taskType, dtFilterCriteria, dtTaskStatus);
+                oCmd = this.GetAccessableTaskByUserIDCommand(userID, roleID, recPeriodID, taskCategoryID, taskType, dtFilterCriteria, dtTaskStatus, isShowHidden, LanguageID, DefaultLanguageID);
                 oCmd.Connection = oConn;
                 oCmd.Connection.Open();
                 reader = oCmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -310,8 +311,8 @@ namespace SkyStem.ART.App.DAO
         }
 
 
-        private IDbCommand GetAccessableTaskByUserIDCommand(int userID, short roleID, int recPeriodID, ARTEnums.TaskType taskType
-            , DataTable dtFilterCriteria, DataTable dtTaskStatus)
+        private IDbCommand GetAccessableTaskByUserIDCommand(int userID, short roleID, int recPeriodID, short taskCategoryID, ARTEnums.TaskType taskType
+            , DataTable dtFilterCriteria, DataTable dtTaskStatus, bool? isShowHidden, int? LanguageID, int? DefaultLanguageID)
         {
             IDbCommand oCommand = this.CreateCommand("[TaskMaster].[usp_GET_AccessableTaskByUserID]");
             oCommand.CommandType = CommandType.StoredProcedure;
@@ -321,33 +322,58 @@ namespace SkyStem.ART.App.DAO
             IDbDataParameter paramUserID = oCommand.CreateParameter();
             paramUserID.ParameterName = "@UserID";
             paramUserID.Value = userID;
+            cmdParams.Add(paramUserID);
 
             IDbDataParameter paramRoleID = oCommand.CreateParameter();
             paramRoleID.ParameterName = "@RoleID";
             paramRoleID.Value = roleID;
+            cmdParams.Add(paramRoleID);
 
             IDbDataParameter paramRecPeriodID = oCommand.CreateParameter();
             paramRecPeriodID.ParameterName = "@RecPeriodID";
             paramRecPeriodID.Value = recPeriodID;
+            cmdParams.Add(paramRecPeriodID);
 
             IDbDataParameter paramTaskTypeID = oCommand.CreateParameter();
             paramTaskTypeID.ParameterName = "@TaskTypeID";
             paramTaskTypeID.Value = Convert.ToInt16(taskType);
+            cmdParams.Add(paramTaskTypeID);
+
+            IDbDataParameter paramTaskCategoryID = oCommand.CreateParameter();
+            paramTaskCategoryID.ParameterName = "@TaskCategoryID";
+            paramTaskCategoryID.Value = taskCategoryID;
+            cmdParams.Add(paramTaskCategoryID);
 
             IDbDataParameter paramFilterCriteria = oCommand.CreateParameter();
             paramFilterCriteria.ParameterName = "@FilterCriteriaTable";
             paramFilterCriteria.Value = dtFilterCriteria;
-
-            IDbDataParameter paramTaskStatusTable = oCommand.CreateParameter();
-            paramTaskStatusTable.ParameterName = "@TaskStatusTable";
-            paramTaskStatusTable.Value = dtTaskStatus;
-
-            cmdParams.Add(paramUserID);
-            cmdParams.Add(paramRoleID);
-            cmdParams.Add(paramRecPeriodID);
-            cmdParams.Add(paramTaskTypeID);
             cmdParams.Add(paramFilterCriteria);
-            cmdParams.Add(paramTaskStatusTable);
+
+            //IDbDataParameter paramTaskStatusTable = oCommand.CreateParameter();
+            //paramTaskStatusTable.ParameterName = "@TaskStatusTable";
+            //paramTaskStatusTable.Value = dtTaskStatus;
+            //cmdParams.Add(paramTaskStatusTable);
+
+            IDbDataParameter paramIsShowHidden = oCommand.CreateParameter();
+            paramIsShowHidden.ParameterName = "@IsShowHidden";
+            paramIsShowHidden.Value = isShowHidden.Value;
+            cmdParams.Add(paramIsShowHidden);
+
+            IDbDataParameter paramLanguageID = oCommand.CreateParameter();
+            paramLanguageID.ParameterName = "@LCID";
+            if (LanguageID.HasValue)
+                paramLanguageID.Value = LanguageID.Value;
+            else
+                paramLanguageID.Value = System.DBNull.Value;
+            cmdParams.Add(paramLanguageID);
+
+            IDbDataParameter paramDefualtLanguageID = oCommand.CreateParameter();
+            paramDefualtLanguageID.ParameterName = "@DefaultLCID";
+            if (DefaultLanguageID.HasValue)
+                paramDefualtLanguageID.Value = LanguageID.Value;
+            else
+                paramDefualtLanguageID.Value = System.DBNull.Value;
+            cmdParams.Add(paramDefualtLanguageID);
 
             return oCommand;
         }

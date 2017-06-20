@@ -172,7 +172,7 @@ public partial class UserControls_RecForm_RecStatusBar : UserControlRecStatusBar
     private string GetUrlForDownloadAttachments()
     {
         string url = "";
-        url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRecAttachments);
+        url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRecsAndAttachmentsFile);
         url += GetCommonQueryStringParameters(url);
         return url;
     }

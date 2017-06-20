@@ -385,4 +385,5 @@
             </td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
 </div>

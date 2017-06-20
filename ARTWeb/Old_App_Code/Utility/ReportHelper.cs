@@ -2346,7 +2346,8 @@ namespace SkyStem.ART.Web.Utility
                 }
                 else
                 {
-                    imgCompanyLogo.ImageUrl = ePage.ResolveUrl("~/Pages/DownloadAttachment.aspx") + "?" + QueryStringConstants.FILE_PATH + "=" + logoPath;
+                    string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadCompanyLogo);
+                    imgCompanyLogo.ImageUrl = url; //ePage.ResolveUrl("~/Pages/DownloadAttachment.aspx") + "?" + QueryStringConstants.FILE_PATH + "=" + logoPath;
                 }
             }
             catch (Exception ex)

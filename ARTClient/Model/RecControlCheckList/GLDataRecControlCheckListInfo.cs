@@ -29,6 +29,5 @@ namespace SkyStem.ART.Client.Model.RecControlCheckList
         [DataMember]
         [XmlElement(ElementName = "ReviewedCount")]
         public int? ReviewedCount { get; set; }
-
     }
 }

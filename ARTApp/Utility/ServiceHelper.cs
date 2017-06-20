@@ -2757,12 +2757,14 @@ namespace SkyStem.ART.App.Utility
             Dictionary<string, System.Type> fieldDictionary = new Dictionary<string, Type>();
             fieldDictionary.Add("ID", typeof(System.Int16));
             DataTable dt = GetDataTable(fieldDictionary, false);
-
-            foreach (TaskStatusMstInfo oTaskStatus in taskStatusInfoList)
+            if (taskStatusInfoList != null && taskStatusInfoList.Count > 0)
             {
-                DataRow dr = dt.NewRow();
-                dr["ID"] = oTaskStatus.TaskStatusID.Value;
-                dt.Rows.Add(dr);
+                foreach (TaskStatusMstInfo oTaskStatus in taskStatusInfoList)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ID"] = oTaskStatus.TaskStatusID.Value;
+                    dt.Rows.Add(dr);
+                }
             }
             return dt;
         }

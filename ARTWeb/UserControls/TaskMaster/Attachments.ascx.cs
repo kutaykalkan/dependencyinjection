@@ -21,6 +21,8 @@ using SkyStem.Library.Controls.TelerikWebControls;
 public partial class UserControls_TaskMaster_Attachments : UserControlTaskMasterBase
 {
     private const string _sessionKey = SessionConstants.TASK_MASTER_ATTACHMENT;
+    long? _taskID = 0;
+    short? _taskTypeID = 0;
     long? _recordID = 0;
     int? _recordTypeID = 0;
     int maxFileSize;
@@ -60,6 +62,14 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
     {
         lblMaxFileSize.Text = Helper.GetLabelIDValue(1801) + " " + DataImportHelper.GetAllowedMaximumFileSizeInt(SessionHelper.CurrentCompanyID.Value) + " " + Helper.GetLabelIDValue(1802);
 
+        if (!String.IsNullOrEmpty(Request.QueryString[QueryStringConstants.TASK_ID]))
+        {
+            _taskID = Convert.ToInt64(Request.QueryString[QueryStringConstants.TASK_ID]);
+        }
+        if (!String.IsNullOrEmpty(Request.QueryString[QueryStringConstants.TASK_TYPE_ID]))
+        {
+            _taskTypeID = Convert.ToInt16(Request.QueryString[QueryStringConstants.TASK_TYPE_ID]);
+        }
         if (!String.IsNullOrEmpty(Request.QueryString[QueryStringConstants.RECORD_ID]))
         {
             _recordID = Convert.ToInt64(Request.QueryString[QueryStringConstants.RECORD_ID]);
@@ -135,7 +145,13 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
             ExHyperLink hlDocumentName = (ExHyperLink)e.Item.FindControl("hlDocumentName");
 
 
-            string url = this.ResolveUrl(URLConstants.URL_DOWNLOAD_ATTACHMENT) + "?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oAttachmentInfo.PhysicalPath);
+            //string url = this.ResolveUrl(URLConstants.URL_DOWNLOAD_ATTACHMENT) + "?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oAttachmentInfo.PhysicalPath);
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadTaskAttachmentFile);
+            url += "&" + QueryStringConstants.RECORD_ID + "=" + oAttachmentInfo.RecordID.GetValueOrDefault()
+            + "&" + QueryStringConstants.RECORD_TYPE_ID + "=" + oAttachmentInfo.RecordTypeID.GetValueOrDefault()
+            + "&" + QueryStringConstants.TASK_ID + "=" + _taskID.GetValueOrDefault()
+            + "&" + QueryStringConstants.TASK_TYPE_ID + "=" + _taskTypeID.GetValueOrDefault()
+            + "&" + QueryStringConstants.GENERIC_ID + "=" + oAttachmentInfo.AttachmentID.GetValueOrDefault();
             hlDocumentName.NavigateUrl = url;
 
             //GridColumn gcDelete = rgAttachments.Columns.FindByUniqueNameSafe("DeleteColumn");
@@ -151,7 +167,7 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
             if ((_mode == QueryStringConstants.INSERT || _mode == QueryStringConstants.EDIT) && SessionHelper.CurrentUserID == oAttachmentInfo.UserID)
             {
                 imgBtnDelete.ToolTip = Helper.GetLabelIDValue(1564);
-                imgBtnDelete.CommandArgument = "1^" + oAttachmentInfo.PhysicalPath + "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
+                //imgBtnDelete.CommandArgument = "1^" + oAttachmentInfo.PhysicalPath + "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
                 imgBtnDelete.Enabled = true;
                 imgBtnDelete.Visible = true;
             }
@@ -163,33 +179,47 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
     protected void rgGLAdjustments_DeleteCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
     {
         int attachmentID = Convert.ToInt32((rgAttachments.MasterTableView.DataKeyValues[e.Item.ItemIndex][rgAttachments.MasterTableView.DataKeyNames[0]]).ToString());
-        string[] arrComandArgs = e.CommandArgument.ToString().Split('^');
+        List<AttachmentInfo> attachList = null;
+        AttachmentInfo oAttachmentInfo = null;
+        //string[] arrComandArgs = e.CommandArgument.ToString().Split('^');
         //bool IsFileDeleteParmanent = true;
         string filePath = "";
         IAttachment oAttachmentClient = RemotingHelper.GetAttachmentObject();
         if (this._recordID.HasValue && this._recordID.Value > 0)
         {
-            filePath = arrComandArgs[1];
-            var fileReferenceCount = oAttachmentClient.DeleteAttachmentAndGetFileRefrenceCount(attachmentID, Helper.GetAppUserInfo());
-            if (!fileReferenceCount.HasValue || fileReferenceCount <= 0)
+            attachList = TaskMasterHelper.GetTaskAttachments(_recordID, (ARTEnums.RecordType)_recordTypeID);
+            if (attachList != null && attachList.Count > 0)
             {
-                int StartRecPeriodID;
-                int.TryParse(arrComandArgs[3], out StartRecPeriodID);
-                if (StartRecPeriodID == SessionHelper.CurrentReconciliationPeriodID)
-                {
-                    decimal FileSize;
-                    decimal.TryParse(arrComandArgs[2], out FileSize);
-                    DataImportHelper.UpdateCompanyDataStorageCapacityAndCurrentUsage(SessionHelper.CurrentCompanyID.Value, FileSize, SessionHelper.CurrentUserLoginID, DateTime.Now);
-                    DeleteFile(filePath);
-                }
+                oAttachmentInfo = attachList.Find(T => T.AttachmentID == attachmentID);
             }
-            DataSource = oAttachmentClient.GetAttachment((int)_recordID, (int)_recordTypeID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
+            if (oAttachmentInfo != null)
+            {
+                filePath = oAttachmentInfo.PhysicalPath; //arrComandArgs[1];
+                var fileReferenceCount = oAttachmentClient.DeleteAttachmentAndGetFileRefrenceCount(attachmentID, Helper.GetAppUserInfo());
+                if (!fileReferenceCount.HasValue || fileReferenceCount <= 0)
+                {
+                    int StartRecPeriodID = oAttachmentInfo.StartRecPeriodID.GetValueOrDefault();
+                    //int.TryParse(arrComandArgs[3], out StartRecPeriodID);
+                    if (StartRecPeriodID == SessionHelper.CurrentReconciliationPeriodID)
+                    {
+                        decimal FileSize = oAttachmentInfo.FileSize.GetValueOrDefault();
+                        //decimal.TryParse(arrComandArgs[2], out FileSize);
+                        DataImportHelper.UpdateCompanyDataStorageCapacityAndCurrentUsage(SessionHelper.CurrentCompanyID.Value, FileSize, SessionHelper.CurrentUserLoginID, DateTime.Now);
+                        DeleteFile(filePath);
+                    }
+                }
+                DataSource = oAttachmentClient.GetAttachment((int)_recordID, (int)_recordTypeID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
+            }
         }
         else
         {
-            filePath = arrComandArgs[1];
-            DataSource.RemoveAt(e.Item.DataSetIndex);
-            DeleteFile(filePath);
+            oAttachmentInfo = DataSource.Find(T => T.AttachmentID == attachmentID);
+            if (oAttachmentInfo != null)
+            {
+                filePath = oAttachmentInfo.PhysicalPath; //arrComandArgs[1];
+                DataSource.RemoveAt(e.Item.DataSetIndex);
+                DeleteFile(filePath);
+            }
         }
         BindGrid(DataSource);
     }
@@ -421,6 +451,7 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
                         oAttachmentInfo.FileName = fileName;
                         oAttachmentInfo.PhysicalPath = filePath;
                         oAttachmentInfo.FileSize = validFile.ContentLength;
+                        oAttachmentInfo.AttachmentID = GetTempAttachmentIDFromSessionKey();
                         //oAttachmentInfo.Comments = txtComments.Text;
                     }
                     else
@@ -444,6 +475,26 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
         }
         // This is required to save into view state
         AttachmentListToUpload = oAttachmentListToUpload;
+    }
+
+    private long? GetTempAttachmentIDFromSessionKey()
+    {
+        long? tmpAttachmentKey = 0;
+        if (Session[_sessionKey] != null)
+        {
+            List<AttachmentInfo> oAttachmentCollection = (List<AttachmentInfo>)Session[_sessionKey];
+            if (oAttachmentCollection.Count > 0)
+            {
+                tmpAttachmentKey = oAttachmentCollection[0].AttachmentID.Value;
+                for (int i = 1; i < oAttachmentCollection.Count; i++)
+                {
+                    if (oAttachmentCollection[i].AttachmentID.Value < tmpAttachmentKey)
+                        tmpAttachmentKey = oAttachmentCollection[i].AttachmentID.Value;
+
+                }
+            }
+        }
+        return tmpAttachmentKey - 1;
     }
 
     protected void BindAttachmentRepeater()

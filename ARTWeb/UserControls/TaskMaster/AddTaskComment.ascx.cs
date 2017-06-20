@@ -13,6 +13,7 @@ using SkyStem.Library.Controls.WebControls;
 public partial class UserControls_TaskMaster_AddTaskComment : UserControlTaskMasterBase
 {
     long? _taskID = null;
+    short? _taskTypeID = null;
     long? _taskDetailID = null;
     string _mode = null;
     int? _recordTypeID = null;
@@ -27,6 +28,11 @@ public partial class UserControls_TaskMaster_AddTaskComment : UserControlTaskMas
         set { _taskID = value; }
     }
 
+    public short? TaskTypeID
+    {
+        get { return _taskTypeID; }
+        set { _taskTypeID = value; }
+    }
     public List<long> TaskDetailIDs
     {
         get { return _taskDetailIDs; }
@@ -55,7 +61,10 @@ public partial class UserControls_TaskMaster_AddTaskComment : UserControlTaskMas
         {
             _taskID = Convert.ToInt64(Request.QueryString[QueryStringConstants.TASK_ID]);
         }
-
+        if (!string.IsNullOrEmpty(Request.QueryString[QueryStringConstants.TASK_TYPE_ID]))
+        {
+            _taskTypeID = Convert.ToInt16(Request.QueryString[QueryStringConstants.TASK_TYPE_ID]);
+        }
         if (!string.IsNullOrEmpty(Request.QueryString[QueryStringConstants.TASK_DETAIL_ID]))
         {
             _taskDetailID = Convert.ToInt64(Request.QueryString[QueryStringConstants.TASK_DETAIL_ID]);
@@ -98,15 +107,16 @@ public partial class UserControls_TaskMaster_AddTaskComment : UserControlTaskMas
     {
         //if (!TaskID.HasValue && !_taskDetailID.HasValue)
         //    return ScriptHelper.GetJSForEmptyURL();
-        //else
+        //
         //{
         string windowName;
         long? _recordID = null;
-        if (_taskID.HasValue)
-            _recordID = _taskID;
-        else if (_taskDetailID.HasValue)
+        // Commented because attachment seems to be at detail level only
+        //if (_taskID.HasValue)
+        //    _recordID = _taskID;
+        //else if (_taskDetailID.HasValue)
             _recordID = _taskDetailID;
-        return this.ResolveUrl(Helper.SetDocumentUploadURLForTasks(_recordID, _recordTypeID, _mode, out windowName));
+        return this.ResolveUrl(Helper.SetDocumentUploadURLForTasks(_taskID, _taskTypeID, _recordID, _recordTypeID, _mode, out windowName));
         //}
     }
 

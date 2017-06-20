@@ -18,7 +18,9 @@ namespace SkyStem.ART.Client.IServices
         List<TaskDetailReviewNoteDetailInfo> SelectAllCommentsByTaskDetailID(Int64? TaskDetailID, AppUserInfo oAppUserInfo);
 
         [OperationContract]
-        List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, ARTEnums.TaskType taskType, List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList, AppUserInfo oAppUserInfo);
+        List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, short taskCategoryID, ARTEnums.TaskType taskType, 
+            List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList
+            , bool? isShowHidden, int? LanguageID, int? DefaultLanguageID, AppUserInfo oAppUserInfo);
 
         [OperationContract]
         List<TaskRecurrenceTypeMstInfo> GetTaskRecurrenceTypeMstInfoCollection(AppUserInfo oAppUserInfo);

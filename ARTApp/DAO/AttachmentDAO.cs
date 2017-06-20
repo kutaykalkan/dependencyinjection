@@ -307,5 +307,75 @@ namespace SkyStem.ART.App.DAO
             cmdParams.Add(parRoleID);
             return cmd;
         }
+        public List<AttachmentInfo> GetAllAttachmentForTask(long? taskID, short? taskTypeID, int? recPeriodID, int? UserID, short? RoleID)
+        {
+
+            AttachmentInfo objAttachmentInfo = null;
+            List<AttachmentInfo> objAttachmentInfocollection = new List<AttachmentInfo>();
+            using (IDbConnection conn = CreateConnection())
+            {
+                conn.Open();
+                using (IDbCommand cmd = CreateGetAllAttachmentForTaskCommand(taskID, taskTypeID, recPeriodID, UserID, RoleID))
+                {
+                    cmd.Connection = conn;
+                    IDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    while (reader.Read())
+                    {
+                        objAttachmentInfo = (AttachmentInfo)MapObject(reader);
+                        objAttachmentInfocollection.Add(objAttachmentInfo);
+                    }
+                    reader.Close();
+                }
+            }
+            return objAttachmentInfocollection;
+        }
+        protected IDbCommand CreateGetAllAttachmentForTaskCommand(long? taskID, short? taskTypeID, int? recPeriodID, int? UserID, short? RoleID)
+        {
+
+            IDbCommand cmd = this.CreateCommand("usp_SEL_AllAttachmentByTaskID");
+            cmd.CommandType = CommandType.StoredProcedure;
+            IDataParameterCollection cmdParams = cmd.Parameters;
+
+            IDbDataParameter parTaskID = cmd.CreateParameter();
+            parTaskID.ParameterName = "@TaskID";
+            if (taskID.HasValue)
+                parTaskID.Value = taskID.Value;
+            else
+                parTaskID.Value = DBNull.Value;
+            cmdParams.Add(parTaskID);
+
+            IDbDataParameter parTaskTypeID = cmd.CreateParameter();
+            parTaskTypeID.ParameterName = "@TaskTypeID";
+            if (taskTypeID.HasValue)
+                parTaskTypeID.Value = taskTypeID.Value;
+            else
+                parTaskTypeID.Value = DBNull.Value;
+            cmdParams.Add(parTaskTypeID);
+
+            IDbDataParameter parRecPeriodID = cmd.CreateParameter();
+            parRecPeriodID.ParameterName = "@RecPeriodID";
+            if (recPeriodID.HasValue)
+                parRecPeriodID.Value = recPeriodID.Value;
+            else
+                parRecPeriodID.Value = DBNull.Value;
+            cmdParams.Add(parRecPeriodID);
+
+            IDbDataParameter parUserID = cmd.CreateParameter();
+            parUserID.ParameterName = "@UserID";
+            if (UserID.HasValue)
+                parUserID.Value = UserID.Value;
+            else
+                parUserID.Value = DBNull.Value;
+            cmdParams.Add(parUserID);
+
+            IDbDataParameter parRoleID = cmd.CreateParameter();
+            parRoleID.ParameterName = "@RoleID";
+            if (RoleID.HasValue)
+                parRoleID.Value = RoleID.Value;
+            else
+                parRoleID.Value = DBNull.Value;
+            cmdParams.Add(parRoleID);
+            return cmd;
+        }
     }
 }

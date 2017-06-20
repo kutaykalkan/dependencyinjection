@@ -71,6 +71,8 @@ namespace SkyStem.ART.Client.Model
                 this._SubledgerDataArchiveID = value;
             }
         }
-
-	}
+        [DataMember]
+        [XmlElement(ElementName = "DataImportTypeID")]
+        public Int16? DataImportTypeID { get; set; }
+    }
 }

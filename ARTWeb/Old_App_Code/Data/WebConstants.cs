@@ -208,7 +208,7 @@ namespace SkyStem.ART.Web.Data
         public const string IMPORT_ACCOUNT_TASK_URL = "~/Pages/TaskMaster/AccountTaskImport.aspx";
 
         public const string URL_BULK_COMPLETE_TASK = "~/Pages/TaskMaster/BulkCompleteTasks.aspx";
-        public const string URL_DOWNLOAD_ATTACHMENT = "~/Pages/DownloadAttachment.aspx";
+        //public const string URL_DOWNLOAD_ATTACHMENT = "~/Pages/DownloadAttachment.aspx";
         public const string URL_RECFREQUENCY = "~/Pages/PopupRecFrequency.aspx";
         public const string URL_TASK_ATTACHMENT = "~/Pages/TaskMaster/TaskAttachment.aspx";
         public const string URL_TASK_VIEW_COMMENTS = "~/Pages/TaskMaster/ViewTaskComments.aspx";
@@ -244,6 +244,7 @@ namespace SkyStem.ART.Web.Data
         public const string IS_REPORT_ACTIVITY = "IsReportActivity";
         public const string DATA_IMPORT_ID = "dtimpid";
         public const string DATA_IMPORT_TYPE_ID = "dtimptypeid";
+        public const string IMPORT_TEMPLATE_ID = "importtemplateid";
         public const string Reconciliation_TemplateID = "templateID";
         public const string SHOW_USER_CREATED = "createuser";
         public const string PREVIOUS_PAGE_FROM_QUERYSTRING = "Prv_Page";
@@ -299,6 +300,7 @@ namespace SkyStem.ART.Web.Data
 
         public const string MATCHING_SOURCE_NAME = "matchingSourceName";
         public const string MATCHING_SOURCE_DATA_IMPORT_ID = "matchingSourceDataImportID";
+        public const string MATCHING_SOURCE_TYPE_ID = "matchingSourceTypeID";
         public const string MATCH_SET_ID = "matchSetID";
         public const string MATCHING_STATUS_ID = "matchingStatusID";
         public const string MATCHING_TYPE_ID = "matchingTypeID";
@@ -340,6 +342,9 @@ namespace SkyStem.ART.Web.Data
         public const string TASK_USER_ROLE_ID = "TaskUserRoleID";
         public const string TASK_LIST_LEVEL = "TasklistLevel";
         public const string LOGOUT_MESSAGE = "SessionExpired";
+
+        public const string REQUEST_ID = "requestID";
+        public const string REQUEST_TYPE_ID = "requestTypeID";
     }
 
     public class SessionConstants
@@ -638,6 +643,9 @@ namespace SkyStem.ART.Web.Data
         public const string ALL_DATAIMPORTMESSAGE_LIST = SESSION_KEY_MASTER_DATA_PREFIX + " AllDataImportMessageList";
 
         public const string ALL_FTPSERVER_LIST= SESSION_KEY_MASTER_DATA_PREFIX + "AllFTPServerList";
+
+        public const string RECFORM_PRINT_PDF_FILE = SESSION_KEY_PREFIX + "RecFormPrintPDFFile";
+        public const string DIRECT_DOWNLOAD_FILE = SESSION_KEY_PREFIX + "DirectDownload";
 
     }
 

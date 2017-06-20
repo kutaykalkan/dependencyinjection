@@ -754,8 +754,15 @@ namespace SkyStem.ART.Web.Data
 
         public enum HandlerActionType
         {
-            DownloadRecAttachments = 1,
-            DownloadDataImportFile = 2
+            DownloadRecsAndAttachmentsFile = 1,
+            DownloadDataImportFile = 2,
+            DownloadGLAttachmentFile = 3,
+            DownloadMatchingImportFile = 4,
+            DownloadTaskAttachmentFile = 5,
+            DownloadDataImportTemplateFile = 6,
+            DownloadRequestFile = 7,
+            DownloadCompanyLogo = 8,
+            DownloadDirect = 9
         }
         public enum DownloadMode
         {

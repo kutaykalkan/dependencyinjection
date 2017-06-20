@@ -367,6 +367,7 @@
             </td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
     <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
 
         <script type="text/javascript">

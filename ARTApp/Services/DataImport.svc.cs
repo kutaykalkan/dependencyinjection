@@ -731,8 +731,7 @@ namespace SkyStem.ART.App.Services
 
             try
             {
-                DataImportBLL oDataImportBLL = new DataImportBLL();
-                return oDataImportBLL.GetDataImportInfo(DataImportID, oAppUserInfo);
+                return DataImportBLL.GetDataImportInfo(DataImportID, oAppUserInfo);
             }
             catch (SqlException ex)
             {
@@ -746,6 +745,23 @@ namespace SkyStem.ART.App.Services
             //#endif
         }
 
+        public DataImportHdrInfo GetAccessibleDataImportInfo(DataImportParamInfo oDataImportParamInfo, AppUserInfo oAppUserInfo)
+        {
+            try
+            {
+                return DataImportBLL.GetAccessibleDataImportInfo(oDataImportParamInfo, oAppUserInfo);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return null;
+            //#endif
+        }
 
         public List<DataImportHdrInfo> GetDataImportStatusByUserID(int? RecPeriodID, bool showHiddenRows, int? UserID, short? RoleID, AppUserInfo oAppUserInfo)
         {

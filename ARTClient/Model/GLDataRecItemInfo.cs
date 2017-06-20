@@ -423,5 +423,9 @@ namespace SkyStem.ART.Client.Model
         [DataMember]
         [XmlElement(ElementName = "IsCommentAvailable")]
         public bool? IsCommentAvailable { get; set; }
+
+        [DataMember]
+        [XmlElement(ElementName = "DataImportTypeID")]
+        public short? DataImportTypeID { get; set; }
     }
 }

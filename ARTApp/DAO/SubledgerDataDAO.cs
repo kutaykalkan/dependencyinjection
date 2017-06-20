@@ -191,5 +191,12 @@ namespace SkyStem.ART.App.DAO
 
             return cmd;
         }
+
+        protected override SubledgerDataInfo MapObject(IDataReader r)
+        {
+            SubledgerDataInfo entity = base.MapObject(r);
+            entity.DataImportTypeID = r.GetInt16Value("DataImportTypeID");
+            return entity;
+        }
     }
 }

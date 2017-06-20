@@ -287,13 +287,19 @@ public partial class Pages_DocumentUpload : PopupPageBase
 
             lblIsPermanentOrTemporary.Text = SetPermanentOrTemporary(oAttachmentInfo);
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oAttachmentInfo.PhysicalPath));
+            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oAttachmentInfo.PhysicalPath));
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadGLAttachmentFile);
+            url += "&" + QueryStringConstants.RECORD_ID + "=" + oAttachmentInfo.RecordID.GetValueOrDefault()
+            + "&" + QueryStringConstants.RECORD_TYPE_ID + "=" + oAttachmentInfo.RecordTypeID.GetValueOrDefault()
+            + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataHdrInfo.GLDataID.GetValueOrDefault()
+            + "&" + QueryStringConstants.GENERIC_ID + "=" + oAttachmentInfo.AttachmentID.GetValueOrDefault();
             hlDocumentName.NavigateUrl = url;
+
 
             GridColumn gcDelete = rgGLAdjustments.Columns.FindByUniqueNameSafe("DeleteColumn");
             ImageButton imgBtnDelete = (ImageButton)(e.Item as GridDataItem)["DeleteColumn"].Controls[0];
             //imgBtnDelete.Visible = HideDeleteParmanentFile(oAttachmentInfo);
-           
+
             if (_recordTypeID.GetValueOrDefault() == (int)WebEnums.RecordType.GLDataReviewNote)
             {
                 if (oAttachmentInfo.UserID.GetValueOrDefault() != SessionHelper.GetCurrentUser().UserID.GetValueOrDefault())
@@ -301,18 +307,21 @@ public partial class Pages_DocumentUpload : PopupPageBase
                 else
                     imgBtnDelete.Visible = true;
 
-                imgBtnDelete.CommandArgument = "1^" + oAttachmentInfo.PhysicalPath + "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
+                imgBtnDelete.CommandArgument = "1^" + //oAttachmentInfo.PhysicalPath +
+                     "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
                 imgBtnDelete.ToolTip = Helper.GetLabelIDValue(1564);
             }
             else
             {
 
                 if (HideDeleteParmanentFile(oAttachmentInfo))
-                    imgBtnDelete.CommandArgument = "1^" + oAttachmentInfo.PhysicalPath + "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
+                    imgBtnDelete.CommandArgument = "1^" + //oAttachmentInfo.PhysicalPath + 
+                        "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
                 else
-                    imgBtnDelete.CommandArgument = "0^" + oAttachmentInfo.PhysicalPath + "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
+                    imgBtnDelete.CommandArgument = "0^" + //oAttachmentInfo.PhysicalPath + 
+                        "^" + oAttachmentInfo.FileSize + "^" + oAttachmentInfo.StartRecPeriodID;
                 imgBtnDelete.ToolTip = Helper.GetLabelIDValue(1564);
-            
+
             }
         }
     }
@@ -324,10 +333,10 @@ public partial class Pages_DocumentUpload : PopupPageBase
         int attachmentID = Convert.ToInt32((rgGLAdjustments.MasterTableView.DataKeyValues[e.Item.ItemIndex][rgGLAdjustments.MasterTableView.DataKeyNames[0]]).ToString());
         string[] arrComandArgs = e.CommandArgument.ToString().Split('^');
         bool IsFileDeleteParmanent = false;
-        string filePath = "";
+        //string filePath = "";
         if (arrComandArgs.Length > 0)
         {
-            filePath = arrComandArgs[1];
+            //filePath = arrComandArgs[1];
             if (arrComandArgs[0] == "1")
                 IsFileDeleteParmanent = true;
             else
@@ -337,17 +346,19 @@ public partial class Pages_DocumentUpload : PopupPageBase
         if (this._recordID.HasValue && this._recordID.Value > 0)
         {
             IAttachment oAttachmentClient = RemotingHelper.GetAttachmentObject();
+            oAttachmentCollection = oAttachmentClient.GetAttachment((int)_recordID, (int)_recordTypeID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
+            AttachmentInfo oAttachmentToDelete = oAttachmentCollection.Find(r => r.AttachmentID == attachmentID);
             oAttachmentClient.DeleteAttachment(attachmentID, Helper.GetAppUserInfo());
             if (IsFileDeleteParmanent)
             {
-                int StartRecPeriodID;
-                int.TryParse(arrComandArgs[3], out StartRecPeriodID);
+                int StartRecPeriodID = oAttachmentToDelete.StartRecPeriodID.GetValueOrDefault();
+                //int.TryParse(arrComandArgs[3], out StartRecPeriodID);
                 if (StartRecPeriodID == SessionHelper.CurrentReconciliationPeriodID)
                 {
-                    decimal FileSize;
-                    decimal.TryParse(arrComandArgs[2], out FileSize);
+                    decimal FileSize = oAttachmentToDelete.FileSize.GetValueOrDefault(); 
+                    //decimal.TryParse(arrComandArgs[2], out FileSize);
                     DataImportHelper.UpdateCompanyDataStorageCapacityAndCurrentUsage(SessionHelper.CurrentCompanyID.Value, FileSize, SessionHelper.CurrentUserLoginID, DateTime.Now);
-                    DeleteFile(filePath);
+                    DeleteFile(oAttachmentToDelete.PhysicalPath);
                 }
             }
             oAttachmentCollection = oAttachmentClient.GetAttachment((int)_recordID, (int)_recordTypeID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
@@ -357,7 +368,10 @@ public partial class Pages_DocumentUpload : PopupPageBase
             oAttachmentCollection = (List<AttachmentInfo>)Session[SessionConstants.ATTACHMENTS];
             AttachmentInfo oAttachmentToDelete = oAttachmentCollection.Find(r => r.AttachmentID == attachmentID);
             if (oAttachmentToDelete != null)
+            {
                 oAttachmentCollection.Remove(oAttachmentToDelete);
+                DeleteFile(oAttachmentToDelete.PhysicalPath);
+            }
         }
         rgGLAdjustments.DataSource = oAttachmentCollection;
         rgGLAdjustments.DataBind();

@@ -168,6 +168,7 @@
             <td width="2px"></td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
 </div>
 <asp:HiddenField runat="server" ID="hdIsRefreshData" />
 <asp:HiddenField runat="server" ID="hdIsExpanded" Value="0" />

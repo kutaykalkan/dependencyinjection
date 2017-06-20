@@ -337,7 +337,7 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
         {
             oSubledgerDataInfo = oSubledgerClient.GetSubledgerDataImportIDByNetAccountIDRecPeriodID(NetAccountID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
             if (oSubledgerDataInfo != null && oSubledgerDataInfo.DataImportID.HasValue)
-                ShowHideFileDownloadIcon(oSubledgerDataInfo.DataImportID.Value, oSubledgerDataInfo.PhysicalPath);
+                ShowHideFileDownloadIcon(oSubledgerDataInfo.DataImportID.Value, oSubledgerDataInfo.DataImportTypeID);
         }
         else
         {
@@ -345,12 +345,12 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
             if (oSubledgerDataInfo != null)
             {
                 if (oSubledgerDataInfo.DataImportID.HasValue)
-                    ShowHideFileDownloadIcon(oSubledgerDataInfo.DataImportID.Value, oSubledgerDataInfo.PhysicalPath);
+                    ShowHideFileDownloadIcon(oSubledgerDataInfo.DataImportID.Value, oSubledgerDataInfo.DataImportTypeID);
             }
         }
     }
 
-    private void ShowHideFileDownloadIcon(int DataImportID, string PhysicalPath)
+    private void ShowHideFileDownloadIcon(int? DataImportID, short? DataImportTypeID)
     {
         if (DataImportID > 0)
         {
@@ -359,8 +359,13 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
             //oDataImportHdr = oDataImportClient.GetDataImportInfo(DataImportID, Helper.GetAppUserInfo());
             //if (oDataImportHdr != null)
             //{
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(PhysicalPath));
-            imgFileDownload.OnClientClick = "document.location.href = '" + url + "';return false;";
+            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(PhysicalPath));
+            //imgFileDownload.OnClientClick = "document.location.href = '" + url + "';return false;";
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+            url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + DataImportID.GetValueOrDefault()
+            + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + DataImportTypeID.GetValueOrDefault()
+            + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataID.GetValueOrDefault();
+            imgFileDownload.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
             imgFileDownload.ToolTip = LanguageUtil.GetValue(2051);
             imgFileDownload.Visible = true;
             //}

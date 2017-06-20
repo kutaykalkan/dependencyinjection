@@ -10,6 +10,11 @@ using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
 using System.IO;
+using SkyStem.ART.Client.Data;
+using SkyStem.ART.Client.Params;
+using SkyStem.ART.Client.Params.Matching;
+using SkyStem.ART.Client.Model.Matching;
+using SkyStem.ART.Client.Model.BulkExportExcel;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -71,17 +76,48 @@ namespace SkyStem.ART.Web.Utility
                 WebEnums.HandlerActionType eHandlerAction = (WebEnums.HandlerActionType)handlerAction;
                 switch (eHandlerAction)
                 {
-                    case WebEnums.HandlerActionType.DownloadRecAttachments:
-                        DownloadAttachments(context);
+                    case WebEnums.HandlerActionType.DownloadRecsAndAttachmentsFile:
+                        DownloadRecAndAttachments(context);
                         break;
                     case WebEnums.HandlerActionType.DownloadDataImportFile:
                         DownloadDataImportFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadMatchingImportFile:
+                        DownloadMatchingDataImportFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadGLAttachmentFile:
+                        DownloadGLAttachmentFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadTaskAttachmentFile:
+                        DownloadTaskAttachmentFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadDataImportTemplateFile:
+                        DownloadDataImportTemplateFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadRequestFile:
+                        DownloadRequestFile(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadCompanyLogo:
+                        DownloadCompanyLogo(context);
+                        break;
+                    case WebEnums.HandlerActionType.DownloadDirect:
+                        DownloadDirect(context);
                         break;
                 }
             }
         }
 
-        protected void DownloadAttachments(HttpContext context)
+        protected void DownloadDirect(HttpContext context)
+        {
+            if (context.Session[SessionConstants.DIRECT_DOWNLOAD_FILE] != null)
+            {
+                string filePath = Convert.ToString(context.Session[SessionConstants.DIRECT_DOWNLOAD_FILE]);
+                if (filePath == null)
+                    throw new ARTException(5000206);
+                DownloadFile(filePath, context);
+            }
+        }
+        protected void DownloadRecAndAttachments(HttpContext context)
         {
             if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.GLDATA_ID]))
             {
@@ -119,14 +155,162 @@ namespace SkyStem.ART.Web.Utility
                 short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
                 int? dataImportID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_ID]);
                 short? dataImportTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_TYPE_ID]);
+                long? glDataID = Convert.ToInt64(context.Request.QueryString[QueryStringConstants.GLDATA_ID]);
+                long? taskID = Convert.ToInt64(context.Request.QueryString[QueryStringConstants.TASK_ID]);
+                DataImportParamInfo oDataImportParamInfo = new DataImportParamInfo()
+                {
+                    DataImportID = dataImportID,
+                    DataImportTypeID = dataImportTypeID,
+                    GLDataID = glDataID,
+                    TaskID = taskID
+                };
                 IDataImport oDataImport = RemotingHelper.GetDataImportObject();
-                DataImportHdrInfo oDataImportHdrInfo = oDataImport.GetDataImportInfo(dataImportID, Helper.GetAppUserInfo());
+                DataImportHdrInfo oDataImportHdrInfo = oDataImport.GetAccessibleDataImportInfo(oDataImportParamInfo, Helper.GetAppUserInfo());
                 if (oDataImportHdrInfo == null)
                     throw new ARTException(5000206);
                 DownloadFile(oDataImportHdrInfo.PhysicalPath, context);
             }
         }
 
+        protected void DownloadMatchingDataImportFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.MATCHING_SOURCE_DATA_IMPORT_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                int? matchingSourceDataImportID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.MATCHING_SOURCE_DATA_IMPORT_ID]);
+                short? matchingSourceTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.MATCHING_SOURCE_TYPE_ID]);
+                long? glDataID = Convert.ToInt64(context.Request.QueryString[QueryStringConstants.GLDATA_ID]);
+                MatchingParamInfo oMatchingParamInfo = new MatchingParamInfo()
+                {
+                    MatchingSourceDataImportID = matchingSourceDataImportID,
+                    MatchingSourceTypeID = matchingSourceTypeID,
+                    GLDataID = glDataID
+                };
+                IMatching oMatching = RemotingHelper.GetMatchingObject();
+                MatchingSourceDataImportHdrInfo oMatchingSourceDataImportHdrInfo = oMatching.GetMatchingSourceDataImportInfo(oMatchingParamInfo, Helper.GetAppUserInfo());
+                if (oMatchingSourceDataImportHdrInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oMatchingSourceDataImportHdrInfo.PhysicalPath, context);
+            }
+        }
+
+        protected void DownloadCompanyLogo(HttpContext context)
+        {
+            ICompany oCompanyClient = RemotingHelper.GetCompanyObject();
+            string logoPath = oCompanyClient.GetCompanyLogo(SessionHelper.CurrentCompanyID, Helper.GetAppUserInfo());
+            if (!string.IsNullOrEmpty(logoPath))
+            {
+                DownloadFile(logoPath, context);
+            }
+        }
+
+        protected void DownloadRequestFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.REQUEST_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                int companyID = SessionHelper.CurrentCompanyID.GetValueOrDefault();
+                int? requestID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.REQUEST_ID]);
+                short? requestTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.REQUEST_TYPE_ID]);
+                BulkExportToExcelInfo oBulkExportToExcelInfo = null;
+                List<BulkExportToExcelInfo> oBulkExportToExcelInfoLst = RequestHelper.GetRequests(new List<short> { requestTypeID.GetValueOrDefault() });
+                if (oBulkExportToExcelInfoLst != null && oBulkExportToExcelInfoLst.Count > 0)
+                {
+                    oBulkExportToExcelInfo = oBulkExportToExcelInfoLst.Find(T => T.RequestID == requestID);
+                }
+                if (oBulkExportToExcelInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oBulkExportToExcelInfo.PhysicalPath, context);
+            }
+        }
+        protected void DownloadDataImportTemplateFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.IMPORT_TEMPLATE_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                int companyID = SessionHelper.CurrentCompanyID.GetValueOrDefault();
+                int? importTemplateID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.IMPORT_TEMPLATE_ID]);
+                short? dataImportTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.DATA_IMPORT_TYPE_ID]);
+                ImportTemplateHdrInfo oImportTemplateHdrInfo = null;
+                List<ImportTemplateHdrInfo> oImportTemplateInfoLst = DataImportTemplateHelper.GetAllTemplateImport(companyID, userID, roleID);
+                if (oImportTemplateInfoLst != null && oImportTemplateInfoLst.Count > 0)
+                {
+                    oImportTemplateHdrInfo = oImportTemplateInfoLst.Find(T => T.ImportTemplateID == importTemplateID);
+                }
+                if (oImportTemplateHdrInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oImportTemplateHdrInfo.PhysicalPath, context);
+            }
+        }
+        protected void DownloadGLAttachmentFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.GENERIC_ID])
+                && !string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.GLDATA_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                long? glDataID = Convert.ToInt64(context.Request.QueryString[QueryStringConstants.GLDATA_ID]);
+                int recPeriodID = SessionHelper.CurrentReconciliationPeriodID.GetValueOrDefault();
+                long? recordID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.RECORD_ID]);
+                int? recordTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.RECORD_TYPE_ID]);
+                long? id = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.GENERIC_ID]);
+                List<AttachmentInfo> oAttachmentInfoList = null;
+                AttachmentInfo oAttachmentInfo = null;
+                if (recordID.GetValueOrDefault() > 0 && recordTypeID.GetValueOrDefault() > 0)
+                {
+                    IAttachment oAttachment = RemotingHelper.GetAttachmentObject();
+                    oAttachmentInfoList = oAttachment.GetAllAttachmentForGL(glDataID, userID, roleID, Helper.GetAppUserInfo());
+                }
+                else
+                {
+                    oAttachmentInfoList = (List<AttachmentInfo>)context.Session[SessionConstants.ATTACHMENTS];
+                }
+                if (oAttachmentInfoList != null && oAttachmentInfoList.Count > 0)
+                {
+                    oAttachmentInfo = oAttachmentInfoList.Find(T => T.AttachmentID == id);
+                }
+                if (oAttachmentInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oAttachmentInfo.PhysicalPath, context);
+            }
+        }
+
+        protected void DownloadTaskAttachmentFile(HttpContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.GENERIC_ID])
+                && !string.IsNullOrEmpty(context.Request.QueryString[QueryStringConstants.TASK_ID]))
+            {
+                int userID = SessionHelper.CurrentUserID.GetValueOrDefault();
+                short roleID = SessionHelper.CurrentRoleID.GetValueOrDefault();
+                long? taskID = Convert.ToInt64(context.Request.QueryString[QueryStringConstants.TASK_ID]);
+                short? taskType = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.TASK_TYPE_ID]);
+                int recPeriodID = SessionHelper.CurrentReconciliationPeriodID.GetValueOrDefault();
+                long? recordID = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.RECORD_ID]);
+                int? recordTypeID = Convert.ToInt16(context.Request.QueryString[QueryStringConstants.RECORD_TYPE_ID]);
+                long? id = Convert.ToInt32(context.Request.QueryString[QueryStringConstants.GENERIC_ID]);
+                List<AttachmentInfo> oAttachmentInfoList = null;
+                AttachmentInfo oAttachmentInfo = null;
+                if (recordID.GetValueOrDefault() > 0 && recordTypeID.GetValueOrDefault() > 0)
+                {
+                    IAttachment oAttachment = RemotingHelper.GetAttachmentObject();
+                    oAttachmentInfoList = oAttachment.GetAllAttachmentForTask(taskID, (ARTEnums.TaskType)taskType, Helper.GetAppUserInfo());
+                }
+                else
+                {
+                    oAttachmentInfoList = (List<AttachmentInfo>)context.Session[SessionConstants.TASK_MASTER_ATTACHMENT];
+                }
+                if (oAttachmentInfoList != null && oAttachmentInfoList.Count > 0)
+                {
+                    oAttachmentInfo = oAttachmentInfoList.Find(T => T.AttachmentID == id);
+                }
+                if (oAttachmentInfo == null)
+                    throw new ARTException(5000206);
+                DownloadFile(oAttachmentInfo.PhysicalPath, context);
+            }
+        }
         private void DownloadFile(string strRequestedDoc, HttpContext context)
         {
             // Put user code to initialize the page here

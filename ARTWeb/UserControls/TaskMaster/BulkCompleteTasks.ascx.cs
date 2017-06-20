@@ -387,7 +387,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                             if (attachmentList != null && attachmentList.Count > 0)
                             {
                                 newlyAddedAttachment = (from at in attachmentList
-                                                        where (at.AttachmentID == null || at.AttachmentID == 0)
+                                                        where (at.AttachmentID == null || at.AttachmentID <= 0)
                                                         select at).ToList();
                             }
 
@@ -506,7 +506,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                     if (attachmentList != null && attachmentList.Count > 0)
                     {
                         newlyAddedAttachment = (from at in attachmentList
-                                                where (at.AttachmentID == null || at.AttachmentID == 0)
+                                                where (at.AttachmentID == null || at.AttachmentID <= 0)
                                                 select at).ToList();
                     }
 

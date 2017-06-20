@@ -49,6 +49,8 @@ namespace SkyStem.ART.Client.Model.RecControlCheckList
         [DataMember]
         [XmlElement(ElementName = "RowNumber")]
         public int RowNumber { get; set; }
-
+        [DataMember]
+        [XmlElement(ElementName = "DataImportTypeID")]
+        public short? DataImportTypeID { get; set; }
     }
 }

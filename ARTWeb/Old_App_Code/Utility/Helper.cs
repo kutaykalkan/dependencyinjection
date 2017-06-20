@@ -2081,13 +2081,15 @@ namespace SkyStem.ART.Web.Utility
             return sbURL.ToString();
         }
 
-        public static string SetDocumentUploadURLForTasks(long? recordID, int? recordType, string mode, out string windowName)
+        public static string SetDocumentUploadURLForTasks(long? taskID, short? taskTypeID, long? recordID, int? recordType, string mode, out string windowName)
         {
             StringBuilder sbURL = new StringBuilder();
 
             sbURL.Append(URLConstants.URL_TASK_ATTACHMENT);
             sbURL.Append("?" + QueryStringConstants.RECORD_ID + "=" + recordID);
             sbURL.Append("&" + QueryStringConstants.RECORD_TYPE_ID + "=" + recordType);
+            sbURL.Append("&" + QueryStringConstants.TASK_ID + "=" + taskID);
+            sbURL.Append("&" + QueryStringConstants.TASK_TYPE_ID + "=" + taskTypeID);
             sbURL.Append("&" + QueryStringConstants.MODE + "=" + mode);
             windowName = "UploadAttachment";
             return sbURL.ToString();

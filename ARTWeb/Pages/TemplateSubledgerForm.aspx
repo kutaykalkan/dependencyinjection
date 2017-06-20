@@ -553,7 +553,7 @@
                 </td>
             </tr>
         </table>
-
+        <iframe id="ifDownloader" runat="server" style="display:none;" />
         <script language="javascript" type="text/javascript">
             function CalledFn(obj) {
                 var label = document.getElementById('<% =this.lblCountAttachedDocument.ClientID %>');

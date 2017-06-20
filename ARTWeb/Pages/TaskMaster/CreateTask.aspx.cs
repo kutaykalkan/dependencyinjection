@@ -179,7 +179,7 @@ public partial class Pages_CreateTask : PopupPageBaseTaskMaster
             string _PopupUrl = string.Empty;
             string windowName = "Attchment";
             string _attachmentMode = (this.Mode == QueryStringConstants.READ_ONLY) ? QueryStringConstants.READ_ONLY : QueryStringConstants.INSERT;
-            _PopupUrl = this.ResolveUrl(Helper.SetDocumentUploadURLForTasks(_TaskID, (int)ARTEnums.RecordType.TaskCreation, _attachmentMode, out windowName));
+            _PopupUrl = this.ResolveUrl(Helper.SetDocumentUploadURLForTasks(_TaskID, _TaskTypeID, _TaskID, (int)ARTEnums.RecordType.TaskCreation, _attachmentMode, out windowName));
 
             hlAttachment.NavigateUrl = "javascript:OpenRadWindowFromRadWindow('" + _PopupUrl + "', " + WebConstants.POPUP_HEIGHT + " , " + WebConstants.POPUP_WIDTH + ");";
 

@@ -76,33 +76,6 @@ namespace SkyStem.ART.Web.UserControls {
         protected global::SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItemsGrid ucGLDataRecurringScheduleItemsGrid;
         
         /// <summary>
-        /// imgViewFileOpenGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SkyStem.Library.Controls.WebControls.ExImageButton imgViewFileOpenGrid;
-        
-        /// <summary>
-        /// hlAddRecItemComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SkyStem.Library.Controls.WebControls.ExHyperLink hlAddRecItemComment;
-        
-        /// <summary>
-        /// hlShowItemInputFormOpenGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SkyStem.Library.Controls.WebControls.ExHyperLink hlShowItemInputFormOpenGrid;
-        
-        /// <summary>
         /// trOpenItemsButtonRow control.
         /// </summary>
         /// <remarks>
@@ -184,24 +157,6 @@ namespace SkyStem.ART.Web.UserControls {
         protected global::SkyStem.ART.Web.UserControls.UserControls_GLDataRecurringScheduleItemsGrid ucCloseGLDataRecurringScheduleItemsGrid;
         
         /// <summary>
-        /// imgViewFile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SkyStem.Library.Controls.WebControls.ExImageButton imgViewFile;
-        
-        /// <summary>
-        /// hlShowItemInputForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SkyStem.Library.Controls.WebControls.ExHyperLink hlShowItemInputForm;
-        
-        /// <summary>
         /// trClosedItemsButtonRow control.
         /// </summary>
         /// <remarks>
@@ -236,6 +191,15 @@ namespace SkyStem.ART.Web.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image6;
+        
+        /// <summary>
+        /// ifDownloader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe ifDownloader;
         
         /// <summary>
         /// hdIsRefreshData control.

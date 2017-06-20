@@ -379,7 +379,8 @@ namespace SkyStem.ART.Web.UserControls
                 if (dr["DataImportID"] != null)
                 {
                     int DataImportID;
-                    if (int.TryParse(dr["DataImportID"].ToString(), out DataImportID))
+                    int DataImportTypeID;
+                    if (int.TryParse(dr["DataImportID"].ToString(), out DataImportID) && int.TryParse(dr["DataImportTypeID"].ToString(), out DataImportTypeID))
                     {
                         if (Convert.IsDBNull(dr["PreviousGLDataRecItemID"]))
                         {
@@ -390,8 +391,13 @@ namespace SkyStem.ART.Web.UserControls
                             if (dr["PhysicalPath"] != null)
                             {
                                 imgViewFile.Visible = true;
-                                string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(dr["PhysicalPath"].ToString()));
-                                imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                                //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(dr["PhysicalPath"].ToString()));
+                                //imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                                string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+                                url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + DataImportID
+                                + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + DataImportTypeID
+                                + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataID.GetValueOrDefault();
+                                imgViewFile.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
                             }
                         }
                     }

@@ -2051,12 +2051,18 @@ public partial class Pages_RecurringImportUII : PageBaseRecPeriod
         hlRecordsAffected.Text = Helper.GetDisplayIntegerValue(oDataImportHdrInfo.RecordsImported);
         hlFileName.Text = oDataImportHdrInfo.FileName;
 
-        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
-        imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
+        //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+        url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + oDataImportHdrInfo.DataImportID.GetValueOrDefault()
+        + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oDataImportHdrInfo.DataImportTypeID.GetValueOrDefault()
+        + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataHdrInfo.GLDataID.GetValueOrDefault();
+
+        imgFileType.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
 
         //// Icons
         WebEnums.DataImportStatus eDataImportStatus = (WebEnums.DataImportStatus)System.Enum.Parse(typeof(WebEnums.DataImportStatus), oDataImportHdrInfo.DataImportStatusID.Value.ToString());
-
+        
         switch (eDataImportStatus)
         {
             case WebEnums.DataImportStatus.Success:

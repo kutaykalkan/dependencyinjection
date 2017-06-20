@@ -17,7 +17,7 @@ using System.Data;
 using SkyStem.ART.Client.Model;
 using SkyStem.ART.App.DAO;
 using SkyStem.ART.Client.Data;
-
+using SkyStem.ART.App.BLL;
 
 namespace SkyStem.ART.App.Services
 {
@@ -289,8 +289,8 @@ namespace SkyStem.ART.App.Services
             try
             {
                 ServiceHelper.SetConnectionString(oAppUserInfo);
-                MatchingSourceDataImportHdrDAO oMatchingSourceDataImportHdrDAO = new MatchingSourceDataImportHdrDAO(oAppUserInfo);
-                return oMatchingSourceDataImportHdrDAO.GetMatchingSourceDataImportInfo(oMatchingParamInfo);
+                //MatchingSourceDataImportHdrDAO oMatchingSourceDataImportHdrDAO = new MatchingSourceDataImportHdrDAO(oAppUserInfo);
+                return MatchingBLL.GetMatchingSourceDataImportInfo(oMatchingParamInfo, oAppUserInfo);
             }
             catch (SqlException ex)
             {
