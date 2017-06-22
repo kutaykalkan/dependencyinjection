@@ -1080,20 +1080,21 @@ public partial class Pages_SystemReconciledAccount : PageBaseRecPeriod
             // Update in ViewState             
             SaveCheckBoxStates();
             String ErrorMessage = "";
-            // List<long> oGLDataIDCollection = new List<long>();
+            List<long> oGLDataIDCollection = new List<long>();
             if (this._RoleID == (short)ARTEnums.UserRole.PREPARER || this._RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
-                //ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1089));
-            }
-            else
-            {
+                oGLDataIDCollection.InsertRange(oGLDataIDCollection.Count, GetGLDataIDCollection((short)WebEnums.ReconciliationStatus.Prepared));
                 ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1089));
             }
-            //if (oGLDataIDCollection.Count <= 0)//"there is no record"
+            //else
             //{
-            //    args.IsValid = false;
-            //    Helper.ShowErrorMessage(this, ErrorMessage);
+            //    ErrorMessage = string.Format(LanguageUtil.GetValue(5000323), LanguageUtil.GetValue(1089));
             //}
+            if (oGLDataIDCollection.Count <= 0)//"there is no record"
+            {
+                args.IsValid = false;
+                Helper.ShowErrorMessage(this, ErrorMessage);
+            }
         }
         catch (ARTException ex)
         {

@@ -139,7 +139,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -175,19 +175,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -223,19 +217,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -271,19 +259,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -319,19 +301,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -373,7 +349,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -415,7 +391,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -457,7 +433,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -499,7 +475,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -535,19 +511,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -583,19 +553,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -631,19 +595,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -690,7 +648,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -732,7 +690,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -766,19 +724,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -820,7 +772,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -862,7 +814,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -904,7 +856,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -946,7 +898,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -988,7 +940,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1030,7 +982,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1066,19 +1018,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1114,19 +1060,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1162,19 +1102,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1220,7 +1154,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1263,7 +1197,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1303,7 +1237,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1343,7 +1277,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1383,7 +1317,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1423,7 +1357,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1463,7 +1397,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1497,19 +1431,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1543,19 +1471,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1589,19 +1511,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2042,7 +1958,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2078,19 +1994,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2126,19 +2036,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2174,19 +2078,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2222,19 +2120,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2276,7 +2168,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2318,7 +2210,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2360,7 +2252,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2402,7 +2294,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2444,7 +2336,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2480,19 +2372,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2528,19 +2414,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2576,19 +2456,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#ab6600</BackgroundColor>
+                        <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2635,7 +2509,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2677,7 +2551,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2711,19 +2585,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2765,7 +2633,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2807,7 +2675,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2849,7 +2717,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2891,7 +2759,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2933,7 +2801,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2975,7 +2843,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3017,7 +2885,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3053,19 +2921,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3101,19 +2963,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3149,25 +3005,20 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                        <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3207,7 +3058,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3250,7 +3101,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3290,7 +3141,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3330,7 +3181,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3370,7 +3221,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3410,7 +3261,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3450,7 +3301,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3490,7 +3341,7 @@
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3524,19 +3375,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3570,19 +3415,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -3616,19 +3455,13 @@
                           <Style>Solid</Style>
                           <Width>0.3pt</Width>
                         </Border>
-                        <TopBorder>
-                          <Color>LightGrey</Color>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
                         <RightBorder>
                           <Color>White</Color>
                         </RightBorder>
-                        <BackgroundColor>#dbc682</BackgroundColor>
+                        <BackgroundColor>=Variables!GridFooterColor.Value</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -4455,6 +4288,20 @@
     </ReportParameter>
   </ReportParameters>
   <Language>=Parameters!languageInfo.Value</Language>
+  <Variables>
+    <Variable Name="GridHeaderColor">
+      <Value>#05acfd</Value>
+    </Variable>
+    <Variable Name="GridFooterColor">
+      <Value>#dae9fa</Value>
+    </Variable>
+    <Variable Name="GridAlternateRowColor">
+      <Value>#ededec</Value>
+    </Variable>
+    <Variable Name="GridRowColor">
+      <Value>#ffffff</Value>
+    </Variable>
+  </Variables>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>d31bca3d-5a4b-465d-98c1-7792adeccfff</rd:ReportID>
 </Report>

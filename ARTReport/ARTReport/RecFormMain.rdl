@@ -2003,13 +2003,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.43648in</Width>
+                  <Width>3.44065in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45882in</Width>
+                  <Width>2.46299in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.62159in</Width>
+                  <Width>1.62576in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2042,24 +2042,12 @@
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
+                              <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                              <Width>0.3pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                              <Width>0.3pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                              <Width>0.3pt</Width>
-                            </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
-                              <Width>0.3pt</Width>
                             </RightBorder>
-                            <BackgroundColor>#dbc682</BackgroundColor>
+                            <BackgroundColor>#ffffff</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2089,7 +2077,6 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2105,7 +2092,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2127,7 +2114,6 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2143,7 +2129,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2165,7 +2151,6 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2181,7 +2166,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2208,6 +2193,7 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2226,7 +2212,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>White</BackgroundColor>
+                            <BackgroundColor>=Variables!SectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2248,6 +2234,7 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2266,7 +2253,7 @@
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
-                            <BackgroundColor>White</BackgroundColor>
+                            <BackgroundColor>=Variables!SectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2288,6 +2275,7 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2306,7 +2294,7 @@
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
-                            <BackgroundColor>White</BackgroundColor>
+                            <BackgroundColor>=Variables!SectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2737,7 +2725,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#dbc682</BackgroundColor>
+                            <BackgroundColor>#ffffff</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3066,10 +3054,10 @@
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemData</DataSetName>
-            <Top>17.93346cm</Top>
-            <Left>0.12328in</Left>
+            <Top>17.94757cm</Top>
+            <Left>0.37116in</Left>
             <Height>1.7741in</Height>
-            <Width>7.51689in</Width>
+            <Width>7.5294in</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -3120,19 +3108,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
-                            <BackgroundColor>#cea263</BackgroundColor>
+                            <BackgroundColor>#fddbef</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3168,19 +3144,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
-                            <BackgroundColor>#cea263</BackgroundColor>
+                            <BackgroundColor>#fddbef</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3216,19 +3180,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
-                            <BackgroundColor>#cea263</BackgroundColor>
+                            <BackgroundColor>#fddbef</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3259,7 +3211,7 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>SupportingDetailData</DataSetName>
             <Top>8.86541in</Top>
-            <Left>0.31094cm</Left>
+            <Left>0.94594cm</Left>
             <Height>0.25in</Height>
             <Width>7.51777in</Width>
             <ZIndex>1</ZIndex>
@@ -3289,7 +3241,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>9.1293in</Top>
-            <Left>0.12338in</Left>
+            <Left>0.36643in</Left>
             <Height>0.25in</Height>
             <Width>7.51733in</Width>
             <ZIndex>2</ZIndex>
@@ -3297,7 +3249,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#dbc682</BackgroundColor>
+              <BackgroundColor>#ffffff</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -3308,13 +3260,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.42086in</Width>
+                  <Width>3.43753in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44405in</Width>
+                  <Width>2.46072in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.60597in</Width>
+                  <Width>1.62264in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3333,7 +3285,6 @@
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3348,7 +3299,7 @@
                               <Color>LightGrey</Color>
                               <Style>None</Style>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3395,18 +3346,6 @@
                               <Style>None</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3511,9 +3450,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>SupportingDetailData</DataSetName>
             <Top>31.73836cm</Top>
-            <Left>0.13371in</Left>
+            <Left>0.37121in</Left>
             <Height>0.44083in</Height>
-            <Width>7.47088in</Width>
+            <Width>7.52089in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -3526,13 +3465,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.42688in</Width>
+                  <Width>3.43521in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45007in</Width>
+                  <Width>2.4584in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.61199in</Width>
+                  <Width>1.62032in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3561,22 +3500,10 @@
                           <rd:DefaultName>Textbox90</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>White</Color>
+                              <Color>LightGrey</Color>
                               <Style>None</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3903,22 +3830,11 @@
                           <rd:DefaultName>Textbox96</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>White</Color>
+                              <Color>LightGrey</Color>
                               <Style>None</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
+                            <BackgroundColor>#aeaeae</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3954,6 +3870,7 @@
                               <Style>None</Style>
                               <Width>0.3pt</Width>
                             </Border>
+                            <BackgroundColor>#aeaeae</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3989,18 +3906,7 @@
                               <Style>None</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>LightGrey</Color>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>LightGrey</Color>
-                            </RightBorder>
+                            <BackgroundColor>#aeaeae</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4052,9 +3958,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>SupportingDetailData</DataSetName>
             <Top>9.41165in</Top>
-            <Left>0.13176in</Left>
+            <Left>0.36926in</Left>
             <Height>1in</Height>
-            <Width>7.48894in</Width>
+            <Width>7.51393in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -4074,7 +3980,6 @@
                     <Style>
                       <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
-                      <Color>White</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4085,15 +3990,15 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>14.26089in</Top>
-            <Left>0.11592in</Left>
+            <Left>0.37121in</Left>
             <Height>0.22in</Height>
-            <Width>7.48516in</Width>
+            <Width>7.52088in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#ab6600</BackgroundColor>
+              <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -4111,7 +4016,6 @@
                     <Style>
                       <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
-                      <Color>White</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -4122,9 +4026,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>15.012in</Top>
-            <Left>0.12567in</Left>
+            <Left>0.37121in</Left>
             <Height>0.22in</Height>
-            <Width>7.47541in</Width>
+            <Width>7.52088in</Width>
             <ZIndex>6</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!IsReviewNotesEnabled.Value,false,true)</Hidden>
@@ -4133,7 +4037,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#ab6600</BackgroundColor>
+              <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -4144,19 +4048,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.4923in</Width>
+                  <Width>1.5014in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4923in</Width>
+                  <Width>1.5014in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4923in</Width>
+                  <Width>1.5014in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.49925in</Width>
+                  <Width>1.50835in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.49925in</Width>
+                  <Width>1.50835in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -4190,19 +4094,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4238,19 +4136,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4286,19 +4178,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4334,19 +4220,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4382,19 +4262,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4438,7 +4312,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4477,7 +4351,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4516,7 +4390,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4555,7 +4429,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4594,7 +4468,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4628,9 +4502,9 @@
             </TablixRowHierarchy>
             <DataSetName>ReviewNoteDetails</DataSetName>
             <Top>15.28975in</Top>
-            <Left>0.12567in</Left>
+            <Left>0.37121in</Left>
             <Height>0.445in</Height>
-            <Width>7.4754in</Width>
+            <Width>7.5209in</Width>
             <ZIndex>7</ZIndex>
             <Visibility>
               <Hidden>=IIF(Sum(Fields!CountGLReviewNote.Value, "ReviewNoteCount")=0 ,true,false)</Hidden>
@@ -4645,22 +4519,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.00301in</Width>
+                  <Width>1.01041in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.14412in</Width>
+                  <Width>1.15152in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.01204in</Width>
+                  <Width>1.01944in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.25511in</Width>
+                  <Width>1.26251in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.51935in</Width>
+                  <Width>1.52675in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.54284in</Width>
+                  <Width>1.55024in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -4694,19 +4568,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4742,19 +4610,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4790,19 +4652,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4838,19 +4694,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4886,19 +4736,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4934,19 +4778,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -4991,7 +4829,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5025,19 +4863,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5071,19 +4903,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5117,19 +4943,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5163,19 +4983,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5209,19 +5023,13 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>LightGrey</Color>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                            </BottomBorder>
                             <LeftBorder>
                               <Color>White</Color>
                             </LeftBorder>
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -5256,9 +5064,9 @@
             </TablixRowHierarchy>
             <DataSetName>AttachmentDetails</DataSetName>
             <Top>14.52256in</Top>
-            <Left>0.12461in</Left>
+            <Left>0.37121in</Left>
             <Height>0.47in</Height>
-            <Width>7.47647in</Width>
+            <Width>7.52087in</Width>
             <ZIndex>8</ZIndex>
             <Visibility>
               <Hidden>=IIF(Sum(Fields!CountAttachment.Value, "AttachmentCount")=0,true,false)</Hidden>
@@ -5290,7 +5098,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>1.84997cm</Top>
-                <Left>0cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <Style>
@@ -5572,7 +5380,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>0.50236cm</Top>
-                <Left>0.04308cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <ZIndex>8</ZIndex>
@@ -5609,7 +5417,7 @@
                 <Top>0.50236cm</Top>
                 <Left>2.27432in</Left>
                 <Height>0.18in</Height>
-                <Width>5.20133in</Width>
+                <Width>5.21746in</Width>
                 <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
@@ -5643,7 +5451,7 @@
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Left>2.27432in</Left>
                 <Height>0.18in</Height>
-                <Width>5.20133in</Width>
+                <Width>5.21746in</Width>
                 <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
@@ -5707,7 +5515,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>2.46944cm</Top>
-                <Left>0.02647cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <ZIndex>12</ZIndex>
@@ -5782,7 +5590,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>4.50681cm</Top>
-                <Left>0.03863cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <ZIndex>14</ZIndex>
@@ -5817,7 +5625,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>4.50681cm</Top>
-                <Left>2.27911in</Left>
+                <Left>2.27432in</Left>
                 <Height>0.18in</Height>
                 <Width>5.21746in</Width>
                 <ZIndex>15</ZIndex>
@@ -5851,7 +5659,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>5.07831cm</Top>
-                <Left>0.04308cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <ZIndex>16</ZIndex>
@@ -5886,7 +5694,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>5.07831cm</Top>
-                <Left>2.29379in</Left>
+                <Left>2.27432in</Left>
                 <Height>0.18in</Height>
                 <Width>5.21746in</Width>
                 <ZIndex>17</ZIndex>
@@ -5920,7 +5728,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>5.64981cm</Top>
-                <Left>0.03863cm</Left>
+                <Left>0.02646cm</Left>
                 <Height>0.18in</Height>
                 <Width>2.15192in</Width>
                 <ZIndex>18</ZIndex>
@@ -5958,7 +5766,7 @@
                 </Paragraphs>
                 <rd:DefaultName>Textbox101</rd:DefaultName>
                 <Top>5.64981cm</Top>
-                <Left>2.27911in</Left>
+                <Left>2.27432in</Left>
                 <Height>0.18in</Height>
                 <Width>5.21746in</Width>
                 <ZIndex>19</ZIndex>
@@ -5978,7 +5786,7 @@
               </Textbox>
             </ReportItems>
             <Top>0.04843in</Top>
-            <Left>0.32748cm</Left>
+            <Left>0.96248cm</Left>
             <Height>2.54811in</Height>
             <Width>7.51125in</Width>
             <ZIndex>9</ZIndex>
@@ -6229,7 +6037,7 @@
                     <Top>4.61432cm</Top>
                     <Left>0.01543cm</Left>
                     <Height>0.23611in</Height>
-                    <Width>1.41841in</Width>
+                    <Width>1.43091in</Width>
                     <ZIndex>6</ZIndex>
                     <Style>
                       <Border>
@@ -6446,7 +6254,7 @@
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>#f8f1e0</BackgroundColor>
+                      <BackgroundColor>#dae9fa</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -6511,7 +6319,7 @@
                     <Top>5.3428cm</Top>
                     <Left>0.01543cm</Left>
                     <Height>0.23611in</Height>
-                    <Width>1.41841in</Width>
+                    <Width>1.43091in</Width>
                     <ZIndex>14</ZIndex>
                     <Style>
                       <Border>
@@ -6850,7 +6658,7 @@
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>#f8f1e0</BackgroundColor>
+                      <BackgroundColor>#dae9fa</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -7110,7 +6918,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>0.81843cm</Top>
-                    <Left>0.03532cm</Left>
+                    <Left>0.00357cm</Left>
                     <Height>0.25208in</Height>
                     <Width>1.4045in</Width>
                     <Style>
@@ -7179,7 +6987,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>1.57337cm</Top>
-                    <Left>0.03532cm</Left>
+                    <Left>0.00357cm</Left>
                     <Height>0.23611in</Height>
                     <Width>1.4045in</Width>
                     <ZIndex>2</ZIndex>
@@ -7216,9 +7024,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>1.5522cm</Top>
-                    <Left>3.94233cm</Left>
+                    <Left>3.91145cm</Left>
                     <Height>0.23403in</Height>
-                    <Width>1.90888in</Width>
+                    <Width>1.92104in</Width>
                     <ZIndex>3</ZIndex>
                     <Visibility>
                       <Hidden>=IIF(Parameters!IsDualReviewEnabled.Value,false,true)</Hidden>
@@ -7255,7 +7063,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>2.26659cm</Top>
-                    <Left>0.01987cm</Left>
+                    <Left>0cm</Left>
                     <Height>0.23611in</Height>
                     <Width>1.4045in</Width>
                     <ZIndex>4</ZIndex>
@@ -7289,9 +7097,9 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>2.24542cm</Top>
-                    <Left>3.92688cm</Left>
+                    <Left>3.91145cm</Left>
                     <Height>0.23403in</Height>
-                    <Width>1.91496in</Width>
+                    <Width>1.92104in</Width>
                     <ZIndex>5</ZIndex>
                     <Style>
                       <Border>
@@ -7331,7 +7139,7 @@
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>#f8f1e0</BackgroundColor>
+                      <BackgroundColor>#dae9fa</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -7443,7 +7251,7 @@
                     </Paragraphs>
                     <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Top>1.33878cm</Top>
-                    <Left>0.03089cm</Left>
+                    <Left>0cm</Left>
                     <Height>0.23611in</Height>
                     <Width>1.39584in</Width>
                     <ZIndex>2</ZIndex>
@@ -7519,7 +7327,7 @@
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>#f8f1e0</BackgroundColor>
+                      <BackgroundColor>#dae9fa</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -7798,7 +7606,7 @@
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>#f8f1e0</BackgroundColor>
+                      <BackgroundColor>#dae9fa</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -7840,13 +7648,13 @@
                 <rd:DefaultName>Textbox2</rd:DefaultName>
                 <Left>0.00848in</Left>
                 <Height>0.25in</Height>
-                <Width>7.50842in</Width>
+                <Width>7.49592in</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <BackgroundColor>#f8f1e0</BackgroundColor>
+                  <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -7859,7 +7667,7 @@
             </PageBreak>
             <KeepTogether>true</KeepTogether>
             <Top>2.59654in</Top>
-            <Left>0.12328in</Left>
+            <Left>0.37328in</Left>
             <Height>4.41943in</Height>
             <Width>7.5169in</Width>
             <ZIndex>10</ZIndex>
@@ -7875,19 +7683,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.71986in</Width>
+                  <Width>1.72984in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.44119in</Width>
+                  <Width>1.45117in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.44119in</Width>
+                  <Width>1.45117in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.30776in</Width>
+                  <Width>1.31774in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.56099in</Width>
+                  <Width>1.57097in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -8047,7 +7855,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8084,7 +7892,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8121,7 +7929,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8158,7 +7966,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8195,7 +8003,7 @@
                               <Style>Solid</Style>
                               <Width>0.3pt</Width>
                             </Border>
-                            <BackgroundColor>#ab6600</BackgroundColor>
+                            <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8239,7 +8047,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8280,7 +8088,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8321,7 +8129,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8362,7 +8170,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8402,7 +8210,7 @@
                             <RightBorder>
                               <Color>White</Color>
                             </RightBorder>
-                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                            <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -8452,9 +8260,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>UnexplainedVarianceData</DataSetName>
             <Top>13.51947in</Top>
-            <Left>0.1301in</Left>
+            <Left>0.37121in</Left>
             <Height>0.69042in</Height>
-            <Width>7.47099in</Width>
+            <Width>7.52089in</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -8468,10 +8276,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.50677in</Width>
+                  <Width>2.47349in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.99382in</Width>
+                  <Width>5.03549in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -8576,7 +8384,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03964in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status">
                         <CanGrow>true</CanGrow>
@@ -8593,14 +8401,13 @@
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Status</rd:DefaultName>
+                        <Visibility>
+                          <Hidden>true</Hidden>
+                        </Visibility>
                         <Style>
                           <Border>
                             <Style>None</Style>
                           </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
                     </CellContents>
@@ -8624,9 +8431,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>10.67791in</Top>
-            <Left>0.06435in</Left>
+            <Left>0.33935in</Left>
             <Height>0.5261in</Height>
-            <Width>7.54023in</Width>
+            <Width>7.54856in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -8647,7 +8454,6 @@
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
-                          <Color>White</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -8659,12 +8465,12 @@
                 <rd:DefaultName>Textbox2</rd:DefaultName>
                 <Left>0.00651in</Left>
                 <Height>0.22in</Height>
-                <Width>7.46239in</Width>
+                <Width>7.51246in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <BackgroundColor>#ab6600</BackgroundColor>
+                  <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -8687,7 +8493,7 @@
                       <Width>1.49692in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.49692in</Width>
+                      <Width>1.56086in</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -8916,19 +8722,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -8964,19 +8764,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9012,19 +8806,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9060,19 +8848,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9108,19 +8890,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9159,19 +8935,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9205,19 +8975,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9251,19 +9015,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9297,19 +9055,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9343,19 +9095,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -9393,7 +9139,7 @@
                 <DataSetName>QualityScoreData</DataSetName>
                 <Top>0.27155in</Top>
                 <Height>0.72in</Height>
-                <Width>7.4654in</Width>
+                <Width>7.52934in</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -9404,9 +9150,9 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>15.79877in</Top>
-            <Left>0.13568in</Left>
+            <Left>0.37121in</Left>
             <Height>1.00544in</Height>
-            <Width>7.4689in</Width>
+            <Width>7.52934in</Width>
             <ZIndex>13</ZIndex>
             <Visibility>
               <Hidden>=IIF(Parameters!IsQualityScoreEnabled.Value,false,true)</Hidden>
@@ -9421,10 +9167,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.78333in</Width>
+                  <Width>2.81247in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.67926in</Width>
+                  <Width>4.7084in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -9525,9 +9271,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>32.96861cm</Top>
-            <Left>0.13849in</Left>
+            <Left>0.37121in</Left>
             <Height>0.49479in</Height>
-            <Width>7.46259in</Width>
+            <Width>7.52087in</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -9540,10 +9286,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.77475in</Width>
+                  <Width>2.73496in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72584in</Width>
+                  <Width>4.77355in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -9612,7 +9358,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03125in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status2">
                         <CanGrow>true</CanGrow>
@@ -9655,9 +9401,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>28.46169cm</Top>
-            <Left>0.06924in</Left>
+            <Left>0.33935in</Left>
             <Height>0.24479in</Height>
-            <Width>7.53184in</Width>
+            <Width>7.54809in</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -9670,10 +9416,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.77475in</Width>
+                  <Width>2.77293in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72584in</Width>
+                  <Width>4.73605in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -9742,7 +9488,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03125in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status3">
                         <CanGrow>true</CanGrow>
@@ -9785,9 +9531,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>29.09669cm</Top>
-            <Left>0.06924in</Left>
+            <Left>0.33935in</Left>
             <Height>0.24479in</Height>
-            <Width>7.53184in</Width>
+            <Width>7.54856in</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -9800,10 +9546,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.77475in</Width>
+                  <Width>2.77293in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72584in</Width>
+                  <Width>4.73605in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -9872,7 +9618,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03125in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status4">
                         <CanGrow>true</CanGrow>
@@ -9915,9 +9661,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>29.73699cm</Top>
-            <Left>0.06924in</Left>
+            <Left>0.33935in</Left>
             <Height>0.24479in</Height>
-            <Width>7.53184in</Width>
+            <Width>7.54856in</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -9930,10 +9676,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.77475in</Width>
+                  <Width>2.77293in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72584in</Width>
+                  <Width>4.73605in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -10002,7 +9748,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03125in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status5">
                         <CanGrow>true</CanGrow>
@@ -10045,9 +9791,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>30.37199cm</Top>
-            <Left>0.06924in</Left>
+            <Left>0.33935in</Left>
             <Height>0.24479in</Height>
-            <Width>7.53184in</Width>
+            <Width>7.54856in</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -10060,10 +9806,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.77475in</Width>
+                  <Width>2.76599in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72584in</Width>
+                  <Width>4.74299in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -10132,7 +9878,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.03125in</Size>
+                    <Size>0.03958in</Size>
                     <CellContents>
                       <Textbox Name="Status6">
                         <CanGrow>true</CanGrow>
@@ -10175,9 +9921,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>RecItemStatusMst</DataSetName>
             <Top>31.01757cm</Top>
-            <Left>0.07168in</Left>
+            <Left>0.33935in</Left>
             <Height>0.24479in</Height>
-            <Width>7.53184in</Width>
+            <Width>7.54856in</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -10190,13 +9936,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.43in</Width>
+                  <Width>3.43417in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.45319in</Width>
+                  <Width>2.45736in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.61511in</Width>
+                  <Width>1.61928in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -10355,9 +10101,9 @@
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>SupportingDetailData</DataSetName>
             <Top>26.44558cm</Top>
-            <Left>0.12242in</Left>
+            <Left>0.37242in</Left>
             <Height>0.24479in</Height>
-            <Width>7.4983in</Width>
+            <Width>7.51081in</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -10381,7 +10127,7 @@
                       <Width>1.48946in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.49479in</Width>
+                      <Width>1.53623in</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -10563,19 +10309,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10611,19 +10351,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10659,19 +10393,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10707,19 +10435,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10758,19 +10480,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10804,19 +10520,13 @@
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10852,19 +10562,13 @@ IIf(Fields!CompletedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),"
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10900,19 +10604,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -10950,7 +10648,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                 <Top>0.2535in</Top>
                 <Left>0.00768in</Left>
                 <Height>0.72in</Height>
-                <Width>7.48022in</Width>
+                <Width>7.52166in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -10968,7 +10666,6 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
-                          <Color>White</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -10979,15 +10676,15 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                 </Paragraphs>
                 <rd:DefaultName>Textbox2</rd:DefaultName>
                 <Top>0.02988in</Top>
-                <Left>0.01693in</Left>
+                <Left>0.00443in</Left>
                 <Height>0.22in</Height>
-                <Width>7.47098in</Width>
+                <Width>7.50848in</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <BackgroundColor>#ab6600</BackgroundColor>
+                  <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -10997,9 +10694,9 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>16.84377in</Top>
-            <Left>0.12242in</Left>
+            <Left>0.37121in</Left>
             <Height>0.99031in</Height>
-            <Width>7.48791in</Width>
+            <Width>7.52934in</Width>
             <ZIndex>21</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!IsRCCEnabled.Value, "CapabilityAndOtherData"),false,true)</Hidden>
@@ -11055,7 +10752,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                       <Width>0.43623in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.50755in</Width>
+                      <Width>0.54822in</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -11570,19 +11267,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11618,19 +11309,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11666,19 +11351,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11714,19 +11393,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11762,19 +11435,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11810,19 +11477,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11858,19 +11519,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11906,19 +11561,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -11954,19 +11603,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12002,19 +11645,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12050,19 +11687,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12098,19 +11729,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12146,19 +11771,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12194,19 +11813,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>#ab6600</BackgroundColor>
+                                <BackgroundColor>=Variables!GridHeaderColor.Value</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12245,19 +11858,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12291,19 +11898,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12337,19 +11938,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12383,19 +11978,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12429,19 +12018,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12475,19 +12058,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12521,19 +12098,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12567,19 +12138,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12613,19 +12178,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12659,19 +12218,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12705,19 +12258,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12751,19 +12298,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12797,19 +12338,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -12843,25 +12378,20 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                                   <Style>Solid</Style>
                                   <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>LightGrey</Color>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>LightGrey</Color>
-                                </BottomBorder>
                                 <LeftBorder>
                                   <Color>White</Color>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>White</Color>
                                 </RightBorder>
-                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, "#A6D3F7", "#e2f2fc")</BackgroundColor>
+                                <BackgroundColor>= IIf(RowNumber(Nothing) Mod 2 = 0, Variables!GridAlternateRowColor.Value, Variables!GridRowColor.Value)</BackgroundColor>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
+                            <rd:Selected>true</rd:Selected>
                           </CellContents>
                         </TablixCell>
                       </TablixCells>
@@ -12903,7 +12433,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                 <Top>0.26878in</Top>
                 <Left>0.0065in</Left>
                 <Height>0.72in</Height>
-                <Width>7.48217in</Width>
+                <Width>7.52284in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -12921,7 +12451,6 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
-                          <Color>White</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -12933,13 +12462,13 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                 <rd:DefaultName>Textbox2</rd:DefaultName>
                 <Top>0.01465in</Top>
                 <Height>0.22in</Height>
-                <Width>7.50479in</Width>
+                <Width>7.51729in</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <BackgroundColor>#ab6600</BackgroundColor>
+                  <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -12949,9 +12478,9 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>17.88964in</Top>
-            <Left>0.11592in</Left>
+            <Left>0.37121in</Left>
             <Height>1in</Height>
-            <Width>7.50479in</Width>
+            <Width>7.52934in</Width>
             <ZIndex>22</ZIndex>
             <Visibility>
               <Hidden>=IIF(First(Fields!IsTaskMasterEnabled.Value, "CapabilityAndOtherData"),false,true)</Hidden>
@@ -12971,7 +12500,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
           </Border>
         </Style>
       </Body>
-      <Width>9.67672in</Width>
+      <Width>8.26005in</Width>
       <Page>
         <PageHeader>
           <Height>2.43623cm</Height>
@@ -12989,6 +12518,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
                       <Style>
                         <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>White</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -12999,14 +12529,14 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Top>0.375in</Top>
-              <Left>0.12328in</Left>
+              <Left>0.37328in</Left>
               <Height>0.22458in</Height>
-              <Width>7.4813in</Width>
+              <Width>7.5188in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <BackgroundColor>#abdcfe</BackgroundColor>
+                <BackgroundColor>=Variables!SectionHeaderColor.Value</BackgroundColor>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -13047,15 +12577,15 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
               </Paragraphs>
               <rd:DefaultName>textbox1</rd:DefaultName>
               <Top>1.69933cm</Top>
-              <Left>0.12328in</Left>
+              <Left>0.37328in</Left>
               <Height>0.22458in</Height>
-              <Width>7.4813in</Width>
+              <Width>7.5188in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <BackgroundColor>#abdcfe</BackgroundColor>
+                <BackgroundColor>=Variables!SubSectionHeaderColor.Value</BackgroundColor>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -13080,7 +12610,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
               <Top>0.03in</Top>
-              <Left>5.7175in</Left>
+              <Left>5.9675in</Left>
               <Height>0.22458in</Height>
               <Width>1.8125in</Width>
               <ZIndex>2</ZIndex>
@@ -13145,7 +12675,7 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
           </Style>
         </PageFooter>
         <PageHeight>11.69in</PageHeight>
-        <PageWidth>10in</PageWidth>
+        <PageWidth>8.27in</PageWidth>
         <Style>
           <BackgroundColor>White</BackgroundColor>
         </Style>
@@ -13258,6 +12788,29 @@ IIf(Fields!ReviewedRecStatus.Value = "3", First(Fields!NA.Value, "LabelData"),""
 
   </Code>
   <Language>=Parameters!languageInfo.Value</Language>
+  <Variables>
+    <Variable Name="SectionHeaderColor">
+      <Value>#ec008c</Value>
+    </Variable>
+    <Variable Name="SubSectionHeaderColor">
+      <Value>#dae9fa</Value>
+    </Variable>
+    <Variable Name="Section2HeaderColor">
+      <Value>#dae9fa</Value>
+    </Variable>
+    <Variable Name="GridHeaderColor">
+      <Value>#05acfd</Value>
+    </Variable>
+    <Variable Name="GridFooterColor">
+      <Value>#dae9fa</Value>
+    </Variable>
+    <Variable Name="GridAlternateRowColor">
+      <Value>#ededec</Value>
+    </Variable>
+    <Variable Name="GridRowColor">
+      <Value>#ffffff</Value>
+    </Variable>
+  </Variables>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://arxdb2008-03/ReportServer_QA</rd:ReportServerUrl>
