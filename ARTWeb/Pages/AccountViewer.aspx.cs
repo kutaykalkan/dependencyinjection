@@ -133,7 +133,9 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             || CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.Skipped
             || CertificationHelper.IsCertificationStarted()
             )
+        {
             ShowHideButtons(false);
+        }
     }
     PageSettings Pages_AccountViewer_NeedPageSettingEvent()
     {
@@ -257,8 +259,6 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                                 if (eCurrentRole == ARTEnums.UserRole.SYSTEM_ADMIN)
                                 {
                                     ShowHideButtons(false);
-                                    this.btnReopen.Visible = true;
-                                    this.btnReset.Visible = true;
                                     //Checking here to confirm that Reopen button should activate when Rec Status is Reconciled or SysReconciled .
                                     //if (oGLDataHdrInfo.ReconciliationStatusID == (short)SkyStem.ART.Web.Data.WebEnums.ReconciliationStatus.Reconciled || oGLDataHdrInfo.ReconciliationStatusID == (short)SkyStem.ART.Web.Data.WebEnums.ReconciliationStatus.SysReconciled)
                                     //{
@@ -354,6 +354,10 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
                 sortExpression, sortDirection, Helper.GetAppUserInfo());
 
                 HttpContext.Current.Session[SessionConstants.SEARCH_RESULTS_ACCOUNT_VIEWER] = oGLDataHdrInfoCollection;
+                eRecPeriodStatus = CurrentRecProcessStatus.Value;
+                IsCertificationStarted = CertificationHelper.IsCertificationStarted();
+                this.btnReopen.Visible = AccountViewerHelper.ShowHideReopenAccountbtn(_RoleID, eRecPeriodStatus, IsCertificationStarted);
+                this.btnReset.Visible = this.btnReopen.Visible;
             }
 
         }
@@ -417,9 +421,10 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
         Sel.Value = string.Empty;
         SaveCheckBoxStates();
         // ShowHideButtons(true);
-        this.btnReopen.Visible = false;
-        this.btnReset.Visible = false;
-
+        eRecPeriodStatus = CurrentRecProcessStatus.Value;
+        IsCertificationStarted = CertificationHelper.IsCertificationStarted();
+        this.btnReopen.Visible = AccountViewerHelper.ShowHideReopenAccountbtn(_RoleID, eRecPeriodStatus, IsCertificationStarted);
+        this.btnReset.Visible = this.btnReopen.Visible;
     }
     void ucSkyStemARTGrid_GridColumnSortingEvent()
     {
@@ -752,6 +757,7 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
         {
             string sessionKey = SessionHelper.GetSessionKeyForGridCustomization(ARTEnums.Grid.AccountViewer);
             SessionHelper.ClearSession(sessionKey);
+            CurrentRecProcessStatus = null;
             eRecPeriodStatus = CurrentRecProcessStatus.Value;
             IsCertificationStarted = CertificationHelper.IsCertificationStarted();
             if (eRecPeriodStatus == WebEnums.RecPeriodStatus.Skipped)
@@ -769,7 +775,6 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
             }
             Helper.HideMessage(this);
             MyHiddenField.Value = "";
-
         }
         catch (ARTException ex)
         {
@@ -1154,11 +1159,14 @@ public partial class Pages_AccountViewer : PageBaseRecPeriod
         ucSkyStemARTGrid.ShowStatusImageColumn = true;
         ucSkyStemARTGrid.CompanyID = this._CompanyID;
         ShowHideButtons(true);
-        this.btnReopen.Visible = false;
-        this.btnReset.Visible = false;
         ucSkyStemARTGrid.ShowSelectCheckBoxColum = true;
         ucSkyStemARTGrid.DataSource = oGLDataHdrInfoCollection;
         ucSkyStemARTGrid.BindGrid();
+
+        eRecPeriodStatus = CurrentRecProcessStatus.Value;
+        IsCertificationStarted = CertificationHelper.IsCertificationStarted();
+        this.btnReopen.Visible = AccountViewerHelper.ShowHideReopenAccountbtn(_RoleID, eRecPeriodStatus, IsCertificationStarted);
+        this.btnReset.Visible = this.btnReopen.Visible;
 
         //switch (AccountViewerHelper.GetFormMode())
         //{

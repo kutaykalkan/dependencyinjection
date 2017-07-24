@@ -416,6 +416,8 @@ namespace SkyStem.ART.Web.Data
         //public const string User_Search_Result = SESSION_KEY_PREFIX + "UserSearchResult";
         public const string USER_ACCOUNT_ASSOCIATION = SESSION_KEY_PREFIX + "UserAccountAssociation";
         public const string SEARCH_ACCOUNT_ASSOCIATION = SESSION_KEY_PREFIX + "SearchAccountAssociation";
+        public const string USER_ASSOCIATION_BY_USER_ROLE = SESSION_KEY_PREFIX + "UserAssociationByUserRole";
+        public const string SEARCH_USER_ASSOCIATION_BY_USER_ROLE = SESSION_KEY_PREFIX + "SearchAssociationByUserRole";
         public const string USER_INSERUPDATE_ACCOUNTASSOCIATION = SESSION_KEY_PREFIX + "UserInsertUpdateAccountAssociation";
 
         public const string NET_ACCOUNT_ASSOCIATION = SESSION_KEY_PREFIX + "NetAccountAssociation";

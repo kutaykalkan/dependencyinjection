@@ -778,7 +778,8 @@ namespace SkyStem.ART.App.Services
 
         }
 
-        public int InsertUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<long> accountIDCollection, int userID, short roleID, AppUserInfo oAppUserInfo)
+        public int InsertUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<long> accountIDCollection,
+            List<UserHdrInfo> oChildUserRoleDetails, bool bAllAccounts, int userID, short roleID, AppUserInfo oAppUserInfo)
         {
 
             IDbConnection oConnection = null;
@@ -793,52 +794,46 @@ namespace SkyStem.ART.App.Services
 
 
                 DataTable dtAccountID = ServiceHelper.ConvertLongIDCollectionToDataTable(accountIDCollection);
-                DataTable dtUserGeographyObjectDataTable = SkyStem.ART.App.Utility.ServiceHelper.ConvertUserGeographyObjectInfoCollectionToDataTable(oUserGeographyObjectInfoCollection);
+                DataTable dtUserGeographyObjectDataTable = ServiceHelper.ConvertUserGeographyObjectInfoCollectionToDataTable(oUserGeographyObjectInfoCollection);
+                DataTable dtUserRole = ServiceHelper.ConvertUserAccountByUserRoleToDataTable(oChildUserRoleDetails);
 
                 UserHdrDAO oUserHdrDAO = new UserHdrDAO(oAppUserInfo);
                 UserGeographyObjectDAO oUserGeographyObjectDAO = new UserGeographyObjectDAO(oAppUserInfo);
 
                 oUserHdrDAO.InsertUserAccount(dtAccountID, userID, roleID, oConnection, oTransaction);
+                oUserHdrDAO.SaveUserAssociationByUserRole(dtUserRole, userID, roleID, oConnection, oTransaction);
+                oUserHdrDAO.SaveUserAssociationAllAccounts(bAllAccounts, userID, roleID, oConnection, oTransaction);
                 object o = oUserGeographyObjectDAO.SaveUserOwnershipDataTable(dtUserGeographyObjectDataTable, oConnection, oTransaction);
 
                 oTransaction.Commit();
                 return 0;
-
-
             }
-
-            catch (Exception ex)
+            catch (Exception)
             {
                 if ((oTransaction != null) && (oConnection.State == ConnectionState.Open))
                 {
                     oTransaction.Rollback();
                 }
-                throw ex;
+                throw;
             }
             finally
             {
                 if ((null != oConnection) && (oConnection.State == ConnectionState.Open))
                     oConnection.Close();
-
             }
-
         }
 
         public bool DeleteUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<UserAccountInfo> oUserAccountInfoCollection, AppUserInfo oAppUserInfo)
         {
-
             IDbConnection oConnection = null;
             IDbTransaction oTransaction = null;
             ServiceHelper.SetConnectionString(oAppUserInfo);
             UserGeographyObjectDAO obj = new UserGeographyObjectDAO(oAppUserInfo);
-
             try
             {
-
                 oConnection = obj.CreateConnection();
                 oConnection.Open();
                 oTransaction = oConnection.BeginTransaction();
-
 
                 DataTable dtUserAccountDataTable = ServiceHelper.ConvertUserAccountObjectInfoCollectionToDataTable(oUserAccountInfoCollection);
                 DataTable dtUserGeographyObjectDataTable = SkyStem.ART.App.Utility.ServiceHelper.ConvertUserGeographyObjectInfoCollectionToDataTable(oUserGeographyObjectInfoCollection);
@@ -1316,7 +1311,7 @@ namespace SkyStem.ART.App.Services
             {
                 ServiceHelper.SetConnectionString(oAppUserInfo);
                 UserHdrDAO oUserHdrDAO = new UserHdrDAO(oAppUserInfo);
-               oUserHdrDAO.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo.AutoSaveAttributeValueInfoList, oAutoSaveAttributeParamInfo.UserLoginID, oAutoSaveAttributeParamInfo.DateRevised);
+                oUserHdrDAO.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo.AutoSaveAttributeValueInfoList, oAutoSaveAttributeParamInfo.UserLoginID, oAutoSaveAttributeParamInfo.DateRevised);
             }
             catch (SqlException ex)
             {
@@ -1325,6 +1320,75 @@ namespace SkyStem.ART.App.Services
             catch (Exception ex)
             {
                 ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+        }
+
+        public List<UserHdrInfo> SelectUserAssociationByUserRole(int? userID, short? roleID, AppUserInfo oAppUserInfo)
+        {
+            List<UserHdrInfo> oUserHdrInfoList = new List<UserHdrInfo>();
+            try
+            {
+                ServiceHelper.SetConnectionString(oAppUserInfo);
+                UserHdrDAO oUserHdrDAO = new UserHdrDAO(oAppUserInfo);
+                oUserHdrInfoList = oUserHdrDAO.SelectUserAssociationByUserRole(userID, roleID);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return oUserHdrInfoList;
+        }
+
+        public bool SelectUserAssociationAllAccount(int? userID, short? roleID, AppUserInfo oAppUserInfo)
+        {
+            try
+            {
+                ServiceHelper.SetConnectionString(oAppUserInfo);
+                UserHdrDAO oUserHdrDAO = new UserHdrDAO(oAppUserInfo);
+                return oUserHdrDAO.SelectUserAssociationAllAccount(userID, roleID);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return false;
+        }
+
+        public void SaveUserAssociationByUserRole(List<UserHdrInfo> oChildUserRoleDetails, int userID, short roleID, AppUserInfo oAppUserInfo)
+        {
+            IDbConnection oConnection = null;
+            IDbTransaction oTransaction = null;
+            ServiceHelper.SetConnectionString(oAppUserInfo);
+            try
+            {
+                DataTable dtUserRole = ServiceHelper.ConvertUserAccountByUserRoleToDataTable(oChildUserRoleDetails);
+                UserHdrDAO oUserHdrDAO = new UserHdrDAO(oAppUserInfo);
+                oConnection = oUserHdrDAO.CreateConnection();
+                oConnection.Open();
+                oTransaction = oConnection.BeginTransaction();
+                oUserHdrDAO.SaveUserAssociationByUserRole(dtUserRole, userID, roleID, oConnection, oTransaction);
+                oTransaction.Commit();
+            }
+            catch (Exception)
+            {
+                if ((oTransaction != null) && (oConnection.State == ConnectionState.Open))
+                {
+                    oTransaction.Rollback();
+                }
+                throw;
+            }
+            finally
+            {
+                if ((null != oConnection) && (oConnection.State == ConnectionState.Open))
+                    oConnection.Close();
             }
         }
     }

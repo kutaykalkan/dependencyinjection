@@ -1412,6 +1412,79 @@ namespace SkyStem.ART.App.DAO
         }
 
         #endregion
+        #region Save User Account By User Role
+
+        internal void SaveUserAssociationByUserRole(DataTable dtUserRole, int userID, short roleID, IDbConnection connection, IDbTransaction transaction)
+        {
+            IDbCommand cmd = this.CreateSaveUserAssociationByUserRoleCommand(dtUserRole, userID, roleID);
+
+            cmd.Connection = connection;
+            cmd.Transaction = transaction;
+            cmd.ExecuteNonQuery();
+
+        }
+        private IDbCommand CreateSaveUserAssociationByUserRoleCommand(DataTable dtUserRole, int userID, short roleID)
+        {
+            IDbCommand cmd = this.CreateCommand("usp_SAV_UserAssociationByUserRole");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            IDataParameterCollection cmdParams = cmd.Parameters;
+
+            IDbDataParameter paramAccountIDTable = cmd.CreateParameter();
+            paramAccountIDTable.ParameterName = "@udtUserAssociationByUserRole";
+            paramAccountIDTable.Value = dtUserRole;
+            cmdParams.Add(paramAccountIDTable);
+
+            IDbDataParameter paramUserID = cmd.CreateParameter();
+            paramUserID.ParameterName = "@UserID";
+            paramUserID.Value = userID;
+            cmdParams.Add(paramUserID);
+
+            IDbDataParameter paramRoleID = cmd.CreateParameter();
+            paramRoleID.ParameterName = "@RoleID";
+            paramRoleID.Value = roleID;
+            cmdParams.Add(paramRoleID);
+
+            return cmd;
+        }
+        #endregion
+
+        #region Save User Account All Accounts
+
+        internal void SaveUserAssociationAllAccounts(bool isAllAccounts, int userID, short roleID, IDbConnection connection, IDbTransaction transaction)
+        {
+            IDbCommand cmd = this.CreateSaveUserAssociationAllAccountsCommand(isAllAccounts, userID, roleID);
+
+            cmd.Connection = connection;
+            cmd.Transaction = transaction;
+            cmd.ExecuteNonQuery();
+
+        }
+        private IDbCommand CreateSaveUserAssociationAllAccountsCommand(bool isAllAccounts, int userID, short roleID)
+        {
+            IDbCommand cmd = this.CreateCommand("usp_SAV_UserAssociationAllAccounts");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            IDataParameterCollection cmdParams = cmd.Parameters;
+
+            IDbDataParameter paramIsAllAccounts = cmd.CreateParameter();
+            paramIsAllAccounts.ParameterName = "@IsAllAccounts";
+            paramIsAllAccounts.Value = isAllAccounts;
+            cmdParams.Add(paramIsAllAccounts);
+
+            IDbDataParameter paramUserID = cmd.CreateParameter();
+            paramUserID.ParameterName = "@UserID";
+            paramUserID.Value = userID;
+            cmdParams.Add(paramUserID);
+
+            IDbDataParameter paramRoleID = cmd.CreateParameter();
+            paramRoleID.ParameterName = "@RoleID";
+            paramRoleID.Value = roleID;
+            cmdParams.Add(paramRoleID);
+
+            return cmd;
+        }
+        #endregion
         public List<UserHdrInfo> SelectPRAByGLDataID(long? glDataID)
         {
             List<UserHdrInfo> oUserHdrInfoCollection = new List<UserHdrInfo>();
@@ -1950,6 +2023,8 @@ namespace SkyStem.ART.App.DAO
             oUserHdrInfo.LockdownDateTime = r.GetDateValue("LockdownDateTime");
             oUserHdrInfo.CompanyDisplayName = r.GetStringValue("CompanyDisplayName");
             oUserHdrInfo.FTPLoginID = r.GetStringValue("FTPLoginID");
+            oUserHdrInfo.ChildUserID = r.GetInt32Value("ChildUserID");
+            oUserHdrInfo.ChildRoleID = r.GetInt16Value("ChildROleID");
             return oUserHdrInfo;
         }
 
@@ -2396,6 +2471,89 @@ namespace SkyStem.ART.App.DAO
             else
                 parDateRevised.Value = DBNull.Value;
             cmdParams.Add(parDateRevised);
+            return cmd;
+        }
+
+        internal List<UserHdrInfo> SelectUserAssociationByUserRole(int? userID, short? roleID)
+        {
+            List<UserHdrInfo> oUserHdrInfoList = new List<UserHdrInfo>();
+            using (IDbConnection cnn = this.CreateConnection())
+            {
+                cnn.Open();
+                using (IDbCommand cmd = CreateSelectUserAssociationByUserRoleCommand(userID, roleID))
+                {
+                    cmd.Connection = cnn;
+                    IDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    while (dr.Read())
+                    {
+                        oUserHdrInfoList.Add(MapObject(dr));
+                    }
+                    dr.ClearColumnHash();
+                }
+            }
+            return oUserHdrInfoList;
+        }
+        private IDbCommand CreateSelectUserAssociationByUserRoleCommand(int? userID, short? roleID)
+        {
+            IDbCommand cmd = CreateCommand("usp_SEL_UserAssociationByUserRole");
+            cmd.CommandType = CommandType.StoredProcedure;
+            IDataParameterCollection cmdParams = cmd.Parameters;
+
+            System.Data.IDbDataParameter parUserID = cmd.CreateParameter();
+            parUserID.ParameterName = "@UserID";
+            if (userID.HasValue)
+                parUserID.Value = userID;
+            else
+                parUserID.Value = DBNull.Value;
+            cmdParams.Add(parUserID);
+
+            System.Data.IDbDataParameter parRoleID = cmd.CreateParameter();
+            parRoleID.ParameterName = "@RoleID";
+            if (roleID.HasValue)
+                parRoleID.Value = roleID;
+            else
+                parRoleID.Value = DBNull.Value;
+            cmdParams.Add(parRoleID);
+            return cmd;
+        }
+
+        
+        internal bool SelectUserAssociationAllAccount(int? userID, short? roleID)
+        {
+            bool result = false;
+            using (IDbConnection cnn = this.CreateConnection())
+            {
+                cnn.Open();
+                using (IDbCommand cmd = CreateSelectUserAssociationAllAccountCommand(userID, roleID))
+                {
+                    cmd.Connection = cnn;
+                    result = (bool) cmd.ExecuteScalar();
+                }
+                cnn.Close();
+            }
+            return result;
+        }
+        private IDbCommand CreateSelectUserAssociationAllAccountCommand(int? userID, short? roleID)
+        {
+            IDbCommand cmd = CreateCommand("usp_SEL_UserAllAccounts");
+            cmd.CommandType = CommandType.StoredProcedure;
+            IDataParameterCollection cmdParams = cmd.Parameters;
+
+            System.Data.IDbDataParameter parUserID = cmd.CreateParameter();
+            parUserID.ParameterName = "@UserID";
+            if (userID.HasValue)
+                parUserID.Value = userID;
+            else
+                parUserID.Value = DBNull.Value;
+            cmdParams.Add(parUserID);
+
+            System.Data.IDbDataParameter parRoleID = cmd.CreateParameter();
+            parRoleID.ParameterName = "@RoleID";
+            if (roleID.HasValue)
+                parRoleID.Value = roleID;
+            else
+                parRoleID.Value = DBNull.Value;
+            cmdParams.Add(parRoleID);
             return cmd;
         }
 

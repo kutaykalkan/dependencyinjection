@@ -350,6 +350,31 @@ public class ListControlHelper
         ShowSelectAllAsSelected(ddl);
     }
 
+    public static void BindRoleDropDownListForAccountAssociation(DropDownList ddl)
+    {
+        IRole oRoleClient = RemotingHelper.GetRoleObject();
+        IList<RoleMstInfo> ListRoles = SessionHelper.GetAllRoles();
+        List<ListItem> lstListItem = new List<ListItem>();
+
+        foreach (RoleMstInfo role in ListRoles)
+        {
+
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
+                            && role.IsVisibleForAccountAssociationByUserRole.GetValueOrDefault())
+            {
+                lstListItem.Add(new ListItem(LanguageUtil.GetValue(role.RoleLabelID.Value), role.RoleID.Value.ToString()));
+            }
+        }
+
+        ddl.DataSource = lstListItem;
+        ddl.DataTextField = "text";
+        ddl.DataValueField = "value";
+        ddl.DataBind();
+
+        AddListItemForSelectAll(ddl);
+        ShowSelectAllAsSelected(ddl);
+    }
+
     public static void BindStatusDropDown(DropDownList ddl)
     {
         List<ListItem> lstItem = new List<ListItem>();
