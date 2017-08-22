@@ -195,6 +195,11 @@ public partial class Pages_ReportParameter : PageBaseCompany
             TaskTypeID = Convert.ToInt16(ucTaskType.SelectedValue);
             ShowHideAccountTaskControls(TaskTypeID, false);
         }
+        //btnExportToExcelAndEmailReport.Visible = false;
+        //if (_reportID == (short)WebEnums.Reports.QUALITY_SCORE_REPORT)
+        //{
+        //    btnExportToExcelAndEmailReport.Visible = true;
+        //}
     }
 
     #endregion
@@ -248,6 +253,46 @@ public partial class Pages_ReportParameter : PageBaseCompany
     }
 
     protected void btnRunReport_Click(object sender, EventArgs e)
+    {
+        ReportMstInfo oReportInfo = SetParameterInfoToSession();
+        //~/Pages/Reports/OpenItemsReport.aspx
+        string url = string.Empty;
+        //if (_reportID == 2 && Convert.ToInt32(oReportCriteria["Period"]) == -1)
+        //{
+        //    url = oReportInfo.ReportUrl.Replace("OpenItemsReport", "OpenItemReportForCurrentRecPeriod");
+        //}
+        //else
+        //{
+        url = oReportInfo.ReportUrl;
+        //}
+        url = ReportHelper.AddCommonQueryStringParameter(url);
+        url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.StandardReport).ToString();
+        url = url + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
+        Response.Redirect(url);
+    }
+
+    protected void btnExportToExcelAndEmailReport_Click(object sender, EventArgs e)
+    {
+        //ReportMstInfo oReportInfo = SetParameterInfoToSession();
+        //string url = string.Empty;
+        //url = oReportInfo.ReportUrl;
+        //url = ReportHelper.AddCommonQueryStringParameter(url);
+        //url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.StandardReport).ToString();
+        //url = url + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
+        //Response.Redirect(url);
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //Session.Remove(SessionConstants.REPORT_CRITERIA);
+        //Session.Remove(SessionConstants.REPORT_INFO_OBJECT);
+        ReportHelper.ClearReportSessions();
+        string url = "ReportHome.aspx?" + QueryStringConstants.REPORT_SECTION_ID + "=" + _reportSectionIDFromURL;
+        Response.Redirect(url);
+    }
+
+    #region "Private Methods"
+    private ReportMstInfo SetParameterInfoToSession()
     {
         ReportMstInfo oReportInfo = (ReportMstInfo)Session[SessionConstants.REPORT_INFO_OBJECT];
         //Get Parameters into a dictionary.
@@ -380,20 +425,7 @@ public partial class Pages_ReportParameter : PageBaseCompany
         SessionHelper.ClearSession(SessionConstants.REPORT_INFO_OBJECT);
 
         Session[SessionConstants.REPORT_INFO_OBJECT] = oReportInfo;
-        //~/Pages/Reports/OpenItemsReport.aspx
-        string url = string.Empty;
-        //if (_reportID == 2 && Convert.ToInt32(oReportCriteria["Period"]) == -1)
-        //{
-        //    url = oReportInfo.ReportUrl.Replace("OpenItemsReport", "OpenItemReportForCurrentRecPeriod");
-        //}
-        //else
-        //{
-        url = oReportInfo.ReportUrl;
-        //}
-        url = ReportHelper.AddCommonQueryStringParameter(url);
-        url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.StandardReport).ToString();
-        url = url + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
-        Response.Redirect(url);
+        return oReportInfo;
     }
 
     private string GetAllQualityScoreChecklist()
@@ -422,16 +454,6 @@ public partial class Pages_ReportParameter : PageBaseCompany
         return strChecklistItems;
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-        //Session.Remove(SessionConstants.REPORT_CRITERIA);
-        //Session.Remove(SessionConstants.REPORT_INFO_OBJECT);
-        ReportHelper.ClearReportSessions();
-        string url = "ReportHome.aspx?" + QueryStringConstants.REPORT_SECTION_ID + "=" + _reportSectionIDFromURL;
-        Response.Redirect(url);
-    }
-
-    #region "Private Methods"
     private void EnableDisableCriteriaControlsAsPerRecPeriodCapability(int recPeriodID)
     {
         bool isKeyAccountEnabled;

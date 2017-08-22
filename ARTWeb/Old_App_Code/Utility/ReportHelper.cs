@@ -561,7 +561,7 @@ namespace SkyStem.ART.Web.Utility
             oCriteriaCollection[ReportCriteriaKeyName.RPTCRITERIAKEYNAME_USER] = strUserList.ToString();
         }
 
-        public static void SendUserSearchCriteriaWhenNoUserSelected(short reportID, ref DataTable dtUser, ref  DataTable dtRole)
+        public static void SendUserSearchCriteriaWhenNoUserSelected(short reportID, ref DataTable dtUser, ref DataTable dtRole)
         {
             // If both Roles and User are Not selected then pick the Default Role and User List
             if (dtUser != null && dtUser.Rows.Count <= 0)
@@ -2241,8 +2241,10 @@ namespace SkyStem.ART.Web.Utility
                         ((ExLabel)e.Item.FindControl("lblQualityScoreNumber")).Text = oOpenItemsReportInfo.QualityScoreNumber;
                         ((ExLabel)e.Item.FindControl("lblComments")).Text = oOpenItemsReportInfo.Comments;
                         ((ExLabel)e.Item.FindControl("lblQualityScoreDescription")).Text = oOpenItemsReportInfo.QualityScoreDesc;
-                        ((ExLabel)e.Item.FindControl("lblSystemQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.SystemQualityScoreStatusID.Value);
-                        ((ExLabel)e.Item.FindControl("lblUserQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.UserQualityScoreStatusID.Value);
+                        if (oOpenItemsReportInfo.SystemQualityScoreStatusID.HasValue)
+                            ((ExLabel)e.Item.FindControl("lblSystemQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.SystemQualityScoreStatusID.Value);
+                        if (oOpenItemsReportInfo.UserQualityScoreStatusID.HasValue)
+                            ((ExLabel)e.Item.FindControl("lblUserQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.UserQualityScoreStatusID.Value);
                     }
 
 

@@ -120,7 +120,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlGLAdjustment" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="ItemizedListFormAdjustmentsTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Timming Difference Grid--%>
@@ -149,7 +149,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlTimingDifference" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="ItemizedListFormTimingDifferenceTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Reconciled Balance Row--%>
@@ -197,7 +197,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlSupportingDetail" IsPrintMode="false" ShowCopyButton="true" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="ItemizedListFormSupportingDetailTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -241,7 +241,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:ItemInputWriteOff ID="uctlRecWriteOff" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="ItemizedListFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -265,7 +265,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                              AutoSaveAttributeID ="ItemizedListFormUnexpVar"  runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -376,7 +376,7 @@
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
                                                                 OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="ItemizedListFormQualityScore" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -423,7 +423,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server"
-                                                                Visible="false" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged" />
+                                                               AutoSaveAttributeID ="ItemizedListFormRCCStatus" Visible="false" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -480,7 +480,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="ItemizedListFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>

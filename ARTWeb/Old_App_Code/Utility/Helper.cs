@@ -5414,12 +5414,47 @@ namespace SkyStem.ART.Web.Utility
             oUser.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
         }
 
-        public static AutoSaveAttributeValueInfo GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute eAutoSaveEnum)
+        public static void SaveAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute eAutoSaveEnum, int? referenceID, string value, bool byRole)
         {
             IUser oUser = RemotingHelper.GetUserObject();
             AutoSaveAttributeParamInfo oAutoSaveAttributeParamInfo = new AutoSaveAttributeParamInfo();
             Helper.FillCommonServiceParams(oAutoSaveAttributeParamInfo);
             List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = oUser.GetAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoListToSave = new List<AutoSaveAttributeValueInfo>();
+
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = oAutoSaveAttributeValueInfoList.Find(T => T.AutoSaveAttributeID == (int)eAutoSaveEnum);
+            if (oAutoSaveAttributeValueInfo == null)
+            {
+                oAutoSaveAttributeValueInfo = new AutoSaveAttributeValueInfo();
+                oAutoSaveAttributeValueInfo.AutoSaveAttributeID = (int)eAutoSaveEnum;
+                oAutoSaveAttributeValueInfo.UserID = SessionHelper.CurrentUserID;
+                oAutoSaveAttributeValueInfo.IsActive = true;
+            }
+            if (byRole)
+                oAutoSaveAttributeValueInfo.RoleID = SessionHelper.CurrentRoleID;
+            else
+                oAutoSaveAttributeValueInfo.RoleID = null;
+            oAutoSaveAttributeValueInfo.ReferenceID = referenceID;
+            oAutoSaveAttributeValueInfo.Value = value;
+            oAutoSaveAttributeValueInfoListToSave.Add(oAutoSaveAttributeValueInfo);
+            oAutoSaveAttributeParamInfo.AutoSaveAttributeValueInfoList = oAutoSaveAttributeValueInfoListToSave;
+            oAutoSaveAttributeParamInfo.UserLoginID = SessionHelper.CurrentUserLoginID;
+            oAutoSaveAttributeParamInfo.DateRevised = DateTime.Now;
+            oUser.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+        }
+
+        public static List<AutoSaveAttributeValueInfo> GetAutoSaveAttributeValues()
+        {
+            IUser oUser = RemotingHelper.GetUserObject();
+            AutoSaveAttributeParamInfo oAutoSaveAttributeParamInfo = new AutoSaveAttributeParamInfo();
+            Helper.FillCommonServiceParams(oAutoSaveAttributeParamInfo);
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = oUser.GetAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+            return oAutoSaveAttributeValueInfoList;
+        }
+
+        public static AutoSaveAttributeValueInfo GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute eAutoSaveEnum)
+        {
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = GetAutoSaveAttributeValues();
             AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = oAutoSaveAttributeValueInfoList.Find(T => T.AutoSaveAttributeID == (int)eAutoSaveEnum);
             return oAutoSaveAttributeValueInfo;
         }
@@ -5427,7 +5462,7 @@ namespace SkyStem.ART.Web.Utility
         public static int? GetAutoSavedRecPeriod()
         {
             int? RecPeriodID = null;
-            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute.AutoSaveRecPeriodSelection);
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute.AutoSaveRecPeriodSelection);
             if (oAutoSaveAttributeValueInfo != null)
                 RecPeriodID = oAutoSaveAttributeValueInfo.ReferenceID;
             return RecPeriodID;
@@ -5435,7 +5470,7 @@ namespace SkyStem.ART.Web.Utility
         public static int? GetAutoSavedFinancialYear()
         {
             int? fyID = null;
-            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute.AutoSaveFinancialYearSelection);
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute.AutoSaveFinancialYearSelection);
             if (oAutoSaveAttributeValueInfo != null)
                 fyID = oAutoSaveAttributeValueInfo.ReferenceID;
             return fyID;

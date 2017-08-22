@@ -7,10 +7,9 @@
 
     <script language="javascript">
 
-        function ToggleDiv(imgCtl, myDiv, ctlIDIsExpanded, ctlIDIsRefreshData) {
-
+        function ToggleDiv(imgCtl, myDiv, ctlIDIsExpanded, ctlIDIsRefreshData, attrID) {
+            var hdnIsExpanded = document.getElementById(ctlIDIsExpanded);
             var element = document.getElementById(myDiv);
-
             if (element != null) {
 
                 element.style.display = (element.style.display == "none" || (element.style.display == "" && element.innerHTML == "")) ? "block" : "none";
@@ -29,6 +28,14 @@
                     //this.className = 'ToggleCollapse';
                 }
 
+                $.ajax({
+                    type: "POST",
+                    url: "../app/AutoSave/Save",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ AutoSaveAttributeID: attrID, Value: hdnIsExpanded.value }),
+                    succes: function () { }
+                });
+
                 if (element.innerHTML != "") {
                     return false;
                 }
@@ -39,8 +46,6 @@
                 //document.getElementById(imgCtl).className = 'ToggleCollapse';
                 //this.className = 'ToggleCollapse';
             }
-
-
         }
 
         function SetElementValue(docElementId, val) {

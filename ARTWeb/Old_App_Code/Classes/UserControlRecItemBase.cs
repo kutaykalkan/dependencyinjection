@@ -8,6 +8,7 @@ using Telerik.Web.UI;
 using SkyStem.ART.Client.Model;
 using SkyStem.ART.Web.Data;
 using SkyStem.ART.Web.Utility;
+using SkyStem.ART.Client.Data;
 
 namespace SkyStem.ART.Web.Classes
 {
@@ -134,6 +135,17 @@ namespace SkyStem.ART.Web.Classes
                 else return null;
             }
             set { ViewState[ViewStateConstants.REC_CATEGORY_ID] = value; }
+        }
+
+        public ARTEnums.AutoSaveAttribute? AutoSaveAttributeID
+        {
+            get
+            {
+                if (ViewState[ViewStateConstants.AUTO_SAVE_ATTRIBUTE_ID] != null)
+                    return (ARTEnums.AutoSaveAttribute)ViewState[ViewStateConstants.AUTO_SAVE_ATTRIBUTE_ID];
+                else return null;
+            }
+            set { ViewState[ViewStateConstants.AUTO_SAVE_ATTRIBUTE_ID] = value; }
         }
 
         public virtual bool DisableExportInPrint

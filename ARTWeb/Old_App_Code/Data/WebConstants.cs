@@ -844,7 +844,7 @@ namespace SkyStem.ART.Web.Data
         public const string FSCAPTION_MATERIALITY_CURRENT_DB_VAL = "FSCaptionMaterialityCurrentDBVal";
         public const string TASK_CUSTOM_FIELDS_CURRENT_DB_VAL = "TaskCustomFieldsCurrentDBVal";
         public const string DAY_TYPE_CURRENT_DB_VAL = "DayTypeCurrentDBVal";
-
+        public const string AUTO_SAVE_ATTRIBUTE_ID = "AutoSaveAttributeID";
     }
 
  

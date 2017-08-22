@@ -505,7 +505,8 @@ namespace SkyStem.ART.Web.UserControls
         }
         public void RegisterToggleControl(ExImageButton imgToggleControl)
         {
-            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "');";
+            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+                + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
             ToggleControl = imgToggleControl;
         }
         public override void LoadData()
@@ -534,6 +535,10 @@ namespace SkyStem.ART.Web.UserControls
                 if (IsExpanded && !this.IsPrintMode)
                 {
                     ToggleControl.ImageUrl = "~/App_Themes/SkyStemBlueBrown/Images/CollapseGlass.gif";
+                    if (this.AutoSaveAttributeID != null)
+                    {
+                        Helper.SaveAutoSaveAttributeValue((ARTEnums.AutoSaveAttribute)this.AutoSaveAttributeID, null, IsExpanded.ToString(), false);
+                    }
                 }
             }
         }

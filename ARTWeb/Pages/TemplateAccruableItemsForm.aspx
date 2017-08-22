@@ -132,7 +132,7 @@
                                                                 Visible="false" />
                                                                 <br />--%>
                                                             <UserControls:GLAdjustments ID="uctlGLAdjustments_new" EntityNameLabelID="1656" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormAdjustmentsTotal" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Timming Difference Grid--%>
@@ -165,7 +165,7 @@
                                                             <%--   <UserControls:GLAdjustments ID="uctlTimmingDifference" IsPrintMode="false" runat="server"
                                                                 Visible="false" />--%>
                                                             <UserControls:GLAdjustments ID="uctlTimmingDifference_new" EntityNameLabelID="1656"
-                                                                IsPrintMode="false" runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormTimingDifferenceTotal" IsPrintMode="false" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Reconciled Balance Row--%>
@@ -217,7 +217,7 @@
                                                             <%--      <UserControls:ItemInputAccurable ID="uctlItemInputAccurable" IsPrintMode="false"
                                                                 runat="server" Visible="false" />--%>
                                                             <UserControls:GLAdjustments ID="uctlItemInputAccurable" ShowCopyButton="true" EntityNameLabelID="1445"
-                                                                IsPrintMode="false" runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormSupportingDetailIndividual" IsPrintMode="false" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -245,7 +245,7 @@
                                                                 runat="server" Visible="false" />
                                                             <br />--%>
                                                             <UserControls:GLDataRecurringScheduleItems ID="uctlGLDataRecurringScheduleItems"
-                                                                EntityNameLabelID="1446" IsPrintMode="false" runat="server" Visible="false" ShowCopyButton="true" />
+                                                                AutoSaveAttributeID ="AccruableFormSupportingDetailRecurring" EntityNameLabelID="1446" IsPrintMode="false" runat="server" Visible="false" ShowCopyButton="true" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRowTotalSupportingDetail">
@@ -310,7 +310,7 @@
                                                                 Visible="false" />
                                                                 <br />--%>
                                                             <UserControls:GLDataWriteOnOff ID="uctlGLDataWriteOnOff" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -335,7 +335,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormUnexpVar" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -447,7 +447,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
-                                                                OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormQualityScore" OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -494,7 +494,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormRCCStatus" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -551,7 +551,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AccruableFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>

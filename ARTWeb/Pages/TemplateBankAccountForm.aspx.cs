@@ -194,7 +194,7 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
         uctlBankFee.IsExpanded = true;
         this.LoadRecItemsGLAdjustment(uctlBankFee, WebEnums.RecCategory.GLAdjustments, WebEnums.RecCategoryType.BankAccount_GLAdjustments_BankFees);
         uctlBankFee.ContentVisibility = true;
-
+ 
     }
 
     private void ucRecFormButtons_eventButtonClick(string commandName)
@@ -532,8 +532,89 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
 
         ucRecFormAccountTaskGrid.RegisterClientScripts();
 
+        AutoExpandSections();
+
     }
 
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach(AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.BankFormAdjustmentsBankFees:
+                        if (uctlBankFee.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewBankFee_Click(imgViewBankFee, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormAdjustmentsNSFFees:
+                        if (uctlNSFFee.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewNSFFee_Click(imgViewNSFFee, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormAdjustmentsOther:
+                        if (uctlOtherInGLAdjustments.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewOtherInGLAdjustments_Click(imgViewOtherInGLAdjustments, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormTimingDifferenceDepositsInTransit:
+                        if (uctlDepositInTransit.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewDepositInTransit_Click(imgViewDepositInTransit, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormTimingDifferenceOutstandingChecks:
+                        if (uctlOutstandingChecks.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewOutstandingChecks_Click(imgViewOutstandingChecks, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormTimingDifferenceOther:
+                        if (uctlOtherInTimingDifference.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewOtherInTimingDifference_Click(imgViewOtherInTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormReconciliationWriteOffsOns:
+                        if (uctlItemInputWriteOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewRecWriteOff_Click(imgViewRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewUnexplainedVariance_Click(imgViewUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFromQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.BankFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
+    }
     private void setEntityNameLabelIDForGLAdjustments()
     {
         if (lblBankFee.LabelID.ToString() != "1656")

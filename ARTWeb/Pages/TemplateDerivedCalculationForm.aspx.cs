@@ -547,7 +547,71 @@ public partial class Pages_TemplateDerivedCalculationForm : PageBaseRecForm
         RecHelper.RenderJSForOldValuesForRecalculateBalances(this, txtBankBalanceBC, txtBankBalanceRC);
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
+        AutoExpandSections();
     }
+
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.DerivedFormAdjustmentsTotal:
+                        if (GLAdjustments1.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewBankFee_Click(imgViewBankFee, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormTimingDifferenceTotal:
+                        if (uctlTimmingDifference.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewTimingDifference_Click(imgViewTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormSupportingDetailOther:
+                        if (uctlGLAdjustmentsOther.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgGLAdjustmentsOther_Click(imgGLAdjustmentsOther, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormReconciliationWriteOffsOns:
+                        if (uctlItemInputWriteOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecWriteOff_Click(imgRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgUnexplainedVariance_Click(imgUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.DerivedFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
     private void setEntityNameLabelIDForGLAdjustments()
     {
         //if (ExLabel5.LabelID.ToString() != "1656")

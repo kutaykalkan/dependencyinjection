@@ -416,4 +416,40 @@ namespace SkyStem.ART.Shared.Data
       
       
     }
+
+    public class ExportToExcelReportConstants
+    {
+        public const string HeaderTableName = "RequestHdr";
+        public struct HeaderFields
+        {
+            public const string FILENAME = "FileName";
+            public const string RECPERIODID = "RecPeriodID";
+            public const string LANGUAGEID = "LanguageID";
+            public const string COMPANYID = "CompanyID";
+            public const string DEFAULTLANGUAGEID = "DefaultLanguageID";
+            public const string USERID = "UserID";
+            public const string ROLEID = "RoleID";
+        }
+        public const string DetailTableName = "RequestDetail";
+        public struct DetailFields
+        {
+            public const string RECPERIODID = "ReconciliationPeriodID";
+            public const string FROMACCOUNTNUMBER = "FromAccountNumber";
+            public const string TOACCOUNTNUMBER = "ToAccountNumber";
+            public const string ISMATERIALACCOUNT = "IsMaterialAccount";
+            public const string RISKRATINGIDS = "RiskRatingIDs";
+            public const string ISKEYCCOUNT = "IsKeyccount";
+            public const string FROMOPENDATE = "FromOpenDate";
+            public const string TOOPENDATE = "ToOpenDate";
+            public const string AGINGIDS = "AgingIDs";
+            public const string OPENITEMCLASSIFICATIONIDS = "OpenItemClassificationIDs";
+            public const string QUALITYSCORERANGE = "QualityScoreRange";
+            public const string QUALITYSCOREIDS = "QualityScoreIDs";
+            public const string FROMSYSTEMSCORE = "FromSystemScore";
+            public const string FROMUSERSCORE = "FromUserScore";
+            public const string TOSYSTEMSCORE = "ToSystemScore";
+            public const string TOUSERSCORE = "ToUserScore";
+        }
+        public const string EntitySearchTableName = "EntitySearch";
+    }
 }

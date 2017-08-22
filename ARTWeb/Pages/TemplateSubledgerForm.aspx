@@ -122,7 +122,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlGLAdjustments" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormAdjustmentsTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Timming Difference Grid--%>
@@ -152,7 +152,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlTimmingDifference" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormTimingDifferenceTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Reconciled Balance Row--%>
@@ -225,7 +225,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlSupportingDetailOther" ShowCopyButton="true" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormSupportingDetailOther" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRowTotalSupportingDetail">
@@ -284,7 +284,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:ItemInputWriteOff ID="uctlItemInputWriteOff" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -308,7 +308,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormUnexpVar" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -413,7 +413,7 @@
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
                                                                 OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="SubledgerFormQualityScore" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -460,7 +460,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormRCCStatus" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -515,7 +515,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="SubledgerFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>

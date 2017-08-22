@@ -179,7 +179,8 @@ namespace SkyStem.ART.Web.UserControls
         }
         public void RegisterToggleControl(ExImageButton imgToggleControl)
         {
-            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "');";
+            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+                + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
             ToggleControl = imgToggleControl;
         }
         public override void LoadData()

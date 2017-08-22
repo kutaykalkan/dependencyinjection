@@ -469,8 +469,71 @@ public partial class Pages_TemplateItemizedListForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-
+        AutoExpandSections();
     }
+
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormAdjustmentsTotal:
+                        if (uctlGLAdjustment.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgGLAdjustment_Click(imgGLAdjustment, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormTimingDifferenceTotal:
+                        if (uctlTimingDifference.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgTimingDifference_Click(imgTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormSupportingDetailTotal:
+                        if (uctlSupportingDetail.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgSupportingDetail_Click(imgSupportingDetail, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormReconciliationWriteOffsOns:
+                        if (uctlRecWriteOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecWriteOff_Click(imgRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgUnexplainedVariance_Click(imgUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.ItemizedListFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
     private void setEntityNameLabelIDForGLAdjustments()
     {
         if (lblHeaderTotal.LabelID.ToString() != "1656")

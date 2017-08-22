@@ -579,8 +579,71 @@ public partial class Pages_TemplateSubledgerForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-
+        AutoExpandSections();
     }
+
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormAdjustmentsTotal:
+                        if (uctlGLAdjustments.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewGLAdjustment_Click(imgViewGLAdjustment, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormTimingDifferenceTotal:
+                        if (uctlTimmingDifference.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewTimingDifference_Click(imgViewTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormSupportingDetailOther:
+                        if (uctlSupportingDetailOther.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgSupportingDetailsOther_Click(imgSupportingDetailsOther, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormReconciliationWriteOffsOns:
+                        if (uctlItemInputWriteOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecWriteOff_Click(imgRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgUnexplainedVariance_Click(imgUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.SubledgerFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
     private void setEntityNameLabelIDForGLAdjustments()
     {
         if (lblHeaderTotal.LabelID.ToString() != "1656")

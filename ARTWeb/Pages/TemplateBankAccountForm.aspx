@@ -125,7 +125,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="5">
-                                                            <UserControls:GLAdjustments IsPrintMode="false" Visible="false" ID="uctlBankFee" runat="server" />
+                                                            <UserControls:GLAdjustments IsPrintMode="false" AutoSaveAttributeID ="BankFormAdjustmentsBankFees" Visible="false" ID="uctlBankFee" runat="server" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -149,7 +149,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="5">
-                                                            <UserControls:GLAdjustments IsPrintMode="false" ID="uctlNSFFee" runat="server" Visible="false" />
+                                                            <UserControls:GLAdjustments IsPrintMode="false" AutoSaveAttributeID ="BankFormAdjustmentsNSFFees" ID="uctlNSFFee" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -174,7 +174,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments IsPrintMode="false" ID="uctlOtherInGLAdjustments" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormAdjustmentsOther" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="BlankRow">
@@ -208,7 +208,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments IsPrintMode="false" ID="uctlDepositInTransit" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormTimingDifferenceDepositsInTransit" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -233,7 +233,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments IsPrintMode="false" ID="uctlOutstandingChecks" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormTimingDifferenceOutstandingChecks" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -258,7 +258,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments IsPrintMode="false" ID="uctlOtherInTimingDifference"
-                                                                runat="server" Visible="false" />
+                                                                AutoSaveAttributeID ="BankFormTimingDifferenceOther" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="BlankRow">
@@ -354,7 +354,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:ItemInputWriteOff IsPrintMode="false" ID="uctlItemInputWriteOff" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -379,7 +379,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="5">
-                                                            <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" runat="server" Visible="false" />
+                                                            <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" runat="server" 
+                                                                AutoSaveAttributeID ="BankFormUnexpVar" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -485,7 +486,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
-                                                                OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
+                                                               AutoSaveAttributeID ="BankFromQualityScore" OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -532,7 +533,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server"
-                                                                OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged" Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormRCCStatus" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -587,7 +588,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="BankFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
