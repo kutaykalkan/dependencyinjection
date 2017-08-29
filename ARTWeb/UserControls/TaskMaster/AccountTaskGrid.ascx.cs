@@ -743,16 +743,16 @@ namespace SkyStem.ART.Web.UserControls
                     {
                         TaskMasterHelper.ShowFilterIconAccountTask(e, this.GridType);
                     }
-                    bGetFormMode = true;
+                    //bGetFormMode = true;
                 }
                 if (e.Item.ItemType == Telerik.Web.UI.GridItemType.Item || e.Item.ItemType == Telerik.Web.UI.GridItemType.AlternatingItem)
                 {
                     TaskHdrInfo oTaskHdrInfo = (TaskHdrInfo)e.Item.DataItem;
-                    if (bGetFormMode)
-                    {
+                    //if (bGetFormMode)
+                    //{
                         eFormMode = TaskMasterHelper.GetFormModeForTaskViewer(oTaskHdrInfo);
-                        bGetFormMode = false;
-                    }
+                    //    bGetFormMode = false;
+                    //}
                     // Check for deleted Task
                     if (oTaskHdrInfo.IsDeleted.HasValue && oTaskHdrInfo.IsDeleted.Value)
                     {
