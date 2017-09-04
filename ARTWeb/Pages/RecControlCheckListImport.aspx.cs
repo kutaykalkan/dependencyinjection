@@ -135,7 +135,7 @@ public partial class Pages_RecControlCheckListImport : PageBaseRecPeriod
         }
         if (GLDataHdrInfo != null)
         {
-            if (Helper.GetFormModeForRecControlCheckList(this.GLDataHdrInfo) == WebEnums.FormMode.Edit && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+            if (Helper.GetFormModeForRecControlCheckList(this.GLDataHdrInfo) == WebEnums.FormMode.Edit && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
             {
                 txtImportName.Enabled = true;
                 radFileUpload.Enabled = true;

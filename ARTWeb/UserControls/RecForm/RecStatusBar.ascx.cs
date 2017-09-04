@@ -48,7 +48,7 @@ public partial class UserControls_RecForm_RecStatusBar : UserControlRecStatusBar
         lblCertificationStartDate.Visible = Helper.GetFeatureCapabilityModeForCurrentRecPeriod(WebEnums.Feature.Certification, ARTEnums.Capability.CertificationActivation) == WebEnums.FeatureCapabilityMode.Visible;
         lblCertificationStartDateValue.Visible = lblCertificationStartDate.Visible;
 
-        if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+        if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
         {
             List<CompanyAttributeConfigInfo> roleConfigInfo = AttributeConfigHelper.GetCompanyAttributeConfigInfoList(false, WebEnums.AttributeSetType.RoleConfig);
             if (roleConfigInfo != null && roleConfigInfo.Count > 0)
@@ -103,9 +103,9 @@ public partial class UserControls_RecForm_RecStatusBar : UserControlRecStatusBar
 
             if (this.ShowDueDates)
             {
-                if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.PREPARER
-                    || SessionHelper.CurrentRoleEnum == WebEnums.UserRole.REVIEWER
-                    || SessionHelper.CurrentRoleEnum == WebEnums.UserRole.APPROVER)
+                if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.PREPARER
+                    || SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.REVIEWER
+                    || SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.APPROVER)
                 {
                     pnlDueDate1.Visible = true;
                     tdDueDate2.Visible = true;
@@ -114,15 +114,15 @@ public partial class UserControls_RecForm_RecStatusBar : UserControlRecStatusBar
 
                     switch (SessionHelper.CurrentRoleEnum)
                     {
-                        case WebEnums.UserRole.PREPARER:
+                        case ARTEnums.UserRole.PREPARER:
                             dtDueDate = oReconciliationPeriodInfo.PreparerDueDate;
                             break;
 
-                        case WebEnums.UserRole.REVIEWER:
+                        case ARTEnums.UserRole.REVIEWER:
                             dtDueDate = oReconciliationPeriodInfo.ReviewerDueDate;
                             break;
 
-                        case WebEnums.UserRole.APPROVER:
+                        case ARTEnums.UserRole.APPROVER:
                             dtDueDate = oReconciliationPeriodInfo.ApproverDueDate;
                             break;
                     }
@@ -172,7 +172,7 @@ public partial class UserControls_RecForm_RecStatusBar : UserControlRecStatusBar
     private string GetUrlForDownloadAttachments()
     {
         string url = "";
-        url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRecAttachments);
+        url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRecsAndAttachmentsFile);
         url += GetCommonQueryStringParameters(url);
         return url;
     }

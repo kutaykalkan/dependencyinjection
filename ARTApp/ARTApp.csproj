@@ -168,6 +168,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AttachmentBLL.cs" />
+    <Compile Include="BLL\DataImportBLL.cs" />
+    <Compile Include="BLL\GLDataBLL.cs" />
+    <Compile Include="BLL\MatchingBLL.cs" />
+    <Compile Include="BLL\TaskBLL.cs" />
     <Compile Include="DAO\AccountHdrDAO.cs" />
     <Compile Include="DAO\AccountReconciliationPeriodDAO.cs" />
     <Compile Include="DAO\AccountTypeMstDAO.cs" />

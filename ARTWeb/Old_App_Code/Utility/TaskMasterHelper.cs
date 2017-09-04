@@ -41,11 +41,12 @@ namespace SkyStem.ART.Web.Utility
         }
 
         #region "Service Calls"
-        public static List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, ARTEnums.TaskType taskType
-            , List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList)
+        public static List<TaskHdrInfo> GetAccessableTaskByUserID(int userID, short roleID, int recPeriodID, short taskCategoryID, ARTEnums.TaskType taskType
+            , List<TaskStatusMstInfo> taskStatusMstInfoList, List<FilterCriteria> filterCriteriaList, bool? isShowHidden)
         {
             ITaskMaster oTaskMasterClient = RemotingHelper.GetTaskMasterObject();
-            List<TaskHdrInfo> oTaskHdrInfoCollection = oTaskMasterClient.GetAccessableTaskByUserID(userID, roleID, recPeriodID, taskType, taskStatusMstInfoList, filterCriteriaList, Helper.GetAppUserInfo());
+            List<TaskHdrInfo> oTaskHdrInfoCollection = oTaskMasterClient.GetAccessableTaskByUserID(userID, roleID, recPeriodID, taskCategoryID, 
+                taskType, taskStatusMstInfoList, filterCriteriaList, isShowHidden, SessionHelper.GetUserLanguage(), AppSettingHelper.GetDefaultLanguageID(), Helper.GetAppUserInfo());
             LanguageHelper.TranslateLabelsTaskHdrInfo(oTaskHdrInfoCollection);
             return oTaskHdrInfoCollection;
 

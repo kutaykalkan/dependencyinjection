@@ -584,7 +584,7 @@ namespace SkyStem.ART.Web.UserControls
                 GridDataItem oGridDataItem = e.Item as GridDataItem;
                 DataRow dr = ((DataRowView)oGridDataItem.DataItem).Row;
                 int CreatedInRecPeriodID;
-                int.TryParse(dr["CreatedInRecPeriodID"].ToString(), out    CreatedInRecPeriodID);
+                int.TryParse(dr["CreatedInRecPeriodID"].ToString(), out CreatedInRecPeriodID);
                 bool IsForwardedItem = !(CreatedInRecPeriodID == SessionHelper.CurrentReconciliationPeriodID);
 
                 //Original Amount LCCY
@@ -924,7 +924,8 @@ namespace SkyStem.ART.Web.UserControls
                 if (rgGLDataRecurringScheduleItems.AllowCustomPaging)
                 {
                     GridHelper.BindPageSizeGrid(oRadComboBox);
-                    oRadComboBox.SelectedValue = Session[GetGridClientIDKey(rgGLDataRecurringScheduleItems) + "NewPageSize"].ToString();
+                    if (Session[GetGridClientIDKey(rgGLDataRecurringScheduleItems) + "NewPageSize"] != null)
+                        oRadComboBox.SelectedValue = Session[GetGridClientIDKey(rgGLDataRecurringScheduleItems) + "NewPageSize"].ToString();
                     oRadComboBox.Attributes.Add("onChange", "return ddlPageSize_SelectedIndexChanged('" + oRadComboBox.ClientID + "' , '" + rgGLDataRecurringScheduleItems.ClientID + "');");
                     oRadComboBox.Visible = true;
                 }

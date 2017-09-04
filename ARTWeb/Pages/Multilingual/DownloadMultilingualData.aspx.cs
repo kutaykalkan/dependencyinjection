@@ -12,6 +12,7 @@ using SkyStem.Language.LanguageClient.Model;
 using System.Data;
 using SkyStem.ART.Shared.Data;
 using SkyStem.ART.Shared.Utility;
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_Multilingual_DownloadMultilingualData : PopupPageBase
 {
@@ -43,7 +44,7 @@ public partial class Pages_Multilingual_DownloadMultilingualData : PopupPageBase
         {
             int applicationID = AppSettingHelper.GetApplicationID();
             int businessEntityID = AppSettingHelper.GetDefaultBusinessEntityID();
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                 businessEntityID = SessionHelper.GetBusinessEntityID();
             int fromLanguageID = Convert.ToInt32(ddlFromLanguage.SelectedValue);
             int toLanguageID = Convert.ToInt32(ddlToLanguage.SelectedValue);

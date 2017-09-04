@@ -47,6 +47,15 @@ namespace SkyStem.ART.Client.IServices
         DataImportHdrInfo GetDataImportInfo(int? DataImportID, AppUserInfo oAppUserInfo);
 
         /// <summary>
+        /// Check permissions and get data import hdr info
+        /// </summary>
+        /// <param name="oDataImportParamInfo"></param>
+        /// <param name="oAppUserInfo"></param>
+        /// <returns></returns>
+        [OperationContract]
+        DataImportHdrInfo GetAccessibleDataImportInfo(DataImportParamInfo oDataImportParamInfo, AppUserInfo oAppUserInfo);
+
+        /// <summary>
         /// Get Data Imports done based on the Company
         /// for Rec Period Upload, and
         /// Holiday Calendar Upload

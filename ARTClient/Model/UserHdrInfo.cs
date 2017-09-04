@@ -239,5 +239,21 @@ namespace SkyStem.ART.Client.Model
         [DataMember]
         [XmlElement(ElementName = "FTPLoginID")]
         public string FTPLoginID { get; set; }
+
+        [DataMember]
+        [XmlElement(ElementName = "ChildRoleID")]
+        public short? ChildRoleID { get; set; }
+
+        [DataMember]
+        [XmlElement(ElementName = "ChildRole")]
+        public string ChildRole { get; set; }
+
+        [DataMember]
+        [XmlElement(ElementName = "ChildUserID")]
+        public int? ChildUserID { get; set; }
+
+        [DataMember]
+        [XmlElement(ElementName = "ChildUser")]
+        public string ChildUser { get; set; }
     }
 }

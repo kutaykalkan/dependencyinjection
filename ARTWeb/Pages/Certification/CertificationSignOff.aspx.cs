@@ -192,7 +192,7 @@ public partial class Pages_CertificationSignOff : PageBaseRecPeriod
     {
         if (Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.CEOCFOCertification, false) == true)
         {
-            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.CEO_CFO)
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.CEO_CFO)
             {
                 return true;
             }
@@ -201,14 +201,14 @@ public partial class Pages_CertificationSignOff : PageBaseRecPeriod
         {
             if (Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.DualLevelReview))
             {
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.APPROVER)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.APPROVER)
                 {
                     return true;
                 }
             }
             else
             {
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER)
                 {
                     return true;
                 }

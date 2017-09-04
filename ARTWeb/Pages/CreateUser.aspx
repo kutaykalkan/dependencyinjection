@@ -320,8 +320,8 @@
                         var arr = hdnSelectValue.value.split(",");
                         var roleFound = false;
                         for (i = 0; i < arr.length; i++) {
-                            if (arr[i] == '<%= ((short)SkyStem.ART.Web.Data.WebEnums.UserRole.SYSTEM_ADMIN).ToString() %>'
-                                || arr[i] == '<%= ((short)SkyStem.ART.Web.Data.WebEnums.UserRole.BUSINESS_ADMIN).ToString() %>') {
+                            if (arr[i] == '<%= ((short)SkyStem.ART.Client.Data.ARTEnums.UserRole.SYSTEM_ADMIN).ToString() %>'
+                                || arr[i] == '<%= ((short)SkyStem.ART.Client.Data.ARTEnums.UserRole.BUSINESS_ADMIN).ToString() %>') {
                                 roleFound = true;
                             }
                         }

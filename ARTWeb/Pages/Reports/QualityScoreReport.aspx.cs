@@ -86,6 +86,14 @@ public partial class Pages_Reports_QualityScoreReport : PageBaseReport
                 if (!IsPostBack)
                 {
                     SessionHelper.ClearSession(SessionConstants.REPORT_DATA_QUALITYSCORE_ITEM);
+
+                    //if (_oCriteriaCollection != null)
+                    //{
+                    //    ReportSearchCriteria oReportSearchCriteria = this.GetNormalSearchCriteria();
+                    //    DataTable dtEntity = ReportHelper.GetEntitySearchCriteria(_oCriteriaCollection);
+                    //    RequestHelper.SaveRequest(ARTEnums.RequestType.ExportToExcelAndEmailReport, ARTEnums.Grid.QualityScoreReport, RequestHelper.CreateDataSetForExportToExcelReport(this.GetNormalSearchCriteria(), dtEntity));
+                    //    //Helper.ShowConfirmationMessage(this, LanguageUtil.GetValue(2815));
+                    //}
                     GetGridData(null);
                     ucSkyStemARTGrid.BindGrid();
                 }
@@ -243,24 +251,42 @@ public partial class Pages_Reports_QualityScoreReport : PageBaseReport
              objOriginalMasterQSData = LanguageHelper.TranslateLabelsQualityScoreReport(objOriginalMasterQSData);
          }
 
-        foreach (QualityScoreReportInfo qsInfo in objQualityScoreAggregated)
+        var result = from MD in objOriginalMasterQSData
+                     group MD by MD.GLDataID into GR
+                     select new {
+                         Key = GR.Key,
+                         SystemScore = GR.Sum(T => T.SystemQualityScore.GetValueOrDefault()),
+                         UserScore = GR.Sum(T=> T.UserQualityScore.GetValueOrDefault())
+                     } ;
+
+        var joinresult = from GR in result
+                         join AR in objQualityScoreAggregated
+                         on GR.Key equals AR.GLDataID
+                         select new { GR, AR };
+        foreach (var item in joinresult)
         {
-            short? SumSystemQualityScore = 0;
-            short? SumUserQualityScore = 0;
-            foreach (QualityScoreReportInfo objQS in objOriginalMasterQSData.FindAll(p => p.GLDataID == qsInfo.GLDataID))
-            {
-                if (!String.IsNullOrEmpty(objQS.SystemQualityScore.ToString()))
-                {
-                    SumSystemQualityScore += objQS.SystemQualityScore;
-                }
-                if(!String.IsNullOrEmpty(objQS.UserQualityScore.ToString()))
-                {
-                    SumUserQualityScore += objQS.UserQualityScore;
-                }
-            }
-            qsInfo.SystemQualityScore = SumSystemQualityScore;
-            qsInfo.UserQualityScore = SumUserQualityScore;
+            item.AR.SystemQualityScore = (short?) item.GR.SystemScore;
+            item.AR.UserQualityScore = (short?)item.GR.UserScore;
         }
+
+        //foreach (QualityScoreReportInfo qsInfo in objQualityScoreAggregated)
+        //{
+        //    short? SumSystemQualityScore = 0;
+        //    short? SumUserQualityScore = 0;
+        //    foreach (QualityScoreReportInfo objQS in objOriginalMasterQSData.FindAll(p => p.GLDataID == qsInfo.GLDataID))
+        //    {
+        //        if (!String.IsNullOrEmpty(objQS.SystemQualityScore.ToString()))
+        //        {
+        //            SumSystemQualityScore += objQS.SystemQualityScore;
+        //        }
+        //        if (!String.IsNullOrEmpty(objQS.UserQualityScore.ToString()))
+        //        {
+        //            SumUserQualityScore += objQS.UserQualityScore;
+        //        }
+        //    }
+        //    qsInfo.SystemQualityScore = SumSystemQualityScore;
+        //    qsInfo.UserQualityScore = SumUserQualityScore;
+        //}
         return objQualityScoreAggregated;
     }
 

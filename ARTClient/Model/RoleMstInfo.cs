@@ -14,5 +14,7 @@ namespace SkyStem.ART.Client.Model
 	[DataContract]
 	public class RoleMstInfo : RoleMstInfoBase
 	{
-	}
+        [DataMember]
+        public bool? IsVisibleForAccountAssociationByUserRole { get; set; }
+    }
 }

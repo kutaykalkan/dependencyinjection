@@ -384,7 +384,6 @@ public partial class Pages_UserSearch : PageBaseCompany
     {
         GridHelper.HandleSortCommand(e);
         rgUserList.Rebind();
-
     }
     #endregion
 

@@ -995,8 +995,8 @@ namespace SkyStem.ART.Web.UserControls
                         hlDocs.ToolTip = LanguageUtil.GetValue(2618);
                         string windowName = string.Empty;
                         _completionDocsMode = IsCompletionDocsEditable ? QueryStringConstants.EDIT : QueryStringConstants.READ_ONLY;
-                        hlDocs.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, (int)ARTEnums.RecordType.TaskCreation, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
-                        hlAttachmentCount.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, (int)ARTEnums.RecordType.TaskCreation, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
+                        hlDocs.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, oTaskHdrInfo.TaskTypeID, oTaskHdrInfo.TaskID, (int)ARTEnums.RecordType.TaskCreation, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
+                        hlAttachmentCount.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, oTaskHdrInfo.TaskTypeID, oTaskHdrInfo.TaskID, (int)ARTEnums.RecordType.TaskCreation, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
                     }
                     else
                     {
@@ -1075,7 +1075,10 @@ namespace SkyStem.ART.Web.UserControls
                         //}
                         //else
                         //{
-                        string _popupUrl = Page.ResolveUrl(URLConstants.URL_TASK_VIEW_COMMENTS + "?" + QueryStringConstants.TASK_DETAIL_ID + "=" + oTaskHdrInfo.TaskDetailID.ToString());
+                        string _popupUrl = Page.ResolveUrl(URLConstants.URL_TASK_VIEW_COMMENTS + "?"
+                                + QueryStringConstants.TASK_ID + "=" + oTaskHdrInfo.TaskID.GetValueOrDefault()
+                                + QueryStringConstants.TASK_TYPE_ID + "=" + oTaskHdrInfo.TaskTypeID.GetValueOrDefault()
+                                + QueryStringConstants.TASK_DETAIL_ID + "=" + oTaskHdrInfo.TaskDetailID.GetValueOrDefault().ToString());
                         hlComment.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + _popupUrl + "', 'CommentPage', 380 , 600);";
                         hlComment.ToolTipLabelID = 2595;
                         //}
@@ -1110,8 +1113,8 @@ namespace SkyStem.ART.Web.UserControls
                         hlAttachment.ToolTip = LanguageUtil.GetValue(2618);
                         string windowName = string.Empty;
                         _completionDocsMode = IsCompletionDocsEditable ? QueryStringConstants.EDIT : QueryStringConstants.READ_ONLY;
-                        hlAttachment.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskDetailID, (int)ARTEnums.RecordType.TaskComplition, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
-                        hlCompletionDocs.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskDetailID, (int)ARTEnums.RecordType.TaskComplition, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
+                        hlAttachment.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, oTaskHdrInfo.TaskTypeID, oTaskHdrInfo.TaskDetailID, (int)ARTEnums.RecordType.TaskComplition, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
+                        hlCompletionDocs.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + Page.ResolveUrl(Helper.SetDocumentUploadURLForTasks(oTaskHdrInfo.TaskID, oTaskHdrInfo.TaskTypeID, oTaskHdrInfo.TaskDetailID, (int)ARTEnums.RecordType.TaskComplition, _completionDocsMode, out windowName)) + "', '" + windowName + "', 350, 500);";
                     }
                     else
                     {

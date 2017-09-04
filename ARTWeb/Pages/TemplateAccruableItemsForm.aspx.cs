@@ -152,7 +152,7 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
                             }
                             else
                             {
-                                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                     {
@@ -164,7 +164,7 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
                                         Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                     }
                                 }
-                                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                     {
@@ -184,7 +184,7 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
                         }
                         else
                         {
-                            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                 {
@@ -196,7 +196,7 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
                                     Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                 }
                             }
-                            else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                            else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                 {
@@ -523,7 +523,77 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
+        AutoExpandSections();
     }
+
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.AccruableFormAdjustmentsTotal:
+                        if (uctlGLAdjustments_new.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewGLAdjustment_Click(imgViewGLAdjustment, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormTimingDifferenceTotal:
+                        if (uctlTimmingDifference_new.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewTimingDifference_Click(imgViewTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormSupportingDetailIndividual:
+                        if (uctlItemInputAccurable.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewIndividualAccrualDetail_Click(imgViewIndividualAccrualDetail, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormSupportingDetailRecurring:
+                        if (uctlGLDataRecurringScheduleItems.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewRecurringAccrualSchedule_Click(imgViewRecurringAccrualSchedule, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormReconciliationWriteOffsOns:
+                        if (uctlGLDataWriteOnOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecWriteOff_Click(imgRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgUnexplainedVariance_Click(imgUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AccruableFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
     private void setEntityNameLabelIDForGLAdjustments()
     {
         //if (lblHeaderTotal.LabelID.ToString() != "1656")

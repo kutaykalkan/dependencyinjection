@@ -85,7 +85,8 @@ namespace SkyStem.ART.Client.Data
             GeneralTaskCompleted = 7,
             AccountTaskPending = 8,
             AccountTaskCompleted = 9,
-            DataImportStatusAccountMessage = 10
+            DataImportStatusAccountMessage = 10,
+            QualityScoreReport = 11
         }
 
         public enum DataImportFieldsMaxLength
@@ -319,7 +320,7 @@ namespace SkyStem.ART.Client.Data
             Reopen = 7,
             Review = 8, // task reviewer
             RemoveDeleted = 9,
-            Save=10
+            Save = 10
         }
 
         public enum TaskCategory
@@ -426,7 +427,60 @@ namespace SkyStem.ART.Client.Data
         public enum AutoSaveAttribute
         {
             AutoSaveFinancialYearSelection = 1,
-            AutoSaveRecPeriodSelection = 2
+            AutoSaveRecPeriodSelection = 2,
+            BankFormAdjustmentsBankFees = 3,
+            BankFormAdjustmentsNSFFees = 4,
+            BankFormAdjustmentsOther = 5,
+            BankFormTimingDifferenceDepositsInTransit = 6,
+            BankFormTimingDifferenceOutstandingChecks = 7,
+            BankFormTimingDifferenceOther = 8,
+            BankFormReconciliationWriteOffsOns = 9,
+            BankFormUnexpVar = 10,
+            BankFromQualityScore = 11,
+            BankFormRCCStatus = 12,
+            BankFormTaskStatus = 13,
+            DerivedFormAdjustmentsTotal = 14,
+            DerivedFormTimingDifferenceTotal = 15,
+            DerivedFormSupportingDetailOther = 16,
+            DerivedFormReconciliationWriteOffsOns = 17,
+            DerivedFormUnexpVar = 18,
+            DerivedFormQualityScore = 19,
+            DerivedFormRCCStatus = 20,
+            DerivedFormTaskStatus = 21,
+            SubledgerFormAdjustmentsTotal = 22,
+            SubledgerFormTimingDifferenceTotal = 23,
+            SubledgerFormSupportingDetailOther = 24,
+            SubledgerFormReconciliationWriteOffsOns = 25,
+            SubledgerFormUnexpVar = 26,
+            SubledgerFormQualityScore = 27,
+            SubledgerFormRCCStatus = 28,
+            SubledgerFormTaskStatus = 29,
+            AccruableFormAdjustmentsTotal = 30,
+            AccruableFormTimingDifferenceTotal = 31,
+            AccruableFormSupportingDetailIndividual = 32,
+            AccruableFormSupportingDetailRecurring = 33,
+            AccruableFormReconciliationWriteOffsOns = 34,
+            AccruableFormUnexpVar = 35,
+            AccruableFormQualityScore = 36,
+            AccruableFormRCCStatus = 37,
+            AccruableFormTaskStatus = 38,
+            AmortizableFormAdjustmentsTotal = 39,
+            AmortizableFormTimingDifferenceTotal = 40,
+            AmortizableFormSupportingDetailIndividual = 41,
+            AmortizableFormSupportingDetailRecurring = 42,
+            AmortizableFormReconciliationWriteOffsOns = 43,
+            AmortizableFormUnexpVar = 44,
+            AmortizableFormQualityScore = 45,
+            AmortizableFormRCCStatus = 46,
+            AmortizableFormTaskStatus = 47,
+            ItemizedListFormAdjustmentsTotal = 48,
+            ItemizedListFormTimingDifferenceTotal = 49,
+            ItemizedListFormSupportingDetailTotal = 50,
+            ItemizedListFormReconciliationWriteOffsOns = 51,
+            ItemizedListFormUnexpVar = 52,
+            ItemizedListFormQualityScore = 53,
+            ItemizedListFormRCCStatus = 54,
+            ItemizedListFormTaskStatus = 55
         }
 
         public enum RequestType
@@ -435,6 +489,7 @@ namespace SkyStem.ART.Client.Data
             DownloadAllRecFormsDetailed = 2,
             CreateBinders = 3,
             DownloadSelectedRecFormsDetailed = 4,
+            ExportToExcelAndEmailReport = 5
         }
         public enum RequestStatus
         {
@@ -527,5 +582,29 @@ namespace SkyStem.ART.Client.Data
         {
             MultiCurrencyReopenRecOnCCYReload = 1
         }
+
+        public enum UserRole
+        {
+            None = 0,
+            SKYSTEM_ADMIN = 1,
+            SYSTEM_ADMIN = 2,
+            PREPARER = 3,
+            REVIEWER = 4,
+            APPROVER = 5,
+            BUSINESS_ADMIN = 6,
+            FINANCIAL_MANAGER = 7,
+            ACCOUNT_MANAGER = 8,
+            CONTROLLER = 9,
+            EXECUTIVE = 10,
+            CEO_CFO = 11,
+            JE_PREPARER = 12,
+            JE_WRITEONOFF_APPROVER = 13,
+            BACKUP_PREPARER = 14,
+            BACKUP_REVIEWER = 15,
+            BACKUP_APPROVER = 16,
+            AUDIT = 17,
+            TASK_OWNER = 18,
+            USER_ADMIN = 19
+        };
     }
 }

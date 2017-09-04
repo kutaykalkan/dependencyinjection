@@ -216,7 +216,7 @@ namespace SkyStem.ART.Web.Utility
         public static void ShowHideReviewNotesAndQualityScore(HtmlTableRow trReviewNotes, HtmlTableRow trQualityScore, HtmlTableRow trRecControlCheckList)
         {
           
-            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
             {
                 List<CompanyAttributeConfigInfo> oAttributeConfigInfo = AttributeConfigHelper.GetCompanyAttributeConfigInfoList(false, WebEnums.AttributeSetType.RoleConfig);
                 CompanyAttributeConfigInfo oReviewNotesConfig = oAttributeConfigInfo.Find(c => c.AttributeID == (short)ARTEnums.AttributeList.NotSeeReviewNoteSection);

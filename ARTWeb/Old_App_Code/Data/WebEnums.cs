@@ -45,30 +45,6 @@ namespace SkyStem.ART.Web.Data
             AuditRoleFilter = 2
         }
 
-        public enum UserRole
-        {
-            None = 0,
-            SKYSTEM_ADMIN = 1,
-            SYSTEM_ADMIN = 2,
-            PREPARER = 3,
-            REVIEWER = 4,
-            APPROVER = 5,
-            BUSINESS_ADMIN = 6,
-            FINANCIAL_MANAGER = 7,
-            ACCOUNT_MANAGER = 8,
-            CONTROLLER = 9,
-            EXECUTIVE = 10,
-            CEO_CFO = 11,
-            JE_PREPARER = 12,
-            JE_WRITEONOFF_APPROVER = 13,
-            BACKUP_PREPARER = 14,
-            BACKUP_REVIEWER = 15,
-            BACKUP_APPROVER = 16,
-            AUDIT = 17,
-            TASK_OWNER = 18,
-            USER_ADMIN = 19
-        };
-
         public enum RiskRating
         {
             HIGH = 1,
@@ -778,7 +754,15 @@ namespace SkyStem.ART.Web.Data
 
         public enum HandlerActionType
         {
-            DownloadRecAttachments = 1
+            DownloadRecsAndAttachmentsFile = 1,
+            DownloadDataImportFile = 2,
+            DownloadGLAttachmentFile = 3,
+            DownloadMatchingImportFile = 4,
+            DownloadTaskAttachmentFile = 5,
+            DownloadDataImportTemplateFile = 6,
+            DownloadRequestFile = 7,
+            DownloadCompanyLogo = 8,
+            DownloadDirect = 9
         }
         public enum DownloadMode
         {

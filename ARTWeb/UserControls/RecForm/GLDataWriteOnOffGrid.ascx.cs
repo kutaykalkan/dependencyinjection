@@ -586,7 +586,7 @@ namespace SkyStem.ART.Web.UserControls
                 lblUserName.Text = Helper.GetDisplayStringValue(dr["UserName"].ToString());
 
                 ExLabel lblAging = (ExLabel)e.Item.FindControl("lblAging");
-                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime)) ? DateTime.Now: closeDate));
+                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime)) ? DateTime.Now : closeDate));
                 if (IsMultiCurrencyActivated)
                 {
                     if (TotalAmount.HasValue)
@@ -683,7 +683,8 @@ namespace SkyStem.ART.Web.UserControls
                 if (rgGLDataWriteOnOffItems.AllowCustomPaging)
                 {
                     GridHelper.BindPageSizeGrid(oRadComboBox);
-                    oRadComboBox.SelectedValue = Session[GetGridClientIDKey(rgGLDataWriteOnOffItems) + "NewPageSize"].ToString();
+                    if (Session[GetGridClientIDKey(rgGLDataWriteOnOffItems) + "NewPageSize"] != null)
+                        oRadComboBox.SelectedValue = Session[GetGridClientIDKey(rgGLDataWriteOnOffItems) + "NewPageSize"].ToString();
                     oRadComboBox.Attributes.Add("onChange", "return ddlPageSize_SelectedIndexChanged('" + oRadComboBox.ClientID + "' , '" + rgGLDataWriteOnOffItems.ClientID + "');");
                     oRadComboBox.Visible = true;
                 }

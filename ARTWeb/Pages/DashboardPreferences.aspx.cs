@@ -19,7 +19,7 @@ using SkyStem.ART.Web.Data;
 using SkyStem.ART.Client.Exception;
 using SkyStem.ART.Web.Classes;
 using Telerik.Web.UI;
-
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_DashboardPreferences : PageBaseRecPeriod
 {
@@ -48,9 +48,9 @@ public partial class Pages_DashboardPreferences : PageBaseRecPeriod
         {
             Helper.SetPageTitle(this, 2417);
             // Helper.ShowInputRequirementSection(this, 2077, 2078,2079);    
-            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER
-                || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER
-                || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.APPROVER)
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER
+                || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER
+                || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.APPROVER)
             {
                 upnlBackupRoleNotifications.Visible = true;
                 BindBackupNotofocationGrid();

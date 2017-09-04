@@ -125,7 +125,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlGLAdjustment" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="AmortizableFormAdjustmentsTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Timming Difference Grid--%>
@@ -157,7 +157,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlTimingDifference" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormTimingDifferenceTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Reconciled Balance Row--%>
@@ -207,7 +207,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlItemInputAmortizableIndividual" ShowCopyButton="true" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormSupportingDetailIndividual" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -231,7 +231,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLDataRecurringScheduleItems ID="uctlSupportingDetail" IsPrintMode="false"
-                                                                runat="server" Visible="false" ShowCopyButton="true" />
+                                                               AutoSaveAttributeID ="AmortizableFormSupportingDetailRecurring" runat="server" Visible="false" ShowCopyButton="true" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRowTotalSupportingDetail">
@@ -290,7 +290,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLDataWriteOnOff ID="uctlRecWriteOff" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -313,7 +313,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormUnexpVar" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -419,7 +419,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
-                                                                OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormQualityScore" OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -466,7 +466,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormRCCStatus" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -521,7 +521,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                               AutoSaveAttributeID ="AmortizableFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>

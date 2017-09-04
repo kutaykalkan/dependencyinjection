@@ -147,6 +147,51 @@ public partial class Pages_UserAccountAssociation {
     protected global::System.Web.UI.WebControls.DropDownList ddlRole;
     
     /// <summary>
+    /// lblAllAccounts control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblAllAccounts;
+    
+    /// <summary>
+    /// optAllAccountYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExRadioButton optAllAccountYes;
+    
+    /// <summary>
+    /// optAllAccountNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExRadioButton optAllAccountNo;
+    
+    /// <summary>
+    /// cvAllAccounts control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExCustomValidator cvAllAccounts;
+    
+    /// <summary>
+    /// tblAssociationDisplay control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlTable tblAssociationDisplay;
+    
+    /// <summary>
     /// ucSkyStemARTAccountOwnershipGrid control.
     /// </summary>
     /// <remarks>
@@ -154,33 +199,6 @@ public partial class Pages_UserAccountAssociation {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::UserControls_SkyStemARTGrid ucSkyStemARTAccountOwnershipGrid;
-    
-    /// <summary>
-    /// lblAccountNumberOwnershipGrid control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblAccountNumberOwnershipGrid;
-    
-    /// <summary>
-    /// lblAccountNameOwnershipGrid control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblAccountNameOwnershipGrid;
-    
-    /// <summary>
-    /// btnSave control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExButton btnSave;
     
     /// <summary>
     /// btnDelete control.
@@ -192,6 +210,42 @@ public partial class Pages_UserAccountAssociation {
     protected global::SkyStem.Library.Controls.WebControls.ExButton btnDelete;
     
     /// <summary>
+    /// tblUserRoleAssociationDisplay control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlTable tblUserRoleAssociationDisplay;
+    
+    /// <summary>
+    /// rgUserRoleSelected control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.TelerikWebControls.ExRadGrid rgUserRoleSelected;
+    
+    /// <summary>
+    /// btnDeleteUser control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExButton btnDeleteUser;
+    
+    /// <summary>
+    /// btnSave control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExButton btnSave;
+    
+    /// <summary>
     /// btnCancel control.
     /// </summary>
     /// <remarks>
@@ -201,40 +255,40 @@ public partial class Pages_UserAccountAssociation {
     protected global::SkyStem.Library.Controls.WebControls.ExButton btnCancel;
     
     /// <summary>
-    /// pnlHeader control.
+    /// pnlAccountSearchHeader control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlHeader;
+    protected global::System.Web.UI.WebControls.Panel pnlAccountSearchHeader;
     
     /// <summary>
-    /// lblInputRequirements control.
+    /// lblInputRequirementsAccountSearch control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblInputRequirements;
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblInputRequirementsAccountSearch;
     
     /// <summary>
-    /// imgCollapse control.
+    /// imgCollapseAccountSearch control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExImage imgCollapse;
+    protected global::SkyStem.Library.Controls.WebControls.ExImage imgCollapseAccountSearch;
     
     /// <summary>
-    /// pnlContent control.
+    /// pnlAccountSearchContent control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlContent;
+    protected global::System.Web.UI.WebControls.Panel pnlAccountSearchContent;
     
     /// <summary>
     /// lblOrganizationalHiearachy control.
@@ -372,24 +426,6 @@ public partial class Pages_UserAccountAssociation {
     protected global::UserControls_SkyStemARTGrid ucSkyStemARTGrid;
     
     /// <summary>
-    /// lblAccountNumber control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblAccountNumber;
-    
-    /// <summary>
-    /// lblAccountName control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblAccountName;
-    
-    /// <summary>
     /// btnAdd control.
     /// </summary>
     /// <remarks>
@@ -406,6 +442,159 @@ public partial class Pages_UserAccountAssociation {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::UserControls_ProgressBar ProgressBar1;
+    
+    /// <summary>
+    /// cpeAccountSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::AjaxControlToolkit.CollapsiblePanelExtender cpeAccountSearch;
+    
+    /// <summary>
+    /// pnlUserSearchHeader control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel pnlUserSearchHeader;
+    
+    /// <summary>
+    /// lblInputRequirementUserSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblInputRequirementUserSearch;
+    
+    /// <summary>
+    /// imgCollapseUserSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExImage imgCollapseUserSearch;
+    
+    /// <summary>
+    /// pnlUserSearchContent control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel pnlUserSearchContent;
+    
+    /// <summary>
+    /// lblUSFirstName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblUSFirstName;
+    
+    /// <summary>
+    /// txtFirstName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExTextBox txtFirstName;
+    
+    /// <summary>
+    /// lblUSLastName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblUSLastName;
+    
+    /// <summary>
+    /// txtLastName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExTextBox txtLastName;
+    
+    /// <summary>
+    /// lblEmail control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblEmail;
+    
+    /// <summary>
+    /// txtEmail control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExTextBox txtEmail;
+    
+    /// <summary>
+    /// lblRole control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExLabel lblRole;
+    
+    /// <summary>
+    /// ddlRoleUserSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlRoleUserSearch;
+    
+    /// <summary>
+    /// btnUserSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExButton btnUserSearch;
+    
+    /// <summary>
+    /// rgUserSearchList control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.TelerikWebControls.ExRadGrid rgUserSearchList;
+    
+    /// <summary>
+    /// btnAddUserRole control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::SkyStem.Library.Controls.WebControls.ExButton btnAddUserRole;
+    
+    /// <summary>
+    /// cpeUserSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::AjaxControlToolkit.CollapsiblePanelExtender cpeUserSearch;
     
     /// <summary>
     /// pnlADDUsers control.
@@ -433,13 +622,4 @@ public partial class Pages_UserAccountAssociation {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::SkyStem.Library.Controls.WebControls.ExButton btnHome;
-    
-    /// <summary>
-    /// cpeInputRequirements control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::AjaxControlToolkit.CollapsiblePanelExtender cpeInputRequirements;
 }

@@ -21,6 +21,7 @@ using SkyStem.ART.Client.IServices;
 using SkyStem.Library.Controls.TelerikWebControls;
 using ExpertPdf.HtmlToPdf;
 using System.IO;
+using SkyStem.ART.Client.Data;
 
 public partial class MasterPages_ReportViewer : ReportViewerMasterPageBase
 {
@@ -117,7 +118,7 @@ public partial class MasterPages_ReportViewer : ReportViewerMasterPageBase
 
     private void HandleFormMode()
     {
-        if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.AUDIT)
+        if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.AUDIT)
         {
             btnArchive.Enabled = false;
             btnSignOff.Enabled = false;

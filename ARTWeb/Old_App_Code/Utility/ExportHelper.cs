@@ -78,6 +78,7 @@ public class ExportHelper
 
         //set PDF document description - optional
         oPdfConverter.PdfDocumentInfo.AuthorName = "SkyStem - ART";
+        oPdfConverter.PdfDocumentOptions.FitWidth = true;
         return oPdfConverter;
     }
 

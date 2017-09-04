@@ -166,7 +166,7 @@ namespace SkyStem.ART.Web
                         FormsAuthentication.RedirectFromLoginPage(mUser.UserName, false);
 
                         // check for SkyStem Admin
-                        if (oUserHdrInfo.DefaultRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                        if (oUserHdrInfo.DefaultRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                         {
                             // Set the Current Company as User's Company
                             SessionHelper.CurrentCompanyID = oUserHdrInfo.CompanyID;
@@ -217,7 +217,7 @@ namespace SkyStem.ART.Web
             AppUserInfo oAppUserInfo = new AppUserInfo();
             oAppUserInfo.LoginID = oLockedUserHdrInfo.LoginID;
             oAppUserInfo.CompanyID = oLockedUserHdrInfo.CompanyID;
-            List<UserHdrInfo> oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)WebEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
+            List<UserHdrInfo> oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)ARTEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
             foreach (UserHdrInfo oUserHdrInfo in oUserHdrInfoList)
             {
                 StringBuilder oMailBody = new StringBuilder();

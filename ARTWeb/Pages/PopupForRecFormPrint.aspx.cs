@@ -186,7 +186,8 @@ public partial class Pages_PopupForRecFormPrint : PopupPageBase
     public void DisplayPDFInline(string fileName, byte[] oByteCollection)
     {
         string filePath = SSRSReportsHelper.SaveByteStreamAndReturnFilePath(fileName, oByteCollection);
-        string downloadURL = this.ResolveClientUrl("~/pages/DocumentViewer.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(filePath) + "&" + QueryStringConstants.DOWNLOAD_MODE + "=" + WebEnums.DownloadMode.inline);
+        Session[SessionConstants.RECFORM_PRINT_PDF_FILE] = filePath;
+        string downloadURL = this.ResolveClientUrl("~/pages/DocumentViewer.aspx?" + QueryStringConstants.DOWNLOAD_MODE + "=" + WebEnums.DownloadMode.inline);
         Response.Redirect(downloadURL);
     }
 

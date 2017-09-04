@@ -455,4 +455,5 @@
             </tr>
         </table>
     </div>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
 </asp:Panel>

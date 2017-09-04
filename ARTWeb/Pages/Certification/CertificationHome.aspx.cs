@@ -161,9 +161,9 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
 
     private void FillJuniorGridStatus()
     {
-        if (_CurrentUserRole == (short)WebEnums.UserRole.REVIEWER)
+        if (_CurrentUserRole == (short)ARTEnums.UserRole.REVIEWER)
         {
-            rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.REVIEWER);
+            rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.REVIEWER);
             rgStatus.MasterTableView.Columns[0].HeaderText = LanguageUtil.GetValue(1130);
             rgStatus.MasterTableView.DetailTables.Clear();
             lblStatusLinkHeading.LabelID = 1458;
@@ -180,9 +180,9 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
             rgStatus.DataBind();
         }
         else
-            if (_CurrentUserRole == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            if (_CurrentUserRole == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
-                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.BACKUP_REVIEWER);
+                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.BACKUP_REVIEWER);
                 rgStatus.MasterTableView.Columns[0].HeaderText = LanguageUtil.GetValue(1130);
                 rgStatus.MasterTableView.DetailTables.Clear();
                 lblStatusLinkHeading.LabelID = 1458;
@@ -199,9 +199,9 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
                 rgStatus.DataBind();
             }
             else
-                if (_CurrentUserRole == (short)WebEnums.UserRole.APPROVER)
+                if (_CurrentUserRole == (short)ARTEnums.UserRole.APPROVER)
                 {
-                    rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.APPROVER);
+                    rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.APPROVER);
                     rgStatus.MasterTableView.Columns[0].HeaderText = LanguageUtil.GetValue(1131);
                     rgStatus.MasterTableView.DetailTables[0].DetailTables.Clear();
                     lblStatusLinkHeading.LabelID = 1703;
@@ -228,9 +228,9 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
                     rgStatus.DataBind();
                 }
                 else
-                    if (_CurrentUserRole == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                    if (_CurrentUserRole == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                     {
-                        rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.BACKUP_APPROVER);
+                        rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.BACKUP_APPROVER);
                         rgStatus.MasterTableView.Columns[0].HeaderText = LanguageUtil.GetValue(1131);
                         rgStatus.MasterTableView.DetailTables[0].DetailTables.Clear();
                         lblStatusLinkHeading.LabelID = 1703;
@@ -257,33 +257,33 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
                         rgStatus.DataBind();
                     }
                     else
-                        if (_CurrentUserRole == (short)WebEnums.UserRole.CEO_CFO || _CurrentUserRole == (short)WebEnums.UserRole.EXECUTIVE || _CurrentUserRole == (short)WebEnums.UserRole.CONTROLLER
-                             || _CurrentUserRole == (short)WebEnums.UserRole.FINANCIAL_MANAGER || _CurrentUserRole == (short)WebEnums.UserRole.ACCOUNT_MANAGER)
+                        if (_CurrentUserRole == (short)ARTEnums.UserRole.CEO_CFO || _CurrentUserRole == (short)ARTEnums.UserRole.EXECUTIVE || _CurrentUserRole == (short)ARTEnums.UserRole.CONTROLLER
+                             || _CurrentUserRole == (short)ARTEnums.UserRole.FINANCIAL_MANAGER || _CurrentUserRole == (short)ARTEnums.UserRole.ACCOUNT_MANAGER)
                         {
 
-                            if (_CurrentUserRole == (short)WebEnums.UserRole.CEO_CFO)
+                            if (_CurrentUserRole == (short)ARTEnums.UserRole.CEO_CFO)
                             {
-                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.CEO_CFO);
+                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.CEO_CFO);
 
                             }
-                            else if (_CurrentUserRole == (short)WebEnums.UserRole.EXECUTIVE)
+                            else if (_CurrentUserRole == (short)ARTEnums.UserRole.EXECUTIVE)
                             {
-                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.EXECUTIVE);
+                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.EXECUTIVE);
 
                             }
-                            else if (_CurrentUserRole == (short)WebEnums.UserRole.CONTROLLER)
+                            else if (_CurrentUserRole == (short)ARTEnums.UserRole.CONTROLLER)
                             {
-                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.CONTROLLER);
+                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.CONTROLLER);
 
                             }
-                            else if (_CurrentUserRole == (short)WebEnums.UserRole.FINANCIAL_MANAGER)
+                            else if (_CurrentUserRole == (short)ARTEnums.UserRole.FINANCIAL_MANAGER)
                             {
-                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.FINANCIAL_MANAGER);
+                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.FINANCIAL_MANAGER);
 
                             }
-                            else if (_CurrentUserRole == (short)WebEnums.UserRole.ACCOUNT_MANAGER)
+                            else if (_CurrentUserRole == (short)ARTEnums.UserRole.ACCOUNT_MANAGER)
                             {
-                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, WebEnums.UserRole.ACCOUNT_MANAGER);
+                                rgStatus.MasterTableView.DataSource = LoadUserData(SessionHelper.CurrentUserID, ARTEnums.UserRole.ACCOUNT_MANAGER);
 
                             }
 
@@ -345,30 +345,30 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         bMyStatusCertificationActivation = _IsCertificationEnabled;
         bJuniorsStatus = _IsCertificationEnabled;
 
-        WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), _CurrentUserRole.Value.ToString());
+        ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), _CurrentUserRole.Value.ToString());
 
         switch (eUserRole)
         {
-            case WebEnums.UserRole.PREPARER: // Juniors will never be visible to P
-            case WebEnums.UserRole.BACKUP_PREPARER: // Juniors will never be visible to Backup PREPARER
+            case ARTEnums.UserRole.PREPARER: // Juniors will never be visible to P
+            case ARTEnums.UserRole.BACKUP_PREPARER: // Juniors will never be visible to Backup PREPARER
                 bJuniorsStatus = false;
                 break;
 
-            case WebEnums.UserRole.REVIEWER: // Override MyStatus for R and R
-            case WebEnums.UserRole.APPROVER:
-            case WebEnums.UserRole.BACKUP_REVIEWER:
-            case WebEnums.UserRole.BACKUP_APPROVER:
+            case ARTEnums.UserRole.REVIEWER: // Override MyStatus for R and R
+            case ARTEnums.UserRole.APPROVER:
+            case ARTEnums.UserRole.BACKUP_REVIEWER:
+            case ARTEnums.UserRole.BACKUP_APPROVER:
                 bMyStatusMandatoryReport = _IsMandatoryReportSignoffEnabled;
                 bMyStatus = _IsMandatoryReportSignoffEnabled || _IsCertificationEnabled;
                 break;
 
-            case WebEnums.UserRole.CEO_CFO: // Override MyStatus for CEO / CFO
+            case ARTEnums.UserRole.CEO_CFO: // Override MyStatus for CEO / CFO
                 bMyStatus = _IsCEOCFOCertificationEnabled;
                 bOtherThanPRAStatus = _IsCertificationEnabled;
                 bMyStatusCertificationActivation = _IsCEOCFOCertificationEnabled;
                 break;
 
-            case WebEnums.UserRole.CONTROLLER:
+            case ARTEnums.UserRole.CONTROLLER:
                 bOtherThanPRAStatus = _IsCertificationEnabled;
                 break;
         }
@@ -389,22 +389,22 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         //{
         //    switch (_CurrentUserRole)
         //    {
-        //        case (short)WebEnums.UserRole.PREPARER:
-        //        case (short)WebEnums.UserRole.REVIEWER:
-        //        case (short)WebEnums.UserRole.APPROVER:
-        //        case (short)WebEnums.UserRole.EXECUTIVE:
-        //        case (short)WebEnums.UserRole.CONTROLLER:
-        //        case (short)WebEnums.UserRole.ACCOUNT_MANAGER:
-        //        case (short)WebEnums.UserRole.FINANCIAL_MANAGER:
+        //        case (short)ARTEnums.UserRole.PREPARER:
+        //        case (short)ARTEnums.UserRole.REVIEWER:
+        //        case (short)ARTEnums.UserRole.APPROVER:
+        //        case (short)ARTEnums.UserRole.EXECUTIVE:
+        //        case (short)ARTEnums.UserRole.CONTROLLER:
+        //        case (short)ARTEnums.UserRole.ACCOUNT_MANAGER:
+        //        case (short)ARTEnums.UserRole.FINANCIAL_MANAGER:
 
-        //        case (short)WebEnums.UserRole.CEO_CFO:
+        //        case (short)ARTEnums.UserRole.CEO_CFO:
         //            pnlMyStatus.Visible = true;
         //            pnlJuniorStatus.Visible = true;
 
         //            //FillMyStatus();
         //            break;
-        //        case (short)WebEnums.UserRole.SYSTEM_ADMIN:
-        //        case (short)WebEnums.UserRole.SKYSTEM_ADMIN:
+        //        case (short)ARTEnums.UserRole.SYSTEM_ADMIN:
+        //        case (short)ARTEnums.UserRole.SKYSTEM_ADMIN:
         //            pnlJuniorStatus.Visible = true;
         //            break;
         //        default:
@@ -415,7 +415,7 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         //{
         //    switch (_CurrentUserRole)
         //    {
-        //        case (short)WebEnums.UserRole.CEO_CFO:
+        //        case (short)ARTEnums.UserRole.CEO_CFO:
         //            pnlMyStatus.Visible = true;
         //            //FillMyStatus();
         //            break;
@@ -427,17 +427,17 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         //{
         //    switch (_CurrentUserRole)
         //    {
-        //        case (short)WebEnums.UserRole.PREPARER:
-        //        case (short)WebEnums.UserRole.REVIEWER:
-        //        case (short)WebEnums.UserRole.APPROVER:
+        //        case (short)ARTEnums.UserRole.PREPARER:
+        //        case (short)ARTEnums.UserRole.REVIEWER:
+        //        case (short)ARTEnums.UserRole.APPROVER:
         //            pnlMyStatus.Visible = true;
         //            pnlJuniorStatus.Visible = true;
 
         //            //FillMyStatus();
         //            break;
-        //        case (short)WebEnums.UserRole.CEO_CFO:
-        //        case (short)WebEnums.UserRole.SYSTEM_ADMIN:
-        //        case (short)WebEnums.UserRole.SKYSTEM_ADMIN:
+        //        case (short)ARTEnums.UserRole.CEO_CFO:
+        //        case (short)ARTEnums.UserRole.SYSTEM_ADMIN:
+        //        case (short)ARTEnums.UserRole.SKYSTEM_ADMIN:
         //            pnlJuniorStatus.Visible = true;
         //            break;
         //        default:
@@ -445,17 +445,17 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         //    }
         //}
 
-        //if (_CurrentUserRole == (short)WebEnums.UserRole.PREPARER)
+        //if (_CurrentUserRole == (short)ARTEnums.UserRole.PREPARER)
         //{
         //    trMandatoryReport.Visible = false;
         //    pnlJuniorStatus.Visible = false;
         //}
-        //else if (_CurrentUserRole == (short)WebEnums.UserRole.CEO_CFO)
+        //else if (_CurrentUserRole == (short)ARTEnums.UserRole.CEO_CFO)
         //{
         //    pnlOtherThanPRAStatus.Visible = true;
         //    trMandatoryReport.Visible = false;
         //}
-        //else if (_CurrentUserRole == (short)WebEnums.UserRole.CONTROLLER)
+        //else if (_CurrentUserRole == (short)ARTEnums.UserRole.CONTROLLER)
         //{
         //    pnlOtherThanPRAStatus.Visible = true;
 
@@ -521,7 +521,7 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
         }
     }
 
-    private List<CertificationSignOffInfo> LoadUserData(int? userID, WebEnums.UserRole eUserRole)
+    private List<CertificationSignOffInfo> LoadUserData(int? userID, ARTEnums.UserRole eUserRole)
     {
         ICertification oCertificationClient = RemotingHelper.GetCertificationObject();
         List<CertificationSignOffInfo> oCertificationSignOffInfoCollection = oCertificationClient.GetCertificationSignOffForJuniors(SessionHelper.CurrentReconciliationPeriodID, userID, (short)eUserRole, SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, Helper.GetAppUserInfo());
@@ -599,24 +599,24 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
             case "lavel2":
                 switch (_CurrentUserRole)
                 {
-                    case (short)WebEnums.UserRole.APPROVER:
-                        e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.REVIEWER);
+                    case (short)ARTEnums.UserRole.APPROVER:
+                        e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.REVIEWER);
                         break;
-                    case (short)WebEnums.UserRole.BACKUP_APPROVER:
-                        e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.BACKUP_REVIEWER);
+                    case (short)ARTEnums.UserRole.BACKUP_APPROVER:
+                        e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.BACKUP_REVIEWER);
                         break;
-                    case (short)WebEnums.UserRole.CEO_CFO:
-                    case (short)WebEnums.UserRole.EXECUTIVE:
-                    case (short)WebEnums.UserRole.CONTROLLER:
-                    case (short)WebEnums.UserRole.FINANCIAL_MANAGER:
-                    case (short)WebEnums.UserRole.ACCOUNT_MANAGER:
+                    case (short)ARTEnums.UserRole.CEO_CFO:
+                    case (short)ARTEnums.UserRole.EXECUTIVE:
+                    case (short)ARTEnums.UserRole.CONTROLLER:
+                    case (short)ARTEnums.UserRole.FINANCIAL_MANAGER:
+                    case (short)ARTEnums.UserRole.ACCOUNT_MANAGER:
                         if (_IsDualReviewEnabled)
                         {
-                            e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.APPROVER);
+                            e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.APPROVER);
                         }
                         else
                         {
-                            e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.REVIEWER);
+                            e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.REVIEWER);
                         }
                         break;
                 }
@@ -624,18 +624,18 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
             case "lavel3":
                 switch (_CurrentUserRole)
                 {
-                    case (short)WebEnums.UserRole.CEO_CFO:
-                    case (short)WebEnums.UserRole.EXECUTIVE:
-                    case (short)WebEnums.UserRole.CONTROLLER:
-                    case (short)WebEnums.UserRole.FINANCIAL_MANAGER:
-                    case (short)WebEnums.UserRole.ACCOUNT_MANAGER:
+                    case (short)ARTEnums.UserRole.CEO_CFO:
+                    case (short)ARTEnums.UserRole.EXECUTIVE:
+                    case (short)ARTEnums.UserRole.CONTROLLER:
+                    case (short)ARTEnums.UserRole.FINANCIAL_MANAGER:
+                    case (short)ARTEnums.UserRole.ACCOUNT_MANAGER:
                         if (_IsDualReviewEnabled)
                         {
-                            e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.REVIEWER);
+                            e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.REVIEWER);
                         }
                         else
                         {
-                            e.DetailTableView.DataSource = LoadUserData(userID, WebEnums.UserRole.PREPARER);
+                            e.DetailTableView.DataSource = LoadUserData(userID, ARTEnums.UserRole.PREPARER);
 
                         }
                         break;
@@ -833,19 +833,19 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
     private void FillJuniorOtherThanPRAGridStatus()
     {
 
-        if (_CurrentUserRole == (short)WebEnums.UserRole.CEO_CFO || _CurrentUserRole == (short)WebEnums.UserRole.CONTROLLER)
+        if (_CurrentUserRole == (short)ARTEnums.UserRole.CEO_CFO || _CurrentUserRole == (short)ARTEnums.UserRole.CONTROLLER)
         {
 
-            if (_CurrentUserRole == (short)WebEnums.UserRole.CEO_CFO)
+            if (_CurrentUserRole == (short)ARTEnums.UserRole.CEO_CFO)
             {
-                rgOtherUsers.MasterTableView.DataSource = LoadUserOtherThanPRAData(SessionHelper.CurrentUserID, WebEnums.UserRole.CEO_CFO);
+                rgOtherUsers.MasterTableView.DataSource = LoadUserOtherThanPRAData(SessionHelper.CurrentUserID, ARTEnums.UserRole.CEO_CFO);
 
 
             }
 
-            else if (_CurrentUserRole == (short)WebEnums.UserRole.CONTROLLER)
+            else if (_CurrentUserRole == (short)ARTEnums.UserRole.CONTROLLER)
             {
-                rgOtherUsers.MasterTableView.DataSource = LoadUserOtherThanPRAData(SessionHelper.CurrentUserID, WebEnums.UserRole.CONTROLLER);
+                rgOtherUsers.MasterTableView.DataSource = LoadUserOtherThanPRAData(SessionHelper.CurrentUserID, ARTEnums.UserRole.CONTROLLER);
 
             }
 
@@ -869,7 +869,7 @@ public partial class Pages_CertificationHome : PageBaseRecPeriod
     }
 
 
-    private List<CertificationSignOffInfo> LoadUserOtherThanPRAData(int? userID, WebEnums.UserRole eUserRole)
+    private List<CertificationSignOffInfo> LoadUserOtherThanPRAData(int? userID, ARTEnums.UserRole eUserRole)
     {
         ICertification oCertificationClient = RemotingHelper.GetCertificationObject();
         List<CertificationSignOffInfo> oCertificationSignOffInfoCollection = oCertificationClient.GetCertificationSignOffForJuniorsOfControllerAndCEOCFO(SessionHelper.CurrentReconciliationPeriodID, userID, (short)eUserRole, SessionHelper.CurrentCompanyID, Helper.GetAppUserInfo());

@@ -6,6 +6,7 @@
 <%@ Register TagPrefix="UserControls" TagName="ProgressBar" Src="~/UserControls/ProgressBar.ascx" %>
 <%@ Register TagPrefix="UserControls" TagName="Legend" Src="~/UserControls/LegendOnAccountAndSRAViewer.ascx" %>
 <%@ Import Namespace="SkyStem.ART.Web.Data" %>
+<%@ Import Namespace="SkyStem.ART.Client.Data" %>
 <%@ Import Namespace="SkyStem.ART.Web.Utility" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script type="text/javascript">
@@ -23,7 +24,7 @@
                     btnDownloadSelected.disabled = true;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         var btnReset = document.getElementById('<%=btnReset.ClientID %>');
                         if (btnReset != null && btnReset != "undefined")
                             btnReset.disabled = true;
@@ -60,23 +61,24 @@
                         var RoleID = '<%= HttpContext.Current.Session[SessionConstants.CURRENT_ROLE_ID] %>';
 
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                             EnableDisableResetButton(LstSatatus);
                             EnableDisableReOpenButton(LstSatatus);
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                             EnableDisableSignOffButton(LstSatatus);
+                            EnableDisableRemoveSignOffButton(LstSatatus);
                             EnableDisableSubmitnButton(LstSatatus);
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                             EnableDisableAcceptButton(LstSatatus);
                             EnableDisableReSubmitnButton(LstSatatus);
 
                         }
 
-                        if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                        if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                             EnableDisableApproveAcceptButton(LstSatatus);
                             EnableDisableApproveSubmitnButton(LstSatatus);
 
@@ -106,22 +108,23 @@
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                      EnableDisableResetButton(LstSatatus);
                      EnableDisableReOpenButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                      EnableDisableSignOffButton(LstSatatus);
+                     EnableDisableRemoveSignOffButton(LstSatatus);
                      EnableDisableSubmitnButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                      EnableDisableAcceptButton(LstSatatus);
                      EnableDisableReSubmitnButton(LstSatatus);
                  }
 
-                 if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                 if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                      EnableDisableApproveAcceptButton(LstSatatus);
                      EnableDisableApproveSubmitnButton(LstSatatus);
                  }
@@ -157,22 +160,23 @@
                     btnDownloadSelected.disabled = false;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         EnableDisableResetButton(LstSatatus);
                         EnableDisableReOpenButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_PREPARER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.PREPARER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_PREPARER) %>') {
                         EnableDisableSignOffButton(LstSatatus);
+                        EnableDisableRemoveSignOffButton(LstSatatus);
                         EnableDisableSubmitnButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_REVIEWER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.REVIEWER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_REVIEWER) %>') {
                         EnableDisableAcceptButton(LstSatatus);
                         EnableDisableReSubmitnButton(LstSatatus);
                     }
 
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.BACKUP_APPROVER) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.APPROVER) %>' || RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.BACKUP_APPROVER) %>') {
                         EnableDisableApproveAcceptButton(LstSatatus);
                         EnableDisableApproveSubmitnButton(LstSatatus);
                     }
@@ -185,7 +189,7 @@
                 btnDownloadSelected.disabled = true;--%>
 
                 if ('<%= CurrentRecProcessStatus.Value %>' != '<%= WebEnums.RecPeriodStatus.Closed %>') {
-                    if (RoleID == '<%= Convert.ToInt32(WebEnums.UserRole.SYSTEM_ADMIN) %>') {
+                    if (RoleID == '<%= Convert.ToInt32(ARTEnums.UserRole.SYSTEM_ADMIN) %>') {
                         var btnReset = document.getElementById('<%=btnReset.ClientID %>');
                         if (btnReset != null && btnReset != "undefined")
                             btnReset.disabled = true;
@@ -200,6 +204,9 @@
                         var btnSubmit = document.getElementById('<%=btnSubmit.ClientID %>');
                         if (btnSubmit != null && btnSubmit != "undefined")
                             btnSubmit.disabled = true;
+                        var btnRemoveSignOff = document.getElementById('<%=btnRemoveSignOff.ClientID %>');
+                        if (btnRemoveSignOff != null && btnRemoveSignOff != "undefined")
+                            btnRemoveSignOff.disabled = true;
                     }
 
                 }
@@ -250,7 +257,7 @@
         function EnableDisableSignOffButton(params) {
             var IsEnableSignOff = true;
             var btnSignoff = document.getElementById('<%=btnAccept.ClientID %>');
-            var btnRemoveSignOff = document.getElementById('<%=btnRemoveSignOff.ClientID %>'); 
+<%--            var btnRemoveSignOff = document.getElementById('<%=btnRemoveSignOff.ClientID %>'); --%>
             if (btnSignoff != null && btnSignoff != "undefined") {
                 for (i = 0; i < params.length; i++) {
                     var temparry = params[i].toString().split("^");
@@ -261,10 +268,31 @@
                 if (params.length > 0) {
                     if (IsEnableSignOff == false){
                         btnSignoff.disabled = true;
-                        btnRemoveSignOff.disabled = true;
+                        //btnRemoveSignOff.disabled = true;
                     }
                     else{
                         btnSignoff.disabled = false;
+                        //btnRemoveSignOff.disabled = false;
+                    }
+                }
+            }
+        }
+
+        function EnableDisableRemoveSignOffButton(params) {
+            var IsEnableRemoveSignOff = true;
+            var btnRemoveSignOff = document.getElementById('<%=btnRemoveSignOff.ClientID %>');
+            if (btnRemoveSignOff != null && btnRemoveSignOff != "undefined") {
+                for (i = 0; i < params.length; i++) {
+                    var temparry = params[i].toString().split("^");
+                    if (!(temparry[0] == '<%= Convert.ToInt32(WebEnums.ReconciliationStatus.Prepared) %>' && temparry[2] == "True" && temparry[3] == "True")) {
+                        IsEnableRemoveSignOff = false;
+                    }
+                }
+                if (params.length > 0) {
+                    if (IsEnableRemoveSignOff == false) {
+                        btnRemoveSignOff.disabled = true;
+                    }
+                    else {
                         btnRemoveSignOff.disabled = false;
                     }
                 }

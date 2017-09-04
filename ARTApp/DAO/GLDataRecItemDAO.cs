@@ -195,6 +195,7 @@ namespace SkyStem.ART.App.DAO
                     oGLDataRecItemInfo.ExRateLCCYtoRCCY = reader.GetDecimalValue("ExRateLCCYtoRCCY");
                     oGLDataRecItemInfo.PhysicalPath = reader.GetStringValue("PhysicalPath");
                     oGLDataRecItemInfo.IsCommentAvailable = reader.GetBooleanValue("IsCommentAvailable");
+                    oGLDataRecItemInfo.DataImportTypeID = reader.GetInt16Value("DataImportTypeID");
                     oGLDataRecItemInfoCollection.Add(oGLDataRecItemInfo);
                 }
             }

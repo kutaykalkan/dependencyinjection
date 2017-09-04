@@ -191,8 +191,8 @@ public partial class Pages_AccountProfileAttributeUpdatePopup : PopupPageBase
         bool editMode = false;
         // Not Locked, Is Null (GL not available) or In Not Started State
         if (viewMode && !_AccountHdrInfo.IsLocked.GetValueOrDefault()
-                && (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.PREPARER
-                    || (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.BACKUP_PREPARER
+                && (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.PREPARER
+                    || (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.BACKUP_PREPARER
                         && Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID)))
                 && (!_AccountHdrInfo.ReconciliationStatusID.HasValue
                     || _AccountHdrInfo.ReconciliationStatusID.GetValueOrDefault() == (short)WebEnums.ReconciliationStatus.NotStarted
@@ -314,8 +314,8 @@ public partial class Pages_AccountProfileAttributeUpdatePopup : PopupPageBase
         bool editMode = false;
         // Not Locked, Is Null (GL not available) or In Not Started State
         if (viewMode && !SelectedNetAccountHdrInfo.IsLocked.GetValueOrDefault()
-                && (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.PREPARER
-                    || (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.BACKUP_PREPARER
+                && (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.PREPARER
+                    || (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.BACKUP_PREPARER
                         && Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID)))
                 && (!SelectedNetAccountHdrInfo.ReconciliationStatusID.HasValue
                     || SelectedNetAccountHdrInfo.ReconciliationStatusID.GetValueOrDefault() == (short)WebEnums.ReconciliationStatus.NotStarted

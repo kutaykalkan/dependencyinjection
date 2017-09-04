@@ -196,8 +196,8 @@ namespace SkyStem.ART.Web.UserControls
                     CheckBox chkSelectItem = (CheckBox)(e.Item as GridDataItem)["CheckboxSelectColumn"].Controls[0];
                     if (EditMode == WebEnums.FormMode.Edit && this.GLDataID.Value > 0)
                     {
-                        if ((oRecControlCheckListInfo.RoleID == (short)WebEnums.UserRole.PREPARER || oRecControlCheckListInfo.RoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
-                            && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+                        if ((oRecControlCheckListInfo.RoleID == (short)ARTEnums.UserRole.PREPARER || oRecControlCheckListInfo.RoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
+                            && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
                         {
                             deleteButton.Visible = true;
                             chkSelectItem.Visible = true;
@@ -211,7 +211,7 @@ namespace SkyStem.ART.Web.UserControls
                     }
                     else
                     {
-                        if (this.GLDataID.Value > 0 && oRecControlCheckListInfo.RoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN
+                        if (this.GLDataID.Value > 0 && oRecControlCheckListInfo.RoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN && SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
                                 && (CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.Open || CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.NotStarted))
                         {
                             deleteButton.Visible = true;
@@ -332,24 +332,29 @@ namespace SkyStem.ART.Web.UserControls
                 if (IsExpanded && !this.IsPrintMode)
                 {
                     ToggleControl.ImageUrl = "~/App_Themes/SkyStemBlueBrown/Images/CollapseGlass.gif";
+                    if (this.AutoSaveAttributeID != null)
+                    {
+                        Helper.SaveAutoSaveAttributeValue((ARTEnums.AutoSaveAttribute)this.AutoSaveAttributeID, null, IsExpanded.ToString(), false);
+                    }
                 }
             }
         }
         public void RegisterToggleControl(ExImageButton imgToggleControl)
         {
-            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "');";
+            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+                + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
             ToggleControl = imgToggleControl;
         }
         public void EnableDisableControls()
         {
             if (EditMode == WebEnums.FormMode.Edit && this.GLDataID.Value > 0)
             {
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                 {
                     btnAdd.Visible = true;
                     btnDelete.Visible = true;
                 }
-                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
                 {
                     btnAdd.Visible = false;
                     btnDelete.Visible = true;
@@ -360,7 +365,7 @@ namespace SkyStem.ART.Web.UserControls
                     btnDelete.Visible = false;
                 }
             }
-            else if (this.GLDataID.Value > 0 && SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN
+            else if (this.GLDataID.Value > 0 && SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
                         && (CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.Open || CurrentRecProcessStatus.Value == WebEnums.RecPeriodStatus.NotStarted))
             {
                 btnDelete.Visible = true;

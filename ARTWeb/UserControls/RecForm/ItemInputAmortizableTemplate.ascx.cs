@@ -208,7 +208,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                 }
                 else
                 {
-                    btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditItemAmortizable.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY );
+                    btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditItemAmortizable.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
                     btnAdd.Attributes.Add("onclick", "return false;");
 
 
@@ -218,7 +218,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
             }
             catch (ARTException)
             {
-               // Helper.HidePanel(updpnlMain, ex);
+                // Helper.HidePanel(updpnlMain, ex);
                 //Helper.ShowErrorMessage(this, ex);
             }
             catch (Exception)
@@ -508,8 +508,15 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                         if (oDataImportHdrInfo != null)
                         {
                             imgViewFile.Visible = true;
-                            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
-                            imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
+                            //imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+                            url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + oDataImportHdrInfo.DataImportID.GetValueOrDefault()
+                            + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oDataImportHdrInfo.DataImportTypeID.GetValueOrDefault()
+                            + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataID.GetValueOrDefault();
+
+                            //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+                            imgViewFile.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
                         }
                     }
                 }
@@ -527,7 +534,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                     mode = QueryStringConstants.READ_ONLY;
                     Helper.SetImageURLForViewVersusEdit(WebEnums.FormMode.ReadOnly, hlShowItemInputForm);
                 }
-                hlShowItemInputForm.NavigateUrl = PopupHelper.GetJavascriptParameterListForEditRecItem(oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID, "OpenRadWindowForHyperlinkWithName", "EditItemAmortizable.aspx", mode, _IsForwardedItem, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY );//IsforwardedItem is not used here so redundant
+                hlShowItemInputForm.NavigateUrl = PopupHelper.GetJavascriptParameterListForEditRecItem(oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID, "OpenRadWindowForHyperlinkWithName", "EditItemAmortizable.aspx", mode, _IsForwardedItem, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);//IsforwardedItem is not used here so redundant
 
 
 
@@ -684,26 +691,33 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                 RecHelper.SetMatchSetRefNumberUrlForGLDataRecurringSchedule(e, oGLDataRecurringItemScheduleInfo, AccountID, NetAccountID, GLDataID);
                 //************************************************************************************
 
-                  // ShowHide the Excel Button if  the Rec Item is imported through file (and not added manually)
-                    ExImageButton imgViewFile = (ExImageButton)e.Item.FindControl("imgViewFile");
-                    if (oGLDataRecurringItemScheduleInfo.DataImportID != null)
+                // ShowHide the Excel Button if  the Rec Item is imported through file (and not added manually)
+                ExImageButton imgViewFile = (ExImageButton)e.Item.FindControl("imgViewFile");
+                if (oGLDataRecurringItemScheduleInfo.DataImportID != null)
+                {
+                    if (oGLDataRecurringItemScheduleInfo.PreviousGLDataRecurringItemScheduleID == null)
                     {
-                        if (oGLDataRecurringItemScheduleInfo.PreviousGLDataRecurringItemScheduleID == null)
+                        IDataImport oDataImportClient = RemotingHelper.GetDataImportObject();
+                        DataImportHdrInfo oDataImportHdrInfo = oDataImportClient.GetDataImportInfo(oGLDataRecurringItemScheduleInfo.DataImportID, Helper.GetAppUserInfo());
+                        if (oDataImportHdrInfo != null)
                         {
-                            IDataImport oDataImportClient = RemotingHelper.GetDataImportObject();
-                            DataImportHdrInfo oDataImportHdrInfo = oDataImportClient.GetDataImportInfo(oGLDataRecurringItemScheduleInfo.DataImportID, Helper.GetAppUserInfo());
-                            if (oDataImportHdrInfo != null)
-                            {
-                                imgViewFile.Visible = true;
-                                string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
-                                imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
-                            }
+                            imgViewFile.Visible = true;
+                            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
+                            //imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+                            url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + oDataImportHdrInfo.DataImportID.GetValueOrDefault()
+                            + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oDataImportHdrInfo.DataImportTypeID.GetValueOrDefault()
+                            + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataID.GetValueOrDefault();
+
+                            //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+                            imgViewFile.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
                         }
                     }
+                }
 
 
                 ExHyperLink hlShowItemInputForm = (ExHyperLink)e.Item.FindControl("hlShowItemInputForm");
-                string javascriptParameterList = PopupHelper.GetJavascriptParameterListForEditRecItem(oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID, "OpenRadWindowForHyperlinkWithName", "EditItemAccrubleRecurring.aspx", QueryStringConstants.READ_ONLY, true, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY );
+                string javascriptParameterList = PopupHelper.GetJavascriptParameterListForEditRecItem(oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID, "OpenRadWindowForHyperlinkWithName", "EditItemAccrubleRecurring.aspx", QueryStringConstants.READ_ONLY, true, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
                 hlShowItemInputForm.NavigateUrl = javascriptParameterList;
 
                 Helper.SetImageURLForViewVersusEdit(WebEnums.FormMode.ReadOnly, hlShowItemInputForm);
@@ -816,7 +830,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
             LoadData();
         ExpandCollapse();
 
-      
+
     }
 
     private void CalculateAndDisplaySum()
@@ -839,7 +853,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
         this._UserRole = SessionHelper.CurrentRoleID.Value;
         this._RecPeriodStatus = (short)CurrentRecProcessStatus.Value;
 
-        if (Helper.GetFormMode(WebEnums.ARTPages.GLAdjustments, this.GLDataHdrInfo ) == WebEnums.FormMode.Edit
+        if (Helper.GetFormMode(WebEnums.ARTPages.GLAdjustments, this.GLDataHdrInfo) == WebEnums.FormMode.Edit
             && this.GLDataID.Value > 0)
         {
             btnAdd.Visible = true;
@@ -1004,7 +1018,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
                 }
                 else
                 {
-                    btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditItemAmortizable.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY );
+                    btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditItemAmortizable.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
                     btnClose.OnClientClick = PopupHelper.GetJavascriptParameterList(null, "OpenRadWindow", "BulkCloseAmortizable.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID);
                     CalculateAndDisplaySum();
                 }
@@ -1093,7 +1107,7 @@ public partial class UserControls_ItemInputAmortizableTemplate : UserControlRecI
 
     }
 
-        
+
 
 
 

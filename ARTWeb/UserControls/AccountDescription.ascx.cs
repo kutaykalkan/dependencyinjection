@@ -100,7 +100,7 @@ namespace SkyStem.ART.Web.UserControls
             short currentRoleID = SessionHelper.CurrentRoleID.Value;
             // Let the popup handle editing
             // this.EditMode == WebEnums.FormMode.Edit && 
-            if ((currentRoleID == (short)WebEnums.UserRole.PREPARER || currentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+            if ((currentRoleID == (short)ARTEnums.UserRole.PREPARER || currentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
             {
                 string url = Page.ResolveClientUrl("~/Pages/AccountProfileAttributeUpdatePopup.aspx") + "?" + QueryStringConstants.ACCOUNT_ID + "=" + this.AccountID + "&" + QueryStringConstants.NETACCOUNT_ID + "=" + this.NetAccountID;
                 hlAccountPolicyURL.NavigateUrl = "javascript:OpenRadWindowForHyperlink('" + url + "', " + POPUP_HEIGHT + " , " + POPUP_WIDTH + ");";

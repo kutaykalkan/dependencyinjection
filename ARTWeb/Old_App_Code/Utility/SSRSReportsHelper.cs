@@ -117,7 +117,7 @@ namespace SkyStem.ART.Web.Utility
             ReportParameter rpNetAccountID = new ReportParameter("NetAccountID", netAccountID.ToString());
             reportParams.Add(rpNetAccountID);
 
-            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
             {
                 ReportParameter isQualityScoreEnabled = new ReportParameter("IsQualityScoreEnabled",
                     Helper.IsQualityScoreEnabled().ToString());

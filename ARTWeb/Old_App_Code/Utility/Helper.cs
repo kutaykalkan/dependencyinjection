@@ -863,12 +863,12 @@ namespace SkyStem.ART.Web.Utility
         public static string GetHomePageUrl()
         {
             string url = "";
-            switch ((WebEnums.UserRole)SessionHelper.CurrentRoleID)
+            switch ((ARTEnums.UserRole)SessionHelper.CurrentRoleID)
             {
-                case WebEnums.UserRole.SKYSTEM_ADMIN:
+                case ARTEnums.UserRole.SKYSTEM_ADMIN:
                     url = "~/Pages/CompanyList.aspx";
                     break;
-                case WebEnums.UserRole.USER_ADMIN:
+                case ARTEnums.UserRole.USER_ADMIN:
                     url = "~/Pages/UserSearch.aspx";
                     break;
                 default:
@@ -2081,13 +2081,15 @@ namespace SkyStem.ART.Web.Utility
             return sbURL.ToString();
         }
 
-        public static string SetDocumentUploadURLForTasks(long? recordID, int? recordType, string mode, out string windowName)
+        public static string SetDocumentUploadURLForTasks(long? taskID, short? taskTypeID, long? recordID, int? recordType, string mode, out string windowName)
         {
             StringBuilder sbURL = new StringBuilder();
 
             sbURL.Append(URLConstants.URL_TASK_ATTACHMENT);
             sbURL.Append("?" + QueryStringConstants.RECORD_ID + "=" + recordID);
             sbURL.Append("&" + QueryStringConstants.RECORD_TYPE_ID + "=" + recordType);
+            sbURL.Append("&" + QueryStringConstants.TASK_ID + "=" + taskID);
+            sbURL.Append("&" + QueryStringConstants.TASK_TYPE_ID + "=" + taskTypeID);
             sbURL.Append("&" + QueryStringConstants.MODE + "=" + mode);
             windowName = "UploadAttachment";
             return sbURL.ToString();
@@ -2130,22 +2132,22 @@ namespace SkyStem.ART.Web.Utility
                     break;
                 case RecFormButtonCommandName.EDIT_REC:
                     // based on Role, the new status would change
-                    WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+                    ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
                     switch (eUserRole)
                     {
-                        case WebEnums.UserRole.PREPARER:
-                        case WebEnums.UserRole.BACKUP_PREPARER:
+                        case ARTEnums.UserRole.PREPARER:
+                        case ARTEnums.UserRole.BACKUP_PREPARER:
                             eNewReconciliationStatus = WebEnums.ReconciliationStatus.InProgress;
                             break;
 
-                        case WebEnums.UserRole.REVIEWER:
-                        case WebEnums.UserRole.BACKUP_REVIEWER:
+                        case ARTEnums.UserRole.REVIEWER:
+                        case ARTEnums.UserRole.BACKUP_REVIEWER:
                             eNewReconciliationStatus = WebEnums.ReconciliationStatus.PendingReview;
                             break;
 
-                        case WebEnums.UserRole.APPROVER:
-                        case WebEnums.UserRole.BACKUP_APPROVER:
+                        case ARTEnums.UserRole.APPROVER:
+                        case ARTEnums.UserRole.BACKUP_APPROVER:
                             eNewReconciliationStatus = WebEnums.ReconciliationStatus.PendingApproval;
                             break;
                     }
@@ -2673,19 +2675,19 @@ namespace SkyStem.ART.Web.Utility
             }
 
             // Check based on Role
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
-                case WebEnums.UserRole.REVIEWER:
-                case WebEnums.UserRole.APPROVER:
+                case ARTEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.REVIEWER:
+                case ARTEnums.UserRole.APPROVER:
                     eFormMode = WebEnums.FormMode.Edit;
                     break;
 
-                case WebEnums.UserRole.BACKUP_PREPARER:
-                case WebEnums.UserRole.BACKUP_REVIEWER:
-                case WebEnums.UserRole.BACKUP_APPROVER:
+                case ARTEnums.UserRole.BACKUP_PREPARER:
+                case ARTEnums.UserRole.BACKUP_REVIEWER:
+                case ARTEnums.UserRole.BACKUP_APPROVER:
                     if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                     {
                         eFormMode = WebEnums.FormMode.Edit;
@@ -2732,7 +2734,7 @@ namespace SkyStem.ART.Web.Utility
             {
                 switch (eUserRole)
                 {
-                    case WebEnums.UserRole.PREPARER:
+                    case ARTEnums.UserRole.PREPARER:
                         eFormMode = WebEnums.FormMode.ReadOnly;
 
                         if (ePage == WebEnums.ARTPages.RecFormButtons)
@@ -2753,7 +2755,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.BACKUP_PREPARER:
+                    case ARTEnums.UserRole.BACKUP_PREPARER:
                         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                         {
                             eFormMode = WebEnums.FormMode.ReadOnly;
@@ -2777,7 +2779,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.REVIEWER:
+                    case ARTEnums.UserRole.REVIEWER:
                         eFormMode = WebEnums.FormMode.ReadOnly;
 
                         if (ePage == WebEnums.ARTPages.ReviewNotes
@@ -2809,7 +2811,7 @@ namespace SkyStem.ART.Web.Utility
 
                         break;
 
-                    case WebEnums.UserRole.BACKUP_REVIEWER:
+                    case ARTEnums.UserRole.BACKUP_REVIEWER:
                         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                         {
                             eFormMode = WebEnums.FormMode.ReadOnly;
@@ -2843,7 +2845,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.APPROVER:
+                    case ARTEnums.UserRole.APPROVER:
                         eFormMode = WebEnums.FormMode.ReadOnly;
 
                         if (ePage == WebEnums.ARTPages.ReviewNotes
@@ -2871,7 +2873,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.BACKUP_APPROVER:
+                    case ARTEnums.UserRole.BACKUP_APPROVER:
                         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                         {
                             eFormMode = WebEnums.FormMode.ReadOnly;
@@ -2967,17 +2969,17 @@ namespace SkyStem.ART.Web.Utility
             }
 
             // Check based on Role
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
-                case WebEnums.UserRole.REVIEWER:
+                case ARTEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.REVIEWER:
                     eFormMode = WebEnums.FormMode.Edit;
                     break;
 
-                case WebEnums.UserRole.BACKUP_PREPARER:
-                case WebEnums.UserRole.BACKUP_REVIEWER:
+                case ARTEnums.UserRole.BACKUP_PREPARER:
+                case ARTEnums.UserRole.BACKUP_REVIEWER:
                     if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                     {
                         eFormMode = WebEnums.FormMode.Edit;
@@ -3021,7 +3023,7 @@ namespace SkyStem.ART.Web.Utility
             {
                 switch (eUserRole)
                 {
-                    case WebEnums.UserRole.PREPARER:
+                    case ARTEnums.UserRole.PREPARER:
                         eFormMode = WebEnums.FormMode.ReadOnly;
                         if (oGLDataHdrInfo.ReconciliationStatusID == (short)WebEnums.ReconciliationStatus.NotStarted
                               || oGLDataHdrInfo.ReconciliationStatusID == (short)WebEnums.ReconciliationStatus.InProgress
@@ -3032,7 +3034,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.BACKUP_PREPARER:
+                    case ARTEnums.UserRole.BACKUP_PREPARER:
                         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                         {
                             eFormMode = WebEnums.FormMode.ReadOnly;
@@ -3046,7 +3048,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.REVIEWER:
+                    case ARTEnums.UserRole.REVIEWER:
                         eFormMode = WebEnums.FormMode.ReadOnly;
 
 
@@ -3057,7 +3059,7 @@ namespace SkyStem.ART.Web.Utility
                         }
                         break;
 
-                    case WebEnums.UserRole.BACKUP_REVIEWER:
+                    case ARTEnums.UserRole.BACKUP_REVIEWER:
                         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                         {
                             eFormMode = WebEnums.FormMode.ReadOnly;
@@ -3414,21 +3416,21 @@ namespace SkyStem.ART.Web.Utility
             }
 
             // Check based on Role
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
-                case WebEnums.UserRole.REVIEWER:
-                case WebEnums.UserRole.APPROVER:
-                case WebEnums.UserRole.EXECUTIVE:
-                case WebEnums.UserRole.CONTROLLER:
-                case WebEnums.UserRole.ACCOUNT_MANAGER:
-                case WebEnums.UserRole.FINANCIAL_MANAGER:
-                case WebEnums.UserRole.CEO_CFO:
-                case WebEnums.UserRole.BACKUP_PREPARER:
-                case WebEnums.UserRole.BACKUP_REVIEWER:
-                case WebEnums.UserRole.BACKUP_APPROVER:
+                case ARTEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.REVIEWER:
+                case ARTEnums.UserRole.APPROVER:
+                case ARTEnums.UserRole.EXECUTIVE:
+                case ARTEnums.UserRole.CONTROLLER:
+                case ARTEnums.UserRole.ACCOUNT_MANAGER:
+                case ARTEnums.UserRole.FINANCIAL_MANAGER:
+                case ARTEnums.UserRole.CEO_CFO:
+                case ARTEnums.UserRole.BACKUP_PREPARER:
+                case ARTEnums.UserRole.BACKUP_REVIEWER:
+                case ARTEnums.UserRole.BACKUP_APPROVER:
                     eFormMode = WebEnums.FormMode.Edit;
                     break;
 
@@ -3462,8 +3464,8 @@ namespace SkyStem.ART.Web.Utility
             // Check based on Role + Rec Status  + Page Type
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
-                case WebEnums.UserRole.BACKUP_PREPARER:
+                case ARTEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.BACKUP_PREPARER:
                     eFormMode = WebEnums.FormMode.ReadOnly;
 
                     switch (ePage)
@@ -3481,23 +3483,23 @@ namespace SkyStem.ART.Web.Utility
                     }
                     break;
 
-                case WebEnums.UserRole.REVIEWER:
-                case WebEnums.UserRole.BACKUP_REVIEWER:
-                case WebEnums.UserRole.APPROVER:
-                case WebEnums.UserRole.BACKUP_APPROVER:
-                case WebEnums.UserRole.EXECUTIVE:
-                case WebEnums.UserRole.CONTROLLER:
-                case WebEnums.UserRole.ACCOUNT_MANAGER:
-                case WebEnums.UserRole.FINANCIAL_MANAGER:
+                case ARTEnums.UserRole.REVIEWER:
+                case ARTEnums.UserRole.BACKUP_REVIEWER:
+                case ARTEnums.UserRole.APPROVER:
+                case ARTEnums.UserRole.BACKUP_APPROVER:
+                case ARTEnums.UserRole.EXECUTIVE:
+                case ARTEnums.UserRole.CONTROLLER:
+                case ARTEnums.UserRole.ACCOUNT_MANAGER:
+                case ARTEnums.UserRole.FINANCIAL_MANAGER:
                     eFormMode = WebEnums.FormMode.ReadOnly;
                     switch (ePage)
                     {
                         case WebEnums.ARTPages.MandatoryReportSignOff:
-                            if (roleID == (short)WebEnums.UserRole.REVIEWER || roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                            if (roleID == (short)ARTEnums.UserRole.REVIEWER || roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                             {
                                 eFormMode = IsAllAccountsReconciled(userID, roleID, recPeriodID, isDualReviewEnabled);
                             }
-                            else if (roleID == (short)WebEnums.UserRole.APPROVER || roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                            else if (roleID == (short)ARTEnums.UserRole.APPROVER || roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                             {
                                 if (isAllJuniorsCompletedCertification.HasValue && isAllJuniorsCompletedCertification.Value)
                                 {
@@ -3520,17 +3522,17 @@ namespace SkyStem.ART.Web.Utility
                     break;
 
 
-                case WebEnums.UserRole.CEO_CFO:
+                case ARTEnums.UserRole.CEO_CFO:
                     eFormMode = WebEnums.FormMode.ReadOnly;
 
                     switch (ePage)
                     {
                         case WebEnums.ARTPages.MandatoryReportSignOff:
-                            if (roleID == (short)WebEnums.UserRole.REVIEWER || roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                            if (roleID == (short)ARTEnums.UserRole.REVIEWER || roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                             {
                                 eFormMode = IsAllAccountsReconciled(userID, roleID, recPeriodID, isDualReviewEnabled);
                             }
-                            else if (roleID == (short)WebEnums.UserRole.APPROVER || roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                            else if (roleID == (short)ARTEnums.UserRole.APPROVER || roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                             {
                                 if (isAllJuniorsCompletedCertification.HasValue && isAllJuniorsCompletedCertification.Value)
                                 {
@@ -3679,7 +3681,7 @@ namespace SkyStem.ART.Web.Utility
             bool isCertificationEnabled = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.CertificationActivation);
             bool isCEOCertificationEnabled = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.CEOCFOCertification);
 
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
             bool bCertificationStatus = false;
 
@@ -3688,12 +3690,12 @@ namespace SkyStem.ART.Web.Utility
                 case WebEnums.ARTPages.CertificationStatus:
                     switch (eUserRole)
                     {
-                        case WebEnums.UserRole.REVIEWER:
-                        case WebEnums.UserRole.APPROVER:
+                        case ARTEnums.UserRole.REVIEWER:
+                        case ARTEnums.UserRole.APPROVER:
                             bCertificationStatus = isMandatoryReportEnabled || isCertificationEnabled;
                             break;
 
-                        case WebEnums.UserRole.CEO_CFO:
+                        case ARTEnums.UserRole.CEO_CFO:
                             bCertificationStatus = isCertificationEnabled || isCEOCertificationEnabled;
                             break;
 
@@ -3708,10 +3710,10 @@ namespace SkyStem.ART.Web.Utility
                 case WebEnums.ARTPages.MandatoryReportsList:
                     switch (eUserRole)
                     {
-                        case WebEnums.UserRole.REVIEWER:
-                        case WebEnums.UserRole.APPROVER:
-                        case WebEnums.UserRole.BACKUP_REVIEWER:
-                        case WebEnums.UserRole.BACKUP_APPROVER:
+                        case ARTEnums.UserRole.REVIEWER:
+                        case ARTEnums.UserRole.APPROVER:
+                        case ARTEnums.UserRole.BACKUP_REVIEWER:
+                        case ARTEnums.UserRole.BACKUP_APPROVER:
                             bCertificationStatus = isMandatoryReportEnabled;
                             break;
                     }
@@ -3722,7 +3724,7 @@ namespace SkyStem.ART.Web.Utility
                 case WebEnums.ARTPages.CertificationAccount:
                     switch (eUserRole)
                     {
-                        case WebEnums.UserRole.CEO_CFO:
+                        case ARTEnums.UserRole.CEO_CFO:
                             bCertificationStatus = isCEOCertificationEnabled;
                             break;
 
@@ -3737,9 +3739,9 @@ namespace SkyStem.ART.Web.Utility
 
             }
 
-            //if (userRoleID == (short)WebEnums.UserRole.CEO_CFO
-            //    || userRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN
-            //    || userRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+            //if (userRoleID == (short)ARTEnums.UserRole.CEO_CFO
+            //    || userRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
+            //    || userRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
             //{
             //    if (ePage == WebEnums.ARTPages.MandatoryReportSignOff || ePage == WebEnums.ARTPages.MandatoryReportsList)
             //    {
@@ -3799,7 +3801,7 @@ namespace SkyStem.ART.Web.Utility
         //{
         //    bool isShowContent = false;
         //    bool isCertificationEnabled = false;
-        //    WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), userRoleID.ToString());
+        //    ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), userRoleID.ToString());
         //    switch (ePage)
         //    {
         //        case WebEnums.ARTPages.CertificationStatus:
@@ -3810,13 +3812,13 @@ namespace SkyStem.ART.Web.Utility
         //             */
         //            switch (eUserRole)
         //            {
-        //                case WebEnums.UserRole.REVIEWER:
-        //                case WebEnums.UserRole.APPROVER:
+        //                case ARTEnums.UserRole.REVIEWER:
+        //                case ARTEnums.UserRole.APPROVER:
         //                    isCertificationEnabled = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.CertificationActivation)
         //                        || Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MandatoryReportSignoff);
         //                    break;
 
-        //                case WebEnums.UserRole.CEO_CFO:
+        //                case ARTEnums.UserRole.CEO_CFO:
         //                    isCertificationEnabled = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.CertificationActivation, true);
         //                    break;
 
@@ -5412,12 +5414,47 @@ namespace SkyStem.ART.Web.Utility
             oUser.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
         }
 
-        public static AutoSaveAttributeValueInfo GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute eAutoSaveEnum)
+        public static void SaveAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute eAutoSaveEnum, int? referenceID, string value, bool byRole)
         {
             IUser oUser = RemotingHelper.GetUserObject();
             AutoSaveAttributeParamInfo oAutoSaveAttributeParamInfo = new AutoSaveAttributeParamInfo();
             Helper.FillCommonServiceParams(oAutoSaveAttributeParamInfo);
             List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = oUser.GetAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoListToSave = new List<AutoSaveAttributeValueInfo>();
+
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = oAutoSaveAttributeValueInfoList.Find(T => T.AutoSaveAttributeID == (int)eAutoSaveEnum);
+            if (oAutoSaveAttributeValueInfo == null)
+            {
+                oAutoSaveAttributeValueInfo = new AutoSaveAttributeValueInfo();
+                oAutoSaveAttributeValueInfo.AutoSaveAttributeID = (int)eAutoSaveEnum;
+                oAutoSaveAttributeValueInfo.UserID = SessionHelper.CurrentUserID;
+                oAutoSaveAttributeValueInfo.IsActive = true;
+            }
+            if (byRole)
+                oAutoSaveAttributeValueInfo.RoleID = SessionHelper.CurrentRoleID;
+            else
+                oAutoSaveAttributeValueInfo.RoleID = null;
+            oAutoSaveAttributeValueInfo.ReferenceID = referenceID;
+            oAutoSaveAttributeValueInfo.Value = value;
+            oAutoSaveAttributeValueInfoListToSave.Add(oAutoSaveAttributeValueInfo);
+            oAutoSaveAttributeParamInfo.AutoSaveAttributeValueInfoList = oAutoSaveAttributeValueInfoListToSave;
+            oAutoSaveAttributeParamInfo.UserLoginID = SessionHelper.CurrentUserLoginID;
+            oAutoSaveAttributeParamInfo.DateRevised = DateTime.Now;
+            oUser.SaveAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+        }
+
+        public static List<AutoSaveAttributeValueInfo> GetAutoSaveAttributeValues()
+        {
+            IUser oUser = RemotingHelper.GetUserObject();
+            AutoSaveAttributeParamInfo oAutoSaveAttributeParamInfo = new AutoSaveAttributeParamInfo();
+            Helper.FillCommonServiceParams(oAutoSaveAttributeParamInfo);
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = oUser.GetAutoSaveAttributeValues(oAutoSaveAttributeParamInfo, Helper.GetAppUserInfo());
+            return oAutoSaveAttributeValueInfoList;
+        }
+
+        public static AutoSaveAttributeValueInfo GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute eAutoSaveEnum)
+        {
+            List<AutoSaveAttributeValueInfo> oAutoSaveAttributeValueInfoList = GetAutoSaveAttributeValues();
             AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = oAutoSaveAttributeValueInfoList.Find(T => T.AutoSaveAttributeID == (int)eAutoSaveEnum);
             return oAutoSaveAttributeValueInfo;
         }
@@ -5425,7 +5462,7 @@ namespace SkyStem.ART.Web.Utility
         public static int? GetAutoSavedRecPeriod()
         {
             int? RecPeriodID = null;
-            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute.AutoSaveRecPeriodSelection);
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute.AutoSaveRecPeriodSelection);
             if (oAutoSaveAttributeValueInfo != null)
                 RecPeriodID = oAutoSaveAttributeValueInfo.ReferenceID;
             return RecPeriodID;
@@ -5433,7 +5470,7 @@ namespace SkyStem.ART.Web.Utility
         public static int? GetAutoSavedFinancialYear()
         {
             int? fyID = null;
-            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValues(ARTEnums.AutoSaveAttribute.AutoSaveFinancialYearSelection);
+            AutoSaveAttributeValueInfo oAutoSaveAttributeValueInfo = GetAutoSaveAttributeValue(ARTEnums.AutoSaveAttribute.AutoSaveFinancialYearSelection);
             if (oAutoSaveAttributeValueInfo != null)
                 fyID = oAutoSaveAttributeValueInfo.ReferenceID;
             return fyID;

@@ -480,9 +480,9 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.APPROVER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.APPROVER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheConstants.ALL_APPROVERS_FOR_CURRENT_COMPANY, oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.APPROVER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.APPROVER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_APPROVERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -509,7 +509,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.REVIEWER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.REVIEWER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_REVIEWERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -537,9 +537,9 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    //oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.BACKUP_APPROVER);
+                    //oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.BACKUP_APPROVER);
                     //HttpRuntime.Cache.Add(CacheConstants.ALL_BACKUP_APPROVERS_FOR_CURRENT_COMPANY, oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.BACKUP_APPROVER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.BACKUP_APPROVER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_BACKUP_APPROVERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -566,7 +566,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.BACKUP_REVIEWER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.BACKUP_REVIEWER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_BACKUP_REVIEWERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -589,7 +589,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_BUSINESSADMIN_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -619,7 +619,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.PREPARER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.PREPARER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_PREPARERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -646,7 +646,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.BACKUP_PREPARER, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.BACKUP_PREPARER, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_BACKUP_PREPARERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)
@@ -1398,7 +1398,7 @@ namespace SkyStem.ART.Web.Utility
                 {
                     // Get from DB 
                     IUser oUserClient = RemotingHelper.GetUserObject();
-                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)WebEnums.UserRole.None, Helper.GetAppUserInfo());
+                    oUserHdrInfoCollection = oUserClient.SelectAllUserHdrInfoByCompanyIDAndRoleID(SessionHelper.CurrentCompanyID.Value, (int)ARTEnums.UserRole.None, Helper.GetAppUserInfo());
                     HttpRuntime.Cache.Add(CacheHelper.GetCacheKeyForCompanyData(CacheConstants.ALL_USERS_FOR_CURRENT_COMPANY), oUserHdrInfoCollection, null, GetCacheExpirationTime(), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
                 }
                 catch (Exception ex)

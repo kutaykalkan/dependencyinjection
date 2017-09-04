@@ -181,7 +181,8 @@ namespace SkyStem.ART.Client.IServices
 
 
         [OperationContract]
-        int InsertUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<long> accountIDCollection, int userID, short roleID, AppUserInfo oAppUserInfo);
+        int InsertUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<long> accountIDCollection, 
+            List<UserHdrInfo> oChildUserRoleDetails, bool bAllAccounts, int userID, short roleID, AppUserInfo oAppUserInfo);
 
         [OperationContract]
         bool DeleteUserOWnershipAccountAndGeographyObjectHdr(List<UserGeographyObjectInfo> oUserGeographyObjectInfoCollection, List<UserAccountInfo> oUserAccountInfoCollection, AppUserInfo oAppUserInfo);
@@ -251,5 +252,14 @@ namespace SkyStem.ART.Client.IServices
 
         [OperationContract]
         void SaveAutoSaveAttributeValues(AutoSaveAttributeParamInfo oAutoSaveAttributeParamInfo, AppUserInfo oAppUserInfo);
+
+        [OperationContract]
+        List<UserHdrInfo> SelectUserAssociationByUserRole(int? userID, short? roleID, AppUserInfo oAppUserInfo);
+
+        [OperationContract]
+        void SaveUserAssociationByUserRole(List<UserHdrInfo> oChildUserRoleDetails, int userID, short roleID, AppUserInfo oAppUserInfo);
+
+        [OperationContract]
+        bool SelectUserAssociationAllAccount(int? userID, short? roleID, AppUserInfo oAppUserInfo);
     }
 }

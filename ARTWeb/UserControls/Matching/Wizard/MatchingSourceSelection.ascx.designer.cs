@@ -218,5 +218,14 @@ namespace SkyStem.ART.Web.UserControls.Matching.Wizard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadScriptBlock RadScriptBlock2;
+        
+        /// <summary>
+        /// ifDownloader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe ifDownloader;
     }
 }

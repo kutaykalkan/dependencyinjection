@@ -277,7 +277,7 @@ public partial class Pages_EditItemReviewNote : PopupPageBase
              *      Show Textbox
              */
 
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
             if (!isAddMode && oGLDataReviewNoteHdrInfo.AddedByUserID != SessionHelper.GetCurrentUser().UserID)
             {
                 ShowLabels(true);
@@ -319,7 +319,7 @@ public partial class Pages_EditItemReviewNote : PopupPageBase
         //List<UserHdrInfo> oUserHdrInfoCollection = oUserClient.SelectPRAByGLDataID(this.GLDataHdrInfo.GLDataID, Helper.GetAppUserInfo());
         //List<UserHdrInfo> oUserHdrInfoCollection = oUserClient.SelectPRAByGLDataID(this.GLDataHdrInfo.GLDataID);
 
-        //if (SessionHelper.CurrentRoleID.Value == (short)WebEnums.UserRole.PREPARER)
+        //if (SessionHelper.CurrentRoleID.Value == (short)ARTEnums.UserRole.PREPARER)
         //{
         //    //Get Reviewer
         //    UserHdrInfo oNotifyUserHdrInfo = (from o in oUserHdrInfoCollection
@@ -330,7 +330,7 @@ public partial class Pages_EditItemReviewNote : PopupPageBase
 
         //}
 
-        //if (SessionHelper.CurrentRoleID.Value == (short)WebEnums.UserRole.APPROVER)
+        //if (SessionHelper.CurrentRoleID.Value == (short)ARTEnums.UserRole.APPROVER)
         //{
         //    //Get Reviewer
         //    UserHdrInfo oNotifyUserHdrInfo = (from o in oUserHdrInfoCollection
@@ -342,7 +342,7 @@ public partial class Pages_EditItemReviewNote : PopupPageBase
         //}
 
 
-        //if (SessionHelper.CurrentRoleID.Value == (short)WebEnums.UserRole.REVIEWER)
+        //if (SessionHelper.CurrentRoleID.Value == (short)ARTEnums.UserRole.REVIEWER)
         //{
 
         //    if (!IsEditMode)

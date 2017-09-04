@@ -320,17 +320,17 @@ public class CertificationHelper
     public static void NotifyUsersToStartCertification()
     {
         //List<short> selectedRoleIDs = new List<short>();
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.PREPARER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.REVIEWER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.APPROVER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.EXECUTIVE);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.CONTROLLER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.ACCOUNT_MANAGER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.FINANCIAL_MANAGER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.CEO_CFO);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.BACKUP_PREPARER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.BACKUP_REVIEWER);
-        //selectedRoleIDs.Add((short)WebEnums.UserRole.BACKUP_APPROVER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.PREPARER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.REVIEWER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.APPROVER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.EXECUTIVE);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.CONTROLLER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.ACCOUNT_MANAGER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.FINANCIAL_MANAGER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.CEO_CFO);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.BACKUP_PREPARER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.BACKUP_REVIEWER);
+        //selectedRoleIDs.Add((short)ARTEnums.UserRole.BACKUP_APPROVER);
         //IUser oUserClient = RemotingHelper.GetUserObject();
         //List<UserHdrInfo> oUserCollection = oUserClient.SelectAllUsersByCompanyIDAndRoleIDsForCurrentRecPeriod(SessionHelper.CurrentCompanyID.Value, selectedRoleIDs, SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID);
         IGLData oGLDataClient = RemotingHelper.GetGLDataObject();

@@ -28,11 +28,11 @@
     <asp:ScriptManager ID="_scriptManager" EnablePartialRendering="true" runat="server"
         EnablePageMethods="true">
     </asp:ScriptManager>
-    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 100%; background-color: white;"
+    <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 1024px; background-color: white;"
         border="0">
         <tr>
             <td valign="top" align="center" valign="top">
-                <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 1153px;
+                <table cellpadding="0" cellspacing="0" style="vertical-align: top; width: 1024px;
                     background-color: white; text-align: left" border="0">
                     <tr class="BlankRow">
                         <td>

@@ -24,7 +24,7 @@ using SkyStem.ART.Web.Data;
 using System.Text;
 using SkyStem.ART.Client.Exception;
 using SkyStem.Library.Controls.TelerikWebControls.Data;
-
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_ReviewNotes : PageBaseRecPeriod
 {
@@ -435,9 +435,9 @@ public partial class Pages_ReviewNotes : PageBaseRecPeriod
             url += "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataHdrInfo.GLDataID;
             url += "&" + QueryStringConstants.PARENT_HIDDEN_FIELD + "=" + hdIsRefreshData.ClientID;
 
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
-            //if (eUserRole == WebEnums.UserRole.REVIEWER
-            //    || eUserRole == WebEnums.UserRole.APPROVER)
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+            //if (eUserRole == ARTEnums.UserRole.REVIEWER
+            //    || eUserRole == ARTEnums.UserRole.APPROVER)
             //{
             //    if (_FormMode == WebEnums.FormMode.Edit)
             //    {
@@ -446,10 +446,10 @@ public partial class Pages_ReviewNotes : PageBaseRecPeriod
             //        btnAdd.Visible = true;
             //    }
             //}
-            if (eUserRole == WebEnums.UserRole.REVIEWER
-            || eUserRole == WebEnums.UserRole.APPROVER
-            || eUserRole == WebEnums.UserRole.BACKUP_REVIEWER
-            || eUserRole == WebEnums.UserRole.BACKUP_APPROVER)
+            if (eUserRole == ARTEnums.UserRole.REVIEWER
+            || eUserRole == ARTEnums.UserRole.APPROVER
+            || eUserRole == ARTEnums.UserRole.BACKUP_REVIEWER
+            || eUserRole == ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 if (_FormMode == WebEnums.FormMode.Edit)
                 {

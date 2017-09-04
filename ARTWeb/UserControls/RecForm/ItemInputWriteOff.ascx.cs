@@ -179,7 +179,8 @@ namespace SkyStem.ART.Web.UserControls
         }
         public void RegisterToggleControl(ExImageButton imgToggleControl)
         {
-            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "');";
+            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+                + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
             ToggleControl = imgToggleControl;
         }
         public override void LoadData()
@@ -971,10 +972,10 @@ namespace SkyStem.ART.Web.UserControls
 
         private void ShowHideButtonBasedOnUserRole()
         {
-            WebEnums.UserRole eUserRole = (WebEnums.UserRole)SessionHelper.CurrentRoleID;
+            ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)SessionHelper.CurrentRoleID;
             switch (eUserRole)
             {
-                case WebEnums.UserRole.PREPARER:
+                case ARTEnums.UserRole.PREPARER:
                     btnAdd.Visible = true;
                     break;
                 default:

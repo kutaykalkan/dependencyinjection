@@ -157,28 +157,28 @@ namespace SkyStem.ART.Web.Utility
             IUser oUserClient = RemotingHelper.GetUserObject();
 
             List<UserHdrInfo> oPreparerUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.Preparer, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oPreparerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.PREPARER);
+            Array.ForEach(oPreparerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.PREPARER);
             oFinalUserHdrInfoCollection.AddRange(oPreparerUserHdrInfoCollection);
 
             List<UserHdrInfo> oReviewerUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.Reviewer, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oReviewerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.REVIEWER);
+            Array.ForEach(oReviewerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.REVIEWER);
             oFinalUserHdrInfoCollection.AddRange(oReviewerUserHdrInfoCollection);
 
             List<UserHdrInfo> oApproverUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.Approver, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oApproverUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.APPROVER);
+            Array.ForEach(oApproverUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.APPROVER);
             oFinalUserHdrInfoCollection.AddRange(oApproverUserHdrInfoCollection);
 
             #region Backup Roles
             List<UserHdrInfo> oBackupPreparerUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.BackupPreparer, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oBackupPreparerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.BACKUP_PREPARER);
+            Array.ForEach(oBackupPreparerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.BACKUP_PREPARER);
             oFinalUserHdrInfoCollection.AddRange(oBackupPreparerUserHdrInfoCollection);
 
             List<UserHdrInfo> oBackupReviewerUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.BackupReviewer, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oBackupReviewerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.BACKUP_REVIEWER);
+            Array.ForEach(oBackupReviewerUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.BACKUP_REVIEWER);
             oFinalUserHdrInfoCollection.AddRange(oBackupReviewerUserHdrInfoCollection);
 
             List<UserHdrInfo> oBackupApproverUserHdrInfoCollection = oUserClient.SelectUsersByAccountIDsAndRecPeriodIDAndAccountAttributeID(oAccountIDCollection, oNetAccountIDCollection, recPeriodID, (short)ARTEnums.AccountAttribute.BackupApprover, (short)eAlert, Helper.GetAppUserInfo());
-            Array.ForEach(oBackupApproverUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)WebEnums.UserRole.BACKUP_APPROVER);
+            Array.ForEach(oBackupApproverUserHdrInfoCollection.ToArray(), UH => UH.RoleID = (short)ARTEnums.UserRole.BACKUP_APPROVER);
             oFinalUserHdrInfoCollection.AddRange(oBackupApproverUserHdrInfoCollection);
 
             #endregion
@@ -191,19 +191,19 @@ namespace SkyStem.ART.Web.Utility
             short accountAttributeID = 0;
             IUser oUserClient = RemotingHelper.GetUserObject();
 
-            if (roleID == (short)WebEnums.UserRole.REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Approver;
             }
-            else if (roleID == (short)WebEnums.UserRole.PREPARER)
+            else if (roleID == (short)ARTEnums.UserRole.PREPARER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Reviewer;
             }
-            else if (roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            else if (roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Approver;
             }
-            else if (roleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+            else if (roleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Reviewer;
             }
@@ -225,19 +225,19 @@ namespace SkyStem.ART.Web.Utility
             short accountAttributeID = 0;
             IUser oUserClient = RemotingHelper.GetUserObject();
 
-            if (roleID == (short)WebEnums.UserRole.REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Preparer;
             }
-            else if (roleID == (short)WebEnums.UserRole.APPROVER)
+            else if (roleID == (short)ARTEnums.UserRole.APPROVER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Reviewer;
             }
-            if (roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Preparer;
             }
-            else if (roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.Reviewer;
             }
@@ -248,19 +248,19 @@ namespace SkyStem.ART.Web.Utility
         {
             short accountAttributeID = 0;
             IUser oUserClient = RemotingHelper.GetUserObject();
-            if (roleID == (short)WebEnums.UserRole.REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.BackupPreparer;
             }
-            else if (roleID == (short)WebEnums.UserRole.APPROVER)
+            else if (roleID == (short)ARTEnums.UserRole.APPROVER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.BackupReviewer;
             }
-            if (roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.BackupPreparer;
             }
-            else if (roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
                 accountAttributeID = (short)ARTEnums.AccountAttribute.BackupReviewer;
             }
@@ -346,13 +346,13 @@ namespace SkyStem.ART.Web.Utility
         {
             short? toBeSavedRoelID = 0;
 
-            if (roleID == (short)WebEnums.UserRole.REVIEWER || roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+            if (roleID == (short)ARTEnums.UserRole.REVIEWER || roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
             {
-                toBeSavedRoelID = (short)WebEnums.UserRole.PREPARER;
+                toBeSavedRoelID = (short)ARTEnums.UserRole.PREPARER;
             }
-            else if (roleID == (short)WebEnums.UserRole.APPROVER || roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+            else if (roleID == (short)ARTEnums.UserRole.APPROVER || roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
             {
-                toBeSavedRoelID = (short)WebEnums.UserRole.REVIEWER;
+                toBeSavedRoelID = (short)ARTEnums.UserRole.REVIEWER;
             }
             return toBeSavedRoelID;
         }
@@ -405,80 +405,80 @@ namespace SkyStem.ART.Web.Utility
                 IUser oUserClient = RemotingHelper.GetUserObject();
                 List<UserHdrInfo> oAllUserHdrInfoCollection = oUserClient.SelectUserByUserID(oAllUsersIDCollection, Helper.GetAppUserInfo());
 
-                List<UserHdrInfo> oRemovedPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedPreparerIDCollection, (short)WebEnums.UserRole.PREPARER);
-                List<UserHdrInfo> oRemovedReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedReviewerIDCollection, (short)WebEnums.UserRole.REVIEWER);
-                List<UserHdrInfo> oRemovedApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedApproverIDCollection, (short)WebEnums.UserRole.APPROVER);
-                List<UserHdrInfo> oAssignedPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedPreparerIDCollection, (short)WebEnums.UserRole.PREPARER);
-                List<UserHdrInfo> oAssignedReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedReviewerIDCollection, (short)WebEnums.UserRole.REVIEWER);
-                List<UserHdrInfo> oAssignedApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedApproverIDCollection, (short)WebEnums.UserRole.APPROVER);
+                List<UserHdrInfo> oRemovedPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedPreparerIDCollection, (short)ARTEnums.UserRole.PREPARER);
+                List<UserHdrInfo> oRemovedReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedReviewerIDCollection, (short)ARTEnums.UserRole.REVIEWER);
+                List<UserHdrInfo> oRemovedApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedApproverIDCollection, (short)ARTEnums.UserRole.APPROVER);
+                List<UserHdrInfo> oAssignedPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedPreparerIDCollection, (short)ARTEnums.UserRole.PREPARER);
+                List<UserHdrInfo> oAssignedReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedReviewerIDCollection, (short)ARTEnums.UserRole.REVIEWER);
+                List<UserHdrInfo> oAssignedApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedApproverIDCollection, (short)ARTEnums.UserRole.APPROVER);
 
-                List<UserHdrInfo> oRemovedBackupPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupPreparerIDCollection, (short)WebEnums.UserRole.BACKUP_PREPARER);
-                List<UserHdrInfo> oRemovedBackupReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupReviewerIDCollection, (short)WebEnums.UserRole.BACKUP_REVIEWER);
-                List<UserHdrInfo> oRemovedBackupApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupApproverIDCollection, (short)WebEnums.UserRole.BACKUP_APPROVER);
-                List<UserHdrInfo> oAssignedBackupPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupPreparerIDCollection, (short)WebEnums.UserRole.BACKUP_PREPARER);
-                List<UserHdrInfo> oAssignedBackupReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupReviewerIDCollection, (short)WebEnums.UserRole.BACKUP_REVIEWER);
-                List<UserHdrInfo> oAssignedBackupApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupApproverIDCollection, (short)WebEnums.UserRole.BACKUP_APPROVER);
+                List<UserHdrInfo> oRemovedBackupPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupPreparerIDCollection, (short)ARTEnums.UserRole.BACKUP_PREPARER);
+                List<UserHdrInfo> oRemovedBackupReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupReviewerIDCollection, (short)ARTEnums.UserRole.BACKUP_REVIEWER);
+                List<UserHdrInfo> oRemovedBackupApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, removedBackupApproverIDCollection, (short)ARTEnums.UserRole.BACKUP_APPROVER);
+                List<UserHdrInfo> oAssignedBackupPreparerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupPreparerIDCollection, (short)ARTEnums.UserRole.BACKUP_PREPARER);
+                List<UserHdrInfo> oAssignedBackupReviewerUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupReviewerIDCollection, (short)ARTEnums.UserRole.BACKUP_REVIEWER);
+                List<UserHdrInfo> oAssignedBackupApproverUserInfoCollection = GetUsersDetails(oAllUserHdrInfoCollection, assignedBackupApproverIDCollection, (short)ARTEnums.UserRole.BACKUP_APPROVER);
 
                 //raise alert
                 if (oRemovedPreparerUserInfoCollection != null && oRemovedPreparerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 1130, companyAlertID, noOfHours, recPeriodID, oRemovedPreparerUserInfoCollection, (short)WebEnums.UserRole.PREPARER, removedPreparerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 1130, companyAlertID, noOfHours, recPeriodID, oRemovedPreparerUserInfoCollection, (short)ARTEnums.UserRole.PREPARER, removedPreparerAccounts);
                 }
 
                 if (oRemovedReviewerUserInfoCollection != null && oRemovedReviewerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 1131, companyAlertID, noOfHours, recPeriodID, oRemovedReviewerUserInfoCollection, (short)WebEnums.UserRole.REVIEWER, removedReviewerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 1131, companyAlertID, noOfHours, recPeriodID, oRemovedReviewerUserInfoCollection, (short)ARTEnums.UserRole.REVIEWER, removedReviewerAccounts);
                 }
 
                 if (oRemovedApproverUserInfoCollection != null && oRemovedApproverUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 1132, companyAlertID, noOfHours, recPeriodID, oRemovedApproverUserInfoCollection, (short)WebEnums.UserRole.APPROVER, removedApproverAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 1132, companyAlertID, noOfHours, recPeriodID, oRemovedApproverUserInfoCollection, (short)ARTEnums.UserRole.APPROVER, removedApproverAccounts);
                 }
 
                 if (oAssignedPreparerUserInfoCollection != null && oAssignedPreparerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 1130, companyAlertID, noOfHours, recPeriodID, oAssignedPreparerUserInfoCollection, (short)WebEnums.UserRole.PREPARER, assignedPreparerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 1130, companyAlertID, noOfHours, recPeriodID, oAssignedPreparerUserInfoCollection, (short)ARTEnums.UserRole.PREPARER, assignedPreparerAccounts);
                 }
 
                 if (oAssignedReviewerUserInfoCollection != null && oAssignedReviewerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 1131, companyAlertID, noOfHours, recPeriodID, oAssignedReviewerUserInfoCollection, (short)WebEnums.UserRole.REVIEWER, assignedReviewerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 1131, companyAlertID, noOfHours, recPeriodID, oAssignedReviewerUserInfoCollection, (short)ARTEnums.UserRole.REVIEWER, assignedReviewerAccounts);
                 }
 
                 if (oAssignedApproverUserInfoCollection != null && oAssignedApproverUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 1132, companyAlertID, noOfHours, recPeriodID, oAssignedApproverUserInfoCollection, (short)WebEnums.UserRole.APPROVER, assignedApproverAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 1132, companyAlertID, noOfHours, recPeriodID, oAssignedApproverUserInfoCollection, (short)ARTEnums.UserRole.APPROVER, assignedApproverAccounts);
                 }
 
                 #region Backup Roles
                 if (oRemovedBackupPreparerUserInfoCollection != null && oRemovedBackupPreparerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 2501, companyAlertID, noOfHours, recPeriodID, oRemovedBackupPreparerUserInfoCollection, (short)WebEnums.UserRole.BACKUP_PREPARER, removedBackupPreparerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 2501, companyAlertID, noOfHours, recPeriodID, oRemovedBackupPreparerUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_PREPARER, removedBackupPreparerAccounts);
                 }
 
                 if (oRemovedBackupReviewerUserInfoCollection != null && oRemovedBackupReviewerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 2502, companyAlertID, noOfHours, recPeriodID, oRemovedBackupReviewerUserInfoCollection, (short)WebEnums.UserRole.BACKUP_REVIEWER, removedBackupReviewerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 2502, companyAlertID, noOfHours, recPeriodID, oRemovedBackupReviewerUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_REVIEWER, removedBackupReviewerAccounts);
                 }
 
                 if (oRemovedBackupApproverUserInfoCollection != null && oRemovedBackupApproverUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1880, 2503, companyAlertID, noOfHours, recPeriodID, oRemovedBackupApproverUserInfoCollection, (short)WebEnums.UserRole.BACKUP_APPROVER, removedBackupApproverAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1880, 2503, companyAlertID, noOfHours, recPeriodID, oRemovedBackupApproverUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_APPROVER, removedBackupApproverAccounts);
                 }
 
                 if (oAssignedBackupPreparerUserInfoCollection != null && oAssignedBackupPreparerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 2501, companyAlertID, noOfHours, recPeriodID, oAssignedBackupPreparerUserInfoCollection, (short)WebEnums.UserRole.BACKUP_PREPARER, assignedBackupPreparerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 2501, companyAlertID, noOfHours, recPeriodID, oAssignedBackupPreparerUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_PREPARER, assignedBackupPreparerAccounts);
                 }
 
                 if (oAssignedBackupReviewerUserInfoCollection != null && oAssignedBackupReviewerUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 2502, companyAlertID, noOfHours, recPeriodID, oAssignedBackupReviewerUserInfoCollection, (short)WebEnums.UserRole.BACKUP_REVIEWER, assignedBackupReviewerAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 2502, companyAlertID, noOfHours, recPeriodID, oAssignedBackupReviewerUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_REVIEWER, assignedBackupReviewerAccounts);
                 }
 
                 if (oAssignedBackupApproverUserInfoCollection != null && oAssignedBackupApproverUserInfoCollection.Count > 0)
                 {
-                    RaiseAlertForUsers(alertLabelID, 1654, 2503, companyAlertID, noOfHours, recPeriodID, oAssignedBackupApproverUserInfoCollection, (short)WebEnums.UserRole.BACKUP_APPROVER, assignedBackupApproverAccounts);
+                    RaiseAlertForUsers(alertLabelID, 1654, 2503, companyAlertID, noOfHours, recPeriodID, oAssignedBackupApproverUserInfoCollection, (short)ARTEnums.UserRole.BACKUP_APPROVER, assignedBackupApproverAccounts);
                 }
 
                 #endregion
@@ -586,17 +586,17 @@ namespace SkyStem.ART.Web.Utility
                 //raise alert
                 if (oassignedAssignedToIDCollection != null && oassignedAssignedToIDCollection.Count > 0)
                 {
-                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1130, companyAlertID, noOfHours, recPeriodID, oassignedAssignedToIDCollection, (short)WebEnums.UserRole.PREPARER, oTaskHdrInfoList);
+                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1130, companyAlertID, noOfHours, recPeriodID, oassignedAssignedToIDCollection, (short)ARTEnums.UserRole.PREPARER, oTaskHdrInfoList);
                 }
 
                 if (oassignedReviewerIDCollection != null && oassignedReviewerIDCollection.Count > 0)
                 {
-                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1131, companyAlertID, noOfHours, recPeriodID, oassignedReviewerIDCollection, (short)WebEnums.UserRole.REVIEWER, oTaskHdrInfoList);
+                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1131, companyAlertID, noOfHours, recPeriodID, oassignedReviewerIDCollection, (short)ARTEnums.UserRole.REVIEWER, oTaskHdrInfoList);
                 }
 
                 if (oassignedApproverIDCollection != null && oassignedApproverIDCollection.Count > 0)
                 {
-                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1132, companyAlertID, noOfHours, recPeriodID, oassignedApproverIDCollection, (short)WebEnums.UserRole.APPROVER, oTaskHdrInfoList);
+                    RaiseTaskAlertForUsers(alertLabelID, 1654, 1132, companyAlertID, noOfHours, recPeriodID, oassignedApproverIDCollection, (short)ARTEnums.UserRole.APPROVER, oTaskHdrInfoList);
                 }
                 //alert to notify user
                 if (oassignedNotifyIDCollection != null && oassignedNotifyIDCollection.Count > 0)
@@ -891,25 +891,25 @@ namespace SkyStem.ART.Web.Utility
                     List<AccountHdrInfo> oListAccountHdrInfoForUser = null;
                     switch (oUserHdrInfo.RoleID)
                     {
-                        case (short)WebEnums.UserRole.PREPARER:
+                        case (short)ARTEnums.UserRole.PREPARER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.PreparerUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
-                        case (short)WebEnums.UserRole.REVIEWER:
+                        case (short)ARTEnums.UserRole.REVIEWER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.ReviewerUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
-                        case (short)WebEnums.UserRole.APPROVER:
+                        case (short)ARTEnums.UserRole.APPROVER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.ApproverUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
 
                         //Backups
 
-                        case (short)WebEnums.UserRole.BACKUP_PREPARER:
+                        case (short)ARTEnums.UserRole.BACKUP_PREPARER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.BackupPreparerUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
-                        case (short)WebEnums.UserRole.BACKUP_REVIEWER:
+                        case (short)ARTEnums.UserRole.BACKUP_REVIEWER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.BackupReviewerUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
-                        case (short)WebEnums.UserRole.BACKUP_APPROVER:
+                        case (short)ARTEnums.UserRole.BACKUP_APPROVER:
                             oListAccountHdrInfoForUser = oAccountHdrInfoCollection.Where(o => o.BackupApproverUserID == oUserHdrInfo.UserID).ToList<AccountHdrInfo>();
                             break;
                     }
@@ -1487,26 +1487,26 @@ namespace SkyStem.ART.Web.Utility
         {
 
             IUser oUserClient = RemotingHelper.GetUserObject();
-            WebEnums.UserRole? eRoleMailToBeSent = null;
+            ARTEnums.UserRole? eRoleMailToBeSent = null;
             switch (eAlert)
             {
                 case WebEnums.Alert.AccountReconciliationHasBeenRejected_Denied:
                 case WebEnums.Alert.YouHaveXAccountsPendingModification:
-                    if (roleID == (short)WebEnums.UserRole.REVIEWER)
+                    if (roleID == (short)ARTEnums.UserRole.REVIEWER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.PREPARER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.PREPARER;
                     }
-                    else if (roleID == (short)WebEnums.UserRole.APPROVER)
+                    else if (roleID == (short)ARTEnums.UserRole.APPROVER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.REVIEWER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.REVIEWER;
                     }
-                    if (roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                    if (roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.PREPARER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.PREPARER;
                     }
-                    else if (roleID == (short)WebEnums.UserRole.BACKUP_APPROVER)
+                    else if (roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.REVIEWER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.REVIEWER;
                     }
 
                     break;
@@ -1514,21 +1514,21 @@ namespace SkyStem.ART.Web.Utility
                 case WebEnums.Alert.YouHaveXAccountsPendingReview:
                 case WebEnums.Alert.YouHaveXAccountsPendingApproval:
 
-                    if (roleID == (short)WebEnums.UserRole.REVIEWER)
+                    if (roleID == (short)ARTEnums.UserRole.REVIEWER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.APPROVER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.APPROVER;
                     }
-                    else if (roleID == (short)WebEnums.UserRole.PREPARER)
+                    else if (roleID == (short)ARTEnums.UserRole.PREPARER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.REVIEWER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.REVIEWER;
                     }
-                    if (roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                    if (roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.APPROVER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.APPROVER;
                     }
-                    else if (roleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                    else if (roleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                     {
-                        eRoleMailToBeSent = WebEnums.UserRole.REVIEWER;
+                        eRoleMailToBeSent = ARTEnums.UserRole.REVIEWER;
                     }
                     break;
             }

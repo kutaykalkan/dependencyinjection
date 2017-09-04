@@ -24,6 +24,7 @@ using SkyStem.ART.Web.Data;
 using System.IO;
 using SkyStem.ART.Client.Model;
 using SkyStem.ART.Shared.Utility;
+using SkyStem.ART.Client.Data;
 
 public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMatching
 {
@@ -61,7 +62,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             rgMatchingSourceDataImport.MasterTableView.SortExpressions.AddSortExpression(oGridSortExpression);
             this.ReturnUrl = Helper.ReturnURL(this.Page);
         }
-        if ((SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN ))
+        if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN ))
         {
             pnlBusinessAdminDDL.Visible = true;
         }
@@ -80,7 +81,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         }
         else
         {
-            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)WebEnums.UserRole.BUSINESS_ADMIN, true);
+            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)ARTEnums.UserRole.BUSINESS_ADMIN, true);
 
         }
 
@@ -218,7 +219,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
 
         if (this.ddlBA.SelectedValue != "-2" && this.ddlBA.SelectedValue != "")
         {
-            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)WebEnums.UserRole.BUSINESS_ADMIN,false );
+            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)ARTEnums.UserRole.BUSINESS_ADMIN,false );
         }
         else
         {
@@ -288,8 +289,13 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         else
             lblMatchSetID.Text = "0";
 
-        string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
-        imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        //string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
+        //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadMatchingImportFile);
+        url += "&" + QueryStringConstants.MATCHING_SOURCE_DATA_IMPORT_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceDataImportID.GetValueOrDefault()
+        + "&" + QueryStringConstants.MATCHING_SOURCE_TYPE_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceTypeID.GetValueOrDefault();
+        imgFileType.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
+
 
         WebEnums.DataImportStatus eDataImportStatus = (WebEnums.DataImportStatus)System.Enum.Parse(typeof(WebEnums.DataImportStatus), oMatchingSourceDataImportHdrInfo.DataImportStatusID.Value.ToString());
 

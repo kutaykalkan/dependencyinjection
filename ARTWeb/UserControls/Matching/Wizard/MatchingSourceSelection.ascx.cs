@@ -346,6 +346,7 @@ namespace SkyStem.ART.Web.UserControls.Matching.Wizard
                     {
                         MatchingParamInfo oMatchingParamInfo = new MatchingParamInfo();
                         oMatchingParamInfo.MatchingSourceDataImportID = dataImportIDGLTBS;
+                        oMatchingParamInfo.GLDataID = GLDataID;
                         MatchingSourceDataImportHdrInfo oMatchingSourceDataImportHdrInfo = MatchingHelper.GetMatchingSourceDataImportInfo(oMatchingParamInfo);
                         oMatchingSourceDataImportHdrInfo.IsSelected = true;
                         oMatchingMatchSetParamInfo.IDList.Add((long)oMatchingSourceDataImportHdrInfo.MatchingSourceDataImportID);
@@ -463,8 +464,13 @@ namespace SkyStem.ART.Web.UserControls.Matching.Wizard
             lblAddedBy.Text = Helper.GetDisplayStringValue(oMatchingSourceDataImportHdrInfo.AddedBy);
             lblDateAdded.Text = Helper.GetDisplayDate(oMatchingSourceDataImportHdrInfo.DateAdded);
 
-            string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
-            imgDownloadFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+            //string url = "../DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oMatchingSourceDataImportHdrInfo.PhysicalPath));
+            //imgDownloadFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadMatchingImportFile);
+            url += "&" + QueryStringConstants.MATCHING_SOURCE_DATA_IMPORT_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceDataImportID.GetValueOrDefault()
+            + "&" + QueryStringConstants.MATCHING_SOURCE_TYPE_ID + "=" + oMatchingSourceDataImportHdrInfo.MatchingSourceTypeID.GetValueOrDefault()
+            + "&" + QueryStringConstants.GLDATA_ID + "=" + GLDataID.GetValueOrDefault();
+            imgDownloadFile.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
 
         }
 

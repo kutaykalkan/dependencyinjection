@@ -15,6 +15,7 @@ using SkyStem.ART.Client.Data;
 using System.Transactions;
 using SkyStem.ART.Client.Params.RecItemUpload;
 using SkyStem.ART.Client.Params;
+using SkyStem.ART.App.BLL;
 
 namespace SkyStem.ART.App.Services
 {
@@ -730,32 +731,7 @@ namespace SkyStem.ART.App.Services
 
             try
             {
-                ServiceHelper.SetConnectionString(oAppUserInfo);
-                DataImportHdrDAO oDataImportHrdDAO = new DataImportHdrDAO(oAppUserInfo);
-                DataImportHdrInfo oDataImportHdrInfo = oDataImportHrdDAO.GetDataImportInfo(DataImportID);
-                List<DataImportMessageDetailInfo> oDataImportMessageDetailInfoList = oDataImportHrdDAO.GetDataImportMessageDetailInfoList(DataImportID);
-                if (oDataImportMessageDetailInfoList != null && oDataImportMessageDetailInfoList.Count > 0)
-                {
-                    foreach (DataImportMessageDetailInfo oDataImportMessageDetailInfo in oDataImportMessageDetailInfoList)
-                    {
-                        if (oDataImportMessageDetailInfo.DataImportMessageCategoryID.HasValue)
-                        {
-                            if (oDataImportMessageDetailInfo.DataImportMessageCategoryID == (short)ARTEnums.DataImportMessageCategory.AccountMessages)
-                            {
-                                if (oDataImportHdrInfo.DataImportAccountMessageDetailInfoList == null)
-                                    oDataImportHdrInfo.DataImportAccountMessageDetailInfoList = new List<DataImportMessageDetailInfo>();
-                                oDataImportHdrInfo.DataImportAccountMessageDetailInfoList.Add(oDataImportMessageDetailInfo);
-                            }
-                            else
-                            {
-                                if (oDataImportHdrInfo.DataImportMessageDetailInfoList == null)
-                                    oDataImportHdrInfo.DataImportMessageDetailInfoList = new List<DataImportMessageDetailInfo>();
-                                oDataImportHdrInfo.DataImportMessageDetailInfoList.Add(oDataImportMessageDetailInfo);
-                            }
-                        }
-                    }
-                }
-                return oDataImportHdrInfo;
+                return DataImportBLL.GetDataImportInfo(DataImportID, oAppUserInfo);
             }
             catch (SqlException ex)
             {
@@ -765,13 +741,27 @@ namespace SkyStem.ART.App.Services
             {
                 ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
             }
-
             return null;
-
             //#endif
-
         }
 
+        public DataImportHdrInfo GetAccessibleDataImportInfo(DataImportParamInfo oDataImportParamInfo, AppUserInfo oAppUserInfo)
+        {
+            try
+            {
+                return DataImportBLL.GetAccessibleDataImportInfo(oDataImportParamInfo, oAppUserInfo);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return null;
+            //#endif
+        }
 
         public List<DataImportHdrInfo> GetDataImportStatusByUserID(int? RecPeriodID, bool showHiddenRows, int? UserID, short? RoleID, AppUserInfo oAppUserInfo)
         {

@@ -80,7 +80,7 @@ public partial class Pages_Home : PageBaseRole
         {
             trWebParts.Visible = false;
             trErrorMessage.Visible = true;
-            if (SessionHelper.CurrentRoleEnum != WebEnums.UserRole.SYSTEM_ADMIN)
+            if (SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.SYSTEM_ADMIN)
             {
                 lblErrorMessage.Text = string.Format(LanguageUtil.GetValue(5000062), LanguageUtil.GetValue(5000061));
             }
@@ -172,7 +172,7 @@ public partial class Pages_Home : PageBaseRole
          * So, check if Current Role is Reviewer
          */
 
-        if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.REVIEWER)
+        if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.REVIEWER)
         {
             if (Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.DualLevelReview))
             {
@@ -258,7 +258,7 @@ public partial class Pages_Home : PageBaseRole
             // Get the Total Accounts Count Message
             IUser oUserClient = RemotingHelper.GetUserObject();
             int? accountCount = oUserClient.GetTotalAccountsCount(SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, SessionHelper.CurrentReconciliationPeriodID, Helper.GetAppUserInfo());
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SYSTEM_ADMIN
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SYSTEM_ADMIN
                 && accountCount != null)
                 lblMessage.Text = string.Format(LanguageUtil.GetValue(1250), accountCount);
         }

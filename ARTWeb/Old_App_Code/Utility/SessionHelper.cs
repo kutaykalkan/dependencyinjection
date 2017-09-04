@@ -83,16 +83,16 @@ namespace SkyStem.ART.Web.Utility
         }
 
         #region "User related Properties"
-        public static WebEnums.UserRole CurrentRoleEnum
+        public static ARTEnums.UserRole CurrentRoleEnum
         {
             get
             {
                 Int16? userRoleID = SessionHelper.CurrentRoleID;
-                WebEnums.UserRole eUserRole = WebEnums.UserRole.None;
+                ARTEnums.UserRole eUserRole = ARTEnums.UserRole.None;
 
                 if (userRoleID != null)
                 {
-                    eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), userRoleID.Value.ToString());
+                    eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), userRoleID.Value.ToString());
                 }
                 return eUserRole;
             }
@@ -386,7 +386,7 @@ namespace SkyStem.ART.Web.Utility
                     oMenuMstInfoCollection.RemoveAll(T => T.MenuID == 74);// Change FTP Password
                 }
 
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
                 {
                     if (roleConfigInfo != null && roleConfigInfo.Count > 0)
                     {

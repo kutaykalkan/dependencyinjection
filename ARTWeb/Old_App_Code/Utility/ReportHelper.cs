@@ -325,8 +325,8 @@ namespace SkyStem.ART.Web.Utility
                 short roleID = oRoleMstInfo.RoleID.Value;
                 if (permittedRolesList.Contains(roleID))
                 {
-                    if ((roleID == (short)WebEnums.UserRole.BACKUP_PREPARER || roleID == (short)WebEnums.UserRole.BACKUP_REVIEWER
-                        || roleID == (short)WebEnums.UserRole.BACKUP_APPROVER) && !Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
+                    if ((roleID == (short)ARTEnums.UserRole.BACKUP_PREPARER || roleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER
+                        || roleID == (short)ARTEnums.UserRole.BACKUP_APPROVER) && !Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
                     { }
                     else
                     {
@@ -352,8 +352,8 @@ namespace SkyStem.ART.Web.Utility
             ListItemCollection lstListItem = new ListItemCollection();
             foreach (RoleMstInfo oRoleMstInfo in oRoleMstInfoCollection)
             {
-                if ((oRoleMstInfo.RoleID.Value == (short)WebEnums.UserRole.PREPARER)
-                    || (oRoleMstInfo.RoleID.Value == (short)WebEnums.UserRole.BACKUP_PREPARER
+                if ((oRoleMstInfo.RoleID.Value == (short)ARTEnums.UserRole.PREPARER)
+                    || (oRoleMstInfo.RoleID.Value == (short)ARTEnums.UserRole.BACKUP_PREPARER
                     && Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID)))
                 {
                     lstListItem.Add(new ListItem(oRoleMstInfo.Role, oRoleMstInfo.RoleID.Value.ToString()));
@@ -561,7 +561,7 @@ namespace SkyStem.ART.Web.Utility
             oCriteriaCollection[ReportCriteriaKeyName.RPTCRITERIAKEYNAME_USER] = strUserList.ToString();
         }
 
-        public static void SendUserSearchCriteriaWhenNoUserSelected(short reportID, ref DataTable dtUser, ref  DataTable dtRole)
+        public static void SendUserSearchCriteriaWhenNoUserSelected(short reportID, ref DataTable dtUser, ref DataTable dtRole)
         {
             // If both Roles and User are Not selected then pick the Default Role and User List
             if (dtUser != null && dtUser.Rows.Count <= 0)
@@ -1921,8 +1921,8 @@ namespace SkyStem.ART.Web.Utility
 
                 lblRole.Text = oCertificationTrackingReportInfo.Role;
                 lblUserName.Text = Helper.GetDisplayUserFullName(oCertificationTrackingReportInfo.FirstName, oCertificationTrackingReportInfo.LastName);
-                if ((oCertificationTrackingReportInfo.RoleID.Value == (short)WebEnums.UserRole.REVIEWER) ||
-                    (oCertificationTrackingReportInfo.RoleID.Value == (short)WebEnums.UserRole.APPROVER))
+                if ((oCertificationTrackingReportInfo.RoleID.Value == (short)ARTEnums.UserRole.REVIEWER) ||
+                    (oCertificationTrackingReportInfo.RoleID.Value == (short)ARTEnums.UserRole.APPROVER))
                 {
                     lblMadatoryReportSignOffDate.Text = Helper.GetDisplayStringValue(ReportHelper.GetDisplayCertificationTrackingReportDate(oCertificationTrackingReportInfo.MadatoryReportSignOffDate, _CertificationStartDate));
                 }
@@ -2241,8 +2241,10 @@ namespace SkyStem.ART.Web.Utility
                         ((ExLabel)e.Item.FindControl("lblQualityScoreNumber")).Text = oOpenItemsReportInfo.QualityScoreNumber;
                         ((ExLabel)e.Item.FindControl("lblComments")).Text = oOpenItemsReportInfo.Comments;
                         ((ExLabel)e.Item.FindControl("lblQualityScoreDescription")).Text = oOpenItemsReportInfo.QualityScoreDesc;
-                        ((ExLabel)e.Item.FindControl("lblSystemQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.SystemQualityScoreStatusID.Value);
-                        ((ExLabel)e.Item.FindControl("lblUserQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.UserQualityScoreStatusID.Value);
+                        if (oOpenItemsReportInfo.SystemQualityScoreStatusID.HasValue)
+                            ((ExLabel)e.Item.FindControl("lblSystemQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.SystemQualityScoreStatusID.Value);
+                        if (oOpenItemsReportInfo.UserQualityScoreStatusID.HasValue)
+                            ((ExLabel)e.Item.FindControl("lblUserQualityScoreStatus")).Text = LanguageUtil.GetValue((int)oOpenItemsReportInfo.UserQualityScoreStatusID.Value);
                     }
 
 
@@ -2346,7 +2348,8 @@ namespace SkyStem.ART.Web.Utility
                 }
                 else
                 {
-                    imgCompanyLogo.ImageUrl = ePage.ResolveUrl("~/Pages/DownloadAttachment.aspx") + "?" + QueryStringConstants.FILE_PATH + "=" + logoPath;
+                    string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadCompanyLogo);
+                    imgCompanyLogo.ImageUrl = url; //ePage.ResolveUrl("~/Pages/DownloadAttachment.aspx") + "?" + QueryStringConstants.FILE_PATH + "=" + logoPath;
                 }
             }
             catch (Exception ex)

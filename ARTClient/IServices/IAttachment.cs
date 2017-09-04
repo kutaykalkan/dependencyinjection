@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using SkyStem.ART.Client.Model;
+using SkyStem.ART.Client.Data;
+
 namespace SkyStem.ART.Client.IServices
 {
     // NOTE: If you change the interface name "IAttachment" here, you must also update the reference to "IAttachment" in Web.config.
@@ -34,6 +36,7 @@ namespace SkyStem.ART.Client.IServices
         [OperationContract]
         List<AttachmentInfo> GetAllAttachmentForGL(long? GLDataID, int? UserID, short? RoleID, AppUserInfo oAppUserInfo);
 
-
+        [OperationContract]
+        List<AttachmentInfo> GetAllAttachmentForTask(long? taskID, ARTEnums.TaskType taskType, AppUserInfo oAppUserInfo);
     }
 }

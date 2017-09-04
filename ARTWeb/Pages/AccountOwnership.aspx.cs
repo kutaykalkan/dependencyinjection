@@ -817,7 +817,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                         //}
 
 
-                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.PREPARER))
+                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.PREPARER))
                         {
                             int userid;
                             if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -827,7 +827,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                                 oAccountHdrInfo.PreparerUserID = null;
                             }
                         }
-                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.REVIEWER))
+                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.REVIEWER))
                         {
                             int userid;
                             if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -837,7 +837,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                                 oAccountHdrInfo.ReviewerUserID = null;
                             }
                         }
-                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.BACKUP_PREPARER))
+                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.BACKUP_PREPARER))
                         {
                             int userid;
                             if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -847,7 +847,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                                 oAccountHdrInfo.BackupPreparerUserID = null;
                             }
                         }
-                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.BACKUP_REVIEWER))
+                        if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.BACKUP_REVIEWER))
                         {
                             int userid;
                             if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -860,7 +860,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
 
                         if (this._IsDualReviewEnabled)
                         {
-                            if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.APPROVER))
+                            if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.APPROVER))
                             {
                                 int userid;
                                 if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -870,7 +870,7 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                                     oAccountHdrInfo.ApproverUserID = null;
                                 }
                             }
-                            if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(WebEnums.UserRole.BACKUP_APPROVER))
+                            if (Convert.ToInt16(ddlAccountAttribute.SelectedValue) == Convert.ToInt16(ARTEnums.UserRole.BACKUP_APPROVER))
                             {
                                 int userid;
                                 if (!string.IsNullOrEmpty(hdnOwner.Value) && int.TryParse(hdnOwner.Value, out userid) && userid > 0)
@@ -913,12 +913,12 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                             , _IsDualReviewEnabled
                             , SessionHelper.GetCurrentUser().LoginID
                             , DateTime.Now
-                            , (short)WebEnums.UserRole.PREPARER
-                            , (short)WebEnums.UserRole.REVIEWER
-                            , (short)WebEnums.UserRole.APPROVER
-                            , (short)WebEnums.UserRole.BACKUP_PREPARER
-                            , (short)WebEnums.UserRole.BACKUP_REVIEWER
-                            , (short)WebEnums.UserRole.BACKUP_APPROVER
+                            , (short)ARTEnums.UserRole.PREPARER
+                            , (short)ARTEnums.UserRole.REVIEWER
+                            , (short)ARTEnums.UserRole.APPROVER
+                            , (short)ARTEnums.UserRole.BACKUP_PREPARER
+                            , (short)ARTEnums.UserRole.BACKUP_REVIEWER
+                            , (short)ARTEnums.UserRole.BACKUP_APPROVER
                             , (short)ARTEnums.ActionType.AccountAttributeChangeFromUI
                             , Helper.GetAppUserInfo());
 
@@ -1089,12 +1089,12 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                             , _IsDualReviewEnabled
                             , SessionHelper.GetCurrentUser().LoginID
                             , DateTime.Now
-                            , (short)WebEnums.UserRole.PREPARER
-                            , (short)WebEnums.UserRole.REVIEWER
-                            , (short)WebEnums.UserRole.APPROVER
-                            , (short)WebEnums.UserRole.BACKUP_PREPARER
-                            , (short)WebEnums.UserRole.BACKUP_REVIEWER
-                            , (short)WebEnums.UserRole.BACKUP_APPROVER
+                            , (short)ARTEnums.UserRole.PREPARER
+                            , (short)ARTEnums.UserRole.REVIEWER
+                            , (short)ARTEnums.UserRole.APPROVER
+                            , (short)ARTEnums.UserRole.BACKUP_PREPARER
+                            , (short)ARTEnums.UserRole.BACKUP_REVIEWER
+                            , (short)ARTEnums.UserRole.BACKUP_APPROVER
                             , (short)ARTEnums.ActionType.AccountAttributeChangeFromUI
                             , Helper.GetAppUserInfo());
 
@@ -1203,12 +1203,12 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
                     , _IsDualReviewEnabled
                     , SessionHelper.GetCurrentUser().LoginID
                     , DateTime.Now
-                    , (short)WebEnums.UserRole.PREPARER
-                    , (short)WebEnums.UserRole.REVIEWER
-                    , (short)WebEnums.UserRole.APPROVER
-                    , (short)WebEnums.UserRole.BACKUP_PREPARER
-                    , (short)WebEnums.UserRole.BACKUP_REVIEWER
-                    , (short)WebEnums.UserRole.BACKUP_APPROVER
+                    , (short)ARTEnums.UserRole.PREPARER
+                    , (short)ARTEnums.UserRole.REVIEWER
+                    , (short)ARTEnums.UserRole.APPROVER
+                    , (short)ARTEnums.UserRole.BACKUP_PREPARER
+                    , (short)ARTEnums.UserRole.BACKUP_REVIEWER
+                    , (short)ARTEnums.UserRole.BACKUP_APPROVER
                     , (short)ARTEnums.ActionType.AccountAttributeChangeFromUI
                     , Helper.GetAppUserInfo());
 
@@ -1693,24 +1693,24 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
         AccountAttributeMstInfo oAccountAttributeMstInfo = null;
 
         oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-        oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.PREPARER;
+        oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.PREPARER;
         oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(1130);
         oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
 
         oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-        oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.REVIEWER;
+        oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.REVIEWER;
         oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(1131);
         oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
 
         if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
         {
             oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-            oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.BACKUP_PREPARER;
+            oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.BACKUP_PREPARER;
             oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(2501);
             oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
 
             oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-            oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.BACKUP_REVIEWER;
+            oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.BACKUP_REVIEWER;
             oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(2502);
             oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
 
@@ -1718,14 +1718,14 @@ public partial class Pages_AccountOwnership : PageBaseRecPeriod
         if (this._IsDualReviewEnabled)
         {
             oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-            oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.APPROVER;
+            oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.APPROVER;
             oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(1132);
             oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
 
             if (Helper.IsFeatureActivated(WebEnums.Feature.AccountOwnershipBackup, SessionHelper.CurrentReconciliationPeriodID))
             {
                 oAccountAttributeMstInfo = new AccountAttributeMstInfo();
-                oAccountAttributeMstInfo.AccountAttributeID = (short)WebEnums.UserRole.BACKUP_APPROVER;
+                oAccountAttributeMstInfo.AccountAttributeID = (short)ARTEnums.UserRole.BACKUP_APPROVER;
                 oAccountAttributeMstInfo.Name = LanguageUtil.GetValue(2503);
                 oAccountAttributeMstInfoCollection.Add(oAccountAttributeMstInfo);
             }

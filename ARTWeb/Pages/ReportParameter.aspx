@@ -205,6 +205,8 @@
                 <td colspan="2" align="right">
                     <webControls:ExButton ID="btnRunReport" runat="server" OnClick="btnRunReport_Click"
                         LabelID="1577 " SkinID="ExButton100" CausesValidation="true" />
+<%--                    <webControls:ExButton ID="btnExportToExcelAndEmailReport" runat="server" OnClick="btnExportToExcelAndEmailReport_Click"
+                        LabelID="3076 " SkinID="ExButton200" CausesValidation="true" />--%>
                     <webControls:ExButton ID="btnCancel" runat="server" LabelID="1239" OnClick="btnCancel_Click"
                         CausesValidation="false" SkinID="ExButton100" />
                 </td>

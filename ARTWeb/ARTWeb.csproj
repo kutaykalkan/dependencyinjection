@@ -208,7 +208,6 @@
     <Content Include="Templates\Subledger.xlsx" />
     <Content Include="Templates\SubledgerSource.xlsx" />
     <Content Include="Templates\UserUpload.xlsx" />
-    <Content Include="UserControls\Matching\Wizard\.#MatchingSourceSelection.ascx.cs.1.44" />
     <Content Include="Areas\mvc\Views\web.config" />
     <Content Include="Areas\mvc\Views\_ViewStart.cshtml" />
     <Content Include="Areas\mvc\Views\Shared\_Layout.cshtml" />
@@ -232,6 +231,7 @@
     <Content Include="Areas\mvc\src\templates\slides\slide-2.ejs" />
     <Content Include="Areas\mvc\Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Areas\mvc\Views\Login\ForgotPassword.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -798,6 +798,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\mvc\Controllers\AutoSaveController.cs" />
     <Compile Include="Areas\mvc\Controllers\BSFluxController.cs" />
     <Compile Include="Areas\mvc\Controllers\LoginController.cs" />
     <Compile Include="Areas\mvc\mvcAreaRegistration.cs" />
@@ -3247,6 +3248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\mvc\Models\" />
+    <Folder Include="Areas\mvc\Views\AutoSave\" />
     <Folder Include="Areas\mvc\wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
@@ -3266,6 +3268,9 @@
       <Project>{5c171043-32e1-4cee-a8de-45701692402e}</Project>
       <Name>ARTShared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

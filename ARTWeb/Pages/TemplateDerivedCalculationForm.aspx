@@ -126,7 +126,7 @@
                                                             <%--<UserControls:GLAdjustments ID="uctlGLAdjustments" IsPrintMode="false" runat="server"
                                                                 Visible="false" />--%>
                                                             <UserControls:GLAdjustments ID="GLAdjustments1" EntityNameLabelID="1656" Visible="false" IsPrintMode="false"
-                                                                runat="server" />
+                                                                AutoSaveAttributeID ="DerivedFormAdjustmentsTotal" runat="server" />
                                                         </td>
                                                     </tr>
                                                     <%--Timming Difference Grid--%>
@@ -157,7 +157,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlTimmingDifference" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="DerivedFormTimingDifferenceTotal" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <%--Reconciled Balance Row--%>
@@ -250,7 +250,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:GLAdjustments ID="uctlGLAdjustmentsOther" ShowCopyButton="true" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                                AutoSaveAttributeID ="DerivedFormSupportingDetailOther" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -293,7 +293,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:ItemInputWriteOff ID="uctlItemInputWriteOff" EntityNameLabelID="1389" IsPrintMode="false" runat="server"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="DerivedFormReconciliationWriteOffsOns" Visible="false" />
                                                         </td>
                                                     </tr>
                                                     <tr class="GLAdjustmentRow">
@@ -319,7 +319,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:UnexplainedVariance ID="uctlUnexplainedVariance" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                                AutoSaveAttributeID ="DerivedFormUnexpVar" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -425,7 +425,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:EditQualityScore ID="ucEditQualityScore" IsPrintMode="false" runat="server"
-                                                                OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
+                                                               AutoSaveAttributeID ="DerivedFormQualityScore" OnQualityScoreChanged="ucEditQualityScore_OnQualityScoreChanged" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -472,7 +472,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecControlCheckList ID="ucRecControlCheckList" IsPrintMode="false" runat="server" OnRecControlListChanged="ucRecControlCheckList_OnRecControlListChanged"
-                                                                Visible="false" />
+                                                               AutoSaveAttributeID ="DerivedFormRCCStatus" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -527,7 +527,7 @@
                                                     <tr>
                                                         <td colspan="5">
                                                             <UserControls:RecFormAccountTaskGrid ID="ucRecFormAccountTaskGrid" IsPrintMode="false"
-                                                                runat="server" Visible="false" />
+                                                                AutoSaveAttributeID ="DerivedFormTaskStatus" runat="server" Visible="false" />
                                                         </td>
                                                     </tr>
                                                 </table>

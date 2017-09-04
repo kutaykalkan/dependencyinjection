@@ -11,6 +11,7 @@ using SkyStem.ART.Web.Utility;
 using SkyStem.Language.LanguageUtility;
 using SkyStem.Language.LanguageUtility.Classes;
 using SkyStem.Library.Controls.WebControls;
+using SkyStem.ART.Client.Data;
 
 namespace SkyStem.ART.Web.Areas.mvc.Controllers
 {
@@ -117,7 +118,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                         if (mUser != null) FormsAuthentication.RedirectFromLoginPage(mUser.UserName, remember);
 
                         // check for SkyStem Admin
-                        if (userHdrInfo.DefaultRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                        if (userHdrInfo.DefaultRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                         {
                             // Set the Current Company as User's Company
                             SessionHelper.CurrentCompanyID = userHdrInfo.CompanyID;
@@ -285,7 +286,7 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
 
             if (oLockedUserHdrInfo.CompanyID == null) return;
 
-            var oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)WebEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
+            var oUserHdrInfoList = oUser.SelectAllUserHdrInfoByCompanyIDAndRoleID(oLockedUserHdrInfo.CompanyID.Value, (int)ARTEnums.UserRole.SYSTEM_ADMIN, oAppUserInfo);
             foreach (var oUserHdrInfo in oUserHdrInfoList)
             {
                 var oMailBody = new StringBuilder();

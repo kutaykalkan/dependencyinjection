@@ -325,6 +325,75 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
+        AutoExpandSections();
+    }
+
+    private void AutoExpandSections()
+    {
+        List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
+        if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
+        {
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            {
+                switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
+                {
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormAdjustmentsTotal:
+                        if (uctlGLAdjustment.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgGLAdjustment_Click(imgGLAdjustment, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormTimingDifferenceTotal:
+                        if (uctlTimingDifference.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgTimingDifference_Click(imgTimingDifference, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormSupportingDetailIndividual:
+                        if (uctlItemInputAmortizableIndividual.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgViewIndividualAmortizableDetail_Click(imgViewIndividualAmortizableDetail, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormSupportingDetailRecurring:
+                        if (uctlSupportingDetail.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgSupportingDetail_Click(imgSupportingDetail, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormReconciliationWriteOffsOns:
+                        if (uctlRecWriteOff.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecWriteOff_Click(imgRecWriteOff, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormUnexpVar:
+                        if (uctlUnexplainedVariance.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgUnexplainedVariance_Click(imgUnexplainedVariance, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormQualityScore:
+                        if (ucEditQualityScore.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgQualityScore_Click(imgQualityScore, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormRCCStatus:
+                        if (ucRecControlCheckList.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgRecControlCheckList_Click(imgRecControlCheckList, null);
+                        }
+                        break;
+                    case ARTEnums.AutoSaveAttribute.AmortizableFormTaskStatus:
+                        if (ucRecFormAccountTaskGrid.AutoSaveAttributeID.HasValue && Convert.ToBoolean(item.Value))
+                        {
+                            imgAccountTask_Click(imgAccountTask, null);
+                        }
+                        break;
+                }
+            }
+        }
     }
 
     private void setEntityNameLabelIDForGLAdjustments()
@@ -372,7 +441,7 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
                             }
                             else
                             {
-                                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                     {
@@ -384,7 +453,7 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
                                         Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                     }
                                 }
-                                else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                                else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                                 {
                                     if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                     {
@@ -404,7 +473,7 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
                         }
                         else
                         {
-                            if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(lblRecControlCompletedValue.Text))
                                 {
@@ -416,7 +485,7 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
                                     Helper.ShowErrorMessage(this, LanguageUtil.GetValue(2854));
                                 }
                             }
-                            else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                            else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                             {
                                 if (Convert.ToString(lblRecControlTotalValue.Text) == Convert.ToString(hdReviewCount.Value))
                                 {

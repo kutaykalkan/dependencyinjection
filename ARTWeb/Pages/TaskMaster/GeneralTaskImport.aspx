@@ -367,6 +367,7 @@
             </td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
     <%--<table width="100%" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td colspan="5">

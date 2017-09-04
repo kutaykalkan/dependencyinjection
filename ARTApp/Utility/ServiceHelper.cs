@@ -1489,6 +1489,30 @@ namespace SkyStem.ART.App.Utility
             return dt;
         }
 
+        internal static DataTable ConvertUserAccountByUserRoleToDataTable(List<UserHdrInfo> oUserHdrInfoList)
+        {
+            DataTable dt = null;
+
+            if (oUserHdrInfoList != null && oUserHdrInfoList.Count > 0)
+            {
+                dt = new DataTable("udt_UserAccountByUserRoleTableType");
+                DataColumn dc1 = dt.Columns.Add("UserAccountByUserRoleID");
+                DataColumn dc2 = dt.Columns.Add("UserID");
+                DataColumn dc3 = dt.Columns.Add("RoleID");
+                DataColumn dc4 = dt.Columns.Add("ChildUserID");
+                DataColumn dc5 = dt.Columns.Add("ChildRoleID");
+                DataColumn dc6 = dt.Columns.Add("IsActive");
+                DataRow dr;
+                for (int i = 0; i < oUserHdrInfoList.Count; i++)
+                {
+                    dr = dt.NewRow();
+                    dr["ChildUserID"] = oUserHdrInfoList[i].ChildUserID;
+                    dr["ChildRoleID"] = oUserHdrInfoList[i].ChildRoleID;
+                    dt.Rows.Add(dr);
+                }
+            }
+            return dt;
+        }
 
         internal static DataTable ConvertGLDataRecurringItemScheduleIntervalDetailToDataTable(IList<GLDataRecurringItemScheduleIntervalDetailInfo> GLDataRecurringItemScheduleIntervalDetailInfoList)
         {
@@ -2757,12 +2781,14 @@ namespace SkyStem.ART.App.Utility
             Dictionary<string, System.Type> fieldDictionary = new Dictionary<string, Type>();
             fieldDictionary.Add("ID", typeof(System.Int16));
             DataTable dt = GetDataTable(fieldDictionary, false);
-
-            foreach (TaskStatusMstInfo oTaskStatus in taskStatusInfoList)
+            if (taskStatusInfoList != null && taskStatusInfoList.Count > 0)
             {
-                DataRow dr = dt.NewRow();
-                dr["ID"] = oTaskStatus.TaskStatusID.Value;
-                dt.Rows.Add(dr);
+                foreach (TaskStatusMstInfo oTaskStatus in taskStatusInfoList)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ID"] = oTaskStatus.TaskStatusID.Value;
+                    dt.Rows.Add(dr);
+                }
             }
             return dt;
         }

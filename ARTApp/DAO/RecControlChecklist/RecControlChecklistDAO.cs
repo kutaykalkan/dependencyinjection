@@ -554,5 +554,12 @@ namespace SkyStem.ART.App.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             return cmd;
         }
+
+        protected override RecControlCheckListInfo MapObject(IDataReader r)
+        {
+            RecControlCheckListInfo entity = base.MapObject(r);
+            entity.DataImportTypeID = r.GetInt16Value("DataImportTypeID");
+            return entity;
+        }
     }
 }

@@ -10,6 +10,9 @@ using SkyStem.ART.App.DAO;
 using System.Data.SqlClient;
 using SkyStem.ART.App.Utility;
 using System.Data;
+using SkyStem.ART.App.BLL;
+using SkyStem.ART.Client.Data;
+
 namespace SkyStem.ART.App.Services
 {
     // NOTE: If you change the class name "Attachment" here, you must also update the reference to "Attachment" in Web.config.
@@ -20,12 +23,10 @@ namespace SkyStem.ART.App.Services
         }
         public List<AttachmentInfo> GetAttachment(long RecordID, int RecordTypeID, int? RecPeriodID, AppUserInfo oAppUserInfo)
         {
-            List<AttachmentInfo> oAttachmentInfoCollection = new List<AttachmentInfo>();
+            List<AttachmentInfo> oAttachmentInfoList = new List<AttachmentInfo>();
             try
             {
-                ServiceHelper.SetConnectionString(oAppUserInfo);
-                AttachmentDAO oAttachmentDAO = new AttachmentDAO(oAppUserInfo);
-                oAttachmentInfoCollection = oAttachmentDAO.GetAttachmentByRecordIDandRecordTypeID(RecordID, RecordTypeID, RecPeriodID);
+                oAttachmentInfoList = AttachmentBLL.GetAttachment(RecordID, RecordTypeID, RecPeriodID, oAppUserInfo);
             }
             catch (SqlException ex)
             {
@@ -35,8 +36,7 @@ namespace SkyStem.ART.App.Services
             {
                 ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
             }
-            return oAttachmentInfoCollection;
-
+            return oAttachmentInfoList;
         }
 
 
@@ -171,8 +171,7 @@ namespace SkyStem.ART.App.Services
             try
             {
                 ServiceHelper.SetConnectionString(oAppUserInfo);
-                AttachmentDAO oAttachmentDAO = new AttachmentDAO(oAppUserInfo);
-                oAttachmentInfoCollection = oAttachmentDAO.GetAllAttachmentForGL(GLDataID, UserID, RoleID);
+                oAttachmentInfoCollection = AttachmentBLL.GetAllAttachmentForGL(GLDataID, UserID, RoleID, oAppUserInfo);
             }
             catch (SqlException ex)
             {
@@ -183,8 +182,25 @@ namespace SkyStem.ART.App.Services
                 ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
             }
             return oAttachmentInfoCollection;
-
         }
 
+        public List<AttachmentInfo> GetAllAttachmentForTask(long? taskID, ARTEnums.TaskType taskType, AppUserInfo oAppUserInfo)
+        {
+            List<AttachmentInfo> oAttachmentInfoCollection = new List<AttachmentInfo>();
+            try
+            {
+                ServiceHelper.SetConnectionString(oAppUserInfo);
+                oAttachmentInfoCollection = AttachmentBLL.GetAllAttachmentForTask(taskID, taskType, oAppUserInfo);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return oAttachmentInfoCollection;
+        }
     }//end of class
 }//end of namespace

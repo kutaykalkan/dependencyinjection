@@ -297,8 +297,13 @@ namespace SkyStem.ART.Web.UserControls
                     if (oRecControlCheckListInfo.PhysicalPath != null)
                     {
                         imgViewFile.Visible = true;
-                        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oRecControlCheckListInfo.PhysicalPath));
-                        imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                        //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oRecControlCheckListInfo.PhysicalPath));
+                        //imgViewFile.OnClientClick = "document.location.href = '" + url + "';return false;";
+                        string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+                        url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + oRecControlCheckListInfo.DataImportID.GetValueOrDefault()
+                        + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oRecControlCheckListInfo.DataImportTypeID.GetValueOrDefault()
+                        + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataID.GetValueOrDefault();
+                        imgViewFile.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
                     }
                 }
 
@@ -306,14 +311,14 @@ namespace SkyStem.ART.Web.UserControls
                 if (EditMode == WebEnums.FormMode.Edit)
                 {
 
-                    if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER)
+                    if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER)
                     {
                         ddlCompleted.Enabled = true;
                         ddlReviewed.Enabled = false;
 
                     }
                     // Reviewer can modify only one below
-                    else if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER)
+                    else if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER)
                     {
                         ddlReviewed.Enabled = true;
                         ddlCompleted.Enabled = false;
@@ -328,7 +333,7 @@ namespace SkyStem.ART.Web.UserControls
                 {
                     ddlReviewed.Enabled = false;
                     ddlCompleted.Enabled = false;
-                    if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT && oAttributeConfigInfo != null)
+                    if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT && oAttributeConfigInfo != null)
                     {
                         CompanyAttributeConfigInfo oNotSeeRecControlChecklist = oAttributeConfigInfo.Find(c => c.AttributeID == (short)ARTEnums.AttributeList.NotSeeRecControlChecklist);
                         if (oNotSeeRecControlChecklist != null && oNotSeeRecControlChecklist.IsEnabled.HasValue)
@@ -642,13 +647,13 @@ namespace SkyStem.ART.Web.UserControls
                 RecControlCheckListInfo oRecControlCheckListInfo = ALLRecControlCheckListInfoList.Find(T => T.RecControlCheckListID == RecControlCheckListID);
                 if (oRecControlCheckListInfo != null && oRecControlCheckListInfo.oGLDataRecControlCheckListInfo != null)
                 {
-                    if (ddlCompleted != null && ddlCompleted.Enabled && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+                    if (ddlCompleted != null && ddlCompleted.Enabled && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
                     {
                         if (ddlCompleted.SelectedValue != WebConstants.SELECT_ONE)
                             oRecControlCheckListInfo.oGLDataRecControlCheckListInfo.CompletedRecStatus = GetDDLSelectedValue(ddlCompleted);
 
                     }
-                    if (ddlReviewed != null && ddlReviewed.Enabled && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER))
+                    if (ddlReviewed != null && ddlReviewed.Enabled && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER))
                     {
                         if (ddlCompleted.SelectedValue != WebConstants.SELECT_ONE)
                             oRecControlCheckListInfo.oGLDataRecControlCheckListInfo.ReviewedRecStatus = GetDDLSelectedValue(ddlReviewed);
@@ -689,7 +694,7 @@ namespace SkyStem.ART.Web.UserControls
                         oGLDataRecControlCheckListInfo.IsActive = true;
                         oGLDataRecControlCheckListInfo.GLDataID = this.GLDataID;
                     }
-                    if (ddlCompleted != null && ddlCompleted.Enabled && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+                    if (ddlCompleted != null && ddlCompleted.Enabled && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
                     {
                         oGLDataRecControlCheckListInfo.CompletedRecStatus = GetDDLSelectedValue(ddlCompleted);
                         if (oGLDataRecControlCheckListInfo.CompletedRecStatus.HasValue)
@@ -706,7 +711,7 @@ namespace SkyStem.ART.Web.UserControls
                         if (oGLDataRecControlCheckListInfo.DateRevised.HasValue)
                             oGLDataRecControlCheckListInfo.DateRevised = System.DateTime.Now;
                     }
-                    if (ddlReviewed != null && ddlReviewed.Enabled && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_REVIEWER))
+                    if (ddlReviewed != null && ddlReviewed.Enabled && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.REVIEWER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_REVIEWER))
                     {
                         oGLDataRecControlCheckListInfo.ReviewedRecStatus = GetDDLSelectedValue(ddlReviewed);
                         if (oGLDataRecControlCheckListInfo.ReviewedRecStatus.HasValue)
@@ -721,7 +726,7 @@ namespace SkyStem.ART.Web.UserControls
                 }
                 //rgRecControlCheckListItems.AllowPaging = true;
                 //rgRecControlCheckListItems.Rebind();
-                if (oGLDataRecControlCheckListInfoList != null && oGLDataRecControlCheckListInfoList.Count != ALLRecControlCheckListInfoList.Count && (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BACKUP_PREPARER))
+                if (oGLDataRecControlCheckListInfoList != null && oGLDataRecControlCheckListInfoList.Count != ALLRecControlCheckListInfoList.Count && (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.PREPARER || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BACKUP_PREPARER))
                 {
                     foreach (RecControlCheckListInfo item in ALLRecControlCheckListInfoList)
                     {

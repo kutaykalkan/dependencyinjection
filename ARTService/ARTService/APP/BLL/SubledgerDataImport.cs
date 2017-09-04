@@ -369,9 +369,12 @@ namespace SkyStem.ART.Service.APP.BLL
             List<ClientModel.DataImportMessageDetailInfo> oDataImportMessageDetailInfoList = new List<ClientModel.DataImportMessageDetailInfo>();
             DataImportMessageInfo DataImportMessageDataLengthExceeded = DataImportHelper.GetDataImportMessageInfo((short)Enums.DataImportMessage.DataLengthExceeded, this.CompanyUserInfo.CompanyID);
             DataImportMessageInfo DataImportMessageInfoInvalidValue = DataImportHelper.GetDataImportMessageInfo((short)Enums.DataImportMessage.InvalidValue, this.CompanyUserInfo.CompanyID);
+            DataImportMessageInfo DataImportMessageInfoNoDataForMandatoryField = DataImportHelper.GetDataImportMessageInfo((short)Enums.DataImportMessage.NoDataForMandatoryField, this.CompanyUserInfo.CompanyID);
             for (int x = 0; x < dtExcelData.Rows.Count; x++)
             {
                 DataTable dtMessage = DataImportHelper.CreateDataImportMessageTable();
+                DataTable dtMessageNoDataForMandatoryField = DataImportHelper.CreateDataImportMandatoryFieldsNotPresentMessageTable();
+                DataTable dtMessageInvalidValue = DataImportHelper.CreateDataImportMandatoryFieldsNotPresentMessageTable();
                 DataRow dr = dtExcelData.Rows[x];
                 string excelRowNumber = dr[AddedGLDataImportFields.EXCELROWNUMBER].ToString();
                 // Validate Data Length Validations
@@ -507,6 +510,22 @@ namespace SkyStem.ART.Service.APP.BLL
                     dr[GLDataImportFields.PERIODENDDATE] = periodEndDate.ToShortDateString();
                     dr[AddedGLDataImportFields.RECPERIODENDDATE] = periodEndDate.ToShortDateString();
                 }
+                else if (string.IsNullOrEmpty(Convert.ToString(dr[GLDataImportFields.PERIODENDDATE])))
+                {
+                    var oImportTemplateFieldMappingInfo = DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.PERIODENDDATE);
+                    if (oImportTemplateFieldMappingInfo != null)
+                    {
+                        string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
+                        oSBError.Append(String.Format(InvalidDataMsg, ImportTemplateFieldName, excelRowNumber));
+                        oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
+                        DataRow drMessage = dtMessageNoDataForMandatoryField.NewRow();
+                        if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
+                            drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
+                        drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;
+                        drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoNoDataForMandatoryField.DataImportMessageLabelID;
+                        dtMessageNoDataForMandatoryField.Rows.Add(drMessage);
+                    }
+                }
                 else
                 {
                     var oImportTemplateFieldMappingInfo = DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.PERIODENDDATE);
@@ -515,12 +534,12 @@ namespace SkyStem.ART.Service.APP.BLL
                         string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
                         oSBError.Append(String.Format(InvalidDataMsg, ImportTemplateFieldName, excelRowNumber));
                         oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
-                        DataRow drMessage = dtMessage.NewRow();
+                        DataRow drMessage = dtMessageInvalidValue.NewRow();
                         if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
                             drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
                         drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;
                         drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoInvalidValue.DataImportMessageLabelID;
-                        dtMessage.Rows.Add(drMessage);
+                        dtMessageInvalidValue.Rows.Add(drMessage);
                     }
                 }
 
@@ -528,6 +547,22 @@ namespace SkyStem.ART.Service.APP.BLL
                 if (Helper.IsValidDecimal(dr[GLDataImportFields.BALANCEBCCY].ToString(), oSubledgerDataImportInfo.LanguageID, out BalBCCY))
                 {
                     dr[GLDataImportFields.BALANCEBCCY] = BalBCCY.ToString();
+                }
+                else if (string.IsNullOrEmpty(Convert.ToString(dr[GLDataImportFields.BALANCEBCCY])))
+                {
+                    var oImportTemplateFieldMappingInfo = DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.BALANCEBCCY);
+                    if (oImportTemplateFieldMappingInfo != null)
+                    {
+                        string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
+                        oSBError.Append(String.Format(InvalidDataMsg, DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.BALANCEBCCY), excelRowNumber));
+                        oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
+                        DataRow drMessage = dtMessageNoDataForMandatoryField.NewRow();
+                        if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
+                            drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
+                        drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;
+                        drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoNoDataForMandatoryField.DataImportMessageLabelID;
+                        dtMessageNoDataForMandatoryField.Rows.Add(drMessage);
+                    }
                 }
                 else
                 {
@@ -537,12 +572,12 @@ namespace SkyStem.ART.Service.APP.BLL
                         string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
                         oSBError.Append(String.Format(InvalidDataMsg, DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.BALANCEBCCY), excelRowNumber));
                         oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
-                        DataRow drMessage = dtMessage.NewRow();
+                        DataRow drMessage = dtMessageInvalidValue.NewRow();
                         if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
                             drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
                         drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;                        
                         drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoInvalidValue.DataImportMessageLabelID;
-                        dtMessage.Rows.Add(drMessage);
+                        dtMessageInvalidValue.Rows.Add(drMessage);
                     }
                 }
 
@@ -550,6 +585,22 @@ namespace SkyStem.ART.Service.APP.BLL
                 if (Helper.IsValidDecimal(dr[GLDataImportFields.BALANCERCCY].ToString(), oSubledgerDataImportInfo.LanguageID, out BalRCCY))
                 {
                     dr[GLDataImportFields.BALANCERCCY] = BalRCCY.ToString();
+                }
+                else if (string.IsNullOrEmpty(Convert.ToString(dr[GLDataImportFields.BALANCERCCY])))
+                {
+                    var oImportTemplateFieldMappingInfo = DataImportHelper.GetImportTemplateField(oImportTemplateFieldMappingInfoList, GLDataImportFields.BALANCERCCY);
+                    if (oImportTemplateFieldMappingInfo != null)
+                    {
+                        string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
+                        oSBError.Append(String.Format(InvalidDataMsg, ImportTemplateFieldName, excelRowNumber));
+                        oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
+                        DataRow drMessage = dtMessageNoDataForMandatoryField.NewRow();
+                        if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
+                            drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
+                        drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;
+                        drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoNoDataForMandatoryField.DataImportMessageLabelID;
+                        dtMessageNoDataForMandatoryField.Rows.Add(drMessage);
+                    }
                 }
                 else
                 {
@@ -559,12 +610,12 @@ namespace SkyStem.ART.Service.APP.BLL
                         string ImportTemplateFieldName = DataImportHelper.GetImportTemplateFieldName(oImportTemplateFieldMappingInfo, oSubledgerDataImportInfo.LanguageID, oSubledgerDataImportInfo.DefaultLanguageID, this.CompanyUserInfo);
                         oSBError.Append(String.Format(InvalidDataMsg, ImportTemplateFieldName, excelRowNumber));
                         oSBError.Append(ServiceConstants.ERRORMESSAGESEPERATOR);
-                        DataRow drMessage = dtMessage.NewRow();
+                        DataRow drMessage = dtMessageInvalidValue.NewRow();
                         if (oImportTemplateFieldMappingInfo.ImportFieldID.HasValue)
                             drMessage[DataImportMessageConstants.Fields.ImportFieldID] = oImportTemplateFieldMappingInfo.ImportFieldID.Value;
                         drMessage[DataImportMessageConstants.Fields.ImportField] = ImportTemplateFieldName;                      
                         drMessage[DataImportMessageConstants.Fields.MessageLabelID] = DataImportMessageInfoInvalidValue.DataImportMessageLabelID;
-                        dtMessage.Rows.Add(drMessage);
+                        dtMessageInvalidValue.Rows.Add(drMessage);
                     }
                 }
                 if (dtMessage.Rows.Count > 0)
@@ -576,6 +627,32 @@ namespace SkyStem.ART.Service.APP.BLL
                     oDataImportMessageDetailInfo.DataImportMessageLabelID = DataImportMessageInfoInvalidValue.DataImportMessageLabelID;
                     DataSet ds = new DataSet();
                     ds.Tables.Add(dtMessage);
+                    oDataImportMessageDetailInfo.MessageSchema = ds.GetXmlSchema();
+                    oDataImportMessageDetailInfo.MessageData = ds.GetXml();
+                    oDataImportMessageDetailInfoList.Add(oDataImportMessageDetailInfo);
+                }
+                if (dtMessageNoDataForMandatoryField.Rows.Count > 0)
+                {
+                    ClientModel.DataImportMessageDetailInfo oDataImportMessageDetailInfo = new ClientModel.DataImportMessageDetailInfo();
+                    oDataImportMessageDetailInfo.ExcelRowNumber = Convert.ToInt32(excelRowNumber);
+                    oDataImportMessageDetailInfo.DataImportMessageTypeID = (short)DataImportMessageInfoNoDataForMandatoryField.DataImportMessageTypeID;
+                    oDataImportMessageDetailInfo.DataImportMessageID = DataImportMessageInfoNoDataForMandatoryField.DataImportMessageID;
+                    oDataImportMessageDetailInfo.DataImportMessageLabelID = DataImportMessageInfoNoDataForMandatoryField.DataImportMessageLabelID;
+                    DataSet ds = new DataSet();
+                    ds.Tables.Add(dtMessageNoDataForMandatoryField);
+                    oDataImportMessageDetailInfo.MessageSchema = ds.GetXmlSchema();
+                    oDataImportMessageDetailInfo.MessageData = ds.GetXml();
+                    oDataImportMessageDetailInfoList.Add(oDataImportMessageDetailInfo);
+                }
+                if (dtMessageInvalidValue.Rows.Count > 0)
+                {
+                    ClientModel.DataImportMessageDetailInfo oDataImportMessageDetailInfo = new ClientModel.DataImportMessageDetailInfo();
+                    oDataImportMessageDetailInfo.ExcelRowNumber = Convert.ToInt32(excelRowNumber);
+                    oDataImportMessageDetailInfo.DataImportMessageTypeID = (short)DataImportMessageInfoInvalidValue.DataImportMessageTypeID;
+                    oDataImportMessageDetailInfo.DataImportMessageID = DataImportMessageInfoInvalidValue.DataImportMessageID;
+                    oDataImportMessageDetailInfo.DataImportMessageLabelID = DataImportMessageInfoInvalidValue.DataImportMessageLabelID;
+                    DataSet ds = new DataSet();
+                    ds.Tables.Add(dtMessageInvalidValue);
                     oDataImportMessageDetailInfo.MessageSchema = ds.GetXmlSchema();
                     oDataImportMessageDetailInfo.MessageData = ds.GetXml();
                     oDataImportMessageDetailInfoList.Add(oDataImportMessageDetailInfo);

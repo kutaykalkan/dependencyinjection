@@ -88,12 +88,12 @@ public partial class Pages_DataImportStatus : PageBaseCompany
 
 
 
-            if ((SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN))
+            if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN))
             {
 
                 lblGridHeading.Text = LanguageUtil.GetValue(1056) + " / " + LanguageUtil.GetValue(1420) + " / " + LanguageUtil.GetValue(1058);
             }
-            else if ((SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BUSINESS_ADMIN))
+            else if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BUSINESS_ADMIN))
             {
                 lblGridHeading.Text = LanguageUtil.GetValue(1058);
 
@@ -115,7 +115,7 @@ public partial class Pages_DataImportStatus : PageBaseCompany
         Sel.Value = "";
 
 
-        if ((SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN) || (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BUSINESS_ADMIN))
+        if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN) || (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BUSINESS_ADMIN))
         {
 
             this.btnDeleteDataImport.Visible = true;
@@ -126,7 +126,7 @@ public partial class Pages_DataImportStatus : PageBaseCompany
             this.btnNewDataImport.Visible = false;
             this.btnDeleteDataImport.Visible = false;
         }
-        if ((SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN))
+        if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN))
         {
             //pnlRecAndHolidayDataImport.Visible = true;
             pnlBusinessAdminDDL.Visible = true;
@@ -480,15 +480,15 @@ public partial class Pages_DataImportStatus : PageBaseCompany
             IDataImport oDataImportClient = RemotingHelper.GetDataImportObject();
 
             // Get All Data Imports done in the Current Rec Period
-            if (SessionHelper.CurrentReconciliationPeriodID != null || SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+            if (SessionHelper.CurrentReconciliationPeriodID != null || SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
             {
                 //bool showHiddenRows = chkShowHiddenGLDataImport.Checked;
                 int? recPeriodID = null;
-                if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                     recPeriodID = SessionHelper.CurrentReconciliationPeriodID;
                 bool showHiddenRows = true;
                 if (FromDDL && UserID != -2)
-                    oDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByUserID(recPeriodID, showHiddenRows, UserID, (short)WebEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
+                    oDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByUserID(recPeriodID, showHiddenRows, UserID, (short)ARTEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
                 else
                     oDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByUserID(recPeriodID, showHiddenRows, SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, Helper.GetAppUserInfo());
 
@@ -546,7 +546,7 @@ public partial class Pages_DataImportStatus : PageBaseCompany
 
 
             if (FromDDL && UserID != -2)
-                oRecHolidayDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByCompanyID(SessionHelper.CurrentCompanyID, UserID, (short)WebEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
+                oRecHolidayDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByCompanyID(SessionHelper.CurrentCompanyID, UserID, (short)ARTEnums.UserRole.BUSINESS_ADMIN, Helper.GetAppUserInfo());
             else
                 oRecHolidayDataImportHdrInfoCollection = oDataImportClient.GetDataImportStatusByCompanyID(SessionHelper.CurrentCompanyID, SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, Helper.GetAppUserInfo());
 
@@ -645,8 +645,14 @@ public partial class Pages_DataImportStatus : PageBaseCompany
         hlRecordsAffected.Text = Helper.GetDisplayIntegerValue(oDataImportHdrInfo.RecordsImported);
         hlFileName.Text = oDataImportHdrInfo.FileName;
 
-        string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
-        imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oDataImportHdrInfo.PhysicalPath));
+        //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        string url = "";
+        url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportFile);
+        url += "&" + QueryStringConstants.DATA_IMPORT_ID + "=" + oDataImportHdrInfo.DataImportID.GetValueOrDefault()
+        + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oDataImportHdrInfo.DataImportTypeID.GetValueOrDefault();
+        //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+        imgFileType.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
 
         //// Icons
         WebEnums.DataImportStatus eDataImportStatus = (WebEnums.DataImportStatus)System.Enum.Parse(typeof(WebEnums.DataImportStatus), oDataImportHdrInfo.DataImportStatusID.Value.ToString());

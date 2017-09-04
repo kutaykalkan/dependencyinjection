@@ -285,7 +285,7 @@ public partial class Pages_DataImport : PageBaseCompany
                 else
                     ImportTemplateID = null;
 
-                if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                     companyID = 0;
                 //DataTable dtPeriodEndDates;
                 try
@@ -318,7 +318,7 @@ public partial class Pages_DataImport : PageBaseCompany
 
                     DataImportHelper.GetCompanyDataStorageCapacityAndCurrentUsage(out dataStorageCapacity, out currentUsage);
 
-                    if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
+                    if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
                     {
                         string exceptionMessage = string.Format(Helper.GetLabelIDValue(5000181), (dataStorageCapacity - currentUsage), dataStorageCapacity);
                         throw new Exception(exceptionMessage);
@@ -472,7 +472,7 @@ public partial class Pages_DataImport : PageBaseCompany
 
                                     //**********By Prafull on 26-Apr-2011
                                     //**********Check whether any Account is associated for him in case the Business Admin is uploading the GLData file
-                                    if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BUSINESS_ADMIN)
+                                    if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BUSINESS_ADMIN)
                                     {
                                         CheckWhetherAnyAccountAssociatedForGivenUser(oDataImport);
 
@@ -1407,7 +1407,7 @@ public partial class Pages_DataImport : PageBaseCompany
         oDataImportHrdInfo.FileName = file.FileOriginalName;
         oDataImportHrdInfo.PhysicalPath = file.FilePhysicalPath;
         oDataImportHrdInfo.FileSize = file.FileSize;
-        if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+        if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
         {
             oDataImportHrdInfo.CompanyID = null;
             oDataImportHrdInfo.ReconciliationPeriodID = null;
@@ -1800,7 +1800,7 @@ public partial class Pages_DataImport : PageBaseCompany
                 switch (eDataImportType)
                 {
                     case ARTEnums.DataImportType.MultilingualUpload:
-                        if (SessionHelper.CurrentRoleEnum != WebEnums.UserRole.SKYSTEM_ADMIN)
+                        if (SessionHelper.CurrentRoleEnum != ARTEnums.UserRole.SKYSTEM_ADMIN)
                         {
                             oDataImportTypeMstInfoList.Remove(oDataImportTypeMstInfo);
                         }

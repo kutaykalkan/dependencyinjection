@@ -74,5 +74,12 @@ namespace SkyStem.ART.App.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             return cmd;
         }
+
+        protected override RoleMstInfo MapObject(IDataReader r)
+        {
+            RoleMstInfo entity =  base.MapObject(r);
+            entity.IsVisibleForAccountAssociationByUserRole = r.GetBooleanValue("IsVisibleForAccountAssociationByUserRole");
+            return entity;
+        }
     }
 }

@@ -155,7 +155,8 @@ public partial class UserControls_TaskMaster_RecFormAccountTaskGrid : UserContro
     /// <param name="imgToggleControl">The img toggle control.</param>
     public void RegisterToggleControl(ExImageButton imgToggleControl)
     {
-        imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "');";
+        imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+            + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
         ToggleControl = imgToggleControl;
     }
 
@@ -177,6 +178,10 @@ public partial class UserControls_TaskMaster_RecFormAccountTaskGrid : UserContro
 
                 this.ucGeneralTaskGrid.SetGeneralTaskGridData(taskGridData);
                 ucGeneralTaskGrid.LoadGridData();
+                if (this.AutoSaveAttributeID != null)
+                {
+                    Helper.SaveAutoSaveAttributeValue((ARTEnums.AutoSaveAttribute)this.AutoSaveAttributeID, null, IsExpanded.ToString(), false);
+                }
 
             }
             catch (Exception ex)

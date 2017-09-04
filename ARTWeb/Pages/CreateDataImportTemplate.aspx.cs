@@ -132,8 +132,14 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
             lblDateRevised.Text = Helper.GetDisplayDate(oImportTemplateInfo.DateRevised);
             lblRevisedBy.Text = oImportTemplateInfo.RevisedBy;
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oImportTemplateInfo.PhysicalPath));
-            imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(SharedHelper.GetDisplayFilePath(oImportTemplateInfo.PhysicalPath));
+            //imgFileType.OnClientClick = "document.location.href = '" + url + "';return false;";
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadDataImportTemplateFile);
+            url += "&" + QueryStringConstants.IMPORT_TEMPLATE_ID + "=" + oImportTemplateInfo.ImportTemplateID.GetValueOrDefault()
+            + "&" + QueryStringConstants.DATA_IMPORT_TYPE_ID + "=" + oImportTemplateInfo.DataImportTypeID.GetValueOrDefault();
+
+            imgFileType.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
+
 
             if (oImportTemplateInfo.DataImportTypeLabelID == 1052 || oImportTemplateInfo.DataImportTypeLabelID == 1054)
             {
@@ -219,7 +225,7 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
                     DataTable dt = null;
                     int result = 0;
                     int companyID = SessionHelper.CurrentCompanyID.Value;
-                    if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+                    if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
                         companyID = 0;
                     try
                     {
@@ -250,7 +256,7 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
 
                         DataImportHelper.GetCompanyDataStorageCapacityAndCurrentUsage(out dataStorageCapacity, out currentUsage);
 
-                        if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
+                        if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN && ((decimal)(ImportFile.FileSize) / (decimal)(1024 * 1024)) > (dataStorageCapacity - currentUsage))
                         {
                             string exceptionMessage = string.Format(Helper.GetLabelIDValue(5000181), (dataStorageCapacity - currentUsage), dataStorageCapacity);
                             throw new Exception(exceptionMessage);

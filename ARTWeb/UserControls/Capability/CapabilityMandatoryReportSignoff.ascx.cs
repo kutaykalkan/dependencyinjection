@@ -19,6 +19,7 @@ using SkyStem.ART.Web.Utility;
 using SkyStem.ART.Client.Exception;
 using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Client.Params;
+using SkyStem.ART.Client.Data;
 
 public partial class UserControls_CapabilityMandatoryReportSignoff : UserControlBase
 {
@@ -77,8 +78,8 @@ public partial class UserControls_CapabilityMandatoryReportSignoff : UserControl
         {
             _companyID = SessionHelper.CurrentCompanyID.Value;
             oUtilityClient = RemotingHelper.GetUtilityObject();
-            REVIEWER_ROLEID = Convert.ToInt16(Enum.Parse(typeof(WebEnums.UserRole), "REVIEWER"));
-            APPROVER_ROLEID = Convert.ToInt16(Enum.Parse(typeof(WebEnums.UserRole), "APPROVER"));
+            REVIEWER_ROLEID = Convert.ToInt16(Enum.Parse(typeof(ARTEnums.UserRole), "REVIEWER"));
+            APPROVER_ROLEID = Convert.ToInt16(Enum.Parse(typeof(ARTEnums.UserRole), "APPROVER"));
             if (!IsPostBack)
             {
 

@@ -21,6 +21,7 @@ using SkyStem.ART.Shared.Data;
 using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Web.Classes;
 using SkyStem.ART.Shared.Utility;
+using SkyStem.ART.Client.Model.Report;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -196,6 +197,9 @@ namespace SkyStem.ART.Web.Utility
                 case ARTEnums.Grid.AccountProfileMassAndBulkUpdate:
                     gridName = Helper.GetLabelIDValue(1214);
                     break;
+                case ARTEnums.Grid.QualityScoreReport:
+                    gridName = Helper.GetLabelIDValue(2460);
+                    break;
             }
             return gridName;
         }
@@ -221,6 +225,11 @@ namespace SkyStem.ART.Web.Utility
             {
                 replacement = LanguageUtil.GetValue(2814);
             }
+            else if (eRequestType == ARTEnums.RequestType.ExportToExcelAndEmailReport)
+            {
+                gridName = RequestHelper.GetGridName(gridType);
+                replacement = string.Format(LanguageUtil.GetValue(2817), gridName);
+            }
             return replacement;
         }
 
@@ -242,6 +251,15 @@ namespace SkyStem.ART.Web.Utility
             else if (eRequestType == ARTEnums.RequestType.DownloadAllRecFormsDetailed)
             {
                 fileName = LanguageUtil.GetValue(2809);
+            }
+            else if (eRequestType == ARTEnums.RequestType.ExportToExcelAndEmailReport)
+            {
+                switch (gridType)
+                {
+                    case ARTEnums.Grid.QualityScoreReport:
+                        fileName = Helper.GetLabelIDValue(2460);
+                        break;
+                }
             }
             return fileName + "_" + Guid.NewGuid();
         }
@@ -284,11 +302,11 @@ namespace SkyStem.ART.Web.Utility
             dr[DownloadAllRecsConstants.HeaderFields.PREPARERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Preparer;
             dr[DownloadAllRecsConstants.HeaderFields.REVIEWERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Reviewer;
             dr[DownloadAllRecsConstants.HeaderFields.APPROVERATTRIBUTEID] = (short)ARTEnums.AccountAttribute.Approver;
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.AUDIT || Helper.IsQualityScoreEnabled())
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.AUDIT || Helper.IsQualityScoreEnabled())
                 dr[DownloadAllRecsConstants.HeaderFields.ISQUALITYSCOREENABLED] = Helper.IsFeatureActivated(WebEnums.Feature.QualityScore, SessionHelper.CurrentReconciliationPeriodID);
             else
                 dr[DownloadAllRecsConstants.HeaderFields.ISQUALITYSCOREENABLED] = false;
-            if (SessionHelper.CurrentRoleID != (short)WebEnums.UserRole.AUDIT || Helper.IsReviewNotesEnabled())
+            if (SessionHelper.CurrentRoleID != (short)ARTEnums.UserRole.AUDIT || Helper.IsReviewNotesEnabled())
                 dr[DownloadAllRecsConstants.HeaderFields.ISREVIEWNOTESENABLED] = true;
             else
                 dr[DownloadAllRecsConstants.HeaderFields.ISREVIEWNOTESENABLED] = false;
@@ -323,6 +341,69 @@ namespace SkyStem.ART.Web.Utility
                     drDetail[DownloadAllRecsConstants.DetailFields.ACCOUNTNAME] = Helper.GetAccountEntityStringToDisplay(oGLDataHdrInfo);
                 }
             }
+            return oDataSet;
+        }
+
+        public static DataSet CreateDataSetForExportToExcelReport(ReportSearchCriteria oReportSearchCriteria, DataTable tblEntitySearch)
+        {
+            DataSet oDataSet = new DataSet();
+            DataTable dtRequestHdr = new DataTable(ExportToExcelReportConstants.HeaderTableName);
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.FILENAME, typeof(System.String));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.RECPERIODID, typeof(System.Int32));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.LANGUAGEID, typeof(System.Int32));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.COMPANYID, typeof(System.Int32));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.DEFAULTLANGUAGEID, typeof(System.Int32));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.USERID, typeof(System.Int32));
+            dtRequestHdr.Columns.Add(ExportToExcelReportConstants.HeaderFields.ROLEID, typeof(System.Int16));
+            oDataSet.Tables.Add(dtRequestHdr);
+            DataRow dr = dtRequestHdr.NewRow();
+            dtRequestHdr.Rows.Add(dr);
+            dr[ExportToExcelReportConstants.HeaderFields.FILENAME] = GetDownloadFileName(ARTEnums.RequestType.ExportToExcelAndEmailReport, ARTEnums.Grid.None);
+            dr[ExportToExcelReportConstants.HeaderFields.RECPERIODID] = SessionHelper.CurrentReconciliationPeriodID.Value;
+            dr[ExportToExcelReportConstants.HeaderFields.LANGUAGEID] = SessionHelper.GetUserLanguage();
+            dr[ExportToExcelReportConstants.HeaderFields.COMPANYID] = SessionHelper.CurrentCompanyID.Value;
+            dr[ExportToExcelReportConstants.HeaderFields.DEFAULTLANGUAGEID] = AppSettingHelper.GetDefaultLanguageID();
+            dr[ExportToExcelReportConstants.HeaderFields.USERID] = SessionHelper.CurrentUserID.Value;
+            dr[ExportToExcelReportConstants.HeaderFields.ROLEID] = SessionHelper.CurrentRoleID.Value;
+
+            DataTable dtRequestDetail = new DataTable(ExportToExcelReportConstants.DetailTableName);
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.RECPERIODID, typeof(System.Int32));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.FROMACCOUNTNUMBER, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.TOACCOUNTNUMBER, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.ISMATERIALACCOUNT, typeof(System.Boolean));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.RISKRATINGIDS, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.ISKEYCCOUNT, typeof(System.Boolean));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.FROMOPENDATE, typeof(System.DateTime));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.TOOPENDATE, typeof(System.DateTime));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.AGINGIDS, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.OPENITEMCLASSIFICATIONIDS, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.QUALITYSCORERANGE, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.QUALITYSCOREIDS, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.FROMSYSTEMSCORE, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.FROMUSERSCORE, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.TOSYSTEMSCORE, typeof(System.String));
+            dtRequestDetail.Columns.Add(ExportToExcelReportConstants.DetailFields.TOUSERSCORE, typeof(System.String));
+            oDataSet.Tables.Add(dtRequestDetail);
+            DataRow drDetail = dtRequestDetail.NewRow();
+            dtRequestDetail.Rows.Add(drDetail);
+            drDetail[ExportToExcelReportConstants.DetailFields.RECPERIODID] = oReportSearchCriteria.ReconciliationPeriodID;
+            drDetail[ExportToExcelReportConstants.DetailFields.FROMACCOUNTNUMBER] = oReportSearchCriteria.FromAccountNumber;
+            drDetail[ExportToExcelReportConstants.DetailFields.TOACCOUNTNUMBER] = oReportSearchCriteria.ToAccountNumber;
+            drDetail[ExportToExcelReportConstants.DetailFields.ISMATERIALACCOUNT] = oReportSearchCriteria.IsMaterialAccount;
+            drDetail[ExportToExcelReportConstants.DetailFields.RISKRATINGIDS] = oReportSearchCriteria.RiskRatingIDs;
+            drDetail[ExportToExcelReportConstants.DetailFields.ISKEYCCOUNT] = oReportSearchCriteria.IsKeyccount;
+            drDetail[ExportToExcelReportConstants.DetailFields.FROMOPENDATE] = oReportSearchCriteria.FromOpenDate;
+            drDetail[ExportToExcelReportConstants.DetailFields.TOOPENDATE] = oReportSearchCriteria.ToOpenDate;
+            drDetail[ExportToExcelReportConstants.DetailFields.AGINGIDS] = oReportSearchCriteria.AgingIDs;
+            drDetail[ExportToExcelReportConstants.DetailFields.OPENITEMCLASSIFICATIONIDS] = oReportSearchCriteria.OpenItemClassificationIDs;
+            drDetail[ExportToExcelReportConstants.DetailFields.QUALITYSCORERANGE] = oReportSearchCriteria.QualityScoreRange;
+            drDetail[ExportToExcelReportConstants.DetailFields.QUALITYSCOREIDS] = oReportSearchCriteria.QualityScoreIDs;
+            drDetail[ExportToExcelReportConstants.DetailFields.FROMSYSTEMSCORE] = oReportSearchCriteria.FromSystemScore;
+            drDetail[ExportToExcelReportConstants.DetailFields.FROMUSERSCORE] = oReportSearchCriteria.FromUserScore;
+            drDetail[ExportToExcelReportConstants.DetailFields.TOSYSTEMSCORE] = oReportSearchCriteria.ToSystemScore;
+            drDetail[ExportToExcelReportConstants.DetailFields.TOUSERSCORE] = oReportSearchCriteria.ToUserScore;
+            tblEntitySearch.TableName = ExportToExcelReportConstants.EntitySearchTableName;
+            oDataSet.Tables.Add(tblEntitySearch);
             return oDataSet;
         }
 
@@ -401,7 +482,11 @@ namespace SkyStem.ART.Web.Utility
             SetLabelText(lblAddedBy, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.AddedByUserName));
             SetLabelText(lblStatusMessage, Helper.GetDisplayStringValue(oBulkExportToExcelInfo.StatusMessage));
 
-            string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(SharedHelper.GetDisplayFilePath(oBulkExportToExcelInfo.PhysicalPath)) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
+            //string url = "DownloadAttachment.aspx?" + QueryStringConstants.FILE_PATH + "=" + HttpContext.Current.Server.UrlEncode(SharedHelper.GetDisplayFilePath(oBulkExportToExcelInfo.PhysicalPath)) + "&" + QueryStringConstants.FROM_PAGE + "=" + (short)ePage;
+            string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRequestFile);
+            url += "&" + QueryStringConstants.REQUEST_ID + "=" + oBulkExportToExcelInfo.RequestID.GetValueOrDefault()
+            + "&" + QueryStringConstants.REQUEST_TYPE_ID + "=" + oBulkExportToExcelInfo.RequestTypeID.GetValueOrDefault();
+           
             if (imgFileTypeExcel != null)
                 imgFileTypeExcel.OnClientClick = "document.location.href = '" + url + "';return false;";
             if (imgFileTypeZip != null)

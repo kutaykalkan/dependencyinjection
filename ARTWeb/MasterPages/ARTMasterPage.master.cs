@@ -62,10 +62,10 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
                 lblUserName.Text = Helper.GetUserFullName();
                 lblCompanyName.Text = Helper.GetCompanyName();
 
-                WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+                ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
                 LoadRoleSpecificFeatures();
 
-                if (eUserRole == WebEnums.UserRole.SKYSTEM_ADMIN)
+                if (eUserRole == ARTEnums.UserRole.SKYSTEM_ADMIN)
                 {
                     lblCurrentRole.Text = LanguageUtil.GetValue(1198);
 
@@ -252,7 +252,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
         // Clear the existing Role related data
         SessionHelper.ClearRoleDataFromSession();
 
-        if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+        if (SessionHelper.CurrentRoleID.HasValue && SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
         {
             string key = SessionHelper.GetSessionKeyForMenu();
             SessionHelper.ClearSession(key);
@@ -263,7 +263,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
 
         // TODO: Commented by Apoorv, since we are NOT implementing this as part of R1
         //// If Role is Approver, and Dual Review Disabled, redirect to Error Page
-        //if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.APPROVER
+        //if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.APPROVER
         //    && !Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.DualLevelReview))
         //{
         //    // Role = Approver, and Dual Review disabled
@@ -295,9 +295,9 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
         // check for SkyStem Admin
         UserHdrInfo oUserHdrInfo = SessionHelper.GetCurrentUser();
         int skyStemAdminRoleID = CacheHelper.GetRoleID(ARTConstants.ROLE_TEXT_SKYSTEM_ADMIN);
-        WebEnums.UserRole eUserRole = (WebEnums.UserRole)System.Enum.Parse(typeof(WebEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
+        ARTEnums.UserRole eUserRole = (ARTEnums.UserRole)System.Enum.Parse(typeof(ARTEnums.UserRole), SessionHelper.CurrentRoleID.Value.ToString());
 
-        if (eUserRole == WebEnums.UserRole.SKYSTEM_ADMIN)
+        if (eUserRole == ARTEnums.UserRole.SKYSTEM_ADMIN)
         {
             // SkyStem Admin
             // 1. Hide Switch To / Rec Period
@@ -309,7 +309,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
             // Load Company Dropdown
             BindCompany();
         }
-        else if (eUserRole == WebEnums.UserRole.SYSTEM_ADMIN || eUserRole == WebEnums.UserRole.BUSINESS_ADMIN)
+        else if (eUserRole == ARTEnums.UserRole.SYSTEM_ADMIN || eUserRole == ARTEnums.UserRole.BUSINESS_ADMIN)
         {
             SetFYData();
             // Other Roles
@@ -352,7 +352,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
             imgBtnSARReprocess.CssClass = "displayNone";
             imgToolBarSeparatorExchangeRates.Visible = false;
 
-            if (SessionHelper.CurrentRoleEnum == WebEnums.UserRole.USER_ADMIN)
+            if (SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.USER_ADMIN)
             {
                 hlMyReport.Visible = false;
                 imgToolBarSeparatorMyReport.Visible = false;
@@ -375,7 +375,7 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
     /// </summary>
     private void BindRoleDropdown()
     {
-        if (SessionHelper.CurrentRoleID.GetValueOrDefault() != (short)WebEnums.UserRole.SKYSTEM_ADMIN)
+        if (SessionHelper.CurrentRoleID.GetValueOrDefault() != (short)ARTEnums.UserRole.SKYSTEM_ADMIN)
         {
             ListItem oListItem = null;
             ListControlHelper.BindRoleDropdown(ddlRole);

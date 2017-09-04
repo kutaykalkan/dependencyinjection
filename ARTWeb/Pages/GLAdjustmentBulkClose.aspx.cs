@@ -250,7 +250,7 @@ public partial class Pages_GLAdjustmentBulkClose : PopupPageBaseRecItem
                         DateTime OpenDate;
                         if (DateTime.TryParse(oGLReconciliationItemInputInfoCollection[i].OpenDate.ToString(), out OpenDate))
                         {
-                            if (CloseDate <= OpenDate)
+                            if (CloseDate < OpenDate)
                             {
                                 isErrorExist = true;
                                 cv.ErrorMessage = Helper.GetErrorMessage(WebEnums.FieldType.DateCompareFieldGreaterThan, 1411, 1511);

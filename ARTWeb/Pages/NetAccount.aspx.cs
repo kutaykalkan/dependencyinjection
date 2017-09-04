@@ -847,7 +847,7 @@ public partial class Pages_NetAccount : PageBaseRecPeriod
 
         bool editMode = false;
         // Not Locked, Is Null (GL not available) or In Not Started State
-        if (viewMode && SessionHelper.CurrentRoleEnum == WebEnums.UserRole.SYSTEM_ADMIN
+        if (viewMode && SessionHelper.CurrentRoleEnum == ARTEnums.UserRole.SYSTEM_ADMIN
                 && !SelectedNetAccountHdrInfo.IsLocked.GetValueOrDefault()
                 && (!SelectedNetAccountHdrInfo.ReconciliationStatusID.HasValue // GL not available
                     || SelectedNetAccountHdrInfo.ReconciliationStatusID.GetValueOrDefault() == (short)WebEnums.ReconciliationStatus.NotStarted // Not Started

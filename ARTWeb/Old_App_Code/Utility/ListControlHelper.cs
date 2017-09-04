@@ -117,7 +117,7 @@ public class ListControlHelper
 
     public static void BindReconciliationPeriod(DropDownList ddlReconciliationPeriod, int? currentFinancialYearID)
     {
-        if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+        if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
         {
             ddlReconciliationPeriod.DataSource = CacheHelper.GetAllReconciliationPeriodsForAuditRole(currentFinancialYearID);
         }
@@ -318,24 +318,49 @@ public class ListControlHelper
 
             if (
                      (
-                        SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.BUSINESS_ADMIN
-                        && (role.RoleID != (short)WebEnums.UserRole.SYSTEM_ADMIN
-                            && role.RoleID != (short)WebEnums.UserRole.CEO_CFO
-                            && role.RoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN
-                            && role.RoleID != (short)WebEnums.UserRole.USER_ADMIN
+                        SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.BUSINESS_ADMIN
+                        && (role.RoleID != (short)ARTEnums.UserRole.SYSTEM_ADMIN
+                            && role.RoleID != (short)ARTEnums.UserRole.CEO_CFO
+                            && role.RoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN
+                            && role.RoleID != (short)ARTEnums.UserRole.USER_ADMIN
                             )
                        )
                    ||
                         (
-                            SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.SYSTEM_ADMIN
-                            && role.RoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                            SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
+                            && role.RoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                         )
                    ||
                         (
-                            SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.USER_ADMIN
-                            && role.RoleID != (short)WebEnums.UserRole.SKYSTEM_ADMIN
+                            SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.USER_ADMIN
+                            && role.RoleID != (short)ARTEnums.UserRole.SKYSTEM_ADMIN
                         )
                 )
+            {
+                lstListItem.Add(new ListItem(LanguageUtil.GetValue(role.RoleLabelID.Value), role.RoleID.Value.ToString()));
+            }
+        }
+
+        ddl.DataSource = lstListItem;
+        ddl.DataTextField = "text";
+        ddl.DataValueField = "value";
+        ddl.DataBind();
+
+        AddListItemForSelectAll(ddl);
+        ShowSelectAllAsSelected(ddl);
+    }
+
+    public static void BindRoleDropDownListForAccountAssociation(DropDownList ddl)
+    {
+        IRole oRoleClient = RemotingHelper.GetRoleObject();
+        IList<RoleMstInfo> ListRoles = SessionHelper.GetAllRoles();
+        List<ListItem> lstListItem = new List<ListItem>();
+
+        foreach (RoleMstInfo role in ListRoles)
+        {
+
+            if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN
+                            && role.IsVisibleForAccountAssociationByUserRole.GetValueOrDefault())
             {
                 lstListItem.Add(new ListItem(LanguageUtil.GetValue(role.RoleLabelID.Value), role.RoleID.Value.ToString()));
             }
@@ -494,7 +519,7 @@ public class ListControlHelper
     {
         List<ReconciliationPeriodInfo> oReconciliationPeriodInfoCollection = new List<ReconciliationPeriodInfo>();
 
-        if (SessionHelper.CurrentRoleID == (short)WebEnums.UserRole.AUDIT)
+        if (SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.AUDIT)
         {
             oReconciliationPeriodInfoCollection = CacheHelper.GetAllReconciliationPeriodsForAuditRole(financialYearID);
         }
@@ -682,7 +707,7 @@ public class ListControlHelper
     public static void BindFTPRoleDropdown(DropDownList ddlRole)
     {
         //List<RoleMstInfo> oRoleMstInfoList = SessionHelper.GetUserRole();
-        //ddlRole.DataSource = oRoleMstInfoList.FindAll(obj => obj.RoleID.Value == (short)WebEnums.UserRole.SYSTEM_ADMIN || obj.RoleID.Value == (short)WebEnums.UserRole.BUSINESS_ADMIN);
+        //ddlRole.DataSource = oRoleMstInfoList.FindAll(obj => obj.RoleID.Value == (short)ARTEnums.UserRole.SYSTEM_ADMIN || obj.RoleID.Value == (short)ARTEnums.UserRole.BUSINESS_ADMIN);
         //ddlRole.DataTextField = "Role";
         //ddlRole.DataValueField = "RoleID";
         //ddlRole.DataBind();

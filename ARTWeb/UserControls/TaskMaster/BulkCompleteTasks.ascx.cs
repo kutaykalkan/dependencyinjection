@@ -387,7 +387,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                             if (attachmentList != null && attachmentList.Count > 0)
                             {
                                 newlyAddedAttachment = (from at in attachmentList
-                                                        where (at.AttachmentID == null || at.AttachmentID == 0)
+                                                        where (at.AttachmentID == null || at.AttachmentID <= 0)
                                                         select at).ToList();
                             }
 
@@ -506,7 +506,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                     if (attachmentList != null && attachmentList.Count > 0)
                     {
                         newlyAddedAttachment = (from at in attachmentList
-                                                where (at.AttachmentID == null || at.AttachmentID == 0)
+                                                where (at.AttachmentID == null || at.AttachmentID <= 0)
                                                 select at).ToList();
                     }
 
@@ -611,7 +611,7 @@ public partial class UserControls_TaskMaster_BulkCompleteTasks : UserControlTask
                             ucAddTaskComment.DisAbleAttachementControl = true;
                         break;
                     case ARTEnums.TaskActionType.Remove:
-                        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)WebEnums.UserRole.SYSTEM_ADMIN)
+                        if (SessionHelper.CurrentRoleID.GetValueOrDefault() == (short)ARTEnums.UserRole.SYSTEM_ADMIN)
                         {
                             DataSource = TaskMasterHelper.GetDeleteAccessableTaskByUserID(SessionHelper.CurrentUserID.Value, SessionHelper.CurrentRoleID.Value, SessionHelper.CurrentReconciliationPeriodID.Value
                                 , (ARTEnums.TaskType)_taskTypeID.Value, null, false);

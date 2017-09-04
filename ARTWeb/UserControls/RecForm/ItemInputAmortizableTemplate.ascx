@@ -401,6 +401,7 @@
             </td>
         </tr>
     </table>
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
     <%--Input Form--%>
     <telerik:RadWindow ID="rwRecItemInput" VisibleOnPageLoad="false" runat="server" OpenerElementID="<%btnAdd.ClientID %>"
         Modal="true" Width="850px" Height="400px" Top="50px">
