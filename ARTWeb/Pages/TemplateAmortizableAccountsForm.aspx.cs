@@ -275,6 +275,8 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
         }
 
         Helper.ValidateRecTemplateForGLDataID(this, this.GLDataHdrInfo, eReconciliationItemTemplateThisPage, _ARTPages);
+        EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateAmortizable, this.GLDataHdrInfo);
+        SetEditMode();
         if (this.GLDataHdrInfo != null)
         {
 
@@ -310,7 +312,6 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
             this.ucRecControlCheckList.GLDataHdrInfo = this.GLDataHdrInfo;
             this.ucRecControlCheckList.EditMode = Helper.GetFormModeForRecControlCheckList(this.GLDataHdrInfo);
         }
-        EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateAmortizable, this.GLDataHdrInfo);
         SetPageSettings();
         if (NetAccountID == 0)
         {
@@ -325,7 +326,8 @@ public partial class Pages_TemplateAmortizableAccountsForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-        AutoExpandSections();
+        if (!Page.IsPostBack)
+            AutoExpandSections();
     }
 
     private void AutoExpandSections()

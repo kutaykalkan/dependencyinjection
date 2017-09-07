@@ -170,6 +170,7 @@ namespace SkyStem.ART.Service.APP.BLL
                                     IAttachment oAttachmentClient = RemotingHelper.GetAttachmentObject();
                                     ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
                                     oAppUserInfo.CompanyID = oExportToExcelInfo.CompanyID;
+                                    oAppUserInfo.RecPeriodID = oExportToExcelInfo.RecPeriodID;
                                     List<ClientModel.AttachmentInfo> oAttachmentInfoList = oAttachmentClient.GetAllAttachmentForGL(glDataID, oExportToExcelInfo.UserID, oExportToExcelInfo.RoleID, oAppUserInfo);
                                     if (oAttachmentInfoList != null && oAttachmentInfoList.Count > 0)
                                     {

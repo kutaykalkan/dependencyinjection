@@ -469,6 +469,7 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
 
         Helper.ValidateRecTemplateForGLDataID(this, this.GLDataHdrInfo, eReconciliationItemTemplateThisPage, _ARTPages);
         EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateAccruable, this.GLDataHdrInfo);
+        SetEditMode();
         if (this.GLDataHdrInfo != null)
         {
 
@@ -523,7 +524,8 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-        AutoExpandSections();
+        if (!Page.IsPostBack)
+            AutoExpandSections();
     }
 
     private void AutoExpandSections()

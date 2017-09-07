@@ -194,7 +194,7 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
         uctlBankFee.IsExpanded = true;
         this.LoadRecItemsGLAdjustment(uctlBankFee, WebEnums.RecCategory.GLAdjustments, WebEnums.RecCategoryType.BankAccount_GLAdjustments_BankFees);
         uctlBankFee.ContentVisibility = true;
- 
+
     }
 
     private void ucRecFormButtons_eventButtonClick(string commandName)
@@ -406,6 +406,7 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
 
         Helper.ValidateRecTemplateForGLDataID(this, this.GLDataHdrInfo, eReconciliationItemTemplateThisPage, _ARTPages);
         EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateBankAccount, this.GLDataHdrInfo);
+        SetEditMode();
         if (this.GLDataHdrInfo != null)
         {
             lblPeriodEndDate.Text = string.Format(WebConstants.FORMAT_BRACKET, Helper.GetDisplayDate(SessionHelper.CurrentReconciliationPeriodEndDate));
@@ -531,8 +532,8 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
 
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-
-        AutoExpandSections();
+        if (!Page.IsPostBack)
+            AutoExpandSections();
 
     }
 
@@ -541,7 +542,7 @@ public partial class Pages_TemplateBankAccountForm : PageBaseRecForm
         List<AutoSaveAttributeValueInfo> oAutoSaveAttributeList = Helper.GetAutoSaveAttributeValues();
         if (oAutoSaveAttributeList != null && oAutoSaveAttributeList.Count > 0)
         {
-            foreach(AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
+            foreach (AutoSaveAttributeValueInfo item in oAutoSaveAttributeList)
             {
                 switch ((ARTEnums.AutoSaveAttribute)item.AutoSaveAttributeID)
                 {

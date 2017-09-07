@@ -142,15 +142,13 @@ namespace SkyStem.ART.Web.UserControls
         #region "Page Events"
         protected void Page_Load(object sender, EventArgs e)
         {
+            ucGLDataRecurringScheduleItemsGrid.GridItemDataBound += new GridItemEventHandler(ucGLDataRecurringScheduleItemsGrid_GridItemDataBound);
+            ucGLDataRecurringScheduleItemsGrid.GridCommand += new GridCommandEventHandler(ucGLDataRecurringScheduleItemsGrid_GridCommand);
+            ucCloseGLDataRecurringScheduleItemsGrid.GridItemDataBound += new GridItemEventHandler(ucCloseGLDataRecurringScheduleItemsGrid_GridItemDataBound);
             if (!IsPostBack)
             {
                 PopulateGrids();
             }
-
-            ucGLDataRecurringScheduleItemsGrid.GridItemDataBound += new GridItemEventHandler(ucGLDataRecurringScheduleItemsGrid_GridItemDataBound);
-            ucGLDataRecurringScheduleItemsGrid.GridCommand += new GridCommandEventHandler(ucGLDataRecurringScheduleItemsGrid_GridCommand);
-            ucCloseGLDataRecurringScheduleItemsGrid.GridItemDataBound += new GridItemEventHandler(ucCloseGLDataRecurringScheduleItemsGrid_GridItemDataBound);
-
             SetControlState();
             if (EntityNameLabelID.HasValue)
             {
@@ -240,41 +238,48 @@ namespace SkyStem.ART.Web.UserControls
         }
         void ucGLDataRecurringScheduleItemsGrid_GridCommand(object sender, GridCommandEventArgs e)
         {
-            if (e.CommandName == "Delete")
+            try
             {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                GLDataRecurringItemScheduleInfo oGLDataRecurringItemScheduleInfo = new GLDataRecurringItemScheduleInfo();
-                oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID = Convert.ToInt64(e.CommandArgument);
-                oGLDataRecurringItemScheduleInfo.GLDataID = this.GLDataID;
-                oGLDataRecurringItemScheduleInfo.ReconciliationCategoryTypeID = this.RecCategoryTypeID;
-                oGLDataRecurringItemScheduleInfo.RevisedBy = SessionHelper.CurrentUserLoginID;
-                oGLDataRecurringItemScheduleInfo.DateRevised = DateTime.Now;
-                IGLDataRecItemSchedule oGLDataRecItemScheduleClient = RemotingHelper.GetGLDataRecItemScheduleObject();
-                oGLDataRecItemScheduleClient.DeleteGLDataRecurringItemSchedule(oGLDataRecurringItemScheduleInfo, (short)ARTEnums.AccountAttribute.ReconciliationTemplate, dtGLDataParams, Helper.GetAppUserInfo());
+                if (e.CommandName == "Delete")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    GLDataRecurringItemScheduleInfo oGLDataRecurringItemScheduleInfo = new GLDataRecurringItemScheduleInfo();
+                    oGLDataRecurringItemScheduleInfo.GLDataRecurringItemScheduleID = Convert.ToInt64(e.CommandArgument);
+                    oGLDataRecurringItemScheduleInfo.GLDataID = this.GLDataID;
+                    oGLDataRecurringItemScheduleInfo.ReconciliationCategoryTypeID = this.RecCategoryTypeID;
+                    oGLDataRecurringItemScheduleInfo.RevisedBy = SessionHelper.CurrentUserLoginID;
+                    oGLDataRecurringItemScheduleInfo.DateRevised = DateTime.Now;
+                    IGLDataRecItemSchedule oGLDataRecItemScheduleClient = RemotingHelper.GetGLDataRecItemScheduleObject();
+                    oGLDataRecItemScheduleClient.DeleteGLDataRecurringItemSchedule(oGLDataRecurringItemScheduleInfo, (short)ARTEnums.AccountAttribute.ReconciliationTemplate, dtGLDataParams, Helper.GetAppUserInfo());
 
-                RecHelper.RefreshRecForm(this);
+                    RecHelper.RefreshRecForm(this);
+                }
+                if (e.CommandName == "Copy")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    CopyRecItem(false, dtGLDataParams);
+                }
+                if (e.CommandName == "CopyAndClose")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    CopyRecItem(true, dtGLDataParams);
+                }
             }
-            if (e.CommandName == "Copy")
+            catch (Exception ex)
             {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                CopyRecItem(false, dtGLDataParams);
-            }
-            if (e.CommandName == "CopyAndClose")
-            {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                CopyRecItem(true, dtGLDataParams);
+                Helper.LogException(ex);
             }
         }
         void ucGLDataRecurringScheduleItemsGrid_GridItemDataBound(object sender, GridItemEventArgs e)
@@ -428,8 +433,8 @@ namespace SkyStem.ART.Web.UserControls
             if (IsRefreshData && IsExpanded)
             {
                 _isCapabilityMultiCurrencyAccount = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
-                if (this.IsPostBack)
-                {
+                //if (this.IsPostBack)
+                //{
                     this._GLDataRecurringItemScheduleInfoCollection = null;
                     _GLReconciliationItemInputRecordTypeID = (short)WebEnums.RecordType.GLReconciliationItemInput;
                     //IGLDataRecItemSchedule oGLDataRecItemScheduleClient = RemotingHelper.GetGLDataRecItemScheduleObject();
@@ -440,7 +445,7 @@ namespace SkyStem.ART.Web.UserControls
                     btnClose.OnClientClick = PopupHelper.GetJavascriptParameterListForBulkClosepopup(null, "OpenRadWindowForHyperlinkWithName", "BulkCloseGLDataRecurringScheduleItems.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID.Value, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY) + "; return false;";
 
 
-                }
+                //}
                 this.EnableDisableControlsForNonPreparersAndClosedPeriods();
                 PopulateGrids();
                 IsRefreshData = false;

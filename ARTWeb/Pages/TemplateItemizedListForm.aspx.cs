@@ -411,7 +411,7 @@ public partial class Pages_TemplateItemizedListForm : PageBaseRecForm
         string pageID = Request.QueryString[QueryStringConstants.REFERRER_PAGE_ID];
         _ARTPages = (WebEnums.ARTPages)System.Enum.Parse(typeof(WebEnums.ARTPages), pageID);
         EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateItemized, this.GLDataHdrInfo);
-
+        SetEditMode();
         Helper.ValidateRecTemplateForGLDataID(this, this.GLDataHdrInfo, eReconciliationItemTemplateThisPage, _ARTPages);
         if (this.GLDataHdrInfo != null)
         {
@@ -469,7 +469,8 @@ public partial class Pages_TemplateItemizedListForm : PageBaseRecForm
         this.ucRecFormButtons.EnableDisableButtons();
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-        AutoExpandSections();
+        if (!Page.IsPostBack)
+            AutoExpandSections();
     }
 
     private void AutoExpandSections()

@@ -137,16 +137,16 @@ namespace SkyStem.ART.Web.UserControls
         #region "Page Events"
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                PopulateGrids();
-                IsMultiCurrencyActivated = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
-                ucGLDataWriteOnOffGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
-                ucCloseGLDataWriteOnOffGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
-            }
             ucGLDataWriteOnOffGrid.GridItemDataBound += new GridItemEventHandler(ucGLDataWriteOnOffGrid_GridItemDataBound);
             ucGLDataWriteOnOffGrid.GridCommand += new GridCommandEventHandler(ucGLDataWriteOnOffGrid_GridCommand);
             ucCloseGLDataWriteOnOffGrid.GridItemDataBound += new GridItemEventHandler(ucCloseGLDataWriteOnOffGrid_GridItemDataBound);
+            if (!IsPostBack)
+            {
+                IsMultiCurrencyActivated = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
+                ucGLDataWriteOnOffGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
+                ucCloseGLDataWriteOnOffGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
+                PopulateGrids();
+            }
 
             SetControlState();
             if (EntityNameLabelID.HasValue)
@@ -237,17 +237,24 @@ namespace SkyStem.ART.Web.UserControls
         }
         void ucGLDataWriteOnOffGrid_GridCommand(object sender, GridCommandEventArgs e)
         {
-            if (e.CommandName == "Delete")
+            try
             {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                long? GLDataWriteOnOffID = Convert.ToInt64(e.CommandArgument);
-                IGLDataWriteOnOff oGLDataWriteOnOff = RemotingHelper.GetGLDataWriteOnOffObject();
-                oGLDataWriteOnOff.DeleteGLDataWriteOnOff(GLDataWriteOnOffID, this.GLDataID, this.RecCategoryTypeID, SessionHelper.CurrentUserLoginID, DateTime.Now, dtGLDataParams, Helper.GetAppUserInfo());
-                RecHelper.RefreshRecForm(this);
+                if (e.CommandName == "Delete")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    long? GLDataWriteOnOffID = Convert.ToInt64(e.CommandArgument);
+                    IGLDataWriteOnOff oGLDataWriteOnOff = RemotingHelper.GetGLDataWriteOnOffObject();
+                    oGLDataWriteOnOff.DeleteGLDataWriteOnOff(GLDataWriteOnOffID, this.GLDataID, this.RecCategoryTypeID, SessionHelper.CurrentUserLoginID, DateTime.Now, dtGLDataParams, Helper.GetAppUserInfo());
+                    RecHelper.RefreshRecForm(this);
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.LogException(ex);
             }
         }
         private void SetHeader(GridItemEventArgs e)
@@ -394,14 +401,14 @@ namespace SkyStem.ART.Web.UserControls
         {
             if (IsRefreshData && IsExpanded)
             {
-                if (this.IsPostBack)
-                {
+                //if (this.IsPostBack)
+                //{
                     _isCapabilityMultiCurrencyAccount = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
                     btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditItemWriteOffOn.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
                     btnAdd.Attributes.Add("onclick", "return false;");
                     //btnClose.OnClientClick = PopupHelper.GetJavascriptParameterList(null, "OpenRadWindow", "BulkCloseWriteOffOn.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID);
                     btnClose.OnClientClick = PopupHelper.GetJavascriptParameterListForBulkClosepopup(null, "OpenRadWindowForHyperlinkWithName", "BulkCloseWriteOffOn.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY) + "; return false;";
-                }
+                //}
                 EnableDisableControlsForNonPreparersAndClosedPeriods();
                 PopulateGrids();
                 EnableDisableBulkCloseButton();

@@ -412,6 +412,7 @@ public partial class Pages_TemplateDerivedCalculationForm : PageBaseRecForm
         }
         Helper.ValidateRecTemplateForGLDataID(this, this.GLDataHdrInfo, eReconciliationItemTemplateThisPage, _ARTPages);
         EditMode = Helper.GetFormMode(WebEnums.ARTPages.TemplateDerivedCalc, this.GLDataHdrInfo);
+        SetEditMode();
         if (this.GLDataHdrInfo != null)
         {
             lblPeriodEndDate.Text = string.Format(WebConstants.FORMAT_BRACKET, Helper.GetDisplayDate(SessionHelper.CurrentReconciliationPeriodEndDate));
@@ -547,7 +548,8 @@ public partial class Pages_TemplateDerivedCalculationForm : PageBaseRecForm
         RecHelper.RenderJSForOldValuesForRecalculateBalances(this, txtBankBalanceBC, txtBankBalanceRC);
         RecHelper.ShowHideReviewNotesAndQualityScore(trReviewNotes, trQualityScore, trRecControlCheckList);
         ucRecFormAccountTaskGrid.RegisterClientScripts();
-        AutoExpandSections();
+        if (!Page.IsPostBack)
+            AutoExpandSections();
     }
 
     private void AutoExpandSections()

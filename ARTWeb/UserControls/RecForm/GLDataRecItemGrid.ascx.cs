@@ -575,7 +575,7 @@ namespace SkyStem.ART.Web.UserControls
                 DataRow dr = ((DataRowView)oGridDataItem.DataItem).Row;
 
                 bool IsForwardedItem;
-                bool.TryParse(dr["IsForwardedItem"].ToString(), out    IsForwardedItem);
+                bool.TryParse(dr["IsForwardedItem"].ToString(), out IsForwardedItem);
 
                 ExLabel lblDescription = (ExLabel)e.Item.FindControl("lblDescription");
                 if (isExportExcel || isExportPDF)
@@ -618,7 +618,7 @@ namespace SkyStem.ART.Web.UserControls
                 ExLabel lblRecItemNumber = (ExLabel)e.Item.FindControl("lblRecItemNumber");
                 lblRecItemNumber.Text = Helper.GetDisplayStringValue(dr["RecItemNumber"].ToString());
                 ExLabel lblAging = (ExLabel)e.Item.FindControl("lblAging");
-                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime))? DateTime.Now: closeDate));
+                lblAging.Text = Helper.GetDisplayIntegerValue(Helper.GetDaysBetweenDateRanges(Convert.ToDateTime(dr["OpenDate"]), (closeDate.GetValueOrDefault() == default(DateTime)) ? DateTime.Now : closeDate));
                 ExLabel lblRefNo = (ExLabel)e.Item.FindControl("lblRefNo");
                 if (refNo.HasValue)
                 {
@@ -884,7 +884,7 @@ namespace SkyStem.ART.Web.UserControls
         }
 
         #endregion
-      
+
 
     }
 }

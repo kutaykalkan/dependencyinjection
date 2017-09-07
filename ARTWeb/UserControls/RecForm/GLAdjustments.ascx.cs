@@ -147,17 +147,17 @@ namespace SkyStem.ART.Web.UserControls
         #region "Page Events"
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                IsRefreshData = false;
-                PopulateGrids();
-                IsMultiCurrencyActivated = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
-                ucGLDataRecItemGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
-                ucCloseGLDataRecItemGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
-            }
             ucGLDataRecItemGrid.GridItemDataBound += new GridItemEventHandler(ucGLDataRecItemGrid_GridItemDataBound);
             ucGLDataRecItemGrid.GridCommand += new GridCommandEventHandler(ucGLDataRecItemGrid_GridCommand);
             ucCloseGLDataRecItemGrid.GridItemDataBound += new GridItemEventHandler(ucCloseGLDataRecItemGrid_GridItemDataBound);
+            if (!IsPostBack)
+            {
+                IsRefreshData = false;
+                IsMultiCurrencyActivated = Helper.IsCapabilityActivatedForCurrentRecPeriod(ARTEnums.Capability.MultiCurrency);
+                ucGLDataRecItemGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
+                ucCloseGLDataRecItemGrid.IsMultiCurrencyActivated = IsMultiCurrencyActivated;
+                PopulateGrids();
+            }
             SetControlState();
             if (EntityNameLabelID.HasValue)
             {
@@ -197,7 +197,7 @@ namespace SkyStem.ART.Web.UserControls
 
 
                 bool IsForwardedItem;
-                bool.TryParse(dr["IsForwardedItem"].ToString(), out    IsForwardedItem);
+                bool.TryParse(dr["IsForwardedItem"].ToString(), out IsForwardedItem);
                 long GLDataRecItemID;
                 if (long.TryParse(dr["GLDataRecItemID"].ToString(), out GLDataRecItemID))
                 {
@@ -255,41 +255,48 @@ namespace SkyStem.ART.Web.UserControls
         }
         void ucGLDataRecItemGrid_GridCommand(object sender, GridCommandEventArgs e)
         {
-            if (e.CommandName == "Delete")
+            try
             {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
+                if (e.CommandName == "Delete")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
 
-                GLDataRecItemInfo oGLReconciliationItemInputInfo = new GLDataRecItemInfo();
-                oGLReconciliationItemInputInfo.GLDataRecItemID = Convert.ToInt64(e.CommandArgument);
-                oGLReconciliationItemInputInfo.GLDataID = this.GLDataID;
-                oGLReconciliationItemInputInfo.ReconciliationCategoryTypeID = this.RecCategoryTypeID;
-                oGLReconciliationItemInputInfo.RevisedBy = SessionHelper.CurrentUserLoginID;
-                oGLReconciliationItemInputInfo.DateRevised = DateTime.Now;
-                IGLDataRecItem oGLRecItemInputClient = RemotingHelper.GetGLDataRecItemObject();
-                oGLRecItemInputClient.DeleteRecInputItem(oGLReconciliationItemInputInfo, (short)ARTEnums.AccountAttribute.ReconciliationTemplate, dtGLDataParams, Helper.GetAppUserInfo());
-                RecHelper.RefreshRecForm(this);
+                    GLDataRecItemInfo oGLReconciliationItemInputInfo = new GLDataRecItemInfo();
+                    oGLReconciliationItemInputInfo.GLDataRecItemID = Convert.ToInt64(e.CommandArgument);
+                    oGLReconciliationItemInputInfo.GLDataID = this.GLDataID;
+                    oGLReconciliationItemInputInfo.ReconciliationCategoryTypeID = this.RecCategoryTypeID;
+                    oGLReconciliationItemInputInfo.RevisedBy = SessionHelper.CurrentUserLoginID;
+                    oGLReconciliationItemInputInfo.DateRevised = DateTime.Now;
+                    IGLDataRecItem oGLRecItemInputClient = RemotingHelper.GetGLDataRecItemObject();
+                    oGLRecItemInputClient.DeleteRecInputItem(oGLReconciliationItemInputInfo, (short)ARTEnums.AccountAttribute.ReconciliationTemplate, dtGLDataParams, Helper.GetAppUserInfo());
+                    RecHelper.RefreshRecForm(this);
+                }
+                if (e.CommandName == "Copy")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    CopyRecItem(false, dtGLDataParams);
+                }
+                if (e.CommandName == "CopyAndClose")
+                {
+                    DataTable dtGLDataParams = new DataTable();
+                    dtGLDataParams.Columns.Add("ID");
+                    DataRow drGLData = dtGLDataParams.NewRow();
+                    drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
+                    dtGLDataParams.Rows.Add(drGLData);
+                    CopyRecItem(true, dtGLDataParams);
+                }
             }
-            if (e.CommandName == "Copy")
+            catch (Exception ex)
             {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                CopyRecItem(false, dtGLDataParams);
-            }
-            if (e.CommandName == "CopyAndClose")
-            {
-                DataTable dtGLDataParams = new DataTable();
-                dtGLDataParams.Columns.Add("ID");
-                DataRow drGLData = dtGLDataParams.NewRow();
-                drGLData["ID"] = Convert.ToInt64(e.CommandArgument);
-                dtGLDataParams.Rows.Add(drGLData);
-                CopyRecItem(true, dtGLDataParams);
+                Helper.LogException(ex);
             }
         }
         private void SetHeader(GridItemEventArgs e)
@@ -407,7 +414,7 @@ namespace SkyStem.ART.Web.UserControls
                 ExHyperLink hlAddRecItemComment = (ExHyperLink)e.Item.FindControl("hlAddRecItemComment");
 
                 bool IsCommentAvailable;
-                bool.TryParse(dr["IsCommentAvailable"].ToString(), out    IsCommentAvailable);
+                bool.TryParse(dr["IsCommentAvailable"].ToString(), out IsCommentAvailable);
                 if (!IsCommentAvailable)
                     hlAddRecItemComment.ImageUrl = "~/App_Themes/SkyStemBlueBrown/Images/Comment.gif";
                 else
@@ -415,7 +422,7 @@ namespace SkyStem.ART.Web.UserControls
 
 
                 bool IsForwardedItem;
-                bool.TryParse(dr["IsForwardedItem"].ToString(), out    IsForwardedItem);
+                bool.TryParse(dr["IsForwardedItem"].ToString(), out IsForwardedItem);
                 long GLDataRecItemID;
                 if (long.TryParse(dr["GLDataRecItemID"].ToString(), out GLDataRecItemID))
                 {
@@ -445,7 +452,7 @@ namespace SkyStem.ART.Web.UserControls
                         if (IsForwardedItem)
                         {
                             deleteButton.Visible = false;
-                           // chkSelectItem.Visible = false;
+                            // chkSelectItem.Visible = false;
                         }
                     }
                     else
@@ -457,19 +464,19 @@ namespace SkyStem.ART.Web.UserControls
                 }
                 if ((e.Item as GridDataItem)["CopyColumn"] != null)
                 {
-                    ImageButton CopyButton = (ImageButton)(e.Item as GridDataItem)["CopyColumn"].Controls[0];                   
+                    ImageButton CopyButton = (ImageButton)(e.Item as GridDataItem)["CopyColumn"].Controls[0];
                     if (EditMode == WebEnums.FormMode.Edit)
                     {
                         if (ShowCopyButton)
                         {
-                            CopyButton.Visible = true;                           
+                            CopyButton.Visible = true;
                         }
                         else
-                            CopyButton.Visible = false;         
+                            CopyButton.Visible = false;
                     }
                     else
                     {
-                        CopyButton.Visible = false;                        
+                        CopyButton.Visible = false;
                     }
                     CopyButton.CommandArgument = GLDataRecItemID.ToString();
                 }
@@ -505,7 +512,7 @@ namespace SkyStem.ART.Web.UserControls
         }
         public void RegisterToggleControl(ExImageButton imgToggleControl)
         {
-            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','" 
+            imgToggleControl.OnClientClick += "return ToggleDiv('" + imgToggleControl.ClientID + "','" + this.DivClientId + "','"
                 + hdIsExpanded.ClientID + "','" + hdIsRefreshData.ClientID + "'," + (int?)AutoSaveAttributeID + ");";
             ToggleControl = imgToggleControl;
         }
@@ -514,15 +521,15 @@ namespace SkyStem.ART.Web.UserControls
             if (IsRefreshData && IsExpanded)
             {
 
-                if (this.IsPostBack)
-                {
-                    this._GLRecItemInfoCollection = null;
-                    this._GLReconciliationItemInputRecordTypeID = (short)WebEnums.RecordType.GLReconciliationItemInput;
-                    btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditRecItemInputs.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID.Value, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
-                    btnAdd.Attributes.Add("onclick", "return false;");
-                    btnClose.OnClientClick = PopupHelper.GetJavascriptParameterListForBulkClosepopup(null, "OpenRadWindowForHyperlinkWithName", "GLAdjustmentBulkClose.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID.Value, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY) + "; return false;";
+                //if (this.IsPostBack)
+                //{
+                this._GLRecItemInfoCollection = null;
+                this._GLReconciliationItemInputRecordTypeID = (short)WebEnums.RecordType.GLReconciliationItemInput;
+                btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForEditRecItem(null, "OpenRadWindowWithName", "EditRecItemInputs.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID.Value, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY);
+                btnAdd.Attributes.Add("onclick", "return false;");
+                btnClose.OnClientClick = PopupHelper.GetJavascriptParameterListForBulkClosepopup(null, "OpenRadWindowForHyperlinkWithName", "GLAdjustmentBulkClose.aspx", QueryStringConstants.INSERT, false, this.AccountID, this.GLDataID, this.RecCategoryTypeID.Value, this.NetAccountID, this.IsSRA, RecCategoryID, hdIsRefreshData.ClientID, this.CurrentBCCY) + "; return false;";
 
-                }
+                //}
                 this.EnableDisableControlsForNonPreparersAndClosedPeriods();
                 PopulateGrids();
                 IsRefreshData = false;
@@ -664,9 +671,9 @@ namespace SkyStem.ART.Web.UserControls
             CopyRecItem(true, dtGLDataParams);
         }
 
-        private void CopyRecItem(bool CloseSourceRecItem,DataTable dtGLDataParams)
+        private void CopyRecItem(bool CloseSourceRecItem, DataTable dtGLDataParams)
         {
-           
+
             if (dtGLDataParams != null && dtGLDataParams.Rows.Count > 0)
             {
                 GLDataRecItemInfo oGLReconciliationItemInputInfo = new GLDataRecItemInfo();

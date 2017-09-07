@@ -313,13 +313,13 @@ namespace SkyStem.ART.Web.UserControls
                 this.EditMode = Helper.GetFormModeForRecControlCheckList(this.GLDataHdrInfo);
                 ucRecControlCheckListGrid.EditMode = EditMode;
 
-                if (this.IsPostBack)
-                {
+                //if (this.IsPostBack)
+                //{
                     this._RecControlCheckListInfoCollection = null;
                     btnAdd.OnClientClick = PopupHelper.GetJavascriptParameterListForAddRecControlCheckList(null, "OpenRadWindowWithName", "AddRecControlCheckList.aspx", (short)this.EditMode, this.AccountID, this.GLDataID, this.NetAccountID, hdIsRefreshData.ClientID);
                     btnAdd.Attributes.Add("onclick", "return false;");
                     ucRecControlCheckListGrid.OnRecControlListChanged = this.OnRecControlListChanged;
-                }
+                //}
                 this.EnableDisableControls();
                 PopulateGrids();
                 IsRefreshData = false;
