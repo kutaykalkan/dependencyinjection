@@ -58,7 +58,7 @@ public partial class Pages_DownloadAttachment : System.Web.UI.Page
         if (strRequestedDoc != null)
         {
             string basePath = SharedDataImportHelper.GetBaseFolder();
-            if (!filePhysicalPath.Contains(basePath))
+            if (!filePhysicalPath.Contains(":") && !filePhysicalPath.Contains(basePath))
             {
                 filePhysicalPath = basePath + Path.DirectorySeparatorChar + filePhysicalPath;
             }

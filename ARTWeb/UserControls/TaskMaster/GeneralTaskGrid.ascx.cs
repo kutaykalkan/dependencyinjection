@@ -1077,8 +1077,8 @@ namespace SkyStem.ART.Web.UserControls
                         //{
                         string _popupUrl = Page.ResolveUrl(URLConstants.URL_TASK_VIEW_COMMENTS + "?"
                                 + QueryStringConstants.TASK_ID + "=" + oTaskHdrInfo.TaskID.GetValueOrDefault()
-                                + QueryStringConstants.TASK_TYPE_ID + "=" + oTaskHdrInfo.TaskTypeID.GetValueOrDefault()
-                                + QueryStringConstants.TASK_DETAIL_ID + "=" + oTaskHdrInfo.TaskDetailID.GetValueOrDefault().ToString());
+                                + "&" + QueryStringConstants.TASK_TYPE_ID + "=" + oTaskHdrInfo.TaskTypeID.GetValueOrDefault()
+                                + "&" + QueryStringConstants.TASK_DETAIL_ID + "=" + oTaskHdrInfo.TaskDetailID.GetValueOrDefault().ToString());
                         hlComment.NavigateUrl = "javascript:OpenRadWindowForHyperlinkWithName('" + _popupUrl + "', 'CommentPage', 380 , 600);";
                         hlComment.ToolTipLabelID = 2595;
                         //}
