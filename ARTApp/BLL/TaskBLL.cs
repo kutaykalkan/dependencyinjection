@@ -266,6 +266,8 @@ namespace SkyStem.ART.App.BLL
             TaskHdrInfo oTaskHdr = GetTaskHdrInfoByTaskID(taskID, oAppUserInfo.RecPeriodID, oAppUserInfo);
             if (oTaskHdr != null && !string.IsNullOrEmpty(oTaskHdr.TaskNumber))
             {
+                if (oAppUserInfo.RoleID == (short)ARTEnums.UserRole.AUDIT)
+                    return true;
                 UserHdrInfo oUserHdrInfo = null;
                 if (oTaskHdr.AssignedTo != null && oTaskHdr.AssignedTo.Count > 0)
                 {
