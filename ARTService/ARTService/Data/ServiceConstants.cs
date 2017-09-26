@@ -16,6 +16,7 @@ namespace SkyStem.ART.Service.Data
         public const string SERVICE_NAME_MATCHING_ENGINE_PROCESSING = "Matching Engine Processing Service";
         public const string SERVICE_NAME_MULTILINGUAL_UPLOAD_PROCESSING = "Multilingual Upload Processing Service";
         public const string SERVICE_NAME_EXPORTTOEXCEL_PROCESSING = "Export To Excel Processing Service";
+        public const string SERVICE_NAME_LARGEREQUEST_PROCESSING = "Large Request Processing Service";
         public const string SERVICE_NAME_USERUPLOAD_PROCESSING = "User Upload Processing Service";
         public const string SERVICE_NAME_TASKUPLOAD_PROCESSING = "Task Upload Processing Service";
         public const string SERVICE_NAME_COMPANY_CREATION_PROCESSING = "Company Creation Service";
@@ -94,6 +95,7 @@ namespace SkyStem.ART.Service.Data
 
         public const string TIMER_INTERVAL_MULTILINGUAL_UPLOAD_PROCESSING = "MultilingualUploadProcessingTimerIntervalInMins";
         public const string TIMER_INTERVAL_EXPORTTOEXCEL_PROCESSING = "ExportToExcelProcessingTimerIntervalInMins";
+        public const string TIMER_INTERVAL_LARGEREQUEST_PROCESSING = "LargeRequestProcessingTimerIntervalInMins";
         public const string TIMER_INTERVAL_USERUPLOAD_PROCESSING = "UserUploadProcessingTimerIntervalInMins";
         public const string TIMER_INTERVAL_COMPANY_CREATION_PROCESSING = "CompanyCreationTimerIntervalInMins";
         public const string TIMER_INTERVAL_ACCOUNT_RECONCILABILITY_PROCESSING = "AccountReconcilabilityProcesssingTimerIntervalInMins";

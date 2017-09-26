@@ -65,7 +65,7 @@ public partial class Pages_RecBinders : PageBase
     {
         if (e.Item.ItemType == GridItemType.Item || e.Item.ItemType == GridItemType.AlternatingItem)
         {
-            RequestHelper.BindCommonFields(WebEnums.ARTPages.RecBinders, e);
+            RequestHelper.BindCommonFields(WebEnums.ARTPages.RecBinders, ifDownloader, e);
             BulkExportToExcelInfo oBulkExportToExcelInfo = (BulkExportToExcelInfo)e.Item.DataItem;
             if ((e.Item as GridDataItem)["DeleteColumn"] != null)
             {

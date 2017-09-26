@@ -21,6 +21,7 @@ using SkyStem.ART.Client.Model.CompanyDatabase;
 using SkyStem.ART.Service.Service;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
+using SkyStem.ART.Shared.Utility;
 
 namespace SkyStem.ART.Service
 {
@@ -88,11 +89,16 @@ namespace SkyStem.ART.Service
         bool _IsProcessingFTPDataImport;
         Timer oFTPDataImportTimer = new Timer();
 
+        int _LargeRequestTimerInterval;
+        bool _IsProcessingLargeRequests;
+        Timer oLargeRequestTimer = new Timer();
+
         int _ThreadCheckTimerInterval;
         bool _IsProcessingThreadCheck;
         Timer oThreadCheckTimer = new Timer();
         Dictionary<string, Timer> _dictTimerList = new Dictionary<string, Timer>();
         Dictionary<string, DateTime> _dictLastExecutionList = new Dictionary<string, DateTime>();
+        ConcurrentQueue<ExportToExcel> _DownloadLargeRequestQueue = new ConcurrentQueue<ExportToExcel>();
 
         public DataProcessingService()
         {
@@ -153,6 +159,14 @@ namespace SkyStem.ART.Service
             oExportToExcelTimer.AutoReset = true;
             oExportToExcelTimer.Enabled = true;
             oExportToExcelTimer.Elapsed += new ElapsedEventHandler(oExportToExcelTimer_Elapsed);
+
+            //Large Request Processing Timer
+            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_INITIALIZE_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, Helper.GetDateTime()), null);
+            _LargeRequestTimerInterval = Helper.GetTimerInterval(AppSettingConstants.TIMER_INTERVAL_LARGEREQUEST_PROCESSING);
+            oLargeRequestTimer = new System.Timers.Timer();
+            oLargeRequestTimer.AutoReset = true;
+            oLargeRequestTimer.Enabled = true;
+            oLargeRequestTimer.Elapsed += new ElapsedEventHandler(oLargeRequestTimer_Elapsed);
 
             //User Upload Processing Timer
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_INITIALIZE_TEXT, ServiceConstants.SERVICE_NAME_USERUPLOAD_PROCESSING, Helper.GetDateTime()), null);
@@ -258,6 +272,10 @@ namespace SkyStem.ART.Service
             oExportToExcelTimer.Interval = 60 * 1000;
             oExportToExcelTimer.Start();
 
+            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_START_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, Helper.GetDateTime()), null);
+            oLargeRequestTimer.Interval = 60 * 1000;
+            oLargeRequestTimer.Start();
+
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_START_TEXT, ServiceConstants.SERVICE_NAME_USERUPLOAD_PROCESSING, Helper.GetDateTime()), null);
             oUserUploadTimer.Interval = 60 * 1000;
             oUserUploadTimer.Start();
@@ -324,6 +342,10 @@ namespace SkyStem.ART.Service
             oExportToExcelTimer.Stop();
             oExportToExcelTimer.Enabled = false;
 
+            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_STOP_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, Helper.GetDateTime()), null);
+            oLargeRequestTimer.Stop();
+            oLargeRequestTimer.Enabled = false;
+
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_STOP_TEXT, ServiceConstants.SERVICE_NAME_USERUPLOAD_PROCESSING, Helper.GetDateTime()), null);
             oUserUploadTimer.Stop();
             oUserUploadTimer.Enabled = false;
@@ -373,10 +395,10 @@ namespace SkyStem.ART.Service
         {
             int count = 15;
             while (count > 0 && (_IsProcessingAccountReconcilability || _IsProcessingAlert || _IsProcessingCompanyCreation
-                || _IsProcessingDataUpload || _IsProcessingExportToExcel || _IsProcessingIndexCreation
+                || _IsProcessingDataUpload || _IsProcessingExportToExcel || _IsProcessingLargeRequests || _IsProcessingIndexCreation
                 || _IsProcessingMatchingEngine || _IsProcessingMatchingFile || _IsProcessingMultilingualUpload
                 || _IsProcessingRecItemImport || _IsProcessingRecPeriod || _IsProcessingTaskUpload
-                || _IsProcessingUserUpload || _IsProcessingClearCompanyCache || _IsProcessingFTPDataImport
+                || _IsProcessingUserUpload || _IsProcessingClearCompanyCache || _IsProcessingFTPDataImport 
                 || _IsProcessingThreadCheck))
             {
                 count--;
@@ -713,10 +735,12 @@ namespace SkyStem.ART.Service
                         try
                         {
                             ExportToExcel objExportToExcel = new ExportToExcel(oCompanyUserInfo);
-
                             if (objExportToExcel.IsProcessingRequiredForRequests())
                             {
-                                objExportToExcel.ProcessRequests();
+                                // Process lite requests immediately
+                                objExportToExcel.ProcessRequests(true);
+                                // Add into Queue for large requests
+                                _DownloadLargeRequestQueue.Enqueue(objExportToExcel);
                             }
                         }
                         catch (Exception ex)
@@ -747,6 +771,64 @@ namespace SkyStem.ART.Service
                     oExportToExcelTimer.Start();
                     _IsProcessingExportToExcel = false;
                     GC.KeepAlive(oExportToExcelTimer);
+                }
+            }
+        }
+
+        void oLargeRequestTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (!_IsServiceStopping)
+            {
+                try
+                {
+                    _IsProcessingLargeRequests = true;
+                    UpdateLastExecutionTime(ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, oLargeRequestTimer);
+                    oLargeRequestTimer.Stop();
+                    DateTime startDate = DateTime.Now;
+                    Helper.LogInfo(string.Format(LoggingConstants.SERVICE_PROCESSING_BEGINS_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, Helper.GetDateTime()), null);
+                    Helper.LogInfo("Large Request Queued Items => " + _DownloadLargeRequestQueue.Count.ToString() , null);
+                    ConcurrentQueue <Exception> exceptions = new ConcurrentQueue<Exception>();
+                    if (_DownloadLargeRequestQueue.Count > 0)
+                    {
+                        Parallel.For(0, _DownloadLargeRequestQueue.Count, new ParallelOptions() { MaxDegreeOfParallelism = 5 }, (j) =>
+                        {
+                            try
+                            {
+                                ExportToExcel objExportToExcel = null;
+                                if (_DownloadLargeRequestQueue.TryDequeue(out objExportToExcel))
+                                { // Process large requests
+                                    objExportToExcel.ProcessRequests(false);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                exceptions.Enqueue(ex);
+                            }
+                        });
+                        while (exceptions.Count > 0)
+                        {
+                            Exception exOut;
+                            if (exceptions.TryDequeue(out exOut))
+                                Helper.LogError(exOut, null);
+                        }
+                    }
+                    Helper.LogInfo(string.Format(LoggingConstants.SERVICE_PROCESSING_ENDS_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, Helper.GetDateTime()), null);
+                    // Setting the Interval again
+                    _LargeRequestTimerInterval = Helper.GetTimerInterval(AppSettingConstants.TIMER_INTERVAL_LARGEREQUEST_PROCESSING);
+                    Helper.LogInfo(string.Format("Export to Large Request Service Interval == {0}", _LargeRequestTimerInterval.ToString()), null);
+                    DateTime endDate = DateTime.Now;
+                    Helper.LogServiceTimeStampInfo(string.Format(LoggingConstants.SERVICE_TIME_STAMP_TEXT, startDate, endDate, endDate - startDate, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING));
+                }
+                catch (Exception ex)
+                {
+                    Helper.LogServiceTimeStampError(string.Format(LoggingConstants.SERVICE_THREAD_ERROR_TEXT, ServiceConstants.SERVICE_NAME_LARGEREQUEST_PROCESSING, ex.Message, ex.StackTrace));
+                }
+                finally
+                {
+                    oLargeRequestTimer.Interval = _LargeRequestTimerInterval * 60 * 1000; // Convert to mili secs
+                    oLargeRequestTimer.Start();
+                    _IsProcessingLargeRequests = false;
+                    GC.KeepAlive(oLargeRequestTimer);
                 }
             }
         }

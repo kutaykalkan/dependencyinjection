@@ -91,7 +91,7 @@ public partial class Pages_RequestStatus : PageBaseCompany
         if (e.Item.ItemType == Telerik.Web.UI.GridItemType.Item ||
             e.Item.ItemType == Telerik.Web.UI.GridItemType.AlternatingItem)
         {
-            RequestHelper.BindCommonFields(WebEnums.ARTPages.RequestStatus, e);
+            RequestHelper.BindCommonFields(WebEnums.ARTPages.RequestStatus, ifDownloader, e);
             GridDataItem item = (GridDataItem)e.Item;
             CheckBox checkBox = (CheckBox)item["CheckboxSelectColumn"].Controls[0];
             BulkExportToExcelInfo oBulkExportToExcelInfo = (BulkExportToExcelInfo)e.Item.DataItem;

@@ -283,7 +283,7 @@ public partial class Pages_DocumentUpload : PopupPageBase
             AttachmentInfo oAttachmentInfo = (AttachmentInfo)e.Item.DataItem;
 
             ExLabel lblIsPermanentOrTemporary = (ExLabel)e.Item.FindControl("lblIsPermanentOrTemporary");
-            ExHyperLink hlDocumentName = (ExHyperLink)e.Item.FindControl("hlDocumentName");
+            ExLinkButton hlDocumentName = (ExLinkButton)e.Item.FindControl("hlDocumentName");
 
             lblIsPermanentOrTemporary.Text = SetPermanentOrTemporary(oAttachmentInfo);
 
@@ -293,8 +293,9 @@ public partial class Pages_DocumentUpload : PopupPageBase
             + "&" + QueryStringConstants.RECORD_TYPE_ID + "=" + oAttachmentInfo.RecordTypeID.GetValueOrDefault()
             + "&" + QueryStringConstants.GLDATA_ID + "=" + this.GLDataHdrInfo.GLDataID.GetValueOrDefault()
             + "&" + QueryStringConstants.GENERIC_ID + "=" + oAttachmentInfo.AttachmentID.GetValueOrDefault();
-            hlDocumentName.NavigateUrl = url;
+            //hlDocumentName.NavigateUrl = url;
 
+            hlDocumentName.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
 
             GridColumn gcDelete = rgGLAdjustments.Columns.FindByUniqueNameSafe("DeleteColumn");
             ImageButton imgBtnDelete = (ImageButton)(e.Item as GridDataItem)["DeleteColumn"].Controls[0];

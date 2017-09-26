@@ -418,5 +418,8 @@ namespace SkyStem.ART.Client.IServices
 
         [OperationContract]
         void UpdateReSetAccount(List<long> oGLDataIDCollection, string RevisedBy, DateTime dateRevised, short actionTypeID, short changeSourceIDSRA, AppUserInfo oAppUserInfo);
+
+        [OperationContract]
+        bool CheckGLPermissions(long? GLDataID, int? UserID, short? RoleID, AppUserInfo oAppUserInfo);
     }//end of interface
 }//end of class

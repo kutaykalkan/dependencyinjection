@@ -402,6 +402,7 @@ namespace SkyStem.ART.App.DAO
                     oGLDataRecurringItemScheduleInfo.CrrentRecPeriodAmount = reader.GetDecimalValue("CrrentRecPeriodAmount");
                     oGLDataRecurringItemScheduleInfo.IgnoreInCalculation = reader.GetBooleanValue("IgnoreInCalculation");
                     oGLDataRecurringItemScheduleInfo.IsCommentAvailable = reader.GetBooleanValue("IsCommentAvailable");
+                    oGLDataRecurringItemScheduleInfo.DataImportTypeID = reader.GetInt16Value("DataImportTypeID");
                     oGLDataRecurringItemScheduleInfoCollection.Add(oGLDataRecurringItemScheduleInfo);
 
                 }

@@ -17,6 +17,7 @@ using SkyStem.ART.Shared.Data;
 using System.IO.Compression;
 using SkyStem.ART.Client.IServices;
 using ClientModel = SkyStem.ART.Client.Model;
+using SkyStem.ART.Client.Data;
 
 namespace SkyStem.ART.Service.APP.BLL
 {
@@ -26,8 +27,9 @@ namespace SkyStem.ART.Service.APP.BLL
     public class ExportToExcel
     {
         List<ExportToExcelInfo> _objExportInfo = null;
+        List<ExportToExcelInfo> _objExportInfoLite = null;
         CompanyUserInfo CompanyUserInfo;
-
+        
         public ExportToExcel(CompanyUserInfo oCompanyUserInfo)
         {
             this.CompanyUserInfo = oCompanyUserInfo;
@@ -57,60 +59,65 @@ namespace SkyStem.ART.Service.APP.BLL
                 List<ExportToExcelInfo> objExport = objExportDAO.GetDataForExport();
                 if (objExport != null && objExport.Count > 0)
                 {
-                    _objExportInfo = objExport;
+                    _objExportInfoLite = objExport.FindAll(T => T.RequestTypeID != (short)ARTEnums.RequestType.CreateBinders
+                                                                && T.RequestTypeID != (short)ARTEnums.RequestType.DownloadAllRecFormsDetailed);
+                    _objExportInfo = objExport.FindAll(T => T.RequestTypeID == (short)ARTEnums.RequestType.CreateBinders
+                                                                || T.RequestTypeID == (short)ARTEnums.RequestType.DownloadAllRecFormsDetailed);
                     isExportRequired = true;
                 }
             }
             catch (Exception ex)
             {
                 isExportRequired = false;
+                _objExportInfoLite = null;
                 _objExportInfo = null;
                 Helper.LogError(@"Error in IsProcessingRequiredForExportToExcel: " + ex.Message, this.CompanyUserInfo);
 
             }
-
             return isExportRequired;
         }
 
-        public void ProcessRequests()
+        public void ProcessRequests(bool requestLite)
         {
-            List<ExportToExcelInfo> objExportDataInfoList = _objExportInfo;
-
-            //Convert DataTable to Excel
-            //ExportToExcelHelper objExportHelper = new ExportToExcelHelper();
-            foreach (ExportToExcelInfo objExportInfo in objExportDataInfoList)
+            List<ExportToExcelInfo> objExportDataInfoList = (requestLite)? _objExportInfoLite: _objExportInfo;
+            if (objExportDataInfoList != null && objExportDataInfoList.Count > 0)
             {
-                List<ClientModel.LogInfo> oLogInfoCache = new List<ClientModel.LogInfo>();
-                try
+                //Convert DataTable to Excel
+                //ExportToExcelHelper objExportHelper = new ExportToExcelHelper();
+                foreach (ExportToExcelInfo objExportInfo in objExportDataInfoList)
                 {
-                    DataSet ds = new DataSet();
-                    ExcelHelper.LoadXmlToDataSet(ds, objExportInfo.Data);
-                    switch (objExportInfo.RequestTypeID)
-                    {
-                        case 1:
-                            ProcessExportToExcel(ds, objExportInfo, oLogInfoCache);
-                            break;
-                        case 2:
-                        case 3:
-                        case 4:
-                            ProcessDownloadAllRecs(ds, objExportInfo, oLogInfoCache);
-                            break;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Helper.LogErrorToCache(ex, oLogInfoCache);
-                }
-                finally
-                {
+                    List<ClientModel.LogInfo> oLogInfoCache = new List<ClientModel.LogInfo>();
                     try
                     {
-                        UpdateRequestStatus(objExportInfo);
-                        Helper.LogListViaService(oLogInfoCache, null, this.CompanyUserInfo);
+                        DataSet ds = new DataSet();
+                        ExcelHelper.LoadXmlToDataSet(ds, objExportInfo.Data);
+                        switch (objExportInfo.RequestTypeID)
+                        {
+                            case 1:
+                                ProcessExportToExcel(ds, objExportInfo, oLogInfoCache);
+                                break;
+                            case 2:
+                            case 3:
+                            case 4:
+                                ProcessDownloadAllRecs(ds, objExportInfo, oLogInfoCache);
+                                break;
+                        }
                     }
                     catch (Exception ex)
                     {
-                        Helper.LogError(ex, this.CompanyUserInfo);
+                        Helper.LogErrorToCache(ex, oLogInfoCache);
+                    }
+                    finally
+                    {
+                        try
+                        {
+                            UpdateRequestStatus(objExportInfo);
+                            Helper.LogListViaService(oLogInfoCache, null, this.CompanyUserInfo);
+                        }
+                        catch (Exception ex)
+                        {
+                            Helper.LogError(ex, this.CompanyUserInfo);
+                        }
                     }
                 }
             }
@@ -151,12 +158,14 @@ namespace SkyStem.ART.Service.APP.BLL
                     string zipPath = basefolderName + @"\" + fileName + ".zip";
                     using (ZipArchive oZipArchive = ZipFile.Open(zipPath, ZipArchiveMode.Create))
                     {
+                        using (ReportViewer rvReportViewer = new ReportViewer())
+                        {
                             foreach (DataRow dr in dtRequestDtl.Rows)
                             {
                                 try
                                 {
                                     string accountName = Helper.ReplaceSpecialChars(dr[DownloadAllRecsConstants.DetailFields.ACCOUNTNAME].ToString());
-                                    byte[] pdfBiteStream = CreateReportPDF(drHeader, dr);
+                                    byte[] pdfBiteStream = CreateReportPDF(rvReportViewer, drHeader, dr);
 
                                     ZipArchiveEntry oZipArchiveEntry = oZipArchive.CreateEntry(accountName + @"\" + accountName + ".pdf");
 
@@ -182,6 +191,7 @@ namespace SkyStem.ART.Service.APP.BLL
                                     Helper.LogInfoToCache(ex, oLogInfoCache);
                                 }
                             }
+                        }
                     }
                     oExportToExcelInfo.OutputFile = zipPath;
                     oExportToExcelInfo.OutputFileSize = Helper.GetFileSize(zipPath);
@@ -211,29 +221,30 @@ namespace SkyStem.ART.Service.APP.BLL
         /// <param name="drHeader"></param>
         /// <param name="drDetail"></param>
         /// <returns></returns>
-        private byte[] CreateReportPDF(DataRow drHeader, DataRow drDetail)
+        private byte[] CreateReportPDF(ReportViewer rvReportViewer, DataRow drHeader, DataRow drDetail)
         {
             byte[] oByteCollection = null;
-            using (ReportViewer rvReportViewer = new ReportViewer())
-            {
-                rvReportViewer.ServerReport.ReportServerUrl = new Uri(Shared.Utility.SharedAppSettingHelper.GetAppSettingValue("ReportUri"));
-                rvReportViewer.ServerReport.ReportPath = Shared.Utility.SharedAppSettingHelper.GetAppSettingValue("ReportPath");
+            //           using (ReportViewer rvReportViewer = new ReportViewer())
+            //           {
+            rvReportViewer.Reset();
+            rvReportViewer.ServerReport.ReportServerUrl = new Uri(Shared.Utility.SharedAppSettingHelper.GetAppSettingValue("ReportUri"));
+            rvReportViewer.ServerReport.ReportPath = Shared.Utility.SharedAppSettingHelper.GetAppSettingValue("ReportPath");
 
-                List<ReportParameter> reportParameters = new List<ReportParameter>();
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
 
-                reportParameters = SetReportParameters(reportParameters, drHeader, drDetail);
-                rvReportViewer.ServerReport.SetParameters(reportParameters);
+            reportParameters = SetReportParameters(reportParameters, drHeader, drDetail);
+            rvReportViewer.ServerReport.SetParameters(reportParameters);
 
-                Warning[] warnings;
-                string[] streamids;
-                string mimeType;
-                string encoding;
-                string extension;
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string extension;
 
-                oByteCollection = rvReportViewer.ServerReport.Render(
-                "PDF", null, out mimeType, out encoding, out extension,
-                out streamids, out warnings);
-            }
+            oByteCollection = rvReportViewer.ServerReport.Render(
+            "PDF", null, out mimeType, out encoding, out extension,
+            out streamids, out warnings);
+            //            }
             return oByteCollection;
         }
 

@@ -213,7 +213,7 @@
                             <%--Document Name--%>
                             <telerikWebControls:ExGridTemplateColumn UniqueName="DocumentName" LabelID="1680 ">
                                 <ItemTemplate>
-                                    <webControls:ExHyperLink ID="hlDocumentName" runat="server" Text='<%#Bind("DocumentName") %>'></webControls:ExHyperLink>
+                                    <webControls:ExLinkButton ID="hlDocumentName" runat="server" Text='<%#Bind("DocumentName") %>'></webControls:ExLinkButton>
                                 </ItemTemplate>
                             </telerikWebControls:ExGridTemplateColumn>
                             <%--Comments/Description--%>
@@ -240,7 +240,7 @@
             </td>
         </tr>
     </table>
-
+    <iframe id="ifDownloader" runat="server" style="display:none;" />
     <script type="text/javascript" language="javascript">
 
         function ValidateFileExtension(source, arguments) {

@@ -142,7 +142,7 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
         {
             AttachmentInfo oAttachmentInfo = (AttachmentInfo)e.Item.DataItem;
 
-            ExHyperLink hlDocumentName = (ExHyperLink)e.Item.FindControl("hlDocumentName");
+            ExLinkButton hlDocumentName = (ExLinkButton)e.Item.FindControl("hlDocumentName");
 
 
             //string url = this.ResolveUrl(URLConstants.URL_DOWNLOAD_ATTACHMENT) + "?" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(oAttachmentInfo.PhysicalPath);
@@ -152,7 +152,9 @@ public partial class UserControls_TaskMaster_Attachments : UserControlTaskMaster
             + "&" + QueryStringConstants.TASK_ID + "=" + _taskID.GetValueOrDefault()
             + "&" + QueryStringConstants.TASK_TYPE_ID + "=" + _taskTypeID.GetValueOrDefault()
             + "&" + QueryStringConstants.GENERIC_ID + "=" + oAttachmentInfo.AttachmentID.GetValueOrDefault();
-            hlDocumentName.NavigateUrl = url;
+            //hlDocumentName.NavigateUrl = url;
+
+            hlDocumentName.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
 
             //GridColumn gcDelete = rgAttachments.Columns.FindByUniqueNameSafe("DeleteColumn");
 

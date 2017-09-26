@@ -161,7 +161,20 @@ namespace SkyStem.ART.Client.Model
                 this._DataImportID = value;
             }
         }
-
+        protected System.Int16? _DataImportTypeID = null;
+        [DataMember]
+        [XmlElement(ElementName = "DataImportTypeID")]
+        public virtual System.Int16? DataImportTypeID
+        {
+            get
+            {
+                return this._DataImportTypeID;
+            }
+            set
+            {
+                this._DataImportTypeID = value;
+            }
+        }
         private short? _RecCategoryTypeID;
         [DataMember]
         [XmlElement(ElementName = "RecCategoryTypeID")]

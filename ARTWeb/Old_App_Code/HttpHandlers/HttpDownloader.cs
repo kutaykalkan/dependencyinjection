@@ -261,8 +261,13 @@ namespace SkyStem.ART.Web.Utility
                 AttachmentInfo oAttachmentInfo = null;
                 if (recordID.GetValueOrDefault() > 0 && recordTypeID.GetValueOrDefault() > 0)
                 {
-                    IAttachment oAttachment = RemotingHelper.GetAttachmentObject();
-                    oAttachmentInfoList = oAttachment.GetAllAttachmentForGL(glDataID, userID, roleID, Helper.GetAppUserInfo());
+                    AppUserInfo oAppUserInfo = Helper.GetAppUserInfo();
+                    IGLData oGLData = RemotingHelper.GetGLDataObject();
+                    if (oGLData.CheckGLPermissions(glDataID, userID, roleID, oAppUserInfo))
+                    {
+                        IAttachment oAttachment = RemotingHelper.GetAttachmentObject();
+                        oAttachmentInfoList = oAttachment.GetAttachment(recordID.Value, recordTypeID.Value, recPeriodID, oAppUserInfo);
+                    }
                 }
                 else
                 {

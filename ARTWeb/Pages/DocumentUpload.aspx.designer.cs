@@ -145,4 +145,13 @@ public partial class Pages_DocumentUpload {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::SkyStem.Library.Controls.TelerikWebControls.ExRadGrid rgGLAdjustments;
+    
+    /// <summary>
+    /// ifDownloader control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlIframe ifDownloader;
 }

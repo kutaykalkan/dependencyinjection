@@ -10,6 +10,7 @@ using SkyStem.ART.App.DAO;
 using System.Data;
 using SkyStem.ART.Client.Params;
 using SkyStem.ART.App.DAO.QualityScore;
+using SkyStem.ART.App.BLL;
 
 namespace SkyStem.ART.App.Services
 {
@@ -1160,8 +1161,24 @@ namespace SkyStem.ART.App.Services
                 if ((null != oConnection) && (oConnection.State == ConnectionState.Open))
                     oConnection.Dispose();
             }
-
         }
-
+        public bool CheckGLPermissions(long? GLDataID, int? UserID, short? RoleID, AppUserInfo oAppUserInfo)
+        {
+            bool hasAccess = false;
+            try
+            {
+                ServiceHelper.SetConnectionString(oAppUserInfo);
+                hasAccess = GLDataBLL.CheckGLPermissions(GLDataID, UserID, RoleID, oAppUserInfo);
+            }
+            catch (SqlException ex)
+            {
+                ServiceHelper.LogAndThrowGenericSqlException(ex, oAppUserInfo);
+            }
+            catch (Exception ex)
+            {
+                ServiceHelper.LogAndThrowGenericException(ex, oAppUserInfo);
+            }
+            return hasAccess;
+        }
     }//end of class
 }//end of namespace

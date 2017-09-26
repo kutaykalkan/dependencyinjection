@@ -156,6 +156,7 @@
                 </tr>
             </table>
             <asp:HiddenField ID="Sel" runat="server" />
+            <iframe id="ifDownloader" runat="server" style="display:none;" />
         </ContentTemplate>
     </asp:UpdatePanel>
 

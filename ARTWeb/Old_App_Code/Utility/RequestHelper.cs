@@ -22,6 +22,7 @@ using SkyStem.Library.Controls.WebControls;
 using SkyStem.ART.Web.Classes;
 using SkyStem.ART.Shared.Utility;
 using SkyStem.ART.Client.Model.Report;
+using System.Web.UI.HtmlControls;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -460,7 +461,7 @@ namespace SkyStem.ART.Web.Utility
             return oGridGroupByExpressionList;
         }
 
-        public static void BindCommonFields(WebEnums.ARTPages ePage, Telerik.Web.UI.GridItemEventArgs e)
+        public static void BindCommonFields(WebEnums.ARTPages ePage, HtmlIframe ifDownloader, Telerik.Web.UI.GridItemEventArgs e)
         {
             BulkExportToExcelInfo oBulkExportToExcelInfo = (BulkExportToExcelInfo)e.Item.DataItem;
             ExLabel lblRequestType = (ExLabel)e.Item.FindControl("lblRequestType");
@@ -486,11 +487,16 @@ namespace SkyStem.ART.Web.Utility
             string url = string.Format("Downloader?{0}={1}&", QueryStringConstants.HANDLER_ACTION, (Int32)WebEnums.HandlerActionType.DownloadRequestFile);
             url += "&" + QueryStringConstants.REQUEST_ID + "=" + oBulkExportToExcelInfo.RequestID.GetValueOrDefault()
             + "&" + QueryStringConstants.REQUEST_TYPE_ID + "=" + oBulkExportToExcelInfo.RequestTypeID.GetValueOrDefault();
-           
+
             if (imgFileTypeExcel != null)
-                imgFileTypeExcel.OnClientClick = "document.location.href = '" + url + "';return false;";
+            {    //imgFileTypeExcel.OnClientClick = "document.location.href = '" + url + "';return false;";
+                imgFileTypeExcel.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
+            }
             if (imgFileTypeZip != null)
-                imgFileTypeZip.OnClientClick = "document.location.href = '" + url + "';return false;";
+            {
+                //imgFileTypeZip.OnClientClick = "document.location.href = '" + url + "';return false;";
+                imgFileTypeZip.Attributes.Add("onclick", "javascript:{$get('" + ifDownloader.ClientID + "').src='" + url + "'; return false;}");
+            }
             if (oBulkExportToExcelInfo.StatusID.HasValue)
             {
                 ARTEnums.RequestStatus eRequestStatus = (ARTEnums.RequestStatus)System.Enum.Parse(typeof(ARTEnums.RequestStatus), oBulkExportToExcelInfo.StatusID.Value.ToString());
