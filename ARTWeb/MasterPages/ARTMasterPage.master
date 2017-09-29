@@ -386,7 +386,9 @@
         function EndRequestHandler(sender, args) {
             if (args.get_error() != undefined && args.get_error().httpStatusCode == '500') {
                 var errorMessage = args.get_error().message.substr(args.get_error().name.length + 2);
-                alert(errorMessage);
+                if (errorMessage != 'Thread was being aborted.') {
+                    alert(errorMessage);
+                }
                 args.set_errorHandled(true);
             }
         }
