@@ -162,7 +162,9 @@ public partial class Pages_CreateUser : PageBaseCompany
                     break;
             }
         }
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
     protected void btnAccountAssociation_Click(object sender, EventArgs e)
     {
@@ -937,7 +939,9 @@ public partial class Pages_CreateUser : PageBaseCompany
 
         if (url != null)
         {
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
     }
     /// <summary>

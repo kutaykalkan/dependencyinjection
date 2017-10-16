@@ -268,7 +268,9 @@ public partial class Pages_ReportParameter : PageBaseCompany
         url = ReportHelper.AddCommonQueryStringParameter(url);
         url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.StandardReport).ToString();
         url = url + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     protected void btnExportToExcelAndEmailReport_Click(object sender, EventArgs e)
@@ -288,7 +290,9 @@ public partial class Pages_ReportParameter : PageBaseCompany
         //Session.Remove(SessionConstants.REPORT_INFO_OBJECT);
         ReportHelper.ClearReportSessions();
         string url = "ReportHome.aspx?" + QueryStringConstants.REPORT_SECTION_ID + "=" + _reportSectionIDFromURL;
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     #region "Private Methods"

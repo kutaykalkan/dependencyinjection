@@ -119,13 +119,17 @@ public partial class Pages_CertificationVerbiage : PageBaseRecPeriod
 
         oCertificationStatusClient.InsertCertificationVerbiageInfo(oCertificationVerbiageInfoCollection, (int)SessionHelper.CurrentReconciliationPeriodID,Helper.GetAppUserInfo());
         //Response.Redirect(Helper.GetHomePageUrl(), false);
-        Response.Redirect(Helper.GetHomePageUrl() + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1923", false);
+        //Response.Redirect(Helper.GetHomePageUrl() + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1923", false);
+        SessionHelper.RedirectToUrl(Helper.GetHomePageUrl() + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1923");
+        return;
 
     }
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         //Helper.GetHomePageUrl();
-        Response.Redirect(Helper.GetHomePageUrl(), false);
+        //Response.Redirect(Helper.GetHomePageUrl(), false);
+        SessionHelper.RedirectToUrl(Helper.GetHomePageUrl());
+        return;
     }
     private void LoadDataByRecPeriodID(int companyID, int recPeriodID)
     {

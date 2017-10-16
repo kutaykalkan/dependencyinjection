@@ -213,7 +213,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
         if (!string.IsNullOrEmpty(Request.QueryString[QueryStringConstants.IS_REDIRECTED_FROM_TASK_IMOPRT]))
         {
             string url = _ReferrerUrl;
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
         else
         {
@@ -229,7 +231,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
                 url += "&" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=2399";
                 url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=1";
             }
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
     }
 
@@ -250,7 +254,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
                     url += "?" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=1784";
                     url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=3";
                 }
-                Response.Redirect(url);
+                //Response.Redirect(url);
+                SessionHelper.RedirectToUrl(url);
+                return;
             }
             else
             {
@@ -267,7 +273,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
                     url += "&" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=1784";
                     url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=3";
                 }
-                Response.Redirect(url);
+                //Response.Redirect(url);
+                SessionHelper.RedirectToUrl(url);
+                return;
             }
         }
         catch (ARTException ex)
@@ -312,7 +320,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
                     url += "?" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=1784";
                     url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=3";
                 }
-                Response.Redirect(url);
+                //Response.Redirect(url);
+                SessionHelper.RedirectToUrl(url);
+                return;
             }
             else
             {
@@ -329,7 +339,9 @@ public partial class Pages_RecItemImportStatusMessage : PageBaseCompany
                     url += "&" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=2399";
                     url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=2";
                 }
-                Response.Redirect(url);
+                //Response.Redirect(url);
+                SessionHelper.RedirectToUrl(url);
+                return;
             }
         }
         catch (ARTException ex)

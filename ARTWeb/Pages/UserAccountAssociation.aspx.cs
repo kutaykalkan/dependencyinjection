@@ -493,7 +493,9 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 
     protected void btnAddMore_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Pages/CreateUser.aspx");
+        //Response.Redirect("~/Pages/CreateUser.aspx");
+        SessionHelper.RedirectToUrl("~/Pages/CreateUser.aspx");
+        return;
     }
 
     protected void btnHome_Click(object sender, EventArgs e)
@@ -676,8 +678,9 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
                     case WebEnums.ARTPages.UserSearch:
                         url = "~/Pages/UserSearch.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1808"
                                 + "&" + QueryStringConstants.SHOW_SEARCH_RESULTS + "=1";
-                        Response.Redirect(url);
-                        break;
+                        //Response.Redirect(url);
+                        SessionHelper.RedirectToUrl(url);
+                        return;
                 }
 
             }
@@ -735,7 +738,9 @@ public partial class Pages_UserAccountAssociation : PageBaseRecPeriod
 
         if (!string.IsNullOrEmpty(url))
         {
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
     }
 

@@ -489,7 +489,9 @@ public partial class UserControls_Dashboard_ReconciliationTracking : UserControl
         AccountFilterHelper.AddCriteriaToSessionByDashBoardRecStatus(columnID, operatorID, value, eGrid);
 
         string Url = ArrPrms[1];
-        Response.Redirect(Url);
+        //Response.Redirect(Url);
+        SessionHelper.RedirectToUrl(Url);
+        return;
     }
 
 
@@ -780,7 +782,9 @@ public partial class UserControls_Dashboard_ReconciliationTracking : UserControl
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.AccountViewer, oPageSettings);
 
         string url = "~/Pages/AccountViewer.aspx?" + QueryStringConstants.IS_SRA + "=1";
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     private void ShowHideColumnsForExport()

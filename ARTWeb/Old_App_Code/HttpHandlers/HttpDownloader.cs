@@ -15,6 +15,7 @@ using SkyStem.ART.Client.Params;
 using SkyStem.ART.Client.Params.Matching;
 using SkyStem.ART.Client.Model.Matching;
 using SkyStem.ART.Client.Model.BulkExportExcel;
+using System.Threading;
 
 namespace SkyStem.ART.Web.Utility
 {
@@ -58,6 +59,8 @@ namespace SkyStem.ART.Web.Utility
                 Helper.LogInfo(errMsg);
                 context.Response.Write(ScriptHelper.GetJSForDisplayErrorMessage(errMsg));
             }
+            catch (ThreadAbortException)
+            { }
             catch (Exception ex)
             {
                 Helper.LogException(ex);

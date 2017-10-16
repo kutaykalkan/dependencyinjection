@@ -358,7 +358,9 @@ public partial class Pages_DataImport : PageBaseCompany
                                     if (oMatchingSourceDataImportHdrInfoList.Count > 0)
                                     {
                                         Session[SessionConstants.MATCHING_SOURCE_DATA] = oMatchingSourceDataImportHdrInfoList;
-                                        Response.Redirect("~/Pages/Matching/MatchSourceDataTypeMapping.aspx", false);
+                                        //Response.Redirect("~/Pages/Matching/MatchSourceDataTypeMapping.aspx", false);
+                                        SessionHelper.RedirectToUrl("~/Pages/Matching/MatchSourceDataTypeMapping.aspx");
+                                        return;
                                     }
                                 }
                                 else
@@ -483,7 +485,10 @@ public partial class Pages_DataImport : PageBaseCompany
                                     if (!keyCount.HasValue)
                                     {
                                         if (DataImportHelper.IsKeyFieldAvailable(filePath, validFile.GetExtension(), WebConstants.GLDATA_SHEETNAME, ARTEnums.DataImportType.GLData))
-                                            Response.Redirect("~/Pages/DataImportGLMapping.aspx", false);
+                                        {    //Response.Redirect("~/Pages/DataImportGLMapping.aspx", false);
+                                            SessionHelper.RedirectToUrl("~/Pages/DataImportGLMapping.aspx");
+                                            return;
+                                        }
                                         else
                                         {
                                             this.InsertGLDataImportHdrWithFailureMsgWithKeyMapping(Helper.GetLabelIDValue((int)WebEnums.DataImportStatusLabelID.Submitted)
@@ -599,7 +604,10 @@ public partial class Pages_DataImport : PageBaseCompany
                                     if (!keyCount.HasValue)
                                     {
                                         if (DataImportHelper.IsKeyFieldAvailable(filePath, validFile.GetExtension(), WebConstants.MAPPINGUPLOAD_SHEETNAME, ARTEnums.DataImportType.AccountUpload))
-                                            Response.Redirect("~/Pages/DataImportGLMapping.aspx", false);
+                                        {    //Response.Redirect("~/Pages/DataImportGLMapping.aspx", false);
+                                            SessionHelper.RedirectToUrl("~/Pages/DataImportGLMapping.aspx");
+                                            return;
+                                        }
                                         else
                                         {
                                             this.InsertGLDataImportHdrWithFailureMsgWithKeyMapping(Helper.GetLabelIDValue((int)WebEnums.DataImportStatusLabelID.Submitted)

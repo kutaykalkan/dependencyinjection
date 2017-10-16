@@ -10,8 +10,12 @@ public partial class Logout : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Session.Abandon();
-        if (Request.QueryString["old"] == null) Response.Redirect($"{ResolveUrl("~/login")}?{QueryStringConstants.LOGOUT_MESSAGE}=true");
-
+        if (Request.QueryString["old"] == null)
+        {
+            //Response.Redirect($"{ResolveUrl("~/login")}?{QueryStringConstants.LOGOUT_MESSAGE}=true");
+            SessionHelper.RedirectToUrl($"{ResolveUrl("~/login")}?{QueryStringConstants.LOGOUT_MESSAGE}=true");
+            return;
+        }
         string loginURL = this.ResolveUrl("~/Login.aspx");
         // Put user code to initialize the page here
         UserHdrInfo oUserInfo = SessionHelper.GetCurrentUser();
@@ -22,6 +26,7 @@ public partial class Logout : System.Web.UI.Page
         {
             // Means user clicked on Logout Link
             SessionHelper.RedirectToUrl(loginURL);
+            return;
         }
         else
         {

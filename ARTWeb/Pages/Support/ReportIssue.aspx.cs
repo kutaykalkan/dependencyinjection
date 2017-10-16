@@ -13,7 +13,9 @@ public partial class Pages_Support_ReportIssue : PopupPageBase
     {
         var url = GetSsoUrl(AppSettingHelper.GetAppSettingValue(AppSettingConstants.SUPPORT_SITE_BASE_URL), //including trailing slash
                                AppSettingHelper.GetAppSettingValue(AppSettingConstants.SUPPORT_SITE_PRIVATE_KEY), Helper.GetUserFullName(), SessionHelper.CurrentUserLoginID);
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     private string GetSsoUrl(string baseUrl, string secret, string name, string email)

@@ -1056,7 +1056,9 @@ namespace SkyStem.ART.Web.UserControls
             try
             {
                 string pathAndQuery = (string)ViewState[ViewStateConstants.PATH_AND_QUERY];
-                Response.Redirect(pathAndQuery);
+                //Response.Redirect(pathAndQuery);
+                SessionHelper.RedirectToUrl(pathAndQuery);
+                return;
             }
             catch (ARTException)
             {

@@ -430,7 +430,9 @@ namespace SkyStem.ART.Web.UserControls
                     MatchingHelper.UpdateNetValue(Dt, CombinedDataTable);
                     DataTable PartialMatchedDataTable = MatchingHelper.ManageColumnsForExporToExcel(CombinedDataTable, MatchingConfigurationInfoList);
                     Session[SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE] = PartialMatchedDataTable;
-                    Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatched"));
+                    //Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatched"));
+                    SessionHelper.RedirectToUrl(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatched"));
+                    return;
                 }
                 catch (ARTException ex)
                 {
@@ -452,7 +454,9 @@ namespace SkyStem.ART.Web.UserControls
                     MatchingHelper.UpdateNetValue(Dt, CombinedDataTable);
                     DataTable dt = MatchingHelper.ManageColumnsForExporToExcel(CombinedDataTable, MatchingConfigurationInfoList);
                     Session[SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE] = dt;
-                    Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatchedWorkspace"));
+                    //Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatchedWorkspace"));
+                    SessionHelper.RedirectToUrl(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "PartialMatchedWorkspace"));
+                    return;
                 }
                 catch (ARTException ex)
                 {

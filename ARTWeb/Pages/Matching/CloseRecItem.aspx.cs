@@ -287,7 +287,9 @@ public partial class Pages_Matching_CloseRecItem : PageBaseMatching
             if (Session[SessionConstants.PARENT_PAGE_URL] != null)
             {
                 String Url = Session[SessionConstants.PARENT_PAGE_URL].ToString();
-                Response.Redirect(Url, true);
+                //Response.Redirect(Url, true);
+                SessionHelper.RedirectToUrl(Url);
+                return;
             }
         }
     }
@@ -296,7 +298,9 @@ public partial class Pages_Matching_CloseRecItem : PageBaseMatching
         String Url = Request.Url.AbsoluteUri;
         string NewUrl;
         NewUrl = Url.Replace("CloseRecItem", "MatchingResults");
-        Response.Redirect(NewUrl);
+        //Response.Redirect(NewUrl);
+        SessionHelper.RedirectToUrl(NewUrl);
+        return;
     }
     public void EnableDisableControls(WebEnums.FormMode eFormMode)
     {

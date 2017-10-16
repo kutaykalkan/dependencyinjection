@@ -149,7 +149,9 @@ public partial class Pages_ReportSaved : PageBaseCompany
         //as always coming from MyReport Section
         _reportSectionIDFromURL = _reportSectionIDMyReport;
         string url = "ReportHome.aspx?" + QueryStringConstants.REPORT_SECTION_ID + "=" + _reportSectionIDFromURL;
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     public override string GetMenuKey()
@@ -184,8 +186,9 @@ public partial class Pages_ReportSaved : PageBaseCompany
         url = url + "&" + QueryStringConstants.MY_REPORT_ID + "=1";
         url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.UserSavedReport).ToString();
         url = url + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
-        Response.Redirect(url);
-
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
 

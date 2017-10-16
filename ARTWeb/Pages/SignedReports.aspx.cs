@@ -124,7 +124,9 @@ public partial class Pages_SignedReports : PageBaseRecPeriod
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         string url = "ReportHome.aspx?" + QueryStringConstants.REPORT_SECTION_ID + "=" + _reportSectionIDFromURL;
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
     protected void LinkButton_Command(Object sender, CommandEventArgs e)
     {
@@ -164,7 +166,9 @@ public partial class Pages_SignedReports : PageBaseRecPeriod
             reportUrl = reportUrl + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.ArchivedReport).ToString();
             reportUrl = reportUrl + "&" + QueryStringConstants.REPORT_SECTION_ID + "=" + Request.QueryString[QueryStringConstants.REPORT_SECTION_ID];
             reportUrl = reportUrl + "&" + QueryStringConstants.IS_REPORT_ACTIVITY + "=1";
-            Response.Redirect(reportUrl);
+            //Response.Redirect(reportUrl);
+            SessionHelper.RedirectToUrl(reportUrl);
+            return;
         }
         catch (ARTException ex)
         {

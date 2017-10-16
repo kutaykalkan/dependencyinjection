@@ -36,26 +36,19 @@
 <body>
     <form id="form1" runat="server">
 
-    <script type="text/javascript" src="../JavaScript/JScript1.js"></script>
 
-    <script type="text/javascript" src="../JavaScript/CalendarPopup.js"></script>
 
-    <script type="text/javascript" src="../JavaScript/NumericValidations.js"></script>
-
-    <script type="text/javascript" src="../JavaScript/Reports.js"></script>
-
-    <script type="text/javascript" src="../JavaScript/AcctViewerFilter.js"></script>
-
-    <script type="text/javascript" src="../../JavaScript/JScript1.js"></script>
-
-    <script type="text/javascript" src="../../JavaScript/CalendarPopup.js"></script>
-
-    <script type="text/javascript" src="../../JavaScript/NumericValidations.js"></script>
-
-    <script type="text/javascript" src="../../JavaScript/jquery-1.4.2.min.js"></script>
 
     <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server"
         EnablePageMethods="true" OnAsyncPostBackError="ScriptManager_OnAsyncPostBackError">
+            <Scripts>
+            <asp:ScriptReference Path="~/JavaScript/jquery-1.4.2.min.js" />
+            <asp:ScriptReference Path="~/JavaScript/CalendarPopup.js" />
+            <asp:ScriptReference Path="~/JavaScript/NumericValidations.js" />
+            <asp:ScriptReference Path="~/JavaScript/JScript1.js" />
+            <asp:ScriptReference Path="~/JavaScript/Reports.js" />
+            <asp:ScriptReference Path="~/JavaScript/AcctViewerFilter.js"></asp:ScriptReference>
+            </Scripts>
     </asp:ScriptManager>
     <telerik:RadWindowManager ReloadOnShow="true" BackColor="White" ShowContentDuringLoad="false"
         ID="rwmManager" runat="server" Behaviors="Close, Move" OnClientPageLoad="SetStatusBarForTelerikPopup"
@@ -132,7 +125,9 @@
         function EndRequestHandler(sender, args) {
             if (args.get_error() != undefined && args.get_error().httpStatusCode == '500') {
                 var errorMessage = args.get_error().message.substr(args.get_error().name.length + 2);
-                alert(errorMessage);
+                if (errorMessage.indexOf('Thread was being aborted') == -1) {
+                    alert(errorMessage);
+                }
                 args.set_errorHandled(true);
             }
         }

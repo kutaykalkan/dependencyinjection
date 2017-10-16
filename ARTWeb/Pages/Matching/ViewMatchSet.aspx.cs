@@ -202,7 +202,9 @@ public partial class Pages_Matching_ViewMatchSet : PageBaseMatching
             string url = e.CommandArgument.ToString();
             oMatchingParamInfo.MatchingStatusID = (short)WebEnums.MatchingStatus.Draft;
             MatchingHelper.EditMatchSet(oMatchingParamInfo);
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
             //radMatching.Rebind();
         }
     }
@@ -474,7 +476,9 @@ public partial class Pages_Matching_ViewMatchSet : PageBaseMatching
             navUrl += "&" + QueryStringConstants.GLDATA_ID + "=" + GLDataID.ToString();
         if (this.AccountID != null)
             navUrl += "&" + QueryStringConstants.ACCOUNT_ID + "=" + this.AccountID.ToString();
-        Response.Redirect(navUrl, false);
+        //Response.Redirect(navUrl, false);
+        SessionHelper.RedirectToUrl(navUrl);
+        return;
     }
 
 
@@ -486,12 +490,16 @@ public partial class Pages_Matching_ViewMatchSet : PageBaseMatching
             navUrl += "&" + QueryStringConstants.GLDATA_ID + "=" + GLDataID.ToString();
         if (this.AccountID != null)
             navUrl += "&" + QueryStringConstants.ACCOUNT_ID + "=" + this.AccountID.ToString();
-        Response.Redirect(navUrl);
+        //Response.Redirect(navUrl);
+        SessionHelper.RedirectToUrl(navUrl);
+        return;
     }
 
     protected void btnUploadStatus_Click(Object Sender, EventArgs e)
     {
-        Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        //Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        return;
     }
 
     private void GetQueryStringValues()
@@ -521,7 +529,9 @@ public partial class Pages_Matching_ViewMatchSet : PageBaseMatching
     {
         if (matchingTypeID == (short)ARTEnums.MatchingType.AccountMatching)
         {
-            Response.Redirect(ReturnUrl, true);
+            //Response.Redirect(ReturnUrl, true);
+            SessionHelper.RedirectToUrl(ReturnUrl);
+            return;
         }
     }
 
@@ -531,7 +541,9 @@ public partial class Pages_Matching_ViewMatchSet : PageBaseMatching
         if (Session[SessionConstants.PARENT_PAGE_URL] != null)
         {
             String Url = Session[SessionConstants.PARENT_PAGE_URL].ToString();
-            Response.Redirect(Url, true);
+            //Response.Redirect(Url, true);
+            SessionHelper.RedirectToUrl(Url);
+            return;
         }
     }
 

@@ -168,7 +168,9 @@ public partial class MasterPages_ARTMasterPage : MasterPageBase
     protected void lnkResetDashboard_Click(object sender, EventArgs e)
     {
         WebPartManager.GetCurrentWebPartManager(this.Page).Personalization.ResetPersonalizationState();
-        Response.Redirect(Helper.GetHomePageUrl());
+        //Response.Redirect(Helper.GetHomePageUrl());
+        SessionHelper.RedirectToUrl(Helper.GetHomePageUrl());
+        return;
     }
 
     protected void lnkSave_Click(object sender, EventArgs e)

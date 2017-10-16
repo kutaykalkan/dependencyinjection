@@ -113,7 +113,9 @@ public partial class Pages_PopupForRecFormPrint : PopupPageBase
             + "&" + QueryStringConstants.EMAIL_INFO_SPECIFIC + "=" + Server.UrlEncode(GetPdfFooter(accountDetails))
             + "&" + QueryStringConstants.GLDATA_ID + "=" + _GLDataID.GetValueOrDefault().ToString()
             + "&" + QueryStringConstants.FILE_PATH + "=" + Server.UrlEncode(filePath);
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     private string GetUrlForPdf()
@@ -188,7 +190,9 @@ public partial class Pages_PopupForRecFormPrint : PopupPageBase
         string filePath = SSRSReportsHelper.SaveByteStreamAndReturnFilePath(fileName, oByteCollection);
         Session[SessionConstants.RECFORM_PRINT_PDF_FILE] = filePath;
         string downloadURL = this.ResolveClientUrl("~/pages/DocumentViewer.aspx?" + QueryStringConstants.DOWNLOAD_MODE + "=" + WebEnums.DownloadMode.inline);
-        Response.Redirect(downloadURL);
+        //Response.Redirect(downloadURL);
+        SessionHelper.RedirectToUrl(downloadURL);
+        return;
     }
 
     public short GetReconciliationTemplateID()

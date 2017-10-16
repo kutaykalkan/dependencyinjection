@@ -81,7 +81,8 @@ public partial class UserControls_Matching_AccountMatchingButton : UserControlBa
         if (_gLDataID.HasValue && _gLDataID.Value > 0)
             queryString += "&" + QueryStringConstants.GLDATA_ID + "=" + _gLDataID;
         string RedirectUrl = URLConstants.URL_MATCHING_VIEW_MATCH_SET + queryString;
-        Response.Redirect(RedirectUrl);
-
+        //Response.Redirect(RedirectUrl);
+        SessionHelper.RedirectToUrl(RedirectUrl);
+        return;
     }
 }

@@ -380,7 +380,9 @@ public partial class Pages_DataImportStatus : PageBaseCompany
     #region Other Events
     protected void btnNewDataImport_Click(object sender, EventArgs e)
     {
-        Response.Redirect("DataImport.aspx");
+        //Response.Redirect("DataImport.aspx");
+        SessionHelper.RedirectToUrl("DataImport.aspx");
+        return;
     }
     protected void btnDeleteDataImport_Click(object sender, EventArgs e)
     {

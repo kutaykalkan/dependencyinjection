@@ -122,7 +122,9 @@ public partial class Pages_AccountProfileAttributeUpdate : PageBaseRecPeriod
     /// <param name="e"></param>
     protected void btnCancel_OnClick(object sender, EventArgs e)
     {
-        Response.Redirect("AccountProfileUpdate.aspx?ShowGrid=true");
+        //Response.Redirect("AccountProfileUpdate.aspx?ShowGrid=true");
+        SessionHelper.RedirectToUrl("AccountProfileUpdate.aspx?ShowGrid=true");
+        return;
     }
 
     /// <summary>
@@ -169,7 +171,9 @@ public partial class Pages_AccountProfileAttributeUpdate : PageBaseRecPeriod
                     RaiseAlertIfOwnershipChanged(oAccountHdrInfo);
                     int LabelID = 1597;
                     hdnConfirm.Value = "";
-                    Response.Redirect("AccountProfileUpdate.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    //Response.Redirect("AccountProfileUpdate.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    SessionHelper.RedirectToUrl("AccountProfileUpdate.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    return;
                 }
             }
             else

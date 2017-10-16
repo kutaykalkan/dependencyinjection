@@ -26,8 +26,10 @@ namespace SkyStem.ART.Web
         {
             if (Request.QueryString["old"] == null)
             {
-                Response.Redirect("~/login", false);
-                Context.ApplicationInstance.CompleteRequest();
+                //Response.Redirect("~/login", false);
+                //Context.ApplicationInstance.CompleteRequest();
+                SessionHelper.RedirectToUrl("~/login");
+                return;
             }
 
             // Get the Browser Language and store in Session

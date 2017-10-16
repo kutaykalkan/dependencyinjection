@@ -177,7 +177,10 @@ public partial class Pages_TemplateColumnMapping : PageBaseCompany
                 oImportTemplateFieldMappingInfo.ImportTemplateID = TemplateId;
                 result = DataImportTemplateHelper.SaveImportTemplateMapping(dt, oImportTemplateFieldMappingInfo);
                 if (result > -1)
-                    Response.Redirect("~/Pages/CreateDataImportTemplate.aspx");
+                {    //Response.Redirect("~/Pages/CreateDataImportTemplate.aspx");
+                    SessionHelper.RedirectToUrl("~/Pages/CreateDataImportTemplate.aspx");
+                    return;
+                }
             }
             else
             {
@@ -197,7 +200,9 @@ public partial class Pages_TemplateColumnMapping : PageBaseCompany
     }
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Pages/CreateDataImportTemplate.aspx");
+        //Response.Redirect("~/Pages/CreateDataImportTemplate.aspx");
+        SessionHelper.RedirectToUrl("~/Pages/CreateDataImportTemplate.aspx");
+        return;
     }
     #endregion
 

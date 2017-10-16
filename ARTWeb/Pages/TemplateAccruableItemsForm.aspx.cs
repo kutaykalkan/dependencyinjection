@@ -639,7 +639,9 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
             oGLDataClient.UpdateGLDataForRemoveAccountSignOff(oAccountIDCollection, oNetAccountIDCollection, SessionHelper.CurrentReconciliationPeriodID, SessionHelper.CurrentUserLoginID, DateTime.Now, Helper.GetAppUserInfo());
             string path = Request.Url.PathAndQuery;
             path = path.Replace("IsSRA=1", "IsSRA=0");
-            Response.Redirect(path, false);
+            //Response.Redirect(path, false);
+            SessionHelper.RedirectToUrl(path);
+            return;
         }
         catch (ARTException ex)
         {
@@ -678,7 +680,9 @@ public partial class Pages_TemplateAccruableItemsForm : PageBaseRecForm
             || commandName == RecFormButtonCommandName.DENY
             )
         {
-            HttpContext.Current.Response.Redirect(Helper.GetRedirectURLForTemplatePages(this.IsSRA, _ARTPages));
+            //HttpContext.Current.Response.Redirect(Helper.GetRedirectURLForTemplatePages(this.IsSRA, _ARTPages));
+            SessionHelper.RedirectToUrl(Helper.GetRedirectURLForTemplatePages(this.IsSRA, _ARTPages));
+            return;
         }
         //Reload the page(refresh)
         ompage_ReconciliationPeriodChangedEventHandler(null, null);

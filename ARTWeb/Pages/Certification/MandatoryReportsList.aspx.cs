@@ -130,9 +130,10 @@ public partial class Pages_MandatoryReportsList : PageBaseRecPeriod
                 url = url + "&" + QueryStringConstants.REPORT_TYPE + "=" + ((short)WebEnums.ReportType.MandatoryReport).ToString();
             url = url + "&" + QueryStringConstants.MANDATORY_REPORT_ID + "=" + commandArgsArr[1];
 
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
-
     }
 
     public void rptStandardReport_ItemDataBound(object sender, RepeaterItemEventArgs e)

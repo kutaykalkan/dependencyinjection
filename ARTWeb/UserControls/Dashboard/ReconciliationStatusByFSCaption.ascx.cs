@@ -524,7 +524,9 @@ public partial class UserControls_Dashboard_ReconciliationStatusByFSCaption : Us
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.AccountViewer, oPageSettings);
 
         string url = "~/Pages/AccountViewer.aspx?" + QueryStringConstants.IS_SRA + "=1";
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     private void OnPageLoad()

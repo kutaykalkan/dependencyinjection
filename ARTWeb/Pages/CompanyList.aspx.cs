@@ -217,7 +217,11 @@ public partial class Pages_CompanyList : PageBase
             oMasterPageBase.ReloadCompanies(CompanyID);
             string Url = GetHyperlinkForUserSearch(CompanyID);
             if (!string.IsNullOrEmpty(Url))
-                HttpContext.Current.Response.Redirect(Url);
+            {
+                //HttpContext.Current.Response.Redirect(Url);
+                SessionHelper.RedirectToUrl(Url);
+                return;
+            }
             //lnkbtnFTPActivationDate.NavigateUrl = FTPurl;
             //lnkbtnFTPActivationHistroy.NavigateUrl = FTPurl;
             //lnkbtnFTPStatus.NavigateUrl = FTPurl;

@@ -381,7 +381,9 @@ public partial class Pages_ConfigureAndScheduleAlerts : PageBaseCompany
                 oAlertClient.UpdateCompanyAlert(oCompanyAlertInfoCollection, SessionHelper.CurrentReconciliationPeriodID.HasValue ? SessionHelper.CurrentReconciliationPeriodID.Value : 0, Helper.GetAppUserInfo());
                 HttpContext.Current.Session[SessionConstants.ALL_COMPANY_ALERT_LIST] = null;
                 int LabelID = 1929;
-                Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                //Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                SessionHelper.RedirectToUrl("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                return;
             }
 
         }
@@ -398,7 +400,9 @@ public partial class Pages_ConfigureAndScheduleAlerts : PageBaseCompany
     {
         try
         {
-            Response.Redirect("Home.aspx");
+            //Response.Redirect("Home.aspx");
+            SessionHelper.RedirectToUrl("Home.aspx");
+            return;
         }
         catch (ARTException ex)
         {

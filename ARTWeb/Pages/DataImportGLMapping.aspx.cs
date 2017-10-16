@@ -228,7 +228,10 @@ public partial class Pages_DataImportGLMapping : PageBaseCompany
 
             if (oDataImport.InsertDataImportGLData(oDataImportHrdInfo, oGeoStructHdrInfoCollection
                 , Helper.GetLabelIDValue((int)WebEnums.DataImportStatusLabelID.Submitted), GeographyClassCompanyKey.GEOGRAPHYCLASSID, Helper.GetAppUserInfo()))
-                Response.Redirect("~/Pages/DataImport.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1565");
+            {    //Response.Redirect("~/Pages/DataImport.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1565");
+                SessionHelper.RedirectToUrl("~/Pages/DataImport.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1565");
+                return;
+            }
             //Save DataIMportHdr with status as "in progress"
             //Save DataImportFailureMessage Message as "In Progress"
             //Save GeographyStructureHdr

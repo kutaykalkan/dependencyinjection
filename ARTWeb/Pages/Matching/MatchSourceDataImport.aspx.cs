@@ -239,7 +239,9 @@ public partial class Pages_Matching_MatchSourceDataImport : PageBaseMatching
             if (oMatchingSourceDataImportHdrInfo.Count > 0)
             {
                 Session[SessionConstants.MATCHING_SOURCE_DATA] = oMatchingSourceDataImportHdrInfo;
-                Response.Redirect("MatchSourceDataTypeMapping.aspx");
+                //Response.Redirect("MatchSourceDataTypeMapping.aspx");
+                SessionHelper.RedirectToUrl("MatchSourceDataTypeMapping.aspx");
+                return;
             }
         }
     }
@@ -265,8 +267,9 @@ public partial class Pages_Matching_MatchSourceDataImport : PageBaseMatching
             navUrl += "&" + QueryStringConstants.GLDATA_ID + "=" + Request.QueryString[QueryStringConstants.GLDATA_ID].ToString();
         if (Request.QueryString[QueryStringConstants.ACCOUNT_ID ] != null)
             navUrl += "&" + QueryStringConstants.ACCOUNT_ID + "=" + Request.QueryString[QueryStringConstants.ACCOUNT_ID].ToString();
-        Response.Redirect(navUrl, true);
-
+        //Response.Redirect(navUrl, true);
+        SessionHelper.RedirectToUrl(navUrl);
+        return;
     }
 }
 

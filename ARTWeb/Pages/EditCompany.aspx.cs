@@ -31,7 +31,9 @@ public partial class Pages_EditCompany : PageBase
     {
         string url = "~/Pages/CreateCompany.aspx" + Request.Url.Query + "&" + QueryStringConstants.COMPANY_ID + "=" + SessionHelper.CurrentCompanyID;
         //Server.Transfer(url);
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
     #endregion
 

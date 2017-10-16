@@ -79,7 +79,9 @@ public partial class Pages_TaskMaster_TaskImportStatusMessage : PageBaseCompany
         string url = _ReferrerUrl;
         url += "?" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=2399";
         url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=1";
-        Response.Redirect(url,false);
+        //Response.Redirect(url,false);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     protected void btnYes_Click(object sender, EventArgs e)
@@ -95,7 +97,9 @@ public partial class Pages_TaskMaster_TaskImportStatusMessage : PageBaseCompany
             string url = _ReferrerUrl;
             url += "?" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=1784";
             url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=3";
-            Response.Redirect(url,false);
+            //Response.Redirect(url,false);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
         catch (ARTException ex)
         {
@@ -121,7 +125,9 @@ public partial class Pages_TaskMaster_TaskImportStatusMessage : PageBaseCompany
             string url = _ReferrerUrl;
             url += "?" + QueryStringConstants.IS_REDIRECTED_FROM_STATUSPAGE + "=2399";
             url += "&" + QueryStringConstants.CONFIRMATION_MESSAGE_FROM_STATUSPAGE + "=2";
-            Response.Redirect(url,false);
+            //Response.Redirect(url,false);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
         catch (ARTException ex)
         {

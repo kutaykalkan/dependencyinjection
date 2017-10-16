@@ -417,7 +417,9 @@ namespace SkyStem.ART.Web.Utility
             {
                 url += "&" + QueryStringConstants.ERROR_MESSAGE_SYSTEM + "=1";
             }
-            HttpContext.Current.Response.Redirect(url);
+            //HttpContext.Current.Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
 
         public static string GetErrorPageUrl()

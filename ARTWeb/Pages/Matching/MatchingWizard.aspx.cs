@@ -154,7 +154,9 @@ public partial class Pages_Matching_MatchingWizard : PageBaseMatching
         if (Page.IsValid)
         {
             SaveData(wzMatching.ActiveStepIndex);
-            Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, false);
+            //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, false);
+            SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET);
+            return;
         }
     }
 
@@ -174,11 +176,15 @@ public partial class Pages_Matching_MatchingWizard : PageBaseMatching
                 MatchingHelper.DeleteMatchSet(oMatchingParamInfo);
             }
         }
-        Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, false);
+        //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, false);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET);
+        return;
     }
     protected void btnUploadNewDataSources_OnClick(object sender, EventArgs e)
     {
-        Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT, false);
+        //Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT, false);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT);
+        return;
     }
 
     protected void btnSubmit_OnClick(object sender, EventArgs e)
@@ -203,13 +209,17 @@ public partial class Pages_Matching_MatchingWizard : PageBaseMatching
                     if (!Url.Contains(strUrl))
                         Url = Url + "?" + strUrl;                   
                 }
-                Response.Redirect(Url, true);
+                //Response.Redirect(Url, true);
+                SessionHelper.RedirectToUrl(Url);
+                return;
             }
         }
         else
         {
             int LabelID = 2434;
-            Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+            //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+            SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+            return;
             //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, false);
         }
     }
@@ -403,7 +413,9 @@ public partial class Pages_Matching_MatchingWizard : PageBaseMatching
     }
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect(ReturnUrl, true);
+        //Response.Redirect(ReturnUrl, true);
+        SessionHelper.RedirectToUrl(ReturnUrl);
+        return;
     }
 
 }

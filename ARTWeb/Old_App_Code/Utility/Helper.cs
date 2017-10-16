@@ -837,16 +837,19 @@ namespace SkyStem.ART.Web.Utility
         public static void RedirectToLogoutPage()
         {
             SessionHelper.RedirectToUrl(URLConstants.URL_LOGOUT);
+            return;
         }
 
         public static void RedirectToHomePage()
         {
             SessionHelper.RedirectToUrl(GetHomePageUrl());
+            return;
         }
 
         public static void RedirectToChangePasswordPage()
         {
             SessionHelper.RedirectToUrl(URLConstants.URL_CHANGE_PASSWORD);
+            return;
         }
 
 
@@ -858,6 +861,7 @@ namespace SkyStem.ART.Web.Utility
         {
             string url = GetHomePageUrl() + "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString();
             SessionHelper.RedirectToUrl(url);
+            return;
         }
 
         public static string GetHomePageUrl()
@@ -910,6 +914,7 @@ namespace SkyStem.ART.Web.Utility
                 url += "&" + QueryStringConstants.ERROR_MESSAGE_SYSTEM + "=1";
             }
             SessionHelper.RedirectToUrl(url);
+            return;
         }
 
         #endregion
@@ -1872,7 +1877,10 @@ namespace SkyStem.ART.Web.Utility
                     throw new ARTException(5000120);
                 }
                 if (oGLDataAndAccountHdrInfoCollection[0].ReconciliationTemplateID != (short?)eReconciliationItemTemplate && eARTPage.HasValue)
-                    HttpContext.Current.Response.Redirect(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataAndAccountHdrInfoCollection[0].ReconciliationTemplateID, accountID.ToString(), gLDataID.ToString(), netAccountID.ToString(), oGLDataAndAccountHdrInfoCollection[0].IsSystemReconcilied, eARTPage.Value));
+                {    //    HttpContext.Current.Response.Redirect(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataAndAccountHdrInfoCollection[0].ReconciliationTemplateID, accountID.ToString(), gLDataID.ToString(), netAccountID.ToString(), oGLDataAndAccountHdrInfoCollection[0].IsSystemReconcilied, eARTPage.Value));
+                    SessionHelper.RedirectToUrl(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataAndAccountHdrInfoCollection[0].ReconciliationTemplateID, accountID.ToString(), gLDataID.ToString(), netAccountID.ToString(), oGLDataAndAccountHdrInfoCollection[0].IsSystemReconcilied, eARTPage.Value));
+                    return 0; 
+                }
                 //TODO: also check from DB that template is not changed ( at the moment its avoided for netaccount)
                 if (netAccountID.HasValue && netAccountID > 0)
                 {
@@ -1980,7 +1988,10 @@ namespace SkyStem.ART.Web.Utility
                         ShowRecPage(pnlStatus, cphRecProcess, true);
                     }
                     if (oGLDataHdrInfo.ReconciliationTemplateID != (short?)eReconciliationItemTemplate && eARTPage.HasValue)
-                        HttpContext.Current.Response.Redirect(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataHdrInfo.ReconciliationTemplateID, oGLDataHdrInfo.AccountID.ToString(), oGLDataHdrInfo.GLDataID.ToString(), oGLDataHdrInfo.NetAccountID.ToString(), oGLDataHdrInfo.IsSystemReconcilied, eARTPage.Value));
+                    {    //HttpContext.Current.Response.Redirect(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataHdrInfo.ReconciliationTemplateID, oGLDataHdrInfo.AccountID.ToString(), oGLDataHdrInfo.GLDataID.ToString(), oGLDataHdrInfo.NetAccountID.ToString(), oGLDataHdrInfo.IsSystemReconcilied, eARTPage.Value));
+                        SessionHelper.RedirectToUrl(AccountViewerHelper.GetHyperlinkForAccountViewer(oGLDataHdrInfo.ReconciliationTemplateID, oGLDataHdrInfo.AccountID.ToString(), oGLDataHdrInfo.GLDataID.ToString(), oGLDataHdrInfo.NetAccountID.ToString(), oGLDataHdrInfo.IsSystemReconcilied, eARTPage.Value));
+                        return;
+                    }
                 }
             }
             catch (ARTException artEx)

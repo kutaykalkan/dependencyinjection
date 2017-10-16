@@ -65,7 +65,9 @@ public partial class Pages_MaterialityUnexplainedthresholdDetail : PopupPageBase
         string url = "";
         url = Helper.GetHomePageUrl();
 
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
     #endregion
 

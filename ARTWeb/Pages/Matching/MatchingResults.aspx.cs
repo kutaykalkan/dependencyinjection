@@ -65,7 +65,9 @@ public partial class Pages_Matching_MatchingResults : PageBaseMatching
                 createRecItemUrl += "&" + QueryStringConstants.ACCOUNT_ID + "=" + _AccountID.Value;
 
             createRecItemUrl += "&" + QueryStringConstants.MATCHING_TYPE_ID + "=" + ARTEnums.MatchingType.AccountMatching;
-            Response.Redirect(createRecItemUrl);
+            //Response.Redirect(createRecItemUrl);
+            SessionHelper.RedirectToUrl(createRecItemUrl);
+            return;
         }
     }
     void ucUnMatched_OnCloseRecItemClick(DataTable tblRecItem)
@@ -81,7 +83,9 @@ public partial class Pages_Matching_MatchingResults : PageBaseMatching
                 createRecItemUrl += "&" + QueryStringConstants.ACCOUNT_ID + "=" + _AccountID.Value;
 
             createRecItemUrl += "&" + QueryStringConstants.MATCHING_TYPE_ID + "=" + ARTEnums.MatchingType.AccountMatching;
-            Response.Redirect(createRecItemUrl);
+            //Response.Redirect(createRecItemUrl);
+            SessionHelper.RedirectToUrl(createRecItemUrl);
+            return;
         }
     }
 
@@ -453,7 +457,9 @@ public partial class Pages_Matching_MatchingResults : PageBaseMatching
     protected void btnBack_Click(object sender, EventArgs e)
     {
         //Response.Redirect(ReturnUrl, true);
-        Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET);
+        return;
     }
 
 }

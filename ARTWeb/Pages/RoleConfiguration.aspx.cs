@@ -248,7 +248,9 @@ public partial class Pages_RoleConfiguration : PageBaseRecPeriod
 
     protected void btnCancel_OnClick(object sender, EventArgs e)
     {
-        Response.Redirect("Home.aspx");
+        //Response.Redirect("Home.aspx");
+        SessionHelper.RedirectToUrl("Home.aspx");
+        return;
     }
 
     public override string GetMenuKey()

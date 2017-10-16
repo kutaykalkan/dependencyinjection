@@ -174,13 +174,17 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
         if (e.CommandName == "EDIT")
         {
             Int32 ImportTemplateID = Convert.ToInt32((ucSkyStemARTGrid.MasterTableView.DataKeyValues[e.Item.ItemIndex][ucSkyStemARTGrid.MasterTableView.DataKeyNames[0]]).ToString());
-            Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID);
+            //Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID);
+            SessionHelper.RedirectToUrl("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID);
+            return;
         }
         if (e.CommandName == "VIEW")
         {
             Int32 ImportTemplateID = Convert.ToInt32((ucSkyStemARTGrid.MasterTableView.DataKeyValues[e.Item.ItemIndex][ucSkyStemARTGrid.MasterTableView.DataKeyNames[0]]).ToString());
             string EditMode = "EditMode";
-            Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID + "&View=" + EditMode);
+            //Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID + "&View=" + EditMode);
+            SessionHelper.RedirectToUrl("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + ImportTemplateID + "&View=" + EditMode);
+            return;
         }
         if (e.CommandName == TelerikConstants.GridExportToPDFCommandName)
         {
@@ -288,7 +292,10 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
                                         dt = ExcelHelper.GetExcelFileSchemaGL(filePath, validFile.GetExtension(), oImportTemplateInfo.SheetName);
                                     result = DataImportTemplateHelper.SaveImportTemplate(oImportTemplateInfo, dt);
                                     if (result > 0)
-                                        Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                    {    //Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                        SessionHelper.RedirectToUrl("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                        return;
+                                    }
                                     #endregion
                                     break;
                                 case (short)ARTEnums.DataImportType.SubledgerData:
@@ -299,7 +306,10 @@ public partial class Pages_CreateDataImportTemplate : PageBaseCompany
                                         dt = ExcelHelper.GetExcelFileSchemaGL(filePath, validFile.GetExtension(), oImportTemplateInfo.SheetName);
                                     result = DataImportTemplateHelper.SaveImportTemplate(oImportTemplateInfo, dt);
                                     if (result > 0)
-                                        Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                    {    //Response.Redirect("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                        SessionHelper.RedirectToUrl("~/Pages/TemplateColumnMapping.aspx?TemplateId=" + result);
+                                        return;
+                                    }
                                     #endregion
                                     break;
 

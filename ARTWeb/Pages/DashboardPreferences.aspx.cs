@@ -152,8 +152,9 @@ public partial class Pages_DashboardPreferences : PageBaseRecPeriod
             }
             oUserClient.SaveUserDashboardPreferences(oDashboardMstInfoCollection, SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, Helper.GetAppUserInfo());
             int LabelID = 2414;
-            Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
-
+            //Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+            SessionHelper.RedirectToUrl("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+            return;
         }
         catch (ARTException ex)
         {
@@ -168,7 +169,9 @@ public partial class Pages_DashboardPreferences : PageBaseRecPeriod
 
     protected void btnCancel_OnClick(object sender, EventArgs e)
     {
-        Response.Redirect("Home.aspx");
+        //Response.Redirect("Home.aspx");
+        SessionHelper.RedirectToUrl("Home.aspx");
+        return;
     }
     public void ompage_ReconciliationPeriodChangedEventHandler(object sender, EventArgs e)
     {

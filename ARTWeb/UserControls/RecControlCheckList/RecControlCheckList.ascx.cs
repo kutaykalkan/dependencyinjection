@@ -244,7 +244,9 @@ namespace SkyStem.ART.Web.UserControls
         protected void btnCancel_OnClick(object sender, EventArgs e)
         {
             string pathAndQuery = (string)ViewState[ViewStateConstants.PATH_AND_QUERY];
-            Response.Redirect(pathAndQuery);
+            //Response.Redirect(pathAndQuery);
+            SessionHelper.RedirectToUrl(pathAndQuery);
+            return;
         }
         public void ompage_ReconciliationPeriodChangedEventHandler(object sender, EventArgs e)
         {

@@ -275,7 +275,9 @@ public partial class CreateCompany : PageBase
                                         + "&" + QueryStringConstants.SHOW_SEARCH_RESULTS + "=1";
                                 break;
                         }
-                        Response.Redirect(Page.ResolveUrl(url), false);
+                        //Response.Redirect(Page.ResolveUrl(url), false);
+                        SessionHelper.RedirectToUrl(Page.ResolveUrl(url));
+                        return;
                     }
                 }
                 catch (ARTException ex)
@@ -318,7 +320,9 @@ public partial class CreateCompany : PageBase
                     // Reload Companies
                     oMasterPageBase.ReloadCompanies(oCompanyHdrInfo.CompanyID);
                     // Redirect to Create User Page
-                    Response.Redirect("~/Pages/CreateUser.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1922&" + QueryStringConstants.FROMPAGE + "=" + (int)WebEnums.ARTPages.CreateCompany);
+                    //Response.Redirect("~/Pages/CreateUser.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1922&" + QueryStringConstants.FROMPAGE + "=" + (int)WebEnums.ARTPages.CreateCompany);
+                    SessionHelper.RedirectToUrl("~/Pages/CreateUser.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1922&" + QueryStringConstants.FROMPAGE + "=" + (int)WebEnums.ARTPages.CreateCompany);
+                    return;
                 }
                 catch (ARTException ex)
                 {

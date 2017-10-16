@@ -142,7 +142,9 @@ public partial class Pages_ScheduleDataImport : PageBaseCompany
                 if (result > 0)
                 {
                     int LabelID = 2887;
-                    Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    //Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    SessionHelper.RedirectToUrl("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    return;
                 }
             }
             else
@@ -164,7 +166,9 @@ public partial class Pages_ScheduleDataImport : PageBaseCompany
     {
         try
         {
-            Response.Redirect("Home.aspx");
+            //Response.Redirect("Home.aspx");
+            SessionHelper.RedirectToUrl("Home.aspx");
+            return;
         }
         catch (ARTException ex)
         {
@@ -194,7 +198,9 @@ public partial class Pages_ScheduleDataImport : PageBaseCompany
                 if (result > 0)
                 {
                     int LabelID = 2887;
-                    Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    //Response.Redirect("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    SessionHelper.RedirectToUrl("Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=" + LabelID.ToString());
+                    return;
                 }
             }
             else

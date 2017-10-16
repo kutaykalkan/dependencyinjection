@@ -180,7 +180,9 @@ public partial class Pages_Matching_MatchsetStatusMessages : PageBaseMatching
 
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ViewMatchSet.aspx");
+        //Response.Redirect("ViewMatchSet.aspx");
+        SessionHelper.RedirectToUrl("ViewMatchSet.aspx");
+        return;
     }
 
     //protected void btnYes_Click(object sender, EventArgs e)

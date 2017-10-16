@@ -168,7 +168,9 @@ public partial class UserControls_Dashboard_TaskStatusBuMonth : UserControlWebPa
 
 
         string url = "~/Pages/TaskMaster/TaskViewer.aspx?" + QueryStringConstants.ACTIVE_TAB_INDEX + "=0&" + QueryStringConstants.TASK_COMPLETION_STATUS_ID + "=" + TaskCompletionStatus;
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     #endregion
@@ -266,7 +268,9 @@ public partial class UserControls_Dashboard_TaskStatusBuMonth : UserControlWebPa
         oPageSettings.ShowGeneralHiddenTask = true;
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.TaskViewer, oPageSettings);
         string url = "~/Pages/TaskMaster/TaskViewer.aspx?" + QueryStringConstants.ACTIVE_TAB_INDEX + "=1&" + QueryStringConstants.TASK_COMPLETION_STATUS_ID + "=" + TaskCompletionStatus;
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     #endregion

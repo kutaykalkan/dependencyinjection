@@ -24,14 +24,14 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
     short shrtDataImportStatusID = 0;
     public short DataImportStatusID
     {
-        get 
-        { 
-            return shrtDataImportStatusID; 
+        get
+        {
+            return shrtDataImportStatusID;
         }
         set
         {
             shrtDataImportStatusID = value;
-            
+
         }
     }
     public short MatchingSourceTypeID
@@ -55,7 +55,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                 oMatchingSourceDataImportList = (List<MatchingSourceDataImportHdrInfo>)Session[SessionConstants.MATCHING_SOURCE_DATA];
 
             return oMatchingSourceDataImportList;
-        
+
         }
     }
 
@@ -105,7 +105,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
     /// </summary>
     private void SetPageSettings()
     {
-        Helper.ShowInputRequirementSection(this, 2325, 2326,2392);
+        Helper.ShowInputRequirementSection(this, 2325, 2326, 2392);
         Helper.SetPageTitle(this, 2192);
         Helper.SetBreadcrumbs(this, 2192);
         MasterPageBase oMasterPageBase = (MasterPageBase)this.Master.Master;
@@ -130,7 +130,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
 
         if (oMatchingSourceDataImportList.Where(p => p.MatchingSourceDataImportID == MatchingSourceDataImportID).SingleOrDefault().MatchingSourceTypeID.HasValue)
             MatchingSourceTypeID = oMatchingSourceDataImportList.Where(p => p.MatchingSourceDataImportID == MatchingSourceDataImportID).SingleOrDefault().MatchingSourceTypeID.Value;
-        
+
         SetMatchingSourceColumn();
         BindGrid();
     }
@@ -184,7 +184,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                 //** Get Column From File
                 List<MatchingSourceColumnInfo> oMatchingSourceColumnInfo_File = ReadFileColumn(filePath, MatchingSourceDataImportID);
                 //**End
-               
+
                 //** Get Column From DB
                 //*** IN of GLTBS and Column not in DB then get User last uploded GLTBS Column List 
                 //*** for selected datatype of same column name
@@ -200,7 +200,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                         //*** Update Datatype and there MatchingSourceColumnID in case of column saved 
                         if (oMatchingSourceColumnInfoList.Count < oMatchingSourceColumnInfo_File.Count)
                         {
-                          
+
                             foreach (MatchingSourceColumnInfo oMSCCol in oMatchingSourceColumnInfoList)
                             {
 
@@ -242,7 +242,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                 rgMappingColumns.DataBind();
             }
             //DisableButton();
-            
+
         }
         catch (ARTException ex)
         {
@@ -260,7 +260,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
         btnSubmitAll.Enabled = true;
         btnContinueLater.Enabled = true;
 
-        if (DataImportStatusID != (short)WebEnums.DataImportStatus.Draft 
+        if (DataImportStatusID != (short)WebEnums.DataImportStatus.Draft
             && DataImportStatusID != (short)WebEnums.DataImportStatus.Failure
             && MatchingSourceDataImportList.Count == 1 && !IsErrorOnSubmit)
         {
@@ -269,7 +269,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
             btnContinueLater.Enabled = false;
             DisableGridControl();
         }
-        else if (DataImportStatusID != (short)WebEnums.DataImportStatus.Draft 
+        else if (DataImportStatusID != (short)WebEnums.DataImportStatus.Draft
             && DataImportStatusID != (short)WebEnums.DataImportStatus.Failure
             && MatchingSourceDataImportList.Count > 1 && !IsErrorOnSubmit)
         {
@@ -408,7 +408,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
             }
         }
     }
-    
+
     protected void rgMappingColumns_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
     {
         try
@@ -420,7 +420,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                 arryMandatoryFields = DataImportHelper.GetGLTBSDataLoadMandatoryFields();
                 MatchingSourceColumnInfo oMatchingSourceColumnInfo = (MatchingSourceColumnInfo)e.Item.DataItem;
                 DropDownList ddlDataType = (DropDownList)e.Item.FindControl("ddlDataType");
-                
+
                 if (ddlDataType != null)
                 {
                     SetDataTypeDDL(ddlDataType);
@@ -463,7 +463,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
                 {
                     (e.Item as GridDataItem)["MatchingSourceDataImportID"].Text = Helper.GetDisplayStringValue(oMatchingSourceColumnInfo.MatchingSourceDataImportID.Value.ToString());
                 }
-                
+
             }
         }
         catch (Exception ex)
@@ -576,7 +576,10 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
         try
         {
             if (SaveMatchingSourceColumn(GetParmaObjectForSave(1)))
-                Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+            {   //Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+                SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+                return;
+            }
         }
         catch (Exception ex)
         {
@@ -609,7 +612,9 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
 
     protected void btnStatus_Click(object sender, EventArgs e)
     {
-        Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        //Response.Redirect(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_SOURCE_DATAIMPORT_STATUS);
+        return;
     }
 
     protected void btnContinueLater_OnClick(object sender, EventArgs e)
@@ -626,7 +631,7 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
 
     protected bool SaveMatchingSourceColumn(MatchingParamInfo oMatchingParamInfo)
     {
-        bool result=false;
+        bool result = false;
         try
         {
             result = MatchingHelper.SaveMatchingSourceColumn(oMatchingParamInfo);
@@ -691,11 +696,15 @@ public partial class Pages_Matching_MatchSourceDataTypeMapping : PageBaseMatchin
     }
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect(ReturnUrl,true);
+        //Response.Redirect(ReturnUrl, true);
+        SessionHelper.RedirectToUrl(ReturnUrl);
+        return;
     }
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET);
+        return;
     }
 
     protected void Page_PreRender(object sender, EventArgs e)

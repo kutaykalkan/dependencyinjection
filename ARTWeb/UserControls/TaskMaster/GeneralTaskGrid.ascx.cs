@@ -499,8 +499,17 @@ namespace SkyStem.ART.Web.UserControls
         /// </summary>
         public bool IsCompletionDocsEditable
         {
-            get { return _isCompletionDocsEditable; }
-            set { _isCompletionDocsEditable = value; }
+            get
+            {
+                if (ViewState["IsCompletionDocsEditable"] != null)
+                    _isCompletionDocsEditable = (bool)ViewState["IsCompletionDocsEditable"];
+                return _isCompletionDocsEditable;
+            }
+            set
+            {
+                _isCompletionDocsEditable = value;
+                ViewState["IsCompletionDocsEditable"] = value;
+            }
         }
 
         # endregion

@@ -444,7 +444,9 @@ public partial class Pages_DataImportStatusMessages : PageBaseCompany
     #region Other Events
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect(GetUrlForStatusPage());
+        //Response.Redirect(GetUrlForStatusPage());
+        SessionHelper.RedirectToUrl(GetUrlForStatusPage());
+        return;
     }
 
     protected void btnYes_Click(object sender, EventArgs e)
@@ -473,7 +475,9 @@ public partial class Pages_DataImportStatusMessages : PageBaseCompany
             string url = GetUrlForStatusPage();
             url += "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1784";
             CacheHelper.ClearExchangeRateByRecPeriodID(SessionHelper.CurrentReconciliationPeriodID.GetValueOrDefault());
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
         catch (ARTException ex)
         {
@@ -509,7 +513,9 @@ public partial class Pages_DataImportStatusMessages : PageBaseCompany
             }
             string url = GetUrlForStatusPage();
             url += "?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=2399";
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
         catch (ARTException ex)
         {

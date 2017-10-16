@@ -420,8 +420,17 @@ namespace SkyStem.ART.Web.UserControls
         private bool _isCompletionDocsEditable = false;
         public bool IsCompletionDocsEditable
         {
-            get { return _isCompletionDocsEditable; }
-            set { _isCompletionDocsEditable = value; }
+            get
+            {
+                if (ViewState["IsCompletionDocsEditable"] != null)
+                    _isCompletionDocsEditable = (bool)ViewState["IsCompletionDocsEditable"];
+                return _isCompletionDocsEditable;
+            }
+            set
+            {
+                _isCompletionDocsEditable = value;
+                ViewState["IsCompletionDocsEditable"] = value;
+            }
         }
 
         #endregion
@@ -750,7 +759,7 @@ namespace SkyStem.ART.Web.UserControls
                     TaskHdrInfo oTaskHdrInfo = (TaskHdrInfo)e.Item.DataItem;
                     //if (bGetFormMode)
                     //{
-                        eFormMode = TaskMasterHelper.GetFormModeForTaskViewer(oTaskHdrInfo);
+                    eFormMode = TaskMasterHelper.GetFormModeForTaskViewer(oTaskHdrInfo);
                     //    bGetFormMode = false;
                     //}
                     // Check for deleted Task

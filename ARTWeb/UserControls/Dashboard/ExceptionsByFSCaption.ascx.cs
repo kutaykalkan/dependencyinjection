@@ -380,7 +380,9 @@ public partial class UserControls_Dashboard_ExceptionsByFSCaption : UserControlW
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.AccountViewer, oPageSettings);
 
         string url = "~/Pages/AccountViewer.aspx?" + QueryStringConstants.IS_SRA + "=1";
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     protected void SendToAccountViewerForNetAccounts(object sender, CommandEventArgs e)
@@ -410,7 +412,9 @@ public partial class UserControls_Dashboard_ExceptionsByFSCaption : UserControlW
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.AccountViewer, oPageSettings);
 
         string url = "~/Pages/AccountViewer.aspx?" + QueryStringConstants.IS_SRA + "=1";
-        Response.Redirect(url);
+        //Response.Redirect(url);
+        SessionHelper.RedirectToUrl(url);
+        return;
     }
 
     private void OnPageLoad()

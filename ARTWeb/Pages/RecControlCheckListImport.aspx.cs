@@ -287,7 +287,9 @@ public partial class Pages_RecControlCheckListImport : PageBaseRecPeriod
     }
     protected void btnPageCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect(ReturnUrl, true);
+        //Response.Redirect(ReturnUrl, true);
+        SessionHelper.RedirectToUrl(ReturnUrl);
+        return;
     }
     protected void btnImport_Click(object sender, EventArgs e)
     {
@@ -365,7 +367,9 @@ public partial class Pages_RecControlCheckListImport : PageBaseRecPeriod
                         if (dtValidData.Select("IsValidRow = false").Count() > 0)
                         {
                             Session["DataTableForImport"] = dtValidData;
-                            Response.Redirect(GetUrlForRecItemImportStatusPage());
+                            //Response.Redirect(GetUrlForRecItemImportStatusPage());
+                            SessionHelper.RedirectToUrl(GetUrlForRecItemImportStatusPage());
+                            return;
                         }
                         else
                         {

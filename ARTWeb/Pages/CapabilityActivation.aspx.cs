@@ -138,7 +138,9 @@ public partial class Pages_CapabilityActivation : PageBaseRecPeriod
                 if (IsAnythingChanged)
                 {
                     string url = "~/Pages/Home.aspx?" + QueryStringConstants.CONFIRMATION_MESSAGE_LABEL_ID + "=1650";
-                    Response.Redirect(url);
+                    //Response.Redirect(url);
+                    SessionHelper.RedirectToUrl(url);
+                    return;
                 }
                // else
               //  {

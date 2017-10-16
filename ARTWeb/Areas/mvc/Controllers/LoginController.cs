@@ -28,7 +28,9 @@ namespace SkyStem.ART.Web.Areas.mvc.Controllers
                 && (Request.Url.ToString().IndexOf("login.skystem.com/ART", StringComparison.OrdinalIgnoreCase) >= 0
                     && !Request.IsSecureConnection))
             {
-                Response.Redirect(Request.Url.ToString().Replace("http:", "https:"));
+                //Response.Redirect(Request.Url.ToString().Replace("http:", "https:"));
+                SessionHelper.RedirectToUrl(Request.Url.ToString().Replace("http:", "https:"));
+                return View();
             }
 
             if (Request.QueryString[QueryStringConstants.LOGOUT_MESSAGE] != null)

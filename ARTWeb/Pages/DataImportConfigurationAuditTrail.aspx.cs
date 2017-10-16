@@ -104,7 +104,9 @@ public partial class Pages_DataImportConfigurationAuditTrail : PageBaseCompany
     {
         try
         {
-            Response.Redirect("~/Pages/DataImportConfiguration.aspx");
+            //Response.Redirect("~/Pages/DataImportConfiguration.aspx");
+            SessionHelper.RedirectToUrl("~/Pages/DataImportConfiguration.aspx");
+            return;
         }
         catch (ARTException ex)
         {

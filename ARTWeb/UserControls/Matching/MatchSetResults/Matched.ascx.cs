@@ -418,7 +418,9 @@ namespace SkyStem.ART.Web.UserControls
                     MatchingHelper.UpdateNetValue(Dt, matchedCombinedDataTable);
                     DataTable matchedDataTable = MatchingHelper.ManageColumnsForExporToExcel(matchedCombinedDataTable, MatchingConfigurationInfoList);
                     Session[SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE] = matchedDataTable;
-                    Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "Matched"));
+                    //Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "Matched"));
+                    SessionHelper.RedirectToUrl(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "Matched"));
+                    return;
                 }
                 catch (ARTException ex)
                 {
@@ -440,7 +442,9 @@ namespace SkyStem.ART.Web.UserControls
                     MatchingHelper.UpdateNetValue(Dt, CombinedDataTable);
                     DataTable dt = MatchingHelper.ManageColumnsForExporToExcel(CombinedDataTable, MatchingConfigurationInfoList);
                     Session[SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE] = dt;
-                    Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "MatchedWorkspace"));
+                    //Response.Redirect(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "MatchedWorkspace"));
+                    SessionHelper.RedirectToUrl(string.Format("downloader?{0}={1}&{2}={3}", QueryStringConstants.SESSION_ID, SessionConstants.EXPORT_TO_EXCEL_DATA_TABLE, QueryStringConstants.FILE_NAME, "MatchedWorkspace"));
+                    return;
                 }
                 catch (ARTException ex)
                 {

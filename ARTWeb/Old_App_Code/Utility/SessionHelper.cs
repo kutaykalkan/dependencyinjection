@@ -526,7 +526,10 @@ namespace SkyStem.ART.Web.Utility
         {
             url = ResolveUrl(url);
             if (CanRedirect())
+            {
                 HttpContext.Current.Response.Redirect(url, false);
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
+            }
             else
                 RedirectUsingClientJS(url);
         }

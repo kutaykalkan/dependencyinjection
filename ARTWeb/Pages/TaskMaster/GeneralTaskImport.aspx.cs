@@ -247,7 +247,9 @@ public partial class Pages_TaskMaster_GeneralTaskImport : PageBaseRecForm
                         {
                             Session["DataTableForImport"] = dtUploadData;
                             Session["ErrorMessage"] = oSBErrors;
-                            Response.Redirect(GetUrlForRecItemImportStatusPage());
+                            //Response.Redirect(GetUrlForRecItemImportStatusPage());
+                            SessionHelper.RedirectToUrl(GetUrlForRecItemImportStatusPage());
+                            return;
                         }
                         else //(dtUploadData.Rows.Count > 0)
                         {
@@ -459,7 +461,9 @@ public partial class Pages_TaskMaster_GeneralTaskImport : PageBaseRecForm
     protected void btnPageCancel_Click(object sender, EventArgs e)
     {
         // Response.Redirect(ReturnUrl, true);
-        Response.Redirect("TaskViewer.aspx", true);
+        //Response.Redirect("TaskViewer.aspx", true);
+        SessionHelper.RedirectToUrl("TaskViewer.aspx");
+        return;
     }
 
     protected void rgImportList_PageIndexChanged(object source, GridPageChangedEventArgs e)

@@ -460,9 +460,12 @@ namespace SkyStem.ART.Web.Utility
             StringBuilder script = new StringBuilder();
             AddJSStartTag(script);
             script.Append(System.Environment.NewLine);
-            script.Append("alert('");
-            script.Append(errMsg);
-            script.Append("');");
+            if (errMsg.IndexOf("Thread was being aborted") == -1)
+            {
+                script.Append("alert('");
+                script.Append(errMsg);
+                script.Append("');");
+            }
             script.Append(System.Environment.NewLine);
             AddJSEndTag(script);
             return script.ToString();

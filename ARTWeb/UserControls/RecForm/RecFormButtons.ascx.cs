@@ -178,19 +178,27 @@ namespace SkyStem.ART.Web.UserControls
 
                         if (eArtPageID == (short)WebEnums.ARTPages.SystemReconciledAccounts)
                         {
-                            Response.Redirect("SystemReconciledAccount.aspx");
+                            //Response.Redirect("SystemReconciledAccount.aspx");
+                            SessionHelper.RedirectToUrl("SystemReconciledAccount.aspx");
+                            return;
                         }
                         else if (eArtPageID == (short)WebEnums.ARTPages.AccountViewer)
                         {
-                            HttpContext.Current.Response.Redirect(Helper.GetRedirectURLForTemplatePages(this.IsSRA, WebEnums.ARTPages.AccountViewer));
+                            //HttpContext.Current.Response.Redirect(Helper.GetRedirectURLForTemplatePages(this.IsSRA, WebEnums.ARTPages.AccountViewer));
+                            SessionHelper.RedirectToUrl(Helper.GetRedirectURLForTemplatePages(this.IsSRA, WebEnums.ARTPages.AccountViewer));
+                            return;
                         }
                         else if (eArtPageID == (short)WebEnums.ARTPages.CertificationBalances)
                         {
-                            Response.Redirect("~/Pages/Certification/CertificationBalances.aspx");
+                            //Response.Redirect("~/Pages/Certification/CertificationBalances.aspx");
+                            SessionHelper.RedirectToUrl("~/Pages/Certification/CertificationBalances.aspx");
+                            return;
                         }
                         else if (eArtPageID == (short)WebEnums.ARTPages.CertificationException)
                         {
-                            Response.Redirect("~/Pages/Certification/CertificationException.aspx");
+                            //Response.Redirect("~/Pages/Certification/CertificationException.aspx");
+                            SessionHelper.RedirectToUrl("~/Pages/Certification/CertificationException.aspx");
+                            return;
                         }
                         commandName = RecFormButtonCommandName.CANCEL;
                         break;

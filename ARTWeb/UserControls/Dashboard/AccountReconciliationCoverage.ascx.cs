@@ -227,7 +227,9 @@ public partial class UserControls_Dashboard_AccountReconciliationCoverage : User
         oPageSettings.ShowSRAAsWell = true;
         PageSettingHelper.SavePageSettings(WebEnums.ARTPages.AccountViewer, oPageSettings);
         string Url = "~\\Pages\\AccountViewer.aspx?" + QueryStringConstants.IS_SRA + "=1";
-        Response.Redirect(Url);
+        //Response.Redirect(Url);
+        SessionHelper.RedirectToUrl(Url);
+        return;
     }
 
 

@@ -62,7 +62,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             rgMatchingSourceDataImport.MasterTableView.SortExpressions.AddSortExpression(oGridSortExpression);
             this.ReturnUrl = Helper.ReturnURL(this.Page);
         }
-        if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN ))
+        if ((SessionHelper.CurrentRoleID == (short)ARTEnums.UserRole.SYSTEM_ADMIN))
         {
             pnlBusinessAdminDDL.Visible = true;
         }
@@ -77,7 +77,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         if (this.ddlBA.SelectedValue == "-2")
         {
 
-            LoadMatchingSourceDataImport(SessionHelper.CurrentUserID ,SessionHelper.CurrentRoleID,true );
+            LoadMatchingSourceDataImport(SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, true);
         }
         else
         {
@@ -85,7 +85,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
 
         }
 
-       
+
     }
     protected void SetBADDl()
     {
@@ -108,7 +108,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             Helper.ShowErrorMessage(this, ex);
         }
     }
-    private void LoadMatchingSourceDataImport(int? CurrentUserID, short? RoleID , bool FromDdl)
+    private void LoadMatchingSourceDataImport(int? CurrentUserID, short? RoleID, bool FromDdl)
     {
         try
         {
@@ -136,8 +136,8 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
                 oMatchingSourceDataImportHdrInfo = new List<MatchingSourceDataImportHdrInfo>();
 
             rgMatchingSourceDataImport.DataSource = oMatchingSourceDataImportHdrInfo;
-            if(FromDdl)
-            rgMatchingSourceDataImport.DataBind();
+            if (FromDdl)
+                rgMatchingSourceDataImport.DataBind();
 
             GridHelper.SortDataSource(rgMatchingSourceDataImport.MasterTableView);
 
@@ -166,7 +166,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             {
                 ExLabel lblMatchSetID = (ExLabel)item.FindControl("lblMatchSetID");
                 string PhysicalPath = item["PhysicalPath"].Text;
-                if (lblMatchSetID != null && lblMatchSetID.Text != "" && lblMatchSetID.Text!="-")
+                if (lblMatchSetID != null && lblMatchSetID.Text != "" && lblMatchSetID.Text != "-")
                 {
                     long lngMatchSetID = 0;
                     long.TryParse(lblMatchSetID.Text, out lngMatchSetID);
@@ -182,7 +182,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
                 oMatchingParamInfo.CompanyID = SessionHelper.CurrentCompanyID;
                 oMatchingParamInfo.DateRevised = DateTime.Now;
                 oMatchingParamInfo.RevisedBy = SessionHelper.CurrentUserLoginID;
-                bool result=MatchingHelper.DeleteMatchingSourceData(oMatchingParamInfo);
+                bool result = MatchingHelper.DeleteMatchingSourceData(oMatchingParamInfo);
                 if (result)
                 {
                     foreach (GridDataItem item in rgMatchingSourceDataImport.MasterTableView.GetSelectedItems())
@@ -202,7 +202,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             {
                 Helper.ShowErrorMessage(this, Helper.GetLabelIDValue(5000260));
             }
-            
+
         }
         catch (ARTException ex)
         {
@@ -219,12 +219,12 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
 
         if (this.ddlBA.SelectedValue != "-2" && this.ddlBA.SelectedValue != "")
         {
-            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)ARTEnums.UserRole.BUSINESS_ADMIN,false );
+            LoadMatchingSourceDataImport(Convert.ToInt32(this.ddlBA.SelectedValue), (short)ARTEnums.UserRole.BUSINESS_ADMIN, false);
         }
         else
         {
             LoadMatchingSourceDataImport(SessionHelper.CurrentUserID, SessionHelper.CurrentRoleID, false);
- 
+
 
         }
     }
@@ -339,8 +339,8 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
 
         if ((e.Item as GridDataItem)["MatchingSourceTypeID"] != null)
             (e.Item as GridDataItem)["MatchingSourceTypeID"].Text = oMatchingSourceDataImportHdrInfo.MatchingSourceTypeID.ToString();
-      
-        
+
+
         // Set the Hyperlink for Next Page
         SetHyperlinkForStatusPage(oMatchingSourceDataImportHdrInfo, hlMatchingSourceName, hlMatchingSourceType, hlStatus, hlIsPartofMatchSet, hlDate);
     }
@@ -383,7 +383,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
             Helper.RegisterPostBackToControls(this, ibExportToExcel);
 
         }
-       
+
     }
     protected void rgMatchingSourceDataImport_ItemCommand(object source, GridCommandEventArgs e)
     {
@@ -406,7 +406,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
                 rgMatchingSourceDataImport.MasterTableView.Columns.FindByUniqueName("CheckboxSelectColumn").Visible = false;
                 rgMatchingSourceDataImport.MasterTableView.Columns.FindByUniqueName("DataTypeMapping").Visible = false;
                 rgMatchingSourceDataImport.MasterTableView.Columns.FindByUniqueName("FileType").Visible = false;
-               
+
                 GridHelper.ExportGridToExcel(rgMatchingSourceDataImport, 1219);
             }
             if (e.CommandName == TelerikConstants.GridRefreshCommandName)
@@ -443,7 +443,7 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
     {
         List<MatchingSourceDataImportHdrInfo> oMatchingSourceDataImportHdrInfo = null;
         MatchingSourceDataImportHdrInfo oMatchingSourceDataImportInfo = new MatchingSourceDataImportHdrInfo();
-        
+
         GridDataItem item = (GridDataItem)e.Item;
         oMatchingSourceDataImportInfo.MatchingSourceDataImportID = Convert.ToInt32(item["MatchingSourceDataImportID"].Text);
         oMatchingSourceDataImportInfo.MatchingSourceName = ((ExHyperLink)item.FindControl("hlMatchingSourceName")).Text;
@@ -458,15 +458,19 @@ public partial class Pages_Matching_MatchingSourceDataImportStatus : PageBaseMat
         {
             Session[SessionConstants.MATCHING_SOURCE_DATA] = oMatchingSourceDataImportHdrInfo;
             string url = "MatchSourceDataTypeMapping.aspx?" + QueryStringConstants.DATA_IMPORT_ID + "=" + oMatchingSourceDataImportInfo.MatchingSourceDataImportID;
-            Response.Redirect(url);
+            //Response.Redirect(url);
+            SessionHelper.RedirectToUrl(url);
+            return;
         }
-          
+
     }
 
     protected void btnBack_Click(object sender, EventArgs e)
     {
-       //Response.Redirect(ReturnUrl, true);       
-         Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        //Response.Redirect(ReturnUrl, true);       
+        //Response.Redirect(URLConstants.URL_MATCHING_VIEW_MATCH_SET, true);
+        SessionHelper.RedirectToUrl(URLConstants.URL_MATCHING_VIEW_MATCH_SET);
+        return;
     }
-    
+
 }
