@@ -46,6 +46,9 @@
     <Reference Include="LanguageUtility">
       <HintPath>..\lib\LanguageUtility.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\ARTTasks\DataImportTask\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -62,6 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\SharedConstants.cs" />
+    <Compile Include="Decorators\RetryCommandHandlerDecorator.cs" />
+    <Compile Include="Decorators\TimeMeasuringCommandHandlerDecorator.cs" />
+    <Compile Include="Decorators\TryCatchWithExceptionLoggingCommandHandlerDecorator.cs" />
+    <Compile Include="Interfaces\IAppSettingHelper.cs" />
+    <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\IGLDataImport.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IRemotingHelper.cs" />
+    <Compile Include="Proxies\NLogProxy.cs" />
+    <Compile Include="Utility\AppSettingHelper.cs" />
     <Compile Include="Utility\DBHelperExtension.cs" />
     <Compile Include="Utility\SharedAppSettingHelper.cs" />
     <Compile Include="Utility\ExcelHelper.cs" />
@@ -77,6 +90,9 @@
       <Project>{6ADDE1AB-5511-446F-9D83-E1D45D2172F1}</Project>
       <Name>ARTClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
