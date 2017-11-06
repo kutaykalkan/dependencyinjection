@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,31 +18,34 @@ using SkyStem.ART.Client.IServices;
 using ClientModel = SkyStem.ART.Client.Model;
 using SkyStem.ART.Shared.Utility;
 using SkyStem.ART.Client.Data;
+using SkyStem.ART.Service.Interfaces;
+using SkyStem.ART.Service.Utility;
 using SkyStem.Language.LanguageUtility;
 
-
-namespace SkyStem.ART.Service.Utility
+namespace DataImportTask.Implementations.Proxies
 {
-    /// <summary>
-    /// KK: I created an interface for this class in DataImportTask project. Use it to refactor.
-    /// </summary>
-    public class DataImportHelper
+    public class DataImportHelperProxy : IDataImportHelper
     {
+        private readonly IDataImportHelper _dataImportHelper;
+
+        public DataImportHelperProxy(IDataImportHelper dataImportHelper)
+        {
+            _dataImportHelper = dataImportHelper;
+        }
         #region "Account Attribute Data Import"
         #region "Public Methods"
-        public static AccountAttributeDataImportInfo GetAcctAttrDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public AccountAttributeDataImportInfo GetAcctAttrDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
-            AccountAttributeDAO oAcctAttrDAO = new AccountAttributeDAO(oCompanyUserInfo);
-            return oAcctAttrDAO.GetAccountAttributeDataImportForProcessing(dateRevised);
+            return _dataImportHelper.GetAcctAttrDataImportInfoForProcessing(dateRevised, oCompanyUserInfo);
         }
 
-        public static List<CapabilityInfo> SelectAllCompanyCapabilityByReconciliationPeriodID(int recPeriodID, CompanyUserInfo oCompanyUserInfo)
+        public List<CapabilityInfo> SelectAllCompanyCapabilityByReconciliationPeriodID(int recPeriodID, CompanyUserInfo oCompanyUserInfo)
         {
             CapabilityDAO oCapabilityDAO = new CapabilityDAO(oCompanyUserInfo);
             return oCapabilityDAO.SelectAllCompanyCapabilityByReconciliationPeriodID(recPeriodID);
         }
 
-        public static void TransferAndProcessData(DataTable dtExcel, AccountAttributeDataImportInfo oAcctAttrDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public void TransferAndProcessData(DataTable dtExcel, AccountAttributeDataImportInfo oAcctAttrDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             AccountAttributeDAO oAcctAttrDAO = new AccountAttributeDAO(oCompanyUserInfo);
             oAcctAttrDAO.LogInfoCache = oLogInfoCache;
@@ -82,7 +84,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void ProcessTransferredData(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public void ProcessTransferredData(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             SqlConnection oConn = null;
             SqlTransaction oTrans = null;
@@ -119,13 +121,13 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void UpdateDataImportHDR(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oAcctAttrDataImportInfo);
         }
 
-        public static DataTable GetAcctAttrImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetAcctAttrImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oAcctAttrDataTableFromExcel = Helper.GetDataTableFromExcel(fullExcelFilePath, sheetName, oCompanyUserInfo);
 
@@ -137,8 +139,8 @@ namespace SkyStem.ART.Service.Utility
 
             return oAcctAttrDataTableFromExcel;
         }
-        //Get a list of Static Mandatory Fields
-        public static List<string> GetAcctAttrDataImportStaticFields()
+        //Get a list of  Mandatory Fields
+        public  List<string> GetAcctAttrDataImportStaticFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(AccountAttributeDataImportFields.COMPANY);
@@ -146,7 +148,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all possible Account Attribute Data Import fields
-        public static List<string> GetAcctAttrDataImportAllPossibleFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAcctAttrDataImportAllPossibleFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             fieldList.AddRange(GetAcctAttrDataImportStaticFields());
@@ -156,7 +158,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all possible Account Attribute Data Import fields
-        public static List<string> GetAcctAttrDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAcctAttrDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             fieldList.AddRange(GetAcctAttrDataImportStaticFields());
@@ -165,7 +167,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        public static void ResetGLDataHdrObject(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, Exception ex)
+        public  void ResetGLDataHdrObject(AccountAttributeDataImportInfo oAcctAttrDataImportInfo, Exception ex)
         {
             if (String.IsNullOrEmpty(oAcctAttrDataImportInfo.DataImportStatus))
                 oAcctAttrDataImportInfo.DataImportStatus = DataImportStatus.DATAIMPORTFAIL;
@@ -183,13 +185,13 @@ namespace SkyStem.ART.Service.Utility
 
         #region "GL Data Import"
         #region "Public Methods"
-        public static GLDataImportInfo GetGLDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public  GLDataImportInfo GetGLDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             GLDataDAO oGLDataDAO = new GLDataDAO(oCompanyUserInfo);
             return oGLDataDAO.GetGLDataImportForProcessing(dateRevised);
         }
 
-        public static void TransferAndProcessGLData(DataTable dtExcel, GLDataImportInfo oGLDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public  void TransferAndProcessGLData(DataTable dtExcel, GLDataImportInfo oGLDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             GLDataDAO oGLDataDAO = new GLDataDAO(oCompanyUserInfo);
             oGLDataDAO.LogInfoCache = oLogInfoCache;
@@ -234,7 +236,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void ProcessTransferedGLData(GLDataImportInfo oGLDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public  void ProcessTransferedGLData(GLDataImportInfo oGLDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             GLDataDAO oGLDataDAO = new GLDataDAO(oCompanyUserInfo);
             oGLDataDAO.LogInfoCache = oLogInfoCache;
@@ -274,19 +276,19 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void UpdateDataImportHDR(GLDataImportInfo oGLDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(GLDataImportInfo oGLDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oGLDataImportInfo);
         }
 
-        public static void UpdateDataImportHDRForUserUpload(DataImportHdrInfo oUserUploadInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDRForUserUpload(DataImportHdrInfo oUserUploadInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oUserUploadInfo);
         }
 
-        public static DataTable GetGLDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetGLDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oGLDataTableFromExcel;
             FileInfo file = new FileInfo(fullExcelFilePath);
@@ -304,8 +306,8 @@ namespace SkyStem.ART.Service.Utility
             return oGLDataTableFromExcel;
         }
 
-        //Get a list of Static Mandatory Fields
-        public static List<string> GetGLDataImportStaticFields()
+        //Get a list of  Mandatory Fields
+        public  List<string> GetGLDataImportStaticFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(GLDataImportFields.PERIODENDDATE);
@@ -318,7 +320,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all possible GL Data Import fields
-        public static List<string> GetAllPossibleGLDataImportFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAllPossibleGLDataImportFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             fieldList.AddRange(GetAccountStaticFields());
@@ -329,7 +331,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all mandatory fields in GLDataImport
-        public static List<string> GetGLDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
+        public  List<string> GetGLDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             fieldList.AddRange(GetGLDataImportStaticFields());
@@ -338,7 +340,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        public static List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithoutGL(int? UserID, short? RoleID, int RecPeriodID, int CompanyID)
+        public  List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithoutGL(int? UserID, short? RoleID, int RecPeriodID, int CompanyID)
         {
             IAccount oAccount = RemotingHelper.GetAccountObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -347,7 +349,7 @@ namespace SkyStem.ART.Service.Utility
             return oListAccountHdrInfo;
         }
 
-        public static List<SkyStem.ART.Client.Model.AccountHdrInfo> GetNewAccounts(int? DataImportID, int CompanyID)
+        public  List<SkyStem.ART.Client.Model.AccountHdrInfo> GetNewAccounts(int? DataImportID, int CompanyID)
         {
             IAccount oAccount = RemotingHelper.GetAccountObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -356,7 +358,7 @@ namespace SkyStem.ART.Service.Utility
             return oListAccountHdrInfo;
         }
 
-        public static ClientModel.DataImportHdrInfo GetDataImportHdrInfo(int? DataImportID, int CompanyID)
+        public  ClientModel.DataImportHdrInfo GetDataImportHdrInfo(int? DataImportID, int CompanyID)
         {
             IDataImport oDataImport = RemotingHelper.GetDataImportObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -365,14 +367,14 @@ namespace SkyStem.ART.Service.Utility
             return oDataImportHdrInfo;
         }
 
-        public static DataTable RenameTemplateColumnNameToARTColumns(DataTable oGLDataTableFromExcel, List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList)
+        public  DataTable RenameTemplateColumnNameToArtColumns(DataTable oGLDataTableFromExcel, List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList)
         {
             if (oImportTemplateFieldMappingInfoList != null && oImportTemplateFieldMappingInfoList.Count > 0)
                 RenameColumnNameAsPerARTColumns(oGLDataTableFromExcel, oImportTemplateFieldMappingInfoList);
             return oGLDataTableFromExcel;
         }
         //Rename column names as per Template Columns to ART Columns
-        private static void RenameColumnNameAsPerARTColumns(DataTable dt, List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList)
+        private  void RenameColumnNameAsPerARTColumns(DataTable dt, List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList)
         {
             string currentColumnName = string.Empty;
             DataRow dr = dt.Rows[0];
@@ -402,7 +404,7 @@ namespace SkyStem.ART.Service.Utility
                 }
             }
         }
-        private static void AddNewColumns(DataTable SourceDT, string TargerColumnName, string SourceColumnName)
+        private  void AddNewColumns(DataTable SourceDT, string TargerColumnName, string SourceColumnName)
         {
             DataColumn NewColumn = new DataColumn(TargerColumnName, typeof(System.String));
             SourceDT.Columns.Add(NewColumn);
@@ -411,7 +413,7 @@ namespace SkyStem.ART.Service.Utility
                 Row[TargerColumnName] = Row[SourceColumnName];
             }
         }
-        public static List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> GetImportTemplateFieldMappingInfoList(int? ImportTemplateID, int CompanyID)
+        public  List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> GetImportTemplateFieldMappingInfoList(int? ImportTemplateID, int CompanyID)
         {
             IDataImport oDataImportClient = RemotingHelper.GetDataImportObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -419,7 +421,7 @@ namespace SkyStem.ART.Service.Utility
             List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList = oDataImportClient.GetImportTemplateFieldMappingInfoList(ImportTemplateID, oAppUserInfo);
             return oImportTemplateFieldMappingInfoList;
         }
-        public static List<ClientModel.ImportTemplateFieldMappingInfo> GetAllDataImportFieldsWithMapping(int dataImportID, int CompanyID)
+        public  List<ClientModel.ImportTemplateFieldMappingInfo> GetAllDataImportFieldsWithMapping(int dataImportID, int CompanyID)
         {
             IDataImport oDataImportClient = RemotingHelper.GetDataImportObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -427,7 +429,7 @@ namespace SkyStem.ART.Service.Utility
             List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList = oDataImportClient.GetAllDataImportFieldsWithMapping(dataImportID, oAppUserInfo);
             return oImportTemplateFieldMappingInfoList;
         }
-        public static SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo GetImportTemplateField(List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList, string ImportField)
+        public  SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo GetImportTemplateField(List<SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo> oImportTemplateFieldMappingInfoList, string ImportField)
         {
             SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo oImportTemplateFieldMappingInfo = null;
             if (oImportTemplateFieldMappingInfoList != null && oImportTemplateFieldMappingInfoList.Count > 0)
@@ -440,7 +442,7 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "Private Methods"
-        private static void ProcessTransferedGLData(GLDataDAO oGLDataDAO, GLDataImportInfo oGLDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
+        private  void ProcessTransferedGLData(GLDataDAO oGLDataDAO, GLDataImportInfo oGLDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
         {
             if (oGLDataImportInfo.IsMultiVersionUpload)
                 oGLDataDAO.ProcessImportedMultiVersionGLData(oGLDataImportInfo, oConn, oTrans);
@@ -470,7 +472,7 @@ namespace SkyStem.ART.Service.Utility
             //}
         }
 
-        public static void ResetGLDataHdrObject(GLDataImportInfo oGLDataImportInfo, Exception ex)
+        public  void ResetGLDataHdrObject(GLDataImportInfo oGLDataImportInfo, Exception ex)
         {
             if (oGLDataImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -490,7 +492,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static DataTable ConvertDataImportStatusMessageToDataTable(List<ClientModel.DataImportMessageDetailInfo> oDataImportMessageDetailInfoList)
+        public  DataTable ConvertDataImportStatusMessageToDataTable(List<ClientModel.DataImportMessageDetailInfo> oDataImportMessageDetailInfoList)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("DataImportWarningDetailID", typeof(System.Int64)));
@@ -575,13 +577,13 @@ namespace SkyStem.ART.Service.Utility
 
         #region "Subledger Data Import"
         #region "Public Methods"
-        public static SubledgerDataImportInfo GetSubledgerDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public  SubledgerDataImportInfo GetSubledgerDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             SubledgerDataImportDAO oSubledgerDataImportDAO = new SubledgerDataImportDAO(oCompanyUserInfo);
             return oSubledgerDataImportDAO.GetSubledgerDataImportForProcessing(dateRevised);
         }
 
-        public static void TransferAndProcessSubledgerData(DataTable dtExcel, SubledgerDataImportInfo oSubledgerDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public  void TransferAndProcessSubledgerData(DataTable dtExcel, SubledgerDataImportInfo oSubledgerDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             SubledgerDataImportDAO oSubledgerDataImportDAO = new SubledgerDataImportDAO(oCompanyUserInfo);
             oSubledgerDataImportDAO.LogInfoCache = oLogInfoCache;
@@ -619,7 +621,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void ProcessTransferedSubledgerData(SubledgerDataImportInfo oSubledgerDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo CompanyUserInfo)
+        public  void ProcessTransferedSubledgerData(SubledgerDataImportInfo oSubledgerDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo CompanyUserInfo)
         {
             SubledgerDataImportDAO oSubledgerDataImportDAO = new SubledgerDataImportDAO(CompanyUserInfo);
             oSubledgerDataImportDAO.LogInfoCache = oLogInfoCache;
@@ -652,13 +654,13 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void UpdateDataImportHDR(SubledgerDataImportInfo oSubledgerDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(SubledgerDataImportInfo oSubledgerDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oSubledgerDataImportInfo);
         }
 
-        public static DataTable GetSubledgerDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCopmpnayUserInfo)
+        public  DataTable GetSubledgerDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCopmpnayUserInfo)
         {
 
             DataTable oSubledgerDataTableFromExcel;
@@ -676,12 +678,12 @@ namespace SkyStem.ART.Service.Utility
             return oSubledgerDataTableFromExcel;
         }
 
-        //Get a list of Static Mandatory Fields
-        public static List<string> GetSubledgerDataImportStaticFields()
+        //Get a list of  Mandatory Fields
+        public  List<string> GetSubledgerDataImportStaticFields()
         {
             List<string> fieldList = new List<string>();
 
-            //Get All Mandatory Static Fields: PeriodEndDate, BCCYCode, RccyCode, BalanceBCCY, BalanceRCCY
+            //Get All Mandatory  Fields: PeriodEndDate, BCCYCode, RccyCode, BalanceBCCY, BalanceRCCY
             fieldList.Add(SubledgerDataImportFields.PERIODENDDATE);
             fieldList.Add(SubledgerDataImportFields.BCCYCODE);
             fieldList.Add(SubledgerDataImportFields.BALANCEBCCY);
@@ -692,7 +694,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of Mandatory fields in Subledger data Import
-        public static List<string> GetSubledgerDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
+        public  List<string> GetSubledgerDataImportAllMandatoryFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
 
@@ -703,7 +705,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all possible Subledger data import fields
-        public static List<string> GetSubledgerDataImportAllPossibleMandatoryFields(DataImportHdrInfo oEntity)
+        public  List<string> GetSubledgerDataImportAllPossibleMandatoryFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             fieldList.AddRange(GetSubledgerDataImportStaticFields());
@@ -713,7 +715,7 @@ namespace SkyStem.ART.Service.Utility
         }
         #endregion
         #region "Private Methods"
-        private static void ProcessTransferedSubledgerData(SubledgerDataImportDAO oSubledgerDataImportDAO, SubledgerDataImportInfo oSubledgerDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
+        private  void ProcessTransferedSubledgerData(SubledgerDataImportDAO oSubledgerDataImportDAO, SubledgerDataImportInfo oSubledgerDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
         {
             if (oSubledgerDataImportInfo.IsMultiVersionUpload)
                 oSubledgerDataImportDAO.ProcessImportedMultiversionSubledgerData(oSubledgerDataImportInfo, oConn, oTrans);
@@ -734,7 +736,7 @@ namespace SkyStem.ART.Service.Utility
                 throw new Exception(oSubledgerDataImportInfo.ErrorMessageToSave);
         }
 
-        public static void ResetSubledgerDataHdrObject(SubledgerDataImportInfo oSubledgerDataImportInfo, Exception ex)
+        public  void ResetSubledgerDataHdrObject(SubledgerDataImportInfo oSubledgerDataImportInfo, Exception ex)
         {
             if (oSubledgerDataImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -760,19 +762,19 @@ namespace SkyStem.ART.Service.Utility
         #region Multilingual Data Import
         #region "Public Methods"
 
-        public static MultilingualDataImportHdrInfo GetMultilingualDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public  MultilingualDataImportHdrInfo GetMultilingualDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             MultilingualDataDAO oMultilingualDataDAO = new MultilingualDataDAO(oCompanyUserInfo);
             return oMultilingualDataDAO.GetMultilingualDataImportForProcessing(dateRevised);
         }
 
-        public static void UpdateDataImportHDR(MultilingualDataImportHdrInfo oMultilingualDataImportHdrInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(MultilingualDataImportHdrInfo oMultilingualDataImportHdrInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oMultilingualDataImportHdrInfo);
         }
 
-        public static DataTable GetMultilingualImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetMultilingualImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oMultilingualDataTableFromExcel = Helper.GetDataTableFromExcel(fullExcelFilePath, sheetName, oCompanyUserInfo);
 
@@ -785,7 +787,7 @@ namespace SkyStem.ART.Service.Utility
             return oMultilingualDataTableFromExcel;
         }
 
-        public static DataTable GetUserUploadDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetUserUploadDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oUserUploadDataTableFromExcel = Helper.GetDataTableFromExcel(fullExcelFilePath, sheetName, oCompanyUserInfo);
 
@@ -799,7 +801,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all mandatory fields in Multilingual Data Import
-        public static List<string> GetMultilingualDataImportAllMandatoryFields()
+        public  List<string> GetMultilingualDataImportAllMandatoryFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(MultilingualUploadConstants.Fields.LabelID);
@@ -808,7 +810,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        //public static List<string> GetUserUploadImportMandatoryFields()
+        //public  List<string> GetUserUploadImportMandatoryFields()
         //{
         //    List<string> mandatoryFields = new List<string>();
         //    mandatoryFields.Add(UserUploadConstants.Fields.FIRSTNAME);
@@ -820,7 +822,7 @@ namespace SkyStem.ART.Service.Utility
         //    return mandatoryFields;
         //}
 
-        public static void ResetMultilingualDataHdrObject(MultilingualDataImportHdrInfo oMultilingualDataImportHdrInfo, Exception ex)
+        public  void ResetMultilingualDataHdrObject(MultilingualDataImportHdrInfo oMultilingualDataImportHdrInfo, Exception ex)
         {
             if (oMultilingualDataImportHdrInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -840,12 +842,12 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "User Data Import"
-        internal static UserDataImportInfo GetUserDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        internal  UserDataImportInfo GetUserDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             UserUploadDAO oUserDataImportDAO = new UserUploadDAO(oCompanyUserInfo);
             return oUserDataImportDAO.GetUserDataImportForProcessing(dateRevised);
         }
-        internal static void UpdateDataImportHDR(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        internal  void UpdateDataImportHDR(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oUserDataImportInfo);
@@ -856,7 +858,7 @@ namespace SkyStem.ART.Service.Utility
         /// </summary>
         /// <param name="dtExcelData"></param>
         /// <param name="oUserDataImportInfo"></param>
-        internal static void TransferAndProcessUserData(DataTable dtExcelData, UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        internal  void TransferAndProcessUserData(DataTable dtExcelData, UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             using (TransactionScope scope = new TransactionScope())
             {
@@ -886,7 +888,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        internal static void ProcessTransferedUserData(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        internal  void ProcessTransferedUserData(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             using (TransactionScope scope = new TransactionScope())
             {
@@ -907,7 +909,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        internal static void ResetUserDataHdrObject(UserDataImportInfo oUserDataImportInfo, Exception ex)
+        internal  void ResetUserDataHdrObject(UserDataImportInfo oUserDataImportInfo, Exception ex)
         {
             if (oUserDataImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -924,7 +926,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of Mandatory fields in Subledger data Import
-        public static List<string> GetUserUploadImportMandatoryFields()
+        public  List<string> GetUserUploadImportMandatoryFields()
         {
             List<string> mandatoryFields = new List<string>();
             mandatoryFields.Add(UserUploadConstants.UploadFields.FIRSTNAME);
@@ -936,7 +938,7 @@ namespace SkyStem.ART.Service.Utility
             return mandatoryFields;
         }
 
-        public static DataTable GetUserUploadDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetUserUploadDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oUserUploadDataTableFromExcel = Helper.GetDataTableFromExcel(fullExcelFilePath, sheetName, oCompanyUserInfo);
 
@@ -952,7 +954,7 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "Account Data Import"
-        public static void ProcessTransferedAccountData(AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void ProcessTransferedAccountData(AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             AccountUploadDAO oAccountDAO = new AccountUploadDAO(oCompanyUserInfo);
             SqlConnection oConn = null;
@@ -990,7 +992,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        private static void ProcessTransferedAccountData(AccountUploadDAO oAccountDAO, AccountDataImportInfo oAccountDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
+        private  void ProcessTransferedAccountData(AccountUploadDAO oAccountDAO, AccountDataImportInfo oAccountDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
         {
 
             oAccountDAO.ProcessImportedAccountData(oAccountDataImportInfo, oConn, oTrans);
@@ -1009,13 +1011,13 @@ namespace SkyStem.ART.Service.Utility
                 throw new Exception(oAccountDataImportInfo.ErrorMessageToSave);
         }
 
-        public static AccountDataImportInfo GetAccountDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public  AccountDataImportInfo GetAccountDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             AccountUploadDAO oAccountDAO = new AccountUploadDAO(oCompanyUserInfo);
             return oAccountDAO.GetAccountDataImportForProcessing(dateRevised);
         }
 
-        public static void ResetAccountDataHdrObject(AccountDataImportInfo oAccountDataImportInfo, Exception ex)
+        public  void ResetAccountDataHdrObject(AccountDataImportInfo oAccountDataImportInfo, Exception ex)
         {
             if (oAccountDataImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -1035,7 +1037,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void TransferAndProcessAccountData(DataTable dtExcel, AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserHdrInfo)
+        public  void TransferAndProcessAccountData(DataTable dtExcel, AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserHdrInfo)
         {
             AccountUploadDAO oAccountDAO = new AccountUploadDAO(oCompanyUserHdrInfo);
             SqlConnection oConn = null;
@@ -1079,7 +1081,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void UpdateDataImportHDR(AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(AccountDataImportInfo oAccountDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oAccountDataImportInfo);
@@ -1088,9 +1090,9 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "Generic Methods"
-        public static void SendMailToUsers(DataImportHdrInfo oDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void SendMailToUsers(DataImportHdrInfo oDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
-            MailHelper.SendEmailToUserByDataImportStatus(oDataImportInfo.DataImportStatus, oDataImportInfo.SuccessEmailIDs
+            SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatus(oDataImportInfo.DataImportStatus, oDataImportInfo.SuccessEmailIDs
                 , oDataImportInfo.FailureEmailIDs, oDataImportInfo.WarningEmailIds, oDataImportInfo.DataImportTypeID
                 , oDataImportInfo.RecordsImported, oDataImportInfo.ProfileName, oDataImportInfo.ErrorMessageToSave
                 , ServiceConstants.DEFAULTBUSINESSENTITYID, oDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1099,11 +1101,11 @@ namespace SkyStem.ART.Service.Utility
                 , oDataImportInfo, oCompanyUserInfo, oDataImportInfo.DataImportID);
         }
 
-        public static void SendMailToUsers(CurrencyDataImportInfo oCurrencyDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void SendMailToUsers(CurrencyDataImportInfo oCurrencyDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             if (oCurrencyDataImportInfo.IsMultiVersionUpload)
             {
-                MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oCurrencyDataImportInfo.DataImportStatus, oCurrencyDataImportInfo.SuccessEmailIDs
+                SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oCurrencyDataImportInfo.DataImportStatus, oCurrencyDataImportInfo.SuccessEmailIDs
                 , oCurrencyDataImportInfo.FailureEmailIDs, oCurrencyDataImportInfo.WarningEmailIds, oCurrencyDataImportInfo.DataImportTypeID
                 , oCurrencyDataImportInfo.RecordsImported, oCurrencyDataImportInfo.ProfileName, oCurrencyDataImportInfo.ErrorMessageToSave
                 , ServiceConstants.DEFAULTBUSINESSENTITYID, oCurrencyDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1114,11 +1116,11 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void SendMailToUsers(GLDataImportInfo oGLDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void SendMailToUsers(GLDataImportInfo oGLDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             if (oGLDataImportInfo.IsMultiVersionUpload)
             {
-                MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oGLDataImportInfo.DataImportStatus, oGLDataImportInfo.SuccessEmailIDs
+                SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oGLDataImportInfo.DataImportStatus, oGLDataImportInfo.SuccessEmailIDs
                 , oGLDataImportInfo.FailureEmailIDs, oGLDataImportInfo.WarningEmailIds, oGLDataImportInfo.DataImportTypeID
                 , oGLDataImportInfo.RecordsImported, oGLDataImportInfo.ProfileName, oGLDataImportInfo.ErrorMessageToSave
                 , ServiceConstants.DEFAULTBUSINESSENTITYID, oGLDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1128,7 +1130,7 @@ namespace SkyStem.ART.Service.Utility
             }
             else
             {
-                MailHelper.SendEmailToUserByDataImportStatus(oGLDataImportInfo.DataImportStatus, oGLDataImportInfo.SuccessEmailIDs
+                SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatus(oGLDataImportInfo.DataImportStatus, oGLDataImportInfo.SuccessEmailIDs
                 , oGLDataImportInfo.FailureEmailIDs, oGLDataImportInfo.WarningEmailIds, oGLDataImportInfo.DataImportTypeID
                 , oGLDataImportInfo.RecordsImported, oGLDataImportInfo.ProfileName, oGLDataImportInfo.ErrorMessageToSave
                 , ServiceConstants.DEFAULTBUSINESSENTITYID, oGLDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1139,13 +1141,13 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void SendMailToUsers(SubledgerDataImportInfo oSubledgerDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void SendMailToUsers(SubledgerDataImportInfo oSubledgerDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             if (oSubledgerDataImportInfo.IsMultiVersionUpload)
             {
                 //if (oSubledgerDataImportInfo.UserAccountInfoCollection != null && oSubledgerDataImportInfo.UserAccountInfoCollection.Count > 0)
                 //{
-                MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oSubledgerDataImportInfo.DataImportStatus, oSubledgerDataImportInfo.SuccessEmailIDs
+                SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatusMultiVersion(oSubledgerDataImportInfo.DataImportStatus, oSubledgerDataImportInfo.SuccessEmailIDs
                 , oSubledgerDataImportInfo.FailureEmailIDs, oSubledgerDataImportInfo.WarningEmailIds, oSubledgerDataImportInfo.DataImportTypeID
                 , oSubledgerDataImportInfo.RecordsImported, oSubledgerDataImportInfo.ProfileName, oSubledgerDataImportInfo.ErrorMessageToSave
                 , ServiceConstants.DEFAULTBUSINESSENTITYID, oSubledgerDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1157,7 +1159,7 @@ namespace SkyStem.ART.Service.Utility
             }
             else
             {
-                MailHelper.SendEmailToUserByDataImportStatus(oSubledgerDataImportInfo.DataImportStatus, oSubledgerDataImportInfo.SuccessEmailIDs
+                SkyStem.ART.Service.Utility.MailHelper.SendEmailToUserByDataImportStatus(oSubledgerDataImportInfo.DataImportStatus, oSubledgerDataImportInfo.SuccessEmailIDs
               , oSubledgerDataImportInfo.FailureEmailIDs, oSubledgerDataImportInfo.WarningEmailIds, oSubledgerDataImportInfo.DataImportTypeID
               , oSubledgerDataImportInfo.RecordsImported, oSubledgerDataImportInfo.ProfileName, oSubledgerDataImportInfo.ErrorMessageToSave
               , ServiceConstants.DEFAULTBUSINESSENTITYID, oSubledgerDataImportInfo.LanguageID, ServiceConstants.DEFAULTLANGUAGEID
@@ -1168,7 +1170,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void SendMailToUsers(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void SendMailToUsers(UserDataImportInfo oUserDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
 
             DataImportHdrInfo oDataImportHdrInfo = oUserDataImportInfo;
@@ -1179,7 +1181,7 @@ namespace SkyStem.ART.Service.Utility
                 {
                     foreach (SkyStem.ART.Client.Model.UserHdrInfo oUser in oUserDataImportInfo.CreatedUserList)
                     {
-                        MailHelper.SendMailToNewUser(oUser, oCompanyUserInfo);
+                        SkyStem.ART.Service.Utility.MailHelper.SendMailToNewUser(oUser, oCompanyUserInfo);
                     }
                 }
             }
@@ -1189,7 +1191,7 @@ namespace SkyStem.ART.Service.Utility
 
 
         //Rename column names as per first row
-        private static void RenameColumnNameAsPerFirstRow(DataTable dt)
+        private  void RenameColumnNameAsPerFirstRow(DataTable dt)
         {
             List<int> unwantedColumnIndexList = new List<int>();
             DataRow dr = dt.Rows[0];
@@ -1215,8 +1217,8 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        //Get a list of static fields
-        public static List<string> GetAccountStaticFields()
+        //Get a list of  fields
+        public  List<string> GetAccountStaticFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(GLDataImportFields.FSCAPTION);
@@ -1226,7 +1228,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        public static List<string> GetAllAccountCreationMendatoryFields()
+        public  List<string> GetAllAccountCreationMendatoryFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(AccountDataImportFields.ISPROFITANDLOSS);
@@ -1234,13 +1236,13 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get a list of Mapper keys for Account hierarchy
-        public static List<string> GetAccountKeyFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAccountKeyFields(DataImportHdrInfo oEntity)
         {
             return oEntity.KeyFields.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList<string>();
         }
 
         //Get a list of Account unique subset keys
-        public static List<string> GetAccountUniqueSubsetFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAccountUniqueSubsetFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
             if (!String.IsNullOrEmpty(oEntity.AccountUniqueSubSetKeys))
@@ -1251,7 +1253,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        public static List<string> GetAccountMandatoryFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAccountMandatoryFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
 
@@ -1269,7 +1271,7 @@ namespace SkyStem.ART.Service.Utility
             }
             return fieldList;
         }
-        public static List<string> GetAccountMandatoryFieldsForAccountAttributeLoad(DataImportHdrInfo oEntity)
+        public  List<string> GetAccountMandatoryFieldsForAccountAttributeLoad(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
 
@@ -1287,7 +1289,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get all possible Account Fields
-        public static List<string> GetAllPossibleAccountFields(DataImportHdrInfo oEntity)
+        public  List<string> GetAllPossibleAccountFields(DataImportHdrInfo oEntity)
         {
             List<string> fieldList = new List<string>();
 
@@ -1306,7 +1308,7 @@ namespace SkyStem.ART.Service.Utility
         /// <param name="companyID">id of the company</param>
         /// <param name="importType">import type</param>
         /// <returns>folder name</returns>
-        public static string GetBaseFolder()
+        public  string GetBaseFolder()
         {
             // There will be a Base folder(path from web config). 
             string baseFolderPath = @"";//read base folder path from web config.
@@ -1325,7 +1327,7 @@ namespace SkyStem.ART.Service.Utility
             return baseFolderPath + @"\";
         }
 
-        public static string GetFolderForDownloadRequests(int companyID, int recPeriodID)
+        public  string GetFolderForDownloadRequests(int companyID, int recPeriodID)
         {
             string folderPath = string.Empty;
             StringBuilder sb = new StringBuilder();
@@ -1345,7 +1347,7 @@ namespace SkyStem.ART.Service.Utility
             return folderPath + @"\"; ;
         }
 
-        public static string GetAppSettingValue(string key)
+        public  string GetAppSettingValue(string key)
         {
             try
             {
@@ -1362,7 +1364,7 @@ namespace SkyStem.ART.Service.Utility
         /// </summary>
         /// <param name="xmlReturnString"></param>
         /// <returns></returns>
-        public static ReturnValue DeSerializeReturnValue(string xmlReturnString)
+        public  ReturnValue DeSerializeReturnValue(string xmlReturnString)
         {
             ReturnValue oRetVal = null;
             if (!string.IsNullOrEmpty(xmlReturnString))
@@ -1386,7 +1388,7 @@ namespace SkyStem.ART.Service.Utility
             return oRetVal;
         }
 
-        public static List<ClientModel.ExchangeRateInfo> GetExchangeRateByRecPeriod(int RecPeriodID, CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.ExchangeRateInfo> GetExchangeRateByRecPeriod(int RecPeriodID, CompanyUserInfo oCompanyUserInfo)
         {
             IUtility oUtility = RemotingHelper.GetUtilityObject();
             ClientModel.AppUserInfo oAppUserInfo = Helper.GetAppUserFromCompanyUserInfo(oCompanyUserInfo);
@@ -1395,12 +1397,12 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "Task Upload"
-        internal static TaskImportInfo GetTaskImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        internal  TaskImportInfo GetTaskImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             TaskUploadDAO oTaskUploadDAO = new TaskUploadDAO(oCompanyUserInfo);
             return oTaskUploadDAO.GetTaskImportForProcessing(dateRevised);
         }
-        internal static void UpdateDataImportHDR(TaskImportInfo oTaskImportInfo, CompanyUserInfo oCompanyUserInfo)
+        internal  void UpdateDataImportHDR(TaskImportInfo oTaskImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oTaskImportInfo);
@@ -1409,7 +1411,7 @@ namespace SkyStem.ART.Service.Utility
 
 
         //Get list of Mandatory fields in Task Import
-        public static List<string> GetTaskImportMandatoryFields()
+        public  List<string> GetTaskImportMandatoryFields()
         {
             List<string> mandatoryFields = new List<string>();
             mandatoryFields.Add(TaskUploadConstants.TaskUploadFields.TASKLISTNAME);
@@ -1443,7 +1445,7 @@ namespace SkyStem.ART.Service.Utility
         #region Schedule Rec Item Data Import
         #region "Public Methods"
 
-        public static DataTable GetScheduleRecItemImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetScheduleRecItemImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oDataTableFromExcel = Helper.GetDataTableFromExcel(fullExcelFilePath, sheetName, oCompanyUserInfo);
 
@@ -1457,7 +1459,7 @@ namespace SkyStem.ART.Service.Utility
         }
 
         //Get list of all mandatory fields in Schedule Rec Item Import
-        public static List<string> GetScheduleRecItemImportAllMandatoryFields()
+        public  List<string> GetScheduleRecItemImportAllMandatoryFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(ScheduleRecItemUploadConstants.Fields.RefNo);
@@ -1476,7 +1478,7 @@ namespace SkyStem.ART.Service.Utility
             return fieldList;
         }
 
-        public static void ResetScheduleRecItemDataHdrObject(ScheduleRecItemImportInfo oScheduleRecItemImportInfo, Exception ex)
+        public  void ResetScheduleRecItemDataHdrObject(ScheduleRecItemImportInfo oScheduleRecItemImportInfo, Exception ex)
         {
             if (oScheduleRecItemImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -1491,7 +1493,7 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void ResetTaskImportInfoObject(TaskImportInfo oTaskImportInfo, Exception ex)
+        public  void ResetTaskImportInfoObject(TaskImportInfo oTaskImportInfo, Exception ex)
         {
             if (oTaskImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -1512,13 +1514,13 @@ namespace SkyStem.ART.Service.Utility
 
         #region "Currency Data Import"
         #region "Public Methods"
-        public static CurrencyDataImportInfo GetCurrencyDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
+        public  CurrencyDataImportInfo GetCurrencyDataImportInfoForProcessing(DateTime dateRevised, CompanyUserInfo oCompanyUserInfo)
         {
             CurrencyDataImportDAO oCurrencyDataImportDAO = new CurrencyDataImportDAO(oCompanyUserInfo);
             return oCurrencyDataImportDAO.GetCurrencyDataImportForProcessing(dateRevised);
         }
 
-        public static void TransferAndProcessCurrencyData(DataTable dtExcel, CurrencyDataImportInfo oCurrencyDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public  void TransferAndProcessCurrencyData(DataTable dtExcel, CurrencyDataImportInfo oCurrencyDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             CurrencyDataImportDAO oCurrencyDataImportDAO = new CurrencyDataImportDAO(oCompanyUserInfo);
             oCurrencyDataImportDAO.LogInfoCache = oLogInfoCache;
@@ -1565,7 +1567,7 @@ namespace SkyStem.ART.Service.Utility
 
 
 
-        public static void ProcessTransferedCurrencyData(CurrencyDataImportInfo oCurrencyDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
+        public  void ProcessTransferedCurrencyData(CurrencyDataImportInfo oCurrencyDataImportInfo, List<ClientModel.LogInfo> oLogInfoCache, CompanyUserInfo oCompanyUserInfo)
         {
             CurrencyDataImportDAO oCurrencyDataImportDAO = new CurrencyDataImportDAO(oCompanyUserInfo);
             oCurrencyDataImportDAO.LogInfoCache = oLogInfoCache;
@@ -1605,13 +1607,13 @@ namespace SkyStem.ART.Service.Utility
             }
         }
 
-        public static void UpdateDataImportHDR(CurrencyDataImportInfo oCurrencyDataImportInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateDataImportHDR(CurrencyDataImportInfo oCurrencyDataImportInfo, CompanyUserInfo oCompanyUserInfo)
         {
             DataImportHdrDAO oDataImportHdrDAO = new DataImportHdrDAO(oCompanyUserInfo);
             oDataImportHdrDAO.UpdateDataImportHDR(oCurrencyDataImportInfo);
         }
 
-        public static DataTable GetCurrencyDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
+        public  DataTable GetCurrencyDataImportDataTableFromExcel(string fullExcelFilePath, string sheetName, CompanyUserInfo oCompanyUserInfo)
         {
             DataTable oCurrencyDataTableFromExcel;
             FileInfo file = new FileInfo(fullExcelFilePath);
@@ -1628,7 +1630,7 @@ namespace SkyStem.ART.Service.Utility
             return oCurrencyDataTableFromExcel;
         }
 
-        public static List<string> GetCurrencyDataImportMandatoryFields()
+        public  List<string> GetCurrencyDataImportMandatoryFields()
         {
             List<string> fieldList = new List<string>();
             fieldList.Add(CurrencyExchangeUploadConstants.UploadFields.PERIODENDDATE);
@@ -1640,7 +1642,7 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region "Private Methods"
-        private static void ProcessTransferedCurrencyData(CurrencyDataImportDAO oCurrencyDataImportDAO, CurrencyDataImportInfo oCurrencyDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
+        private  void ProcessTransferedCurrencyData(CurrencyDataImportDAO oCurrencyDataImportDAO, CurrencyDataImportInfo oCurrencyDataImportInfo, SqlConnection oConn, SqlTransaction oTrans, CompanyUserInfo oCompanyUserInfo)
         {
             oCurrencyDataImportDAO.ProcessImportedMultiVersionCurrencyData(oCurrencyDataImportInfo, oConn, oTrans);
             Helper.LogInfoToCache("8. Data Processing Complete.", oCurrencyDataImportDAO.LogInfoCache);
@@ -1656,7 +1658,7 @@ namespace SkyStem.ART.Service.Utility
                 throw new Exception(oCurrencyDataImportInfo.ErrorMessageToSave);
         }
 
-        public static void ResetCurrencyDataHdrObject(CurrencyDataImportInfo oCurrencyDataImportInfo, Exception ex)
+        public  void ResetCurrencyDataHdrObject(CurrencyDataImportInfo oCurrencyDataImportInfo, Exception ex)
         {
             if (oCurrencyDataImportInfo.DataImportStatus == DataImportStatus.DATAIMPORTSEVEREWARNING)
             {
@@ -1680,7 +1682,7 @@ namespace SkyStem.ART.Service.Utility
         #endregion
 
         #region Alert
-        public static List<ClientModel.AccountHdrInfo> GetAccountInformationForCompanyAlertMail(ClientModel.CompanyAlertDetailUserInfo oCompanyAlertDetailUserInfo)
+        public  List<ClientModel.AccountHdrInfo> GetAccountInformationForCompanyAlertMail(ClientModel.CompanyAlertDetailUserInfo oCompanyAlertDetailUserInfo)
         {
             IAccount oAccount = RemotingHelper.GetAccountObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1688,7 +1690,7 @@ namespace SkyStem.ART.Service.Utility
             List<ClientModel.AccountHdrInfo> oListAccountHdrInfo = oAccount.GetAccountInformationForCompanyAlertMail(oCompanyAlertDetailUserInfo.RecPeriodID, oCompanyAlertDetailUserInfo.UserID.Value, oCompanyAlertDetailUserInfo.RoleID.Value, oCompanyAlertDetailUserInfo.CompanyAlertDetailID.Value, oAppUserInfo);
             return oListAccountHdrInfo;
         }
-        public static List<ClientModel.CompanyAlertInfo> GetRaiseAlertData(CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.CompanyAlertInfo> GetRaiseAlertData(CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1696,14 +1698,14 @@ namespace SkyStem.ART.Service.Utility
             List<ClientModel.CompanyAlertInfo> oCompanyAlertInfoList = oAlertClient.GetRaiseAlertData(oAppUserInfo);
             return oCompanyAlertInfoList;
         }
-        public static void CreateDataForCompanyAlertID(ClientModel.CompanyAlertInfo oCompanyAlertInfo, CompanyUserInfo oCompanyUserInfo)
+        public  void CreateDataForCompanyAlertID(ClientModel.CompanyAlertInfo oCompanyAlertInfo, CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
             oAppUserInfo.CompanyID = oCompanyUserInfo.CompanyID;
             oAlertClient.CreateDataForCompanyAlertID(oCompanyAlertInfo, oAppUserInfo);
         }
-        public static List<ClientModel.CompanyAlertDetailUserInfo> GetAlertMailDataForCompanyAlertID(ClientModel.CompanyAlertInfo oCompanyAlertInfo, CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.CompanyAlertDetailUserInfo> GetAlertMailDataForCompanyAlertID(ClientModel.CompanyAlertInfo oCompanyAlertInfo, CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1711,7 +1713,7 @@ namespace SkyStem.ART.Service.Utility
             List<ClientModel.CompanyAlertDetailUserInfo> oCompanyAlertDetailUserInfoList = oAlertClient.GetAlertMailDataForCompanyAlertID(oCompanyAlertInfo, oAppUserInfo);
             return oCompanyAlertDetailUserInfoList;
         }
-        public static void UpdateSentMailStatus(List<ClientModel.CompanyAlertDetailUserInfo> oCompanyAlertDetailUserInfoList, CompanyUserInfo oCompanyUserInfo)
+        public  void UpdateSentMailStatus(List<ClientModel.CompanyAlertDetailUserInfo> oCompanyAlertDetailUserInfoList, CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1719,7 +1721,7 @@ namespace SkyStem.ART.Service.Utility
             oAlertClient.UpdateSentMailStatus(oCompanyAlertDetailUserInfoList, oAppUserInfo);
 
         }
-        public static List<ClientModel.CompanyAlertDetailUserInfo> GetUserListForNewAccountAlert(int dataImportID, int companyID, CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.CompanyAlertDetailUserInfo> GetUserListForNewAccountAlert(int dataImportID, int companyID, CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1727,7 +1729,7 @@ namespace SkyStem.ART.Service.Utility
             List<ClientModel.CompanyAlertDetailUserInfo> oCompanyAlertDetailUserInfoList = oAlertClient.GetUserListForNewAccountAlert(dataImportID, companyID, oAppUserInfo);
             return oCompanyAlertDetailUserInfoList;
         }
-        public static List<ClientModel.CompanyAlertDetailInfo> GetCompanyAlertDetail(long? CompanyAlertDetailID, CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.CompanyAlertDetailInfo> GetCompanyAlertDetail(long? CompanyAlertDetailID, CompanyUserInfo oCompanyUserInfo)
         {
             IAlert oAlertClient = RemotingHelper.GetAlertObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1735,7 +1737,7 @@ namespace SkyStem.ART.Service.Utility
             List<ClientModel.CompanyAlertDetailInfo> oCompanyAlertDetailInfoList = oAlertClient.GetCompanyAlertDetail(CompanyAlertDetailID, oAppUserInfo);
             return oCompanyAlertDetailInfoList;
         }
-        public static List<ClientModel.TaskHdrInfo> GetTaskInformationForCompanyAlertMail(ClientModel.CompanyAlertDetailUserInfo oCompanyAlertDetailUserInfo)
+        public  List<ClientModel.TaskHdrInfo> GetTaskInformationForCompanyAlertMail(ClientModel.CompanyAlertDetailUserInfo oCompanyAlertDetailUserInfo)
         {
             ITaskMaster oTaskMaster = RemotingHelper.GetTaskMasterObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1748,7 +1750,7 @@ namespace SkyStem.ART.Service.Utility
 
         #endregion
 
-        public static string GetSheetName(Enums.DataImportType dataImportType, int? ImportTemplateID, int? CompanyID)
+        public  string GetSheetName(Enums.DataImportType dataImportType, int? ImportTemplateID, int? CompanyID)
         {
             string sheetName = "";
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -1796,7 +1798,7 @@ namespace SkyStem.ART.Service.Utility
 
         }
 
-        public static ClientModel.DataImportMessageInfo GetDataImportMessageInfo(short DataImportmessageID, int? CompanyID)
+        public  ClientModel.DataImportMessageInfo GetDataImportMessageInfo(short DataImportmessageID, int? CompanyID)
         {
             ClientModel.DataImportMessageInfo oDataImportMessageInfo = null;
             List<ClientModel.DataImportMessageInfo> oDataImportMessageInfoList;
@@ -1808,7 +1810,7 @@ namespace SkyStem.ART.Service.Utility
 
             return oDataImportMessageInfo;
         }
-        public static DataTable CreateDataImportMessageTable()
+        public  DataTable CreateDataImportMessageTable()
         {
             DataTable oDataTable = new DataTable(DataImportMessageConstants.TableName);
             DataColumn dcFieldLabelID = new DataColumn(DataImportMessageConstants.Fields.ImportFieldID, typeof(System.Int32));
@@ -1847,7 +1849,7 @@ namespace SkyStem.ART.Service.Utility
             oDataTable.Columns.Add(dcActual);
             return oDataTable;
         }
-        public static string GetImportTemplateFieldName(SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo oImportTemplateFieldMappingInfo, int LanguageID, int DefaultLanguageID, CompanyUserInfo oCompanyUserInfo)
+        public  string GetImportTemplateFieldName(SkyStem.ART.Client.Model.ImportTemplateFieldMappingInfo oImportTemplateFieldMappingInfo, int LanguageID, int DefaultLanguageID, CompanyUserInfo oCompanyUserInfo)
         {
             string ImportTemplateFieldName;
             if (!string.IsNullOrEmpty(oImportTemplateFieldMappingInfo.ImportTemplateField))
@@ -1859,7 +1861,7 @@ namespace SkyStem.ART.Service.Utility
             }
             return ImportTemplateFieldName;
         }
-        public static DataTable CreateDataImportMandatoryFieldsNotPresentMessageTable()
+        public  DataTable CreateDataImportMandatoryFieldsNotPresentMessageTable()
         {
             DataTable oDataTable = new DataTable(DataImportMessageConstants.TableName);
             DataColumn dcFieldLabelID = new DataColumn(DataImportMessageConstants.Fields.ImportFieldID, typeof(System.Int32));
@@ -1898,7 +1900,7 @@ namespace SkyStem.ART.Service.Utility
             oDataTable.Columns.Add(dcActual);
             return oDataTable;
         }
-        public static List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithBalanceChange(List<string> AccountInfoCollection, int CompanyID)
+        public  List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithBalanceChange(List<string> AccountInfoCollection, int CompanyID)
         {
             List<long> oAccountIDList = new List<long>();
             foreach (var AccountInfo in AccountInfoCollection)
@@ -1927,7 +1929,7 @@ namespace SkyStem.ART.Service.Utility
             return oListAccountHdrInfo;
         }
 
-        public static List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithKeyValue(List<string> AccountInfoCollection, int CompanyID)
+        public  List<SkyStem.ART.Client.Model.AccountHdrInfo> GetAccountInformationWithKeyValue(List<string> AccountInfoCollection, int CompanyID)
         {
             List<long> oAccountIDList = new List<long>();
             foreach (var AccountInfo in AccountInfoCollection)
@@ -1982,7 +1984,7 @@ namespace SkyStem.ART.Service.Utility
             }
             return oListAccountHdrInfo;
         }
-        public static ClientModel.UserHdrInfo GetUserDetail(int UserID, int CompanyID)
+        public  ClientModel.UserHdrInfo GetUserDetail(int UserID, int CompanyID)
         {
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
             oAppUserInfo.CompanyID = CompanyID;
@@ -1991,7 +1993,7 @@ namespace SkyStem.ART.Service.Utility
             return GetUserDetail;
         }
         //Rename And Trim Column Names
-        //public static void RenameAndTrimColumnNames(DataTable dt)
+        //public  void RenameAndTrimColumnNames(DataTable dt)
         //{
         //    string currentColumnName = string.Empty;
         //    DataRow dr = dt.Rows[0];
@@ -2010,12 +2012,12 @@ namespace SkyStem.ART.Service.Utility
         //}
 
         #region "FTP DataImport"
-        public static List<ClientModel.UserFTPConfigurationInfo> GetFTPUsers(CompanyUserInfo oCompanyUserInfo)
+        public  List<ClientModel.UserFTPConfigurationInfo> GetFtpUsers(CompanyUserInfo oCompanyUserInfo)
         {
             FTPDataImportDAO oFTPDataImportDAO = new FTPDataImportDAO(oCompanyUserInfo);
             return oFTPDataImportDAO.GetFTPUsers();
         }
-        public static ClientModel.ReconciliationPeriodInfo GetReconciliationPeriodInfo(DateTime? RecPeriodEndDate, int? CompanyID)
+        public  ClientModel.ReconciliationPeriodInfo GetReconciliationPeriodInfo(DateTime? RecPeriodEndDate, int? CompanyID)
         {
 
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -2026,7 +2028,7 @@ namespace SkyStem.ART.Service.Utility
             return oReconciliationPeriodInfo;
         }
 
-        public static ClientModel.SystemLockdownInfo GetSystemLockdownInfo(ARTEnums.SystemLockdownReason eSystemLockdownReason, ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo, int? RecPeriodID)
+        public  ClientModel.SystemLockdownInfo GetSystemLockdownInfo(ARTEnums.SystemLockdownReason eSystemLockdownReason, ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo, int? RecPeriodID)
         {
             ClientModel.SystemLockdownInfo oSystemLockdownInfo = new ClientModel.SystemLockdownInfo();
             oSystemLockdownInfo.CompanyID = oUserFTPConfigurationInfo.CompanyID;
@@ -2044,7 +2046,7 @@ namespace SkyStem.ART.Service.Utility
             }
             return oSystemLockdownInfo;
         }
-        public static void InsertDataImportHdr(ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo, ClientModel.DataImportHdrInfo oDataImportHrdInfo)
+        public  void InsertDataImportHdr(ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo, ClientModel.DataImportHdrInfo oDataImportHrdInfo)
         {
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
             oAppUserInfo.CompanyID = oUserFTPConfigurationInfo.CompanyID;
@@ -2053,7 +2055,7 @@ namespace SkyStem.ART.Service.Utility
             oDataImport.InsertDataImportWithFailureMsg(oDataImportHrdInfo, failureMsg, oAppUserInfo);
 
         }
-        public static short? GetKeyCount(ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo)
+        public  short? GetKeyCount(ClientModel.UserFTPConfigurationInfo oUserFTPConfigurationInfo)
         {
             short? keyCount = null;
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -2067,7 +2069,7 @@ namespace SkyStem.ART.Service.Utility
         #endregion
         # region Account Mandatory Fields
         //Returns list of Account key fields
-        public static List<string> GetDataImportAllMandatoryFields(int companyID, int recPeriodID)
+        public  List<string> GetDataImportAllMandatoryFields(int companyID, int recPeriodID)
         {
             List<string> fieldList = new List<string>();
 
@@ -2075,8 +2077,8 @@ namespace SkyStem.ART.Service.Utility
             fieldList.AddRange(GetAccountFields(companyID, recPeriodID, true));
             return fieldList;
         }
-        //Returns Account fields (if mapping is done then unique subset keys, else static fields + key fields)
-        private static List<string> GetAccountFields(int companyID, int recPeriodID, bool IsColumnsOptional)
+        //Returns Account fields (if mapping is done then unique subset keys, else  fields + key fields)
+        private  List<string> GetAccountFields(int companyID, int recPeriodID, bool IsColumnsOptional)
         {
             List<string> fieldList = new List<string>();
             List<string> uniqueSubSetFielsList = GetAccountUniqueSubsetFields(companyID, recPeriodID);
@@ -2092,17 +2094,17 @@ namespace SkyStem.ART.Service.Utility
             }
             return fieldList;
         }
-        private static List<string> GetAllPossibleAccountFields(int companyID)
+        private  List<string> GetAllPossibleAccountFields(int companyID)
         {
             List<string> fieldList = new List<string>();
-            //Add Account Static Fields
+            //Add Account  Fields
             fieldList.AddRange(DataImportHelper.GetAccountStaticFields());
             //Add mapped key fields
             fieldList.AddRange(DataImportHelper.GetAccountKeyFields(companyID));
             return fieldList;
         }
 
-        public static List<string> GetAccountKeyFields(int companyID)
+        public  List<string> GetAccountKeyFields(int companyID)
         {
             IUtility oClient = RemotingHelper.GetUtilityObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -2111,7 +2113,7 @@ namespace SkyStem.ART.Service.Utility
             return keyFields.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList<string>();
         }
         //Returns list of Account Unique Subset keys
-        public static List<string> GetAccountUniqueSubsetFields(int companyID, int recPeriodID)
+        public  List<string> GetAccountUniqueSubsetFields(int companyID, int recPeriodID)
         {
             IUtility oClient = RemotingHelper.GetUtilityObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -2120,7 +2122,7 @@ namespace SkyStem.ART.Service.Utility
             string[] arryAccountUniqueKeys = keyFields.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             return arryAccountUniqueKeys.ToList<string>();
         }
-        public static List<string> GetImportTemplateMandatoryFields(int? companyID, int? ImportTemplateID, List<string> MandatoryFieldList)
+        public  List<string> GetImportTemplateMandatoryFields(int? companyID, int? ImportTemplateID, List<string> MandatoryFieldList)
         {
             IUtility oClient = RemotingHelper.GetUtilityObject();
             ClientModel.AppUserInfo oAppUserInfo = new ClientModel.AppUserInfo();
@@ -2129,7 +2131,7 @@ namespace SkyStem.ART.Service.Utility
             fieldList.AddRange(oClient.GetImportTemplateMandatoryFields(companyID, ImportTemplateID, MandatoryFieldList, oAppUserInfo));
             return fieldList;
         }
-        public static List<string> GetAllMandatoryFields(int? CompanyID, int? ImportTemplateID, int recPeriodID)
+        public  List<string> GetAllMandatoryFields(int? CompanyID, int? ImportTemplateID, int recPeriodID)
         {
             List<string> tmp;
             List<string> tmpMandatoryFieldList = GetDataImportAllMandatoryFields(CompanyID.Value, recPeriodID);
@@ -2141,12 +2143,13 @@ namespace SkyStem.ART.Service.Utility
 
         }
         #endregion
-        public static string GetEmailIDWithSeprator(string MailidList)
+        public  string GetEmailIDWithSeprator(string MailidList)
         {
             if (string.IsNullOrEmpty(MailidList))
                 return "";
             else
                 return MailidList + ",";
         }
+
     }
 }

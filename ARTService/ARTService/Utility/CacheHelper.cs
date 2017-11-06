@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
-using SkyStem.ART.Service.Model;
-using SkyStem.ART.Client.Model;
+﻿using System.Collections.Generic;
 using SkyStem.ART.Client.Model.CompanyDatabase;
 using SkyStem.ART.Client.IServices;
 using SkyStem.ART.Service.DAO;

@@ -176,6 +176,10 @@
     <Compile Include="Data\AppConstants.cs" />
     <Compile Include="Data\Enums.cs" />
     <Compile Include="Data\ServiceConstants.cs" />
+    <Compile Include="Interfaces\ICacheService.cs" />
+    <Compile Include="Interfaces\IDataImportHelper.cs" />
+    <Compile Include="Interfaces\IGLDataImport.cs" />
+    <Compile Include="Interfaces\IRemotingHelper.cs" />
     <Compile Include="Log\EventLogger.cs" />
     <Compile Include="Log\Log.cs" />
     <Compile Include="Model\AccountAttributeDataImportInfo.cs" />

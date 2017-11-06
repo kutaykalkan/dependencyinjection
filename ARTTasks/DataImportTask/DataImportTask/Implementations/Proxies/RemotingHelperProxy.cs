@@ -1,5 +1,5 @@
 ﻿using SkyStem.ART.Client.IServices;
-using SkyStem.ART.Shared.Interfaces;
+using SkyStem.ART.Service.Interfaces;
 
 namespace DataImportTask.Implementations.Proxies
 {

@@ -5,6 +5,7 @@ using DataImportTask.Implementations.Proxies;
 using DataImportTask.Implementations.Services;
 using DataImportTask.Interfaces;
 using SimpleInjector;
+using SkyStem.ART.Service.Interfaces;
 using SkyStem.ART.Service.Utility;
 using SkyStem.ART.Shared.Interfaces;
 using SkyStem.ART.Shared.Proxies;
@@ -20,7 +21,8 @@ namespace DataImportTask
         {
             ConfigureDIContainer();
             Container.Verify();
-            Container.GetAllInstances<ICommandHandler>().SingleOrDefault(x => x.GetType() == typeof(GLDataImporterCommandHandler))?.Handle();
+            Container.GetAllInstances<ICommandHandler>()
+                .SingleOrDefault(x => x.GetType() == typeof(GLDataImporterCommandHandler))?.Handle();
 
             Console.Read();
         }

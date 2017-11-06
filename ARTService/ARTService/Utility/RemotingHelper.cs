@@ -1,5 +1,6 @@
 ﻿using SkyStem.ART.Client.IServices;
 using SkyStem.ART.Shared.Interfaces;
+using IRemotingHelper = SkyStem.ART.Service.Interfaces.IRemotingHelper;
 
 namespace SkyStem.ART.Service.Utility
 {

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using DataImportTask.Interfaces;
 using SkyStem.ART.Client.Model.CompanyDatabase;
 using SkyStem.ART.Service.DAO;
-using SkyStem.ART.Shared.Interfaces;
+using SkyStem.ART.Service.Interfaces;
 
 namespace DataImportTask.Implementations.Services
 {

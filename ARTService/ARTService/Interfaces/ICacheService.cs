@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SkyStem.ART.Client.Model.CompanyDatabase;
 
-namespace DataImportTask.Interfaces
+namespace SkyStem.ART.Service.Interfaces
 {
     public interface ICacheService
     {

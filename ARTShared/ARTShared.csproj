@@ -70,9 +70,7 @@
     <Compile Include="Decorators\TryCatchWithExceptionLoggingCommandHandlerDecorator.cs" />
     <Compile Include="Interfaces\IAppSettingHelper.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
-    <Compile Include="Interfaces\IGLDataImport.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Interfaces\IRemotingHelper.cs" />
     <Compile Include="Proxies\NLogProxy.cs" />
     <Compile Include="Utility\AppSettingHelper.cs" />
     <Compile Include="Utility\DBHelperExtension.cs" />
