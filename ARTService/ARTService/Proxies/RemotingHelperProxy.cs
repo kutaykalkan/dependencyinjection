@@ -1,9 +1,13 @@
-﻿using SkyStem.ART.Client.IServices;
-using SkyStem.ART.Service.Interfaces;
+﻿using SkyStem.ART.Client.Interfaces;
+using SkyStem.ART.Client.IServices;
 
-namespace DataImportTask.Implementations.Proxies
+namespace SkyStem.ART.Service.Proxies
 {
-    internal class RemotingHelperProxy : IRemotingHelper
+/// <summary>
+/// Refator this class by moving RemotingHelper method by method into this class. 
+/// Once all references to RemotingHelper disappear, rename refactor the proxy to RemotingHelper.
+/// </summary>
+    public class RemotingHelperProxy : IRemotingHelper
     {
         private readonly IRemotingHelper _remotingHelper;
 

@@ -74,6 +74,9 @@
     <Compile Include="Data\ModelHelper.cs" />
     <Compile Include="Exception\ARTException.cs" />
     <Compile Include="Exception\ARTSystemException.cs" />
+    <Compile Include="Interfaces\ICacheService.cs" />
+    <Compile Include="Interfaces\IGLDataImport.cs" />
+    <Compile Include="Interfaces\IRemotingHelper.cs" />
     <Compile Include="IServices\BulkExportToExcel\IBulkExportToExcel.cs" />
     <Compile Include="IServices\IJournalEntry.cs" />
     <Compile Include="IServices\IQualityScoreReports.cs" />

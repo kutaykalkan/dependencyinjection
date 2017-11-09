@@ -1,36 +1,45 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using SkyStem.ART.Client.Interfaces;
 using SkyStem.ART.Service.APP.BLL;
-using SkyStem.ART.Service.Interfaces;
 using SkyStem.ART.Shared.Interfaces;
 
 namespace DataImportTask.Implementations.CommandHandlers
 {
-    internal class GLDataImporterCommandHandler : ICommandHandler
+    internal class GLDataImporterCommandHandler : BaseCommandHandler
     {
         private readonly ICacheService _cacheService;
-        private readonly IGLDataImport _glDataImport;
         private readonly ILogger _logger;
 
-        public GLDataImporterCommandHandler(ILogger logger, ICacheService cacheService, IGLDataImport glDataImport)
+        public GLDataImporterCommandHandler(ILogger logger, ICacheService cacheService) : base(
+            typeof(GLDataImporterCommandHandler))
         {
             _logger = logger;
             _cacheService = cacheService;
-            _glDataImport = glDataImport;
         }
 
-        public void Handle()
+        protected override void HandleInternal()
         {
             _logger.LogInfo("GL Data Import Started.");
             var oDictConnectionString = _cacheService.GetDistinctDatabaseList();
-            var options = new ParallelOptions();
-            options.MaxDegreeOfParallelism = 1;
-            Parallel.ForEach(oDictConnectionString.Values, options, oCompanyUserInfo =>
+
+            var watch = Stopwatch.StartNew();
+            Parallel.ForEach(oDictConnectionString.Values, oCompanyUserInfo =>
             {
-                var oGLDataImport = new GLDataImport(oCompanyUserInfo);
-                if (oGLDataImport.IsProcessingRequiredForGLDataImport())
-                    oGLDataImport.ProcessGLDataImport();
+                try
+                {
+                    var oGLDataImport = new GLDataImport(oCompanyUserInfo);
+                    if (oGLDataImport.IsProcessingRequiredForGLDataImport())
+                        oGLDataImport.ProcessGLDataImport();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, $"{oCompanyUserInfo.CompanyName}:{oCompanyUserInfo.CompanyID}");
+                }
             });
-            _logger.LogInfo("GL Data Import Ended.");
+            watch.Stop();
+            _logger.LogInfo($"GL Data Import Ended in {watch.ElapsedMilliseconds}ms");
         }
     }
 }

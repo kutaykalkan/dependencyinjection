@@ -36,6 +36,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\ARTLibrary\Language\LanguageUtility\bin\Debug\LanguageUtility.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.0.12\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
@@ -65,28 +68,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\CommandHandlers\GLDataImporterCommandHandler.cs" />
-    <Compile Include="Implementations\Proxies\DataImportHelperProxy.cs" />
-    <Compile Include="Implementations\Proxies\GLDataImportProxy.cs" />
-    <Compile Include="Implementations\Proxies\RemotingHelperProxy.cs" />
-    <Compile Include="Implementations\Services\CacheService.cs" />
-    <Compile Include="Interfaces\IGLDataImport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Implementations\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\ARTClient\ARTClient.csproj">
       <Project>{6adde1ab-5511-446f-9d83-e1d45d2172f1}</Project>

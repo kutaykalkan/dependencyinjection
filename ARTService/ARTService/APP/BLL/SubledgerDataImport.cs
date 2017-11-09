@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Data;
 using SkyStem.ART.Service.Data;
 using SkyStem.ART.Service.Utility;
-using SkyStem.ART.Service.DAO;
 using System.Data.OleDb;
 using SkyStem.ART.Service.Model;
 using SkyStem.ART.Client.Model.CompanyDatabase;

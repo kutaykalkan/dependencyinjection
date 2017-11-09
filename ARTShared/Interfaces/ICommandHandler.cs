@@ -1,4 +1,6 @@
-﻿namespace SkyStem.ART.Shared.Interfaces
+﻿using System;
+
+namespace SkyStem.ART.Shared.Interfaces
 {
     /// <summary>
     /// Data portion of the cqrs pattern.

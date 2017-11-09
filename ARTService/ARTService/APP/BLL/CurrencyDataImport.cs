@@ -5,7 +5,6 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data;
-using SkyStem.ART.Service.DAO;
 using SkyStem.ART.Service.Data;
 using SkyStem.ART.Service.Utility;
 using System.Data.OleDb;

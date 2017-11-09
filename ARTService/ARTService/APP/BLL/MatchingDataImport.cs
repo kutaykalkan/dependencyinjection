@@ -8,7 +8,6 @@ using SkyStem.ART.Service.Utility;
 using System.Xml;
 using SkyStem.ART.Service.Data;
 using System.Data.SqlClient;
-using SkyStem.ART.Service.DAO;
 using System.IO;
 using SkyStem.ART.Service.Model;
 using SkyStem.ART.Client.Model.CompanyDatabase;

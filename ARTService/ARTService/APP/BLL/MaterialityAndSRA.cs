@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SkyStem.ART.Service.Data;
-using SkyStem.ART.Service.DAO;
 using SkyStem.ART.Service.Utility;
 using System.Data.SqlClient;
 using System.Data;

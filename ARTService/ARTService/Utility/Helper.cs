@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Net.Mail;
 using System.Configuration;
 using System.IO;
 using System.Data.OleDb;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
-using SkyStem.ART.Service.Log;
 using SkyStem.ART.Service.Data;
-using SkyStem.ART.Service.DAO;
-using SkyStem.ART.Service.APP.BLL;
-using System.Xml.Serialization;
 using SkyStem.ART.Service.Model;
 using SkyStem.Language.LanguageUtility.Classes;
 using SkyStem.ART.Shared.Utility;
@@ -26,6 +19,7 @@ using SkyStem.ART.Client.Data;
 
 using SkyStem.Language.LanguageUtility;
 using SkyStem.ART.Client.Model.Base;
+using SkyStem.ART.Service.APP.DAO;
 using ServiceModel = SkyStem.ART.Service.Model;
 using SharedUtility = SkyStem.ART.Shared.Utility;
 

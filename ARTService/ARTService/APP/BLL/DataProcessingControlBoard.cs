@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using SkyStem.ART.Service.Utility;
 using SkyStem.ART.Client.Model.CompanyDatabase;
-using SkyStem.ART.Service.DAO;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 

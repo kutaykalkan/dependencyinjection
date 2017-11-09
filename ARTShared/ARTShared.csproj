@@ -67,9 +67,12 @@
     <Compile Include="Data\SharedConstants.cs" />
     <Compile Include="Decorators\RetryCommandHandlerDecorator.cs" />
     <Compile Include="Decorators\TimeMeasuringCommandHandlerDecorator.cs" />
+    <Compile Include="Decorators\TimeMeasuringCommandHandlerDecoratorGeneric.cs" />
     <Compile Include="Decorators\TryCatchWithExceptionLoggingCommandHandlerDecorator.cs" />
+    <Compile Include="Interfaces\BaseCommandHandler.cs" />
     <Compile Include="Interfaces\IAppSettingHelper.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Proxies\NLogProxy.cs" />
     <Compile Include="Utility\AppSettingHelper.cs" />

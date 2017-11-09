@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using SkyStem.ART.Client.Interfaces;
 using SkyStem.ART.Client.Model.CompanyDatabase;
-using SkyStem.ART.Service.DAO;
-using SkyStem.ART.Service.Interfaces;
+using SkyStem.ART.Service.APP.DAO;
 
-namespace DataImportTask.Implementations.Services
+namespace SkyStem.ART.Service.Service
 {
     public class CacheService : ICacheService
     {

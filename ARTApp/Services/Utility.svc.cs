@@ -705,7 +705,7 @@ namespace SkyStem.ART.App.Services
             ServiceHelper.SetConnectionString(oAppUserInfo);
             SetConnectionForLogger(oAppUserInfo);
 
-            this.LogCustomParamters(oLogInfo, oAppUserInfo);
+            LogCustomParamters(oLogInfo, oAppUserInfo);
             oLogger.Info(oLogInfo.Message);
         }
         public void LogError(LogInfo oLogInfo, AppUserInfo oAppUserInfo)
@@ -714,7 +714,7 @@ namespace SkyStem.ART.App.Services
             ServiceHelper.SetConnectionString(oAppUserInfo);
             SetConnectionForLogger(oAppUserInfo);
 
-            this.LogCustomParamters(oLogInfo, oAppUserInfo);
+            LogCustomParamters(oLogInfo, oAppUserInfo);
             oLogger.Error(oLogInfo.Message);
         }
 

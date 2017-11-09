@@ -1,6 +1,6 @@
 ﻿using SkyStem.ART.Client.IServices;
 
-namespace SkyStem.ART.Service.Interfaces
+namespace SkyStem.ART.Client.Interfaces
 {
     public interface IRemotingHelper
     {

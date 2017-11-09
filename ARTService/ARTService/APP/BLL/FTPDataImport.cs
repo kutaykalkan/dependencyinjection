@@ -12,7 +12,6 @@ using SkyStem.ART.Service.Data;
 using SkyStem.ART.Client.Model.CompanyDatabase;
 using SkyStem.ART.Shared.Utility;
 using Microsoft.Reporting.WinForms;
-using SkyStem.ART.Service.DAO;
 using SkyStem.ART.Shared.Data;
 using System.IO.Compression;
 using SkyStem.ART.Client.IServices;

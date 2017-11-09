@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using SkyStem.ART.Service.Model;
-using SkyStem.ART.Service.DAO;
 using System.Data;
 using SkyStem.ART.Service.APP.DAO;
 using SkyStem.ART.Service.Data;

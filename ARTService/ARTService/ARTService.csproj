@@ -176,10 +176,7 @@
     <Compile Include="Data\AppConstants.cs" />
     <Compile Include="Data\Enums.cs" />
     <Compile Include="Data\ServiceConstants.cs" />
-    <Compile Include="Interfaces\ICacheService.cs" />
     <Compile Include="Interfaces\IDataImportHelper.cs" />
-    <Compile Include="Interfaces\IGLDataImport.cs" />
-    <Compile Include="Interfaces\IRemotingHelper.cs" />
     <Compile Include="Log\EventLogger.cs" />
     <Compile Include="Log\Log.cs" />
     <Compile Include="Model\AccountAttributeDataImportInfo.cs" />
@@ -221,6 +218,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Log\ServiceLog.cs" />
+    <Compile Include="Proxies\DataImportHelperProxy.cs" />
+    <Compile Include="Proxies\RemotingHelperProxy.cs" />
+    <Compile Include="Service\CacheService.cs" />
     <Compile Include="Service\ScheduleRecItemImportService.cs" />
     <Compile Include="Utility\CacheHelper.cs" />
     <Compile Include="Utility\DataImportHelper.cs" />

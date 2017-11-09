@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Configuration;
-using SkyStem.ART.Service.Log;
-using SkyStem.ART.Service.APP.DAO;
-using SkyStem.ART.Client.Model.CompanyDatabase;
+﻿using SkyStem.ART.Client.Model.CompanyDatabase;
 
-namespace SkyStem.ART.Service.DAO
+namespace SkyStem.ART.Service.APP.DAO
 {
     public class DataAccess: AbstractDAO
     {

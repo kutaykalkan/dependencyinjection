@@ -7,7 +7,6 @@ using System.Net.Mail;
 using SkyStem.ART.Service.Utility;
 using System.Data;
 using System.Data.SqlClient;
-using SkyStem.ART.Service.DAO;
 using SkyStem.ART.Service.Model;
 using SkyStem.Language.LanguageUtility;
 using SkyStem.Language.LanguageUtility.Classes;

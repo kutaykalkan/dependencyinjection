@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SkyStem.ART.Client.Model.CompanyDatabase;
 using SkyStem.ART.Client.IServices;
-using SkyStem.ART.Service.DAO;
+using SkyStem.ART.Service.APP.DAO;
 
 namespace SkyStem.ART.Service.Utility
 {

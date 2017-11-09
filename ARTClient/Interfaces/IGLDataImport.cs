@@ -1,4 +1,4 @@
-﻿namespace SkyStem.ART.Service.Interfaces
+﻿namespace SkyStem.ART.Client.Interfaces
 {
     public interface IGLDataImport
     {
