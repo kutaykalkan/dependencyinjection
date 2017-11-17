@@ -27,18 +27,22 @@ namespace DataImportTask
 
                 //Dont run in production code. Run during debugging when needed.
                 //It is recursing down the object tree and is a costly operation.
-                Container.Verify();
+                //Container.Verify();
 
                 //Below example is used when there are multiple implementations.
                 //This retuns the TimeMeasuringCommandHandler that wraps 
                 //the GLDataImporterCommandHandler.
-                Container.GetAllInstances<BaseCommandHandler>().SingleOrDefault(o => 
-                    o.GetType() == typeof(TimeMeasuringCommandHandlerDecorator) 
+                Container.GetAllInstances<BaseCommandHandler>().Single(o =>
+                    o.GetType() == typeof(TimeMeasuringCommandHandlerDecorator)
                     && o.DecoratedType == typeof(GLDataImporterCommandHandler))?.Handle();
+            }
+            catch (ActivationException ex)
+            {
+                new NLogProxy<Program>().LogError(ex, "Problem with DI configuration!");
             }
             catch (Exception ex)
             {
-                new NLogProxy<Program>().LogError(ex, "Problem with DI configuration!");
+                new NLogProxy<Program>().LogError(ex, ex.Message);
             }
         }
 
