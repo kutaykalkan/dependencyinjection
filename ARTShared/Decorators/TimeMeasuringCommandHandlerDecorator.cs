@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using SkyStem.ART.Shared.Interfaces;
 
 namespace SkyStem.ART.Shared.Decorators
@@ -22,7 +21,5 @@ namespace SkyStem.ART.Shared.Decorators
             _decoratee.Handle();
             _logger.LogInfo($"{Decoratee.Name} executed in {watch.ElapsedMilliseconds} ms.");
         }
-
-        //public Type DecoratedType => _decoratee.GetType();
     }
 }
