@@ -7,6 +7,9 @@ using SkyStem.ART.Shared.Interfaces;
 
 namespace DataImportTask.Implementations.CommandHandlers
 {
+    /// <summary>
+    /// Decoraters Wrapped: TimeMeasuringCommandHandlerDecorator.
+    /// </summary>
     internal class GLDataImporterCommandHandler : BaseCommandHandler
     {
         private readonly ICacheService _cacheService;
@@ -21,25 +24,23 @@ namespace DataImportTask.Implementations.CommandHandlers
 
         protected override void HandleInternal()
         {
-            _logger.LogInfo("GL Data Import Started.");
             var oDictConnectionString = _cacheService.GetDistinctDatabaseList();
-
-            var watch = Stopwatch.StartNew();
             Parallel.ForEach(oDictConnectionString.Values, oCompanyUserInfo =>
             {
                 try
                 {
                     var oGLDataImport = new GLDataImport(oCompanyUserInfo);
                     if (oGLDataImport.IsProcessingRequiredForGLDataImport())
+                    {
+                        _logger.LogInfo($"GL Data Import Started for Company: {oCompanyUserInfo.CompanyName} | CompanyId:{oCompanyUserInfo.CompanyID}");
                         oGLDataImport.ProcessGLDataImport();
+                    }
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, $"{oCompanyUserInfo.CompanyName}:{oCompanyUserInfo.CompanyID}");
                 }
             });
-            watch.Stop();
-            _logger.LogInfo($"GL Data Import Ended in {watch.ElapsedMilliseconds}ms");
         }
     }
 }

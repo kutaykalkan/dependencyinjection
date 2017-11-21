@@ -20,6 +20,7 @@ namespace SkyStem.ART.Shared.Decorators
             var watch = Stopwatch.StartNew();
             _decoratee.Handle();
             _logger.LogInfo($"{Decoratee.Name} executed in {watch.ElapsedMilliseconds} ms.");
+            watch.Stop();
         }
     }
 }
