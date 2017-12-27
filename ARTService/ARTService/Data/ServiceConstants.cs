@@ -10,7 +10,6 @@ namespace SkyStem.ART.Service.Data
         public const Int16 DEFAULT_INTERVAL = 10; // default internval is 1 hr = 60 mins
         public const string SERVICE_PROCESSING_USER_ID = "SystemUserServiceProcessing";
         public const string SERVICE_NAME_REC_PERIOD = "Rec Period Status Processing Service";
-        public const string SERVICE_NAME_DATA_PROCESSING = "Data Processing Service";
         public const string SERVICE_NAME_ALERT_PROCESSING = "Alert Processing Service";
         public const string SERVICE_NAME_MATCHING_FILE_PROCESSING = "Matching File Processing Service";
         public const string SERVICE_NAME_MATCHING_ENGINE_PROCESSING = "Matching Engine Processing Service";

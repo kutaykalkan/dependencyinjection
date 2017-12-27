@@ -29,10 +29,6 @@ namespace SkyStem.ART.Service
     {
         bool _IsServiceStopping;
 
-        int _DataUploadInterval;
-        bool _IsProcessingDataUpload;
-        Timer oDataUploadTimer = new Timer();
-
         int _RecPeriodTimerInterval;
         bool _IsProcessingRecPeriod;
         Timer oRecPeriodStatusTimer = new Timer();
@@ -103,15 +99,6 @@ namespace SkyStem.ART.Service
         public DataProcessingService()
         {
             InitializeComponent();
-
-            // Data Processing Timer
-            Helper.LogInfo(" ", null);
-            Helper.LogInfo(string.Format("==================== SERVICE START: {0} =====================", Helper.GetDateTime()), null);
-            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_INITIALIZE_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, Helper.GetDateTime()), null);
-            oDataUploadTimer = new System.Timers.Timer();
-            oDataUploadTimer.AutoReset = true;
-            oDataUploadTimer.Enabled = true;
-            oDataUploadTimer.Elapsed += new ElapsedEventHandler(oDataUploadTimer_Elapsed);
 
             // Rec Period Status Processing Timer
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_INITIALIZE_TEXT, ServiceConstants.SERVICE_NAME_REC_PERIOD, Helper.GetDateTime()), null);
@@ -243,10 +230,6 @@ namespace SkyStem.ART.Service
         {
             _IsServiceStopping = false;
             Helper.LogInfo("Service Started", null);
-            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_START_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, Helper.GetDateTime()), null);
-            // Set a Initial Timer for 1 min
-            oDataUploadTimer.Interval = 60 * 1000;
-            oDataUploadTimer.Start();
 
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_START_TEXT, ServiceConstants.SERVICE_NAME_REC_PERIOD, Helper.GetDateTime()), null);
             oRecPeriodStatusTimer.Interval = 60 * 1000;
@@ -314,9 +297,6 @@ namespace SkyStem.ART.Service
         {
             _IsServiceStopping = true;
             WaitForCurrentProcessing();
-            Helper.LogInfo(string.Format(LoggingConstants.SERVICE_STOP_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, Helper.GetDateTime()), null);
-            oDataUploadTimer.Stop();
-            oDataUploadTimer.Enabled = false;
 
             Helper.LogInfo(string.Format(LoggingConstants.SERVICE_STOP_TEXT, ServiceConstants.SERVICE_NAME_REC_PERIOD, Helper.GetDateTime()), null);
             oRecPeriodStatusTimer.Stop();
@@ -395,7 +375,7 @@ namespace SkyStem.ART.Service
         {
             int count = 15;
             while (count > 0 && (_IsProcessingAccountReconcilability || _IsProcessingAlert || _IsProcessingCompanyCreation
-                || _IsProcessingDataUpload || _IsProcessingExportToExcel || _IsProcessingLargeRequests || _IsProcessingIndexCreation
+                || _IsProcessingExportToExcel || _IsProcessingLargeRequests || _IsProcessingIndexCreation
                 || _IsProcessingMatchingEngine || _IsProcessingMatchingFile || _IsProcessingMultilingualUpload
                 || _IsProcessingRecItemImport || _IsProcessingRecPeriod || _IsProcessingTaskUpload
                 || _IsProcessingUserUpload || _IsProcessingClearCompanyCache || _IsProcessingFTPDataImport 
@@ -412,40 +392,6 @@ namespace SkyStem.ART.Service
         #endregion
 
         #region "Timer Elapsed Events for all Timers"
-
-        void oDataUploadTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            if (!_IsProcessingAlert && !_IsServiceStopping && !_IsProcessingFTPDataImport)
-            {
-                try
-                {
-                    _IsProcessingDataUpload = true;
-                    UpdateLastExecutionTime(ServiceConstants.SERVICE_NAME_DATA_PROCESSING, oDataUploadTimer);
-                    oDataUploadTimer.Enabled = false;
-                    DateTime startDate = DateTime.Now;
-                    Helper.LogInfo(string.Format(LoggingConstants.SERVICE_PROCESSING_BEGINS_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, Helper.GetDateTime()), null);
-                    //DataProcessing.ProcessGLData();
-                    DataProcessingControlBoard.DataProcessingControl();
-                    Helper.LogInfo(string.Format(LoggingConstants.SERVICE_PROCESSING_ENDS_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, Helper.GetDateTime()), null);
-                    // Setting the Interval again
-                    _DataUploadInterval = Helper.GetTimerInterval(AppSettingConstants.TIMER_INTERVAL_DATA_PROCESSING);
-                    Helper.LogInfo(string.Format("Data Processing Service Interval == {0}", _DataUploadInterval.ToString()), null);
-                    DateTime endDate = DateTime.Now;
-                    Helper.LogServiceTimeStampInfo(string.Format(LoggingConstants.SERVICE_TIME_STAMP_TEXT, startDate, endDate, endDate - startDate, ServiceConstants.SERVICE_NAME_DATA_PROCESSING));
-                }
-                catch (Exception ex)
-                {
-                    Helper.LogServiceTimeStampError(string.Format(LoggingConstants.SERVICE_THREAD_ERROR_TEXT, ServiceConstants.SERVICE_NAME_DATA_PROCESSING, ex.Message, ex.StackTrace));
-                }
-                finally
-                {
-                    oDataUploadTimer.Interval = _DataUploadInterval * 60 * 1000; // Convert to mili secs
-                    oDataUploadTimer.Enabled = true;
-                    _IsProcessingDataUpload = false;
-                    GC.KeepAlive(oDataUploadTimer);
-                }
-            }
-        }
 
         void oRecPeriodStatusTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -502,7 +448,7 @@ namespace SkyStem.ART.Service
 
         void oAlertTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (!_IsProcessingDataUpload && !_IsServiceStopping && !_IsProcessingFTPDataImport)
+            if (!_IsServiceStopping && !_IsProcessingFTPDataImport)
             {
                 try
                 {
@@ -1144,7 +1090,7 @@ namespace SkyStem.ART.Service
         }
         void oFTPDataImportTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (!_IsServiceStopping && !_IsProcessingDataUpload && !_IsProcessingAlert )
+            if (!_IsServiceStopping && !_IsProcessingAlert )
             {
                 try
                 {
