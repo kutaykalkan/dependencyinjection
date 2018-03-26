@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SkyStem.ART.App.Services.Geography" CodeBehind="Geography.svc.cs" %>
